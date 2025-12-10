@@ -1,67 +1,117 @@
 import React from 'react'
 import Link from 'next/link'
-import { ArrowRight, Play } from 'lucide-react'
+import { ArrowRight, Play, Music, Globe, Users } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-secondary to-dark" />
+      {/* Enhanced background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-secondary to-dark">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(200,121,65,0.1)_0%,_transparent_50%)]" />
+      </div>
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-gold/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gold/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+      {/* Premium animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-gold/20 to-transparent rounded-full blur-3xl parallax-slow" />
+        <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-gold/15 to-transparent rounded-full blur-3xl parallax-medium" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-gold/10 to-transparent rounded-full blur-2xl parallax-fast" style={{ animationDelay: '4s' }} />
+        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-gold/8 to-transparent rounded-full blur-xl animate-float" />
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,_rgba(200,121,65,0.03)_1px,_transparent_1px),_linear-gradient(to_bottom,_rgba(200,121,65,0.03)_1px,_transparent_1px)] bg-[size:50px_50px]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="animate-fade-in">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
-            <span className="text-white">HLPFL</span>
-            <br />
-            <span className="gradient-animate bg-clip-text text-transparent">Records</span>
+        <div className="space-y-8">
+          {/* Premium logo/brand area */}
+          <div className="animate-fade-in">
+            <div className="inline-flex items-center justify-center w-24 h-24 mb-8 bg-gradient-to-br from-gold to-gold-dark rounded-2xl shadow-2xl" style={{ animation: 'pulse-gold 3s ease-in-out infinite' }}>
+              <span className="text-dark text-4xl font-black">H</span>
+            </div>
+          </div>
+
+          {/* Main headline */}
+          <h1 className="text-fade-in">
+            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-2 text-white leading-[0.9]">
+              HLPFL
+            </span>
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-animate bg-clip-text text-transparent leading-[1.1]">
+              Records
+            </span>
           </h1>
           
-          <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-8 max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          {/* Tagline */}
+          <p className="text-fade-in text-fade-in-delay-1 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
             World-Class Record Label & Artist Development
           </p>
           
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          {/* Description */}
+          <p className="text-fade-in text-fade-in-delay-2 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Discovering, developing, and promoting exceptional musical talent with cutting-edge production, 
             strategic guidance, and global distribution networks.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up" style={{ animationDelay: '0.6s' }}>
+          {/* CTA Buttons */}
+          <div className="text-fade-in text-fade-in-delay-3 flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="/artists">
-              <Button size="lg" className="group">
+              <Button size="lg" className="btn-premium group">
+                <Users className="mr-3 h-5 w-5" />
                 Our Artists
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
               </Button>
             </Link>
             
             <Link href="/contact">
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="btn-premium group">
+                <Music className="mr-3 h-5 w-5" />
                 Submit Your Music
               </Button>
             </Link>
             
-            <Button variant="ghost" size="lg" className="text-gold">
-              <Play className="mr-2 h-5 w-5" />
+            <Button variant="ghost" size="lg" className="btn-premium text-gold hover:text-dark hover:bg-gold group">
+              <Play className="mr-3 h-5 w-5" />
               Watch Showreel
             </Button>
           </div>
+
+          {/* Stats/Metrics */}
+          <div className="text-fade-in text-fade-in-delay-3 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">50+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Artists</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">200+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Releases</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">1B+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Streams</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">15+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Years</div>
+            </div>
+          </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-gold rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gold rounded-full mt-2 animate-pulse" />
+        {/* Enhanced scroll indicator */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+          <div className="flex flex-col items-center space-y-2">
+            <div className="w-8 h-12 border-2 border-gold/60 rounded-full flex justify-center">
+              <div className="w-1.5 h-4 bg-gradient-to-b from-gold to-gold-dark rounded-full mt-3 animate-pulse" />
+            </div>
+            <span className="text-xs text-gray-400 uppercase tracking-wider">Scroll</span>
           </div>
         </div>
       </div>
+
+      {/* Floating elements for depth */}
+      <div className="absolute top-20 right-10 w-2 h-2 bg-gold/30 rounded-full animate-float" />
+      <div className="absolute bottom-32 left-16 w-3 h-3 bg-gold/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 right-32 w-2 h-2 bg-gold/25 rounded-full animate-float" style={{ animationDelay: '2s' }} />
     </section>
   )
 }
