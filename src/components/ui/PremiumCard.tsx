@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
@@ -114,11 +116,11 @@ export function ParallaxElement({
   className, 
   speed = 0.5 
 }: ParallaxElementProps) {
-  const [ref, setRef] = React.useRef<HTMLElement | null>(null)
+  const ref = React.useRef<HTMLDivElement>(null)
   const [offset, setOffset] = React.useState(0)
 
   React.useEffect(() => {
-    const element = ref
+    const element = ref.current
     if (!element) return
 
     const handleScroll = () => {
@@ -133,11 +135,11 @@ export function ParallaxElement({
     handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [ref, speed])
+  }, [speed])
 
   return (
     <motion.div
-      ref={setRef}
+      ref={ref}
       style={{ transform: `translateY(${offset}px)` }}
       className={cn('will-change-transform', className)}
     >
