@@ -86,7 +86,7 @@ export function AnalyticsDashboard() {
           {(['24h', '7d', '30d'] as const).map((range) => (
             <Button
               key={range}
-              variant={timeRange === range ? 'default' : 'outline'}
+              variant={timeRange === range ? 'primary' : 'outline'}
               size="sm"
               onClick={() => setTimeRange(range)}
             >
