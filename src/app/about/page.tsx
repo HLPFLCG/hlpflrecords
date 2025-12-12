@@ -57,8 +57,8 @@ export default function AboutPage() {
             About <span className="text-gold">HLPFL Records</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            HLPFL Records is a premier record label dedicated to discovering, developing, and promoting exceptional musical talent. 
-            With over 15 years of experience in the music industry, we've built a reputation for nurturing artists and creating groundbreaking music that resonates globally.
+            Founded by James Rockel at just 18 years old, HLPFL Records is revolutionizing the music industry with artist-first partnerships. 
+            With boundary-pushing artist Alki as co-founder, we're proving that independent artists can thrive with our groundbreaking 50/50 model and genuine support.
           </p>
         </div>
       </section>
@@ -91,13 +91,16 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
-                  Founded in 2009, HLPFL Records began as a small independent label with a big vision: to create a home where artists could thrive creatively while building sustainable careers in the music industry.
+                  Founded in 2019, HLPFL Records began when James Rockel, just 18 years old, witnessed countless talented musicians struggle with outdated industry practices. 
+                  Born on April 14, 2001, James envisioned a new paradigm where artists keep control of their music and earn fair revenue.
                 </p>
                 <p className="leading-relaxed">
-                  Over the years, we've grown from a humble startup to a respected name in the industry, working with talented artists across genres and helping them reach millions of listeners worldwide. Our success is built on a foundation of trust, collaboration, and an unwavering commitment to artistic excellence.
+                  The vision became reality when Alki (@alkiotis), a boundary-pushing artist creating the future of rock music, joined as both signed artist and co-founder. 
+                  Together, they proved the revolutionary 50/50 partnership model works, building a foundation for how modern music careers should function.
                 </p>
                 <p className="leading-relaxed">
-                  Today, HLPFL Records continues to push boundaries, embracing new technologies and innovative approaches while staying true to our core mission of supporting exceptional talent and creating music that matters.
+                  Today, from our Grand Rapids headquarters, HLPFL Records continues to transform the industry one artist at a time, 
+                  proving that independence, artistic integrity, and commercial success can coexist in the modern music landscape.
                 </p>
               </div>
             </div>
