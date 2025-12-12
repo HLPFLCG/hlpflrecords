@@ -15,18 +15,18 @@ export function AboutSection() {
             
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                HLPFL Records is a premier record label dedicated to discovering, developing, and promoting exceptional musical talent. 
-                With decades of combined experience in the music industry, our team provides comprehensive support for artists at every stage of their career.
+                Founded by James Rockel in 2019 when he was just 18 years old, HLPFL Records emerged from a vision to transform how artists succeed in the music industry. 
+                After witnessing countless talented musicians struggle with outdated industry practices, James set out to create a revolutionary artist-first model.
               </p>
               
               <p className="leading-relaxed">
-                We believe in creating partnerships that go beyond traditional label relationships. Our artist-first approach ensures that 
-                every artist we work with receives the personalized attention, resources, and strategic guidance needed to achieve their unique vision.
+                Our groundbreaking 50/50 partnership model, proven through the success of co-founder and signed artist Alki (@alkiotis), 
+                redefines what it means to be an independent artist. We believe artists deserve creative control, fair revenue splits, and genuine partnerships that elevate their vision.
               </p>
               
               <p className="leading-relaxed">
-                From chart-topping hits to groundbreaking experimental projects, HLPFL Records has become synonymous with quality, innovation, 
-                and success in the modern music landscape.
+                From our Grand Rapids headquarters to global stages, HLPFL Records is building the future of music - one artist partnership at a time. 
+                With Alki's boundary-pushing artistry leading the way, we're proving that independent artists can thrive without sacrificing their art or revenue.
               </p>
             </div>
 

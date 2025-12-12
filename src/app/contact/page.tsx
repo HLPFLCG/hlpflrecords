@@ -85,8 +85,9 @@ export default function ContactPage() {
             Get in <span className="text-gold">Touch</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8">
-            We'd love to hear from you. Whether you're an artist looking to join our roster, 
-            a fan wanting to connect, or a business exploring partnerships, we're here to help.
+            Founded by James Rockel at 18 and powered by co-founder Alki's boundary-pushing artistry, 
+            we're redefining music industry partnerships. Whether you're interested in our revolutionary 50/50 model, 
+            want to join the movement, or have questions about artist success, we're here to help.
           </p>
         </div>
       </section>

@@ -44,13 +44,14 @@ export function HeroSection() {
           
           {/* Tagline */}
           <p className="text-fade-in text-fade-in-delay-1 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
-            World-Class Record Label & Artist Development
+            Dream → Reality | Revolutionary 50/50 Artist Partnerships
           </p>
           
           {/* Description */}
           <p className="text-fade-in text-fade-in-delay-2 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Discovering, developing, and promoting exceptional musical talent with cutting-edge production, 
-            strategic guidance, and global distribution networks.
+            Founded by James Rockel at just 18 years old, with boundary-pushing artist Alki as co-founder, 
+            we're transforming the music industry with artist-first partnerships that put creators in control 
+            of their careers and revenue.
           </p>
           
           {/* CTA Buttons */}

@@ -84,20 +84,25 @@ export const mockNews: NewsPost[] = [
 export const mockTeam: TeamMember[] = [
   {
     id: '1',
-    name: 'Team Member Name',
-    role: 'Label Director',
-    bio: 'Experienced music industry professional with a passion for discovering and developing talent.',
-    image: '/images/team/placeholder.jpg',
+    name: 'James Rockel',
+    role: 'Founder & CEO',
+    bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking 50/50 model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
+    image: '/images/team/james-rockel.jpg',
     socials: {
       linkedin: '#',
-      email: 'contact@hlpflrecords.com',
+      email: 'founder@hlpfl.org',
     },
   },
   {
     id: '2',
-    name: 'Another Member',
-    role: 'A&R Manager',
-    bio: 'Dedicated to finding the next generation of groundbreaking artists.',
-    image: '/images/team/placeholder.jpg',
+    name: 'Alki',
+    role: 'Co-Founder & Signed Artist',
+    bio: 'Boundary-pushing artist creating the future of rock music. As HLPFL\'s first signed artist and co-founder, Alki embodies our revolutionary artist-first philosophy. With a unique blend of rock, weed, and tofu culture, Alki is proving that independent artists can thrive with the right partnership.',
+    image: '/images/team/alki.jpg',
+    socials: {
+      instagram: 'https://instagram.com/alkiotis',
+      spotify: 'https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl',
+      website: 'https://alki.info',
+    },
   },
 ]
