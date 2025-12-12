@@ -22,6 +22,20 @@ interface ConversationData {
 }
 
 export function Chatbot() {
+  // Helper functions - defined before use
+  const generateSessionId = () => {
+    return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+  }
+
+  const generateUserId = () => {
+    let userId = localStorage.getItem('hlpfl_user_id')
+    if (!userId) {
+      userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+      localStorage.setItem('hlpfl_user_id', userId)
+    }
+    return userId
+  }
+
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -107,18 +121,7 @@ export function Chatbot() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const generateSessionId = () => {
-    return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-  }
-
-  const generateUserId = () => {
-    let userId = localStorage.getItem('hlpfl_user_id')
-    if (!userId) {
-      userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-      localStorage.setItem('hlpfl_user_id', userId)
-    }
-    return userId
-  }
+  
 
   const trackConversation = (message: string, sender: 'user' | 'bot') => {
     const analytics = ChatbotAnalytics.getInstance()
