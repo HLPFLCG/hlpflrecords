@@ -54,7 +54,6 @@ export function Header() {
               </div>
               <div className="flex flex-col">
                 <span className="text-white font-bold text-xl leading-none">HLPFL</span>
-                <span className="text-gold text-sm font-medium leading-none">Records</span>
               </div>
             </Link>
 
@@ -116,7 +115,6 @@ export function Header() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-white font-bold text-lg leading-none">HLPFL</span>
-                  <span className="text-gold text-sm font-medium leading-none">Records</span>
                 </div>
               </div>
               <button
