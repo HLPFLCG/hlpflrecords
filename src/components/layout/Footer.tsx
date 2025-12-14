@@ -10,7 +10,7 @@ export function Footer() {
     { name: 'Twitter', icon: Twitter, href: '#' },
     { name: 'YouTube', icon: Youtube, href: '#' },
     { name: 'Spotify', icon: Music, href: '#' },
-    { name: 'Email', icon: Mail, href: 'mailto:contact@hlpflrecords.com' },
+    { name: 'Email', icon: Mail, href: 'mailto:contact@hlpfl.org' },
   ]
 
   const footerLinks = {
@@ -42,7 +42,7 @@ export function Footer() {
               <div className="w-10 h-10 bg-gold rounded-lg flex items-center justify-center">
                 <span className="text-dark font-bold text-xl">H</span>
               </div>
-              <span className="text-white font-bold text-xl">HLPFL Records</span>
+              <span className="text-white font-bold text-xl">HLPFL</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               World-class record label dedicated to discovering, developing, and promoting exceptional musical talent.
@@ -117,7 +117,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} HLPFL Records. All rights reserved.
+            © {currentYear} HLPFL. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm mt-2 md:mt-0">
             Elevating artists to global recognition
