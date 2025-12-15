@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, Music } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import Logo from '@/components/Logo'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -47,9 +48,7 @@ export function Header() {
             {/* Enhanced Logo */}
             <Link href="/" className="group flex items-center space-x-3">
               <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-gold transition-all duration-300 group-hover:scale-105">
-                  <Music className="text-dark w-6 h-6" />
-                </div>
+                <Logo width={48} height={48} className="w-12 h-12 shadow-lg group-hover:shadow-gold transition-all duration-300 group-hover:scale-105" />
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-gold rounded-full animate-pulse" />
               </div>
               <div className="flex flex-col">
@@ -110,9 +109,7 @@ export function Header() {
             {/* Mobile Header */}
             <div className="flex items-center justify-between p-6 border-b border-gold/20">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
-                  <Music className="text-dark w-5 h-5" />
-                </div>
+                <Logo width={40} height={40} className="w-10 h-10" />
                 <div className="flex flex-col">
                   <span className="text-white font-bold text-lg leading-none">HLPFL</span>
                 </div>
