@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Play, Music, Globe, Users } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import Logo from '@/components/Logo'
 
 export function HeroSection() {
   return (
@@ -27,8 +28,8 @@ export function HeroSection() {
         <div className="space-y-8">
           {/* Premium logo/brand area */}
           <div className="animate-fade-in">
-            <div className="inline-flex items-center justify-center w-24 h-24 mb-8 bg-gradient-to-br from-gold to-gold-dark rounded-2xl shadow-2xl" style={{ animation: 'pulse-gold 3s ease-in-out infinite' }}>
-              <span className="text-dark text-4xl font-black">H</span>
+            <div className="inline-flex items-center justify-center w-24 h-24 mb-8 bg-gradient-to-br from-gold to-gold-dark rounded-2xl shadow-2xl p-2" style={{ animation: 'pulse-gold 3s ease-in-out infinite' }}>
+              <Logo width={80} height={80} className="w-full h-full" />
             </div>
           </div>
 
