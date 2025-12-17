@@ -6,7 +6,7 @@ export default function MinimalPage() {
       <div className="text-center">
         <div className="mb-10">
           <img 
-            src="/blacklogonobackgroudn.svg" 
+            src="/logo.svg" 
             alt="HLPFL" 
             className="w-16 h-auto mx-auto"
           />
