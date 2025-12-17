@@ -1,0 +1,9 @@
+name = "hlpflrecords"
+compatibility_date = "2024-12-17"
+compatibility_flags = ["nodejs_compat"]
+
+[site]
+bucket = "./out"
+
+[[pages_build_output_dir]]
+directory = "./out"
