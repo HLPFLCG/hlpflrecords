@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter, Montserrat } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import dynamic from 'next/dynamic'
 import './globals.css'
 import LoadingScreen from '@/components/LoadingScreen'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+
+// Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
+const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
+  ssr: false,
+})
 
 // Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -99,7 +104,7 @@ export default function RootLayout({
         <link rel="icon" href="/images/favicon/hlpflsymbolpnggradient.ico" />
         <link rel="apple-touch-icon" href="/images/favicon/hlpflsymbolpnggradient.png" />
       </head>
-      <body className={`${inter.variable} ${montserrat.variable}`}>
+      <body className={inter.className}>
         <LoadingScreen />
         <StarfieldBackground />
         <div className="min-h-screen text-white" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
