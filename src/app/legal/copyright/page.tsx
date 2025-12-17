@@ -126,7 +126,7 @@ export default function CopyrightPage() {
                   <strong className="text-white">DMCA Copyright Agent:</strong><br />
                   HLPFL Records<br />
                   Attn: Copyright Agent<br />
-                  Email: dmca@hlpfl.org<br />
+                  Email: contact@hlpfl.org<br />
                   Subject Line: "DMCA Takedown Request"
                 </p>
               </div>
@@ -161,7 +161,7 @@ export default function CopyrightPage() {
                 <li><strong className="text-white">Master Use Licensing:</strong> For use of specific recordings</li>
               </ul>
               <p className="text-gray-300 leading-relaxed mt-4">
-                For licensing inquiries, please visit our <Link href="/licensing" className="text-gold hover:text-gold-light">Licensing page</Link> or contact licensing@hlpfl.org.
+                For licensing inquiries, please visit our <Link href="/licensing" className="text-gold hover:text-gold-light">Licensing page</Link> or contact contact@hlpfl.org.
               </p>
             </section>
 
@@ -235,7 +235,7 @@ export default function CopyrightPage() {
               <div className="mt-4 p-4 bg-dark/50 rounded-lg">
                 <p className="text-gray-300">
                   <strong className="text-white">Report Copyright Violations:</strong><br />
-                  Email: copyright@hlpfl.org<br />
+                  Email: contact@hlpfl.org<br />
                   Subject: "Copyright Violation Report"<br />
                   Include: URL, description of violation, your contact information
                 </p>

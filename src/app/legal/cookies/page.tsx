@@ -274,7 +274,7 @@ export default function CookiesPage() {
               <div className="mt-4 p-4 bg-dark/50 rounded-lg">
                 <p className="text-gray-300">
                   <strong className="text-white">HLPFL Records - Privacy Team</strong><br />
-                  Email: privacy@hlpfl.org<br />
+                  Email: contact@hlpfl.org<br />
                   General Inquiries: contact@hlpfl.org<br />
                   Website: <a href="https://hlpfl.org" className="text-gold hover:text-gold-light">hlpfl.org</a>
                 </p>

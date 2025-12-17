@@ -1,0 +1,57 @@
+
+> hlpflrecords@2.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+  - Experiments (use with caution):
+    · optimizeCss
+
+   Creating an optimized production build ...
+> [PWA] Compile server
+> [PWA] Compile server
+> [PWA] Compile client (static)
+> [PWA] Auto register service worker with: /workspace/hlpflrecords/node_modules/next-pwa/register.js
+> [PWA] Service worker: /workspace/hlpflrecords/public/sw.js
+> [PWA]   url: /sw.js
+> [PWA]   scope: /
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/20) ...
+Time 15.052083
+   Generating static pages (5/20) 
+Time 1.144927
+   Generating static pages (10/20) 
+   Generating static pages (15/20) 
+ ✓ Generating static pages (20/20)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    2.51 kB         104 kB
+├ ○ /_not-found                          873 B          88.3 kB
+├ ○ /about                               193 B          96.3 kB
+├ ƒ /api/chatbot-analytics               0 B                0 B
+├ ƒ /api/contact                         0 B                0 B
+├ ○ /artist-portal                       193 B          96.3 kB
+├ ○ /artists                             37.3 kB         133 kB
+├ ○ /contact                             4.83 kB        92.2 kB
+├ ○ /legal/cookies                       193 B          96.3 kB
+├ ○ /legal/copyright                     193 B          96.3 kB
+├ ○ /legal/privacy                       193 B          96.3 kB
+├ ○ /legal/terms                         193 B          96.3 kB
+├ ○ /licensing                           193 B          96.3 kB
+├ ○ /minimal                             146 B          87.5 kB
+├ ○ /news                                146 B          87.5 kB
+├ ○ /partners                            193 B          96.3 kB
+├ ○ /releases                            4.38 kB         100 kB
+└ ○ /submit-music                        146 B          87.5 kB
++ First Load JS shared by all            87.4 kB
+  ├ chunks/117-25960c4e7a40b5ef.js       31.9 kB
+  ├ chunks/fd9d1056-d22a852a8a2fb290.js  53.6 kB
+  └ other shared chunks (total)          1.9 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

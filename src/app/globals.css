@@ -95,6 +95,9 @@ html {
 .gradient-animate {
   background: linear-gradient(-45deg, #c87941, #d4945c, #a86535, #c87941, #d4945c);
   background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   animation: gradient 20s ease infinite;
 }
 

@@ -167,7 +167,7 @@ export default function TermsPage() {
               <div className="mt-4 p-4 bg-dark/50 rounded-lg">
                 <p className="text-gray-300">
                   <strong className="text-white">HLPFL Records</strong><br />
-                  Email: legal@hlpfl.org<br />
+                  Email: contact@hlpfl.org<br />
                   Website: <a href="https://hlpfl.org" className="text-gold hover:text-gold-light">hlpfl.org</a>
                 </p>
               </div>

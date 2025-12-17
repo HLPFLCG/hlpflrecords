@@ -22,16 +22,16 @@ export const organizationSchema = {
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "123 Music Row",
-    "addressLocality": "Nashville",
-    "addressRegion": "TN",
+    "addressLocality": "Grand Rapids",
+    "addressRegion": "MI",
     "postalCode": "37203",
     "addressCountry": "US"
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-555-123-4567",
+    "telephone": "+1-616-313-5215",
     "contactType": "Customer Service",
-    "email": "contact@hlpflrecords.com",
+    "email": "contact@hlpfl.org",
     "availableLanguage": "English"
   },
   "sameAs": [
@@ -52,8 +52,8 @@ export const musicGroupSchema = {
     "@type": "Place",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Nashville",
-      "addressRegion": "TN",
+      "addressLocality": "Grand Rapids",
+      "addressRegion": "MI",
       "addressCountry": "US"
     }
   }

@@ -221,7 +221,7 @@ export default function PrivacyPage() {
               </p>
 
               <p className="text-gray-300 leading-relaxed mt-6">
-                To exercise any of these rights, please contact us at privacy@hlpfl.org. We will respond to your request within 30 days.
+                To exercise any of these rights, please contact us at contact@hlpfl.org. We will respond to your request within 30 days.
               </p>
             </section>
 
@@ -258,7 +258,7 @@ export default function PrivacyPage() {
                 <li>Right to non-discrimination for exercising your rights</li>
               </ul>
               <p className="text-gray-300 leading-relaxed mt-4">
-                We do not sell your personal information. To exercise your CCPA rights, please contact us at privacy@hlpfl.org.
+                We do not sell your personal information. To exercise your CCPA rights, please contact us at contact@hlpfl.org.
               </p>
             </section>
 
@@ -302,7 +302,7 @@ export default function PrivacyPage() {
               <div className="mt-4 p-4 bg-dark/50 rounded-lg">
                 <p className="text-gray-300">
                   <strong className="text-white">HLPFL Records - Privacy Team</strong><br />
-                  Email: privacy@hlpfl.org<br />
+                  Email: contact@hlpfl.org<br />
                   General Inquiries: contact@hlpfl.org<br />
                   Website: <a href="https://hlpfl.org" className="text-gold hover:text-gold-light">hlpfl.org</a>
                 </p>

@@ -37,13 +37,33 @@ export default function StarfieldBackground() {
       starsRef.current = []
 
       for (let i = 0; i < starCount; i++) {
+        const sizeChoice = Math.random()
+        let size, opacity, twinkleSpeed
+        
+        if (sizeChoice < 0.7) {
+          // Small distant stars (70%)
+          size = Math.random() * 0.8 + 0.2
+          opacity = Math.random() * 0.3 + 0.2
+          twinkleSpeed = Math.random() * 0.015 + 0.005
+        } else if (sizeChoice < 0.95) {
+          // Medium stars (25%)
+          size = Math.random() * 1.5 + 0.8
+          opacity = Math.random() * 0.4 + 0.4
+          twinkleSpeed = Math.random() * 0.02 + 0.008
+        } else {
+          // Bright nearby stars (5%)
+          size = Math.random() * 2 + 1.5
+          opacity = Math.random() * 0.3 + 0.7
+          twinkleSpeed = Math.random() * 0.025 + 0.01
+        }
+        
         starsRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 0.5, // Size between 0.5 and 2.5
-          opacity: Math.random() * 0.5 + 0.3, // Opacity between 0.3 and 0.8
-          twinkleSpeed: Math.random() * 0.02 + 0.005, // Twinkle speed
-          twinklePhase: Math.random() * Math.PI * 2, // Random starting phase
+          size: size,
+          opacity: opacity,
+          twinkleSpeed: twinkleSpeed,
+          twinklePhase: Math.random() * Math.PI * 2,
         })
       }
     }
@@ -68,10 +88,24 @@ export default function StarfieldBackground() {
           star.x, star.y, star.size * 2
         )
         
-        // Gold/white color scheme matching your site
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity})`)
-        gradient.addColorStop(0.5, `rgba(255, 215, 0, ${currentOpacity * 0.6})`)
-        gradient.addColorStop(1, `rgba(255, 215, 0, 0)`)
+        // More realistic star colors: white, blue-white, gold-white
+        const colorChoice = Math.random()
+        if (colorChoice < 0.6) {
+          // White stars (60%)
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity})`)
+          gradient.addColorStop(0.3, `rgba(255, 255, 255, ${currentOpacity * 0.8})`)
+          gradient.addColorStop(1, `rgba(255, 255, 255, 0)`)
+        } else if (colorChoice < 0.85) {
+          // Blue-white stars (25%)
+          gradient.addColorStop(0, `rgba(200, 220, 255, ${currentOpacity})`)
+          gradient.addColorStop(0.3, `rgba(200, 220, 255, ${currentOpacity * 0.8})`)
+          gradient.addColorStop(1, `rgba(200, 220, 255, 0)`)
+        } else {
+          // Gold-white stars (15% - matching site theme)
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity})`)
+          gradient.addColorStop(0.3, `rgba(255, 215, 0, ${currentOpacity * 0.6})`)
+          gradient.addColorStop(1, `rgba(255, 215, 0, 0)`)
+        }
 
         ctx.fillStyle = gradient
         ctx.beginPath()
