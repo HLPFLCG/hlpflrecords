@@ -38,9 +38,6 @@ export function HeroSection() {
             <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-2 text-white leading-[0.9]">
               HLPFL
             </span>
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-animate bg-clip-text text-transparent leading-[1.1]">
-              Records
-            </span>
           </h1>
           
           {/* Tagline */}
