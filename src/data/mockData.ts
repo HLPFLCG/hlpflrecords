@@ -7,7 +7,7 @@ export const mockArtists: Artist[] = [
     slug: 'alki',
     bio: 'Boundary-pushing artist creating the future of alternative music. As HLPFL\'s first signed artist, Alki embodies our revolutionary artist-first philosophy. With a unique blend of punk energy, pop sensibility, and rap lyricism, Alki is proving that independent artists can thrive with the right partnership. Known for explosive live performances and genre-defying sound.',
     genre: ['Punk', 'Pop', 'Rap'],
-    image: '/images/team/alki.jpg',
+    image: '/images/team/james-rockel.jpg',
     socials: {
       spotify: 'https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl',
       instagram: 'https://www.instagram.com/alkiotis',
