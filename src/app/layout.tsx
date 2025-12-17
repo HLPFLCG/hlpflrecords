@@ -77,6 +77,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#c87941" />
+        <link rel="icon" href="/images/favicon/hlpflsymbolpnggradient.ico" />
+        <link rel="apple-touch-icon" href="/images/favicon/hlpflsymbolpnggradient.png" />
+      </head>
       <body className={inter.className}>
         <LoadingScreen />
         <div className="min-h-screen bg-dark text-white">
