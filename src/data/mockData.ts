@@ -13,14 +13,6 @@ export const mockArtists: Artist[] = [
       instagram: 'https://www.instagram.com/alkiotis',
     },
   },
-  {
-    id: '2',
-    name: 'Featured Artist',
-    slug: 'featured-artist',
-    bio: 'Another talented artist from the HLPFL Records family. Biography placeholder for future content.',
-    genre: ['Hip-Hop', 'Trap'],
-    image: '/images/artists/placeholder.jpg',
-  },
 ]
 
 export const mockReleases: Release[] = [
