@@ -11,7 +11,28 @@ const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ d
   ssr: false,
 })
 
-const inter = Inter({ subsets: ['latin'] })
+// Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
+const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
+  ssr: false,
+})
+
+// Dynamically import StarfieldBackground with SSR disabled for Canvas API
+const StarfieldBackground = dynamic(() => import('@/components/StarfieldBackground'), {
+  ssr: false,
+})
+
+// Font configuration
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -85,7 +106,8 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <LoadingScreen />
-        <div className="min-h-screen bg-dark text-white">
+        <StarfieldBackground />
+        <div className="min-h-screen text-white" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
           <Header />
           <main className="pt-16">
             {children}

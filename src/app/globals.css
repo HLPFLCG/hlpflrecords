@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import url('../styles/animations.css');
 
 :root {
@@ -12,6 +11,8 @@
   --gold-primary: #c87941;
   --gold-light: #d4945c;
   --gold-dark: #a86535;
+  --font-body: var(--font-inter);
+  --font-heading: var(--font-montserrat);
 }
 
 @media (prefers-color-scheme: light) {
@@ -24,14 +25,14 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      135deg,
-      rgba(10, 10, 10, 1) 0%,
-      rgba(26, 26, 26, 1) 50%,
-      rgba(10, 10, 10, 1) 100%
-    );
-  font-family: 'Inter', system-ui, sans-serif;
+  background: #0a0a0a;
+  font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 700;
 }
 
 /* Premium Custom scrollbar */
