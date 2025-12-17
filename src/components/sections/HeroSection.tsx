@@ -45,12 +45,12 @@ export function HeroSection() {
           
           {/* Tagline */}
           <p className="text-fade-in text-fade-in-delay-1 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
-            Dream → Reality | Revolutionary 50/50 Artist Partnerships
+            Dream → Reality | Artists Firsts.
           </p>
           
           {/* Description */}
           <p className="text-fade-in text-fade-in-delay-2 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Founded by James Rockel at just 18 years old, with boundary-pushing artist Alki as co-founder, 
+            Founded by James Rockel at  18 years old, with boundary-pushing artist Alki as co-founder, 
             we're transforming the music industry with artist-first partnerships that put creators in control 
             of their careers and revenue.
           </p>
@@ -81,19 +81,19 @@ export function HeroSection() {
           {/* Stats/Metrics */}
           <div className="text-fade-in text-fade-in-delay-3 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">50+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">5+</div>
               <div className="text-sm text-gray-400 uppercase tracking-wider">Artists</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">200+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">50+</div>
               <div className="text-sm text-gray-400 uppercase tracking-wider">Releases</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">1B+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">5m+</div>
               <div className="text-sm text-gray-400 uppercase tracking-wider">Streams</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">15+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">10+</div>
               <div className="text-sm text-gray-400 uppercase tracking-wider">Years</div>
             </div>
           </div>
