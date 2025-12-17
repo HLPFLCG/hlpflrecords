@@ -99,16 +99,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Enhanced scroll indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center space-y-2">
-            <div className="w-8 h-12 border-2 border-gold/60 rounded-full flex justify-center">
-              <div className="w-1.5 h-4 bg-gradient-to-b from-gold to-gold-dark rounded-full mt-3 animate-pulse" />
-            </div>
-            <span className="text-xs text-gray-400 uppercase tracking-wider">Scroll</span>
-          </div>
         </div>
-      </div>
 
       {/* Floating elements for depth */}
       <div className="absolute top-20 right-10 w-2 h-2 bg-gold/30 rounded-full animate-float" />

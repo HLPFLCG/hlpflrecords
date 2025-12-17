@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Montserrat } from 'next/font/google'
 import dynamic from 'next/dynamic'
 import './globals.css'
 import LoadingScreen from '@/components/LoadingScreen'
@@ -16,7 +16,18 @@ const StarfieldBackground = dynamic(() => import('@/components/StarfieldBackgrou
   ssr: false,
 })
 
-const inter = Inter({ subsets: ['latin'] })
+// Font configuration
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -88,7 +99,7 @@ export default function RootLayout({
         <link rel="icon" href="/images/favicon/hlpflsymbolpnggradient.ico" />
         <link rel="apple-touch-icon" href="/images/favicon/hlpflsymbolpnggradient.png" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${montserrat.variable}`}>
         <LoadingScreen />
         <StarfieldBackground />
         <div className="min-h-screen text-white" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>

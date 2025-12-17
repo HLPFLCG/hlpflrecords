@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Instagram, Twitter, Youtube, Music, Mail } from 'lucide-react'
+import Logo from '../Logo'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -39,9 +40,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gold rounded-lg flex items-center justify-center">
-                <span className="text-dark font-bold text-xl">H</span>
-              </div>
+              <Logo width={40} height={40} />
               <span className="text-white font-bold text-xl">HLPFL</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
