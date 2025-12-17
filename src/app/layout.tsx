@@ -3,12 +3,16 @@ import { Inter } from 'next/font/google'
 import dynamic from 'next/dynamic'
 import './globals.css'
 import LoadingScreen from '@/components/LoadingScreen'
-import StarfieldBackground from '@/components/StarfieldBackground'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
 // Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
+  ssr: false,
+})
+
+// Dynamically import StarfieldBackground with SSR disabled for Canvas API
+const StarfieldBackground = dynamic(() => import('@/components/StarfieldBackground'), {
   ssr: false,
 })
 
@@ -87,7 +91,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <LoadingScreen />
         <StarfieldBackground />
-        <div className="min-h-screen bg-dark text-white" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="min-h-screen text-white" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
           <Header />
           <main className="pt-16">
             {children}
