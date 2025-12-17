@@ -38,7 +38,7 @@ export const mockReleases: Release[] = [
   },
   {
     id: '2',
-    title: 'Lackin'',
+    title: 'Lackin',
     artist: 'Alki',
     artistId: '1',
     type: 'single',
