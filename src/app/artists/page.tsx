@@ -107,16 +107,25 @@ export default function ArtistsPage() {
                 className="group"
               >
                 <CardMedia className="mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-dark-tertiary" />
+                  {artist.image ? (
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${artist.image})` }}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-dark-tertiary" />
+                  )}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-24 h-24 bg-gradient-to-br from-gold/20 to-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
-                        <span className="text-gold text-3xl font-black">
-                          {artist.name.split(' ').map(n => n[0]).join('')}
-                        </span>
+                    {!artist.image && (
+                      <div className="text-center">
+                        <div className="w-24 h-24 bg-gradient-to-br from-gold/20 to-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
+                          <span className="text-gold text-3xl font-black">
+                            {artist.name.split(' ').map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                        <p className="text-gray-400 text-sm">Artist Image</p>
                       </div>
-                      <p className="text-gray-400 text-sm">Artist Image</p>
-                    </div>
+                    )}
                   </div>
                   
                   {/* Hover Overlay */}
@@ -187,11 +196,14 @@ export default function ArtistsPage() {
                         )}
                       </div>
                       
-                      <Link href={`/artists/${artist.slug}`}>
-                        <Button variant="ghost" size="sm" className="text-gold hover:text-gold-light">
-                          View Profile →
-                        </Button>
-                      </Link>
+                      <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="text-gold hover:text-gold-light"
+                      onClick={() => alert(`Artist profile for ${artist.name} coming soon!`)}
+                    >
+                      View Profile →
+                    </Button>
                     </div>
                   </div>
                 </CardContent>
