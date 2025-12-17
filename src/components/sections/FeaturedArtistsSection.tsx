@@ -15,7 +15,7 @@ export function FeaturedArtistsSection() {
             Featured <span className="text-gold">Artists</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Discover the incredible talent that makes up the HLPFL Records family. 
+            Discover the incredible talent that makes up the HLPFL family. 
             From emerging voices to established stars, our artists represent the best in contemporary music.
           </p>
           <Link href="/artists">
