@@ -20,7 +20,8 @@
 }
 
 .loading-logo {
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;
+  display: block;
   animation: pulse 2s infinite;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 }

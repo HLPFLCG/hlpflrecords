@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import dynamic from 'next/dynamic'
 import './globals.css'
 import LoadingScreen from '@/components/LoadingScreen'
+import StarfieldBackground from '@/components/StarfieldBackground'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
@@ -85,7 +86,8 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <LoadingScreen />
-        <div className="min-h-screen bg-dark text-white">
+        <StarfieldBackground />
+        <div className="min-h-screen bg-dark text-white" style={{ position: 'relative', zIndex: 1 }}>
           <Header />
           <main className="pt-16">
             {children}
