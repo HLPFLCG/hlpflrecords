@@ -10,17 +10,17 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About <span className="text-gold">HLPFL Records</span>
+              About <span className="text-gold">HLPFL</span>
             </h2>
             
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                Founded by James Rockel in 2019 when he was just 18 years old, HLPFL Records emerged from a vision to transform how artists succeed in the music industry. 
+                Founded by James Rockel in 2019 when he was just 18 years old, HLPFL emerged from a vision to transform how artists succeed in the music industry. 
                 After witnessing countless talented musicians struggle with outdated industry practices, James set out to create a revolutionary artist-first model.
               </p>
               
               <p className="leading-relaxed">
-                Our groundbreaking 50/50 partnership model, proven through the success of co-founder and signed artist Alki (@alkiotis), 
+                Our groundbreaking 11% partnership model, proven through the success of co-founder and signed artist Alki (@alkiotis), 
                 redefines what it means to be an independent artist. We believe artists deserve creative control, fair revenue splits, and genuine partnerships that elevate their vision.
               </p>
               
@@ -33,19 +33,19 @@ export function AboutSection() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">50+</div>
+                <div className="text-3xl font-bold text-gold mb-1">5+</div>
                 <div className="text-sm text-gray-400">Artists</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">200+</div>
+                <div className="text-3xl font-bold text-gold mb-1">50+</div>
                 <div className="text-sm text-gray-400">Releases</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">1B+</div>
+                <div className="text-3xl font-bold text-gold mb-1">5m+</div>
                 <div className="text-sm text-gray-400">Streams</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">15+</div>
+                <div className="text-3xl font-bold text-gold mb-1">10+</div>
                 <div className="text-sm text-gray-400">Years</div>
               </div>
             </div>
