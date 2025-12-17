@@ -43,7 +43,9 @@ export function AnalyticsDashboard() {
         setAnalyticsData(data.data)
       }
     } catch (error) {
-      console.error('Failed to fetch analytics:', error)
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Failed to fetch analytics:', error)
+      }
     } finally {
       setLoading(false)
     }

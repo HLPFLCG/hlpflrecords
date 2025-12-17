@@ -252,11 +252,18 @@ export class ChatbotAnalytics {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ event, data, timestamp: new Date().toISOString() })
-      }).catch(console.error)
+      }).catch((error) => {
+        // Silent fail in production, log in development
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Analytics error:', error)
+        }
+      })
     }
 
-    // Also log to console for development
-    console.log(`Chatbot Analytics: ${event}`, data)
+    // Log for development only
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`Chatbot Analytics: ${event}`, data)
+    }
   }
 
   // Public method to get real-time metrics

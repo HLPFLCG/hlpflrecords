@@ -24,8 +24,10 @@ export async function POST(request: NextRequest) {
     // Here you could also send data to external analytics services
     // like Google Analytics, Mixpanel, Amplitude, etc.
     
-    // Log for development
-    console.log('Analytics received:', { event, data, timestamp })
+    // Log for development only
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Analytics received:', { event, data, timestamp })
+    }
 
     // In a real implementation, you might want to:
     // 1. Validate the data
@@ -39,7 +41,9 @@ export async function POST(request: NextRequest) {
       stored: analyticsData.length
     })
   } catch (error) {
-    console.error('Analytics error:', error)
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Analytics error:', error)
+    }
     return NextResponse.json(
       { error: 'Failed to process analytics data' },
       { status: 500 }
@@ -63,7 +67,9 @@ export async function GET() {
       }
     })
   } catch (error) {
-    console.error('Analytics fetch error:', error)
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Analytics fetch error:', error)
+    }
     return NextResponse.json(
       { error: 'Failed to fetch analytics data' },
       { status: 500 }
