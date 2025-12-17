@@ -60,6 +60,9 @@ export interface TeamMember {
     linkedin?: string
     twitter?: string
     email?: string
+    instagram?: string
+    spotify?: string
+    website?: string
   }
 }
 

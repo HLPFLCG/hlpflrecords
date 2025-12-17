@@ -1,9 +1,27 @@
-import { useEffect } from 'react'
+'use client'
+
+import { useEffect, useState } from 'react'
 import Logo from './Logo'
 import styles from '../styles/Loading.module.css'
 
 const LoadingScreen = () => {
+  const [progress, setProgress] = useState(0)
+
   useEffect(() => {
+    // Simulate loading progress
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval)
+          return 100
+        }
+        // Increment progress with slight randomness for natural feel
+        const increment = Math.random() * 15 + 5
+        return Math.min(prev + increment, 100)
+      })
+    }, 100)
+
+    // Hide loading screen after completion
     const timer = setTimeout(() => {
       const loader = document.getElementById('loading-screen')
       if (loader) {
@@ -13,7 +31,11 @@ const LoadingScreen = () => {
         }, 500)
       }
     }, 2000)
-    return () => clearTimeout(timer)
+
+    return () => {
+      clearInterval(interval)
+      clearTimeout(timer)
+    }
   }, [])
 
   return (
@@ -21,7 +43,19 @@ const LoadingScreen = () => {
       <div className={styles['loading-content']}>
         <Logo width={80} height={80} className={styles['loading-logo']} />
         <div className={styles['loading-text']}>Loading HLPFL Records...</div>
-        <div className={styles['loading-spinner']}></div>
+        
+        {/* Progress Bar */}
+        <div className={styles['progress-container']}>
+          <div 
+            className={styles['progress-bar']}
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        
+        {/* Progress Percentage */}
+        <div className={styles['progress-text']}>
+          {Math.round(progress)}%
+        </div>
       </div>
     </div>
   )
