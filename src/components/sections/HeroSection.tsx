@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Play, Music, Globe, Users } from 'lucide-react'

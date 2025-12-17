@@ -1,12 +1,9 @@
+'use client'
+
 import React from 'react'
 import { Lock, User, FileText, DollarSign, Calendar, Download, MessageSquare, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
-
-export const metadata = {
-  title: 'Artist Portal | HLPFL Records',
-  description: 'Access your artist dashboard, contracts, royalty statements, and marketing materials.',
-}
 
 export default function ArtistPortalPage() {
   // This would normally check authentication status

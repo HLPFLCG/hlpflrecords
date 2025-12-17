@@ -1,12 +1,9 @@
+'use client'
+
 import React from 'react'
 import { Music, Film, Tv, Radio, Globe, Check, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
-
-export const metadata = {
-  title: 'Music Licensing | HLPFL Records',
-  description: 'License music from HLPFL Records for film, TV, commercials, games, and more. Flexible licensing options for all projects.',
-}
 
 export default function LicensingPage() {
   return (

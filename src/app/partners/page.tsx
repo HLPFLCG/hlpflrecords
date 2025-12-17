@@ -1,12 +1,9 @@
+'use client'
+
 import React from 'react'
 import { Users, Music, Radio, Tv, Globe, Building, ArrowRight, Check } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
-
-export const metadata = {
-  title: 'Partners | HLPFL Records',
-  description: 'Our trusted partners in distribution, technology, media, and venues. Join the HLPFL Records partner network.',
-}
 
 export default function PartnersPage() {
   return (
