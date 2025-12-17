@@ -28,6 +28,11 @@ export function Chatbot() {
   }
 
   const generateUserId = () => {
+    // Check if we're in the browser environment
+    if (typeof window === 'undefined') {
+      return `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+    }
+    
     let userId = localStorage.getItem('hlpfl_user_id')
     if (!userId) {
       userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`

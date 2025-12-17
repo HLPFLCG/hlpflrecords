@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import dynamic from 'next/dynamic'
 import './globals.css'
 import LoadingScreen from '@/components/LoadingScreen'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { Chatbot } from '@/components/ui/Chatbot'
+
+// Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
+const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
+  ssr: false,
+})
 
 const inter = Inter({ subsets: ['latin'] })
 
