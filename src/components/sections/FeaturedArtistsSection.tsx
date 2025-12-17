@@ -28,7 +28,7 @@ export function FeaturedArtistsSection() {
         {/* Artists Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {mockArtists.map((artist, index) => (
-            <Card key={artist.id[1} hover className="overflow-hidden group">
+            <Card key={artist.id[1]} hover className="overflow-hidden group">
               <div className="relative aspect-square overflow-hidden">
                 <div className="w-full h-full bg-gradient-to-br from-gold/20 to-dark-tertiary flex items-center justify-center">
                   <div className="text-center">
