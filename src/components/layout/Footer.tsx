@@ -7,11 +7,11 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { name: 'Instagram', icon: Instagram, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' },
-    { name: 'YouTube', icon: Youtube, href: '#' },
-    { name: 'Spotify', icon: Music, href: '#' },
-    { name: 'Email', icon: Mail, href: 'mailto:contact@hlpfl.org' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/hlpfl_/' },
+    { name: 'Twitter', icon: Twitter, href: 'https://x.com/hlpfl_' },
+    { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/channel/UCI1nS0ba_-xx1FurXzQKLIg' },
+    { name: 'Spotify', icon: Music, href: 'https://open.spotify.com/track/1pOtUZllzDi0fgrCXP0I15?si=13023055983d4834' },
+    { name: 'Email', icon: Mail, href: 'mailto:founder@hlpfl.org' },
   ]
 
   const footerLinks = {
