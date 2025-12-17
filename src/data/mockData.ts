@@ -3,15 +3,14 @@ import { Artist, Release, NewsPost, TeamMember } from '@/types'
 export const mockArtists: Artist[] = [
   {
     id: '1',
-    name: 'Artist Name',
-    slug: 'artist-name',
+    name: 'Alki',
+    slug: 'alki',
     bio: 'Placeholder artist biography. This space will be filled with actual artist information when assets are provided.',
-    genre: ['Pop', 'R&B'],
-    image: '/images/artists/placeholder.jpg',
+    genre: ['Punk', 'Pop', 'Rap'],
+    image: 'public/images/team/3836042966790980117.jpeg',
     socials: {
-      spotify: '#',
-      instagram: '#',
-      twitter: '#',
+      spotify: 'https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl',
+      instagram: 'https://www.instagram.com/alkiotis',
     },
   },
   {
