@@ -5,7 +5,6 @@ import { useEffect, useState, useRef, useCallback } from 'react'
 // Security: Rate limiting for Easter egg triggers
 const RATE_LIMIT_MS = 1000
 const MAX_CONCURRENT_EFFECTS = 10
-const SANITIZED_MESSAGE_REGEX = /^[a-zA-Z0-9\s\p{Emoji}]+$/u
 
 const EasterEggs = () => {
   const [konamiCode, setKonamiCode] = useState<string[]>([])
@@ -31,7 +30,12 @@ const EasterEggs = () => {
 
   // Sanitize user input for security
   const sanitizeMessage = useCallback((message: string): string => {
-    return message.replace(/[<>]/g, '').replace(/javascript:/gi, '').replace(/on\w+=/gi, '')
+    // Remove potentially dangerous characters and patterns
+    return message
+      .replace(/[<>]/g, '') // Remove HTML tags
+      .replace(/javascript:/gi, '') // Remove javascript: protocol
+      .replace(/on\w+=/gi, '') // Remove event handlers
+      .slice(0, 200) // Limit length for safety
   }, [])
 
   // Security: Safe DOM element creation
