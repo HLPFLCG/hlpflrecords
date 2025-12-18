@@ -453,7 +453,7 @@ const EasterEggs = () => {
       if (target.closest('h1') || 
           target.closest('.logo') || 
           target.textContent?.includes('HLPFL') ||
-          target.alt?.includes('HLPFL')) {
+          (target instanceof HTMLImageElement && target.alt?.includes('HLPFL'))) {
         
         clickCount++
         
