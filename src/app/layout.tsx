@@ -6,6 +6,8 @@ import LoadingScreen from '@/components/LoadingScreen'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import EasterEggs from '@/components/EasterEggs'
+import AlkiMusicEasterEggs from '@/components/AlkiMusicEasterEggs'
+import AlkiSecretLinks from '@/components/AlkiSecretLinks'
 
 // Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -166,6 +168,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <Footer />
           <Chatbot />
           <EasterEggs />
+          <AlkiMusicEasterEggs />
+          <AlkiSecretLinks />
         </div>
       </body>
     </html>
