@@ -28,19 +28,29 @@ const AlkiSecretLinks = () => {
     lastClickRef.current = now;
 
     if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
       audioRef.current.src = trackUrl;
       audioRef.current.volume = 0.6;
-      audioRef.current.play().catch(err => console.error('Playback failed:', err));
+      audioRef.current.load();
       
-      setDiscoveredSecrets(prev => {
-        const newSet = new Set(prev);
-        newSet.add(secretId);
-        return newSet;
-      });
-      trackEvent('secret_audio_played', secretId);
-      
-      // Show discovery notification
-      showDiscoveryNotification(secretId);
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('Secret audio playing:', secretId);
+            setDiscoveredSecrets(prev => {
+              const newSet = new Set(prev);
+              newSet.add(secretId);
+              return newSet;
+            });
+            trackEvent('secret_audio_played', secretId);
+            showDiscoveryNotification(secretId);
+          })
+          .catch(err => {
+            console.error('Secret audio playback failed:', err);
+          });
+      }
     }
   }, [trackEvent]);
 
@@ -196,23 +206,26 @@ const AlkiSecretLinks = () => {
       
       musicElements.forEach(element => {
         if (element.textContent?.toLowerCase().includes('music')) {
-          element.addEventListener('dblclick', () => {
+          const handler = () => {
             playSecretAudio('/audio/alki/like-that.mp3', 'music_word_secret');
-          });
+          };
+          element.addEventListener('dblclick', handler);
         }
 
         // Secret: Click on any "artist" word
         if (element.textContent?.toLowerCase().includes('artist')) {
-          element.addEventListener('dblclick', () => {
+          const handler = () => {
             playSecretAudio('/audio/alki/writin-my-wrongs.mp3', 'artist_word_secret');
-          });
+          };
+          element.addEventListener('dblclick', handler);
         }
 
         // Secret: Click on any "record" word
         if (element.textContent?.toLowerCase().includes('record')) {
-          element.addEventListener('dblclick', () => {
+          const handler = () => {
             playSecretAudio('/audio/alki/regrets.mp3', 'record_word_secret');
-          });
+          };
+          element.addEventListener('dblclick', handler);
         }
       });
     };
@@ -225,7 +238,13 @@ const AlkiSecretLinks = () => {
   return (
     <>
       {/* Hidden audio element */}
-      <audio ref={audioRef} />
+      <audio 
+        ref={audioRef}
+        preload="none"
+        onError={(e) => {
+          console.error('Secret audio error:', e);
+        }}
+      />
 
       {/* Secret Menu */}
       {showSecretMenu && (

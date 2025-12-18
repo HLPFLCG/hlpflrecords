@@ -45,18 +45,20 @@ const AlkiMusicEasterEggs = () => {
   const [showPlayer, setShowPlayer] = useState(false);
   const [showVisualizer, setShowVisualizer] = useState(false);
   const [volume, setVolume] = useState(0.7);
+  const [audioError, setAudioError] = useState<string | null>(null);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
+  const sourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const lastTriggerRef = useRef<number>(0);
 
   // Security: Rate limiting
   const canTrigger = useCallback(() => {
     const now = Date.now();
-    if (now - lastTriggerRef.current < 1000) return false;
+    if (now - lastTriggerRef.current < 500) return false;
     lastTriggerRef.current = now;
     return true;
   }, []);
@@ -75,15 +77,15 @@ const AlkiMusicEasterEggs = () => {
 
   // Initialize audio context for visualizer
   const initAudioContext = useCallback(() => {
-    if (!audioContextRef.current && audioRef.current) {
+    if (!audioContextRef.current && audioRef.current && !sourceNodeRef.current) {
       try {
         const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
         audioContextRef.current = new AudioContext();
         analyserRef.current = audioContextRef.current.createAnalyser();
         analyserRef.current.fftSize = 256;
         
-        const source = audioContextRef.current.createMediaElementSource(audioRef.current);
-        source.connect(analyserRef.current);
+        sourceNodeRef.current = audioContextRef.current.createMediaElementSource(audioRef.current);
+        sourceNodeRef.current.connect(analyserRef.current);
         analyserRef.current.connect(audioContextRef.current.destination);
       } catch (error) {
         console.error('Audio context initialization failed:', error);
@@ -133,16 +135,36 @@ const AlkiMusicEasterEggs = () => {
     const track = ALKI_TRACKS[trackIndex];
     
     if (audioRef.current) {
+      // Stop current playback
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      
+      // Set new source
       audioRef.current.src = track.file;
       audioRef.current.volume = volume;
-      audioRef.current.play().catch(err => console.error('Playback failed:', err));
+      audioRef.current.load(); // Force reload
       
-      setCurrentTrack(trackIndex);
-      setIsPlaying(true);
-      setShowPlayer(true);
+      // Play with user interaction handling
+      const playPromise = audioRef.current.play();
       
-      initAudioContext();
-      trackEvent('track_played', track.title);
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('Playing:', track.title);
+            setCurrentTrack(trackIndex);
+            setIsPlaying(true);
+            setShowPlayer(true);
+            setAudioError(null);
+            
+            initAudioContext();
+            trackEvent('track_played', track.title);
+          })
+          .catch(err => {
+            console.error('Playback failed:', err);
+            setAudioError(`Failed to play ${track.title}. Click the player to try again.`);
+            setIsPlaying(false);
+          });
+      }
     }
   }, [volume, canTrigger, initAudioContext, trackEvent]);
 
@@ -157,16 +179,26 @@ const AlkiMusicEasterEggs = () => {
 
   // Toggle play/pause
   const togglePlayPause = useCallback(() => {
-    if (!audioRef.current) return;
+    if (!audioRef.current || currentTrack === null) return;
 
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play().catch(err => console.error('Playback failed:', err));
-      setIsPlaying(true);
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            setAudioError(null);
+          })
+          .catch(err => {
+            console.error('Playback failed:', err);
+            setAudioError('Playback failed. Try clicking play again.');
+          });
+      }
     }
-  }, [isPlaying]);
+  }, [isPlaying, currentTrack]);
 
   // Next track
   const nextTrack = useCallback(() => {
@@ -316,9 +348,15 @@ const AlkiMusicEasterEggs = () => {
       {/* Hidden audio element */}
       <audio
         ref={audioRef}
+        preload="none"
         onEnded={() => {
           setIsPlaying(false);
           nextTrack();
+        }}
+        onError={(e) => {
+          console.error('Audio error:', e);
+          setAudioError('Failed to load audio. Please try again.');
+          setIsPlaying(false);
         }}
       />
 
@@ -378,6 +416,20 @@ const AlkiMusicEasterEggs = () => {
               by Alki
             </div>
           </div>
+
+          {/* Error message */}
+          {audioError && (
+            <div style={{
+              background: 'rgba(255,0,0,0.2)',
+              padding: '10px',
+              borderRadius: '8px',
+              fontSize: '12px',
+              marginBottom: '15px',
+              border: '1px solid rgba(255,0,0,0.3)'
+            }}>
+              {audioError}
+            </div>
+          )}
 
           {/* Track list */}
           <div style={{ marginBottom: '15px', maxHeight: '150px', overflowY: 'auto' }}>
