@@ -2,7 +2,7 @@
 
 import { useEffect, useCallback, useRef, useState } from 'react';
 
-// Alki's track information
+// Alki's track information - 10 unique tracks
 const ALKI_TRACKS = [
   {
     id: 'iptwha',
@@ -35,6 +35,54 @@ const ALKI_TRACKS = [
     trigger: 'regrets',
     color: '#F38181',
     description: 'No regrets, just lessons'
+  },
+  {
+    id: 'home',
+    title: 'Home',
+    file: '/audio/alki/home.mp3',
+    trigger: 'home',
+    color: '#FFD93D',
+    description: 'Finding your way back'
+  },
+  {
+    id: 'okay',
+    title: 'Okay',
+    file: '/audio/alki/okay.mp3',
+    trigger: 'okay',
+    color: '#6BCB77',
+    description: 'Everything will be okay'
+  },
+  {
+    id: 'luv4',
+    title: 'Luv 4',
+    file: '/audio/alki/luv4.mp3',
+    trigger: 'luv4',
+    color: '#FF6B9D',
+    description: 'Love in its purest form'
+  },
+  {
+    id: 'stay',
+    title: 'Stay',
+    file: '/audio/alki/stay.mp3',
+    trigger: 'stay',
+    color: '#C44569',
+    description: 'Stay with me (ft. Arya)'
+  },
+  {
+    id: 'take-it-all-away',
+    title: 'Take It All Away',
+    file: '/audio/alki/take-it-all-away.mp3',
+    trigger: 'takeaway',
+    color: '#A8E6CF',
+    description: 'Let it all go'
+  },
+  {
+    id: 'tear-me-apart',
+    title: 'Tear Me Apart',
+    file: '/audio/alki/tear-me-apart.mp3',
+    trigger: 'tearme',
+    color: '#FF8B94',
+    description: 'Raw emotions unleashed'
   }
 ];
 
@@ -245,10 +293,10 @@ const AlkiMusicEasterEggs = () => {
 
       // Update alki code sequence
       setAlkiCode(prev => {
-        const newCode = [...prev, key].slice(-10);
+        const newCode = [...prev, key].slice(-15); // Increased buffer for longer triggers
         const codeString = newCode.join('');
 
-        // Check for "alki" trigger
+        // Check for "alki" trigger - opens player with first track
         if (codeString.includes('alki')) {
           if (canTrigger()) {
             setShowPlayer(true);
@@ -367,7 +415,8 @@ const AlkiMusicEasterEggs = () => {
             position: 'fixed',
             bottom: '20px',
             right: '20px',
-            width: '320px',
+            width: '340px',
+            maxHeight: '80vh',
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             borderRadius: '16px',
             padding: '20px',
@@ -376,6 +425,7 @@ const AlkiMusicEasterEggs = () => {
             color: 'white',
             fontFamily: 'system-ui, -apple-system, sans-serif',
             animation: 'slideInUp 0.3s ease-out',
+            overflowY: 'auto',
           }}
         >
           {/* Close button */}
@@ -415,6 +465,9 @@ const AlkiMusicEasterEggs = () => {
             <div style={{ fontSize: '14px', opacity: 0.9, marginTop: '5px' }}>
               by Alki
             </div>
+            <div style={{ fontSize: '11px', opacity: 0.7, marginTop: '5px' }}>
+              {ALKI_TRACKS.length} tracks available
+            </div>
           </div>
 
           {/* Error message */}
@@ -432,7 +485,7 @@ const AlkiMusicEasterEggs = () => {
           )}
 
           {/* Track list */}
-          <div style={{ marginBottom: '15px', maxHeight: '150px', overflowY: 'auto' }}>
+          <div style={{ marginBottom: '15px', maxHeight: '250px', overflowY: 'auto' }}>
             {ALKI_TRACKS.map((track, index) => (
               <div
                 key={track.id}
@@ -453,9 +506,14 @@ const AlkiMusicEasterEggs = () => {
                   e.currentTarget.style.background = currentTrack === index ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.1)';
                 }}
               >
-                <div style={{ fontSize: '14px', fontWeight: '500' }}>{track.title}</div>
+                <div style={{ fontSize: '14px', fontWeight: '500' }}>
+                  {currentTrack === index && isPlaying ? '▶ ' : ''}{track.title}
+                </div>
                 <div style={{ fontSize: '11px', opacity: 0.7, marginTop: '2px' }}>
                   {track.description}
+                </div>
+                <div style={{ fontSize: '10px', opacity: 0.5, marginTop: '2px' }}>
+                  Type: {track.trigger}
                 </div>
               </div>
             ))}
@@ -574,7 +632,7 @@ const AlkiMusicEasterEggs = () => {
             position: 'fixed',
             bottom: showPlayer ? '420px' : '20px',
             right: '20px',
-            width: '320px',
+            width: '340px',
             height: '100px',
             background: 'rgba(0,0,0,0.8)',
             borderRadius: '12px',

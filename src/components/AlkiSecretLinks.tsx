@@ -85,7 +85,7 @@ const AlkiSecretLinks = () => {
 
   // Create invisible clickable zones
   useEffect(() => {
-    // Secret zone 1: Top-left corner (triple click)
+    // Secret zone 1: Top-left corner (triple click) - Home
     let cornerClicks = 0;
     let cornerTimeout: NodeJS.Timeout;
 
@@ -95,7 +95,7 @@ const AlkiSecretLinks = () => {
         clearTimeout(cornerTimeout);
         
         if (cornerClicks === 3) {
-          playSecretAudio('/audio/alki/iptwha.mp3', 'corner_secret');
+          playSecretAudio('/audio/alki/home.mp3', 'corner_secret');
           cornerClicks = 0;
         } else {
           cornerTimeout = setTimeout(() => {
@@ -105,7 +105,7 @@ const AlkiSecretLinks = () => {
       }
     };
 
-    // Secret zone 2: Bottom-right corner (double click)
+    // Secret zone 2: Bottom-right corner (double click) - Okay
     let bottomClicks = 0;
     let bottomTimeout: NodeJS.Timeout;
 
@@ -117,7 +117,7 @@ const AlkiSecretLinks = () => {
         clearTimeout(bottomTimeout);
         
         if (bottomClicks === 2) {
-          playSecretAudio('/audio/alki/like-that.mp3', 'bottom_secret');
+          playSecretAudio('/audio/alki/okay.mp3', 'bottom_secret');
           bottomClicks = 0;
         } else {
           bottomTimeout = setTimeout(() => {
@@ -127,7 +127,7 @@ const AlkiSecretLinks = () => {
       }
     };
 
-    // Secret: Hold Shift and click anywhere 5 times
+    // Secret: Hold Shift and click anywhere 5 times - Luv 4
     let shiftClicks = 0;
     let shiftTimeout: NodeJS.Timeout;
 
@@ -137,7 +137,7 @@ const AlkiSecretLinks = () => {
         clearTimeout(shiftTimeout);
         
         if (shiftClicks === 5) {
-          playSecretAudio('/audio/alki/writin-my-wrongs.mp3', 'shift_secret');
+          playSecretAudio('/audio/alki/luv4.mp3', 'shift_secret');
           shiftClicks = 0;
         } else {
           shiftTimeout = setTimeout(() => {
@@ -147,14 +147,14 @@ const AlkiSecretLinks = () => {
       }
     };
 
-    // Secret: Ctrl+Shift+A
+    // Secret: Ctrl+Shift+A - Stay
     const handleKeyCombo = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
         e.preventDefault();
-        playSecretAudio('/audio/alki/regrets.mp3', 'keyboard_secret');
+        playSecretAudio('/audio/alki/stay.mp3', 'keyboard_secret');
       }
 
-      // Secret: Type "alkimusic" anywhere
+      // Secret menu toggle
       if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'm') {
         e.preventDefault();
         setShowSecretMenu(prev => !prev);
@@ -162,7 +162,7 @@ const AlkiSecretLinks = () => {
       }
     };
 
-    // Secret: Scroll to exact middle of page and wait 3 seconds
+    // Secret: Scroll to exact middle of page and wait 3 seconds - Take It All Away
     let scrollTimeout: NodeJS.Timeout;
     const handleScroll = () => {
       clearTimeout(scrollTimeout);
@@ -172,7 +172,7 @@ const AlkiSecretLinks = () => {
       if (scrollPercent >= 49 && scrollPercent <= 51) {
         scrollTimeout = setTimeout(() => {
           if (!discoveredSecrets.has('scroll_middle_secret')) {
-            playSecretAudio('/audio/alki/iptwha.mp3', 'scroll_middle_secret');
+            playSecretAudio('/audio/alki/take-it-all-away.mp3', 'scroll_middle_secret');
           }
         }, 3000);
       }
@@ -201,29 +201,29 @@ const AlkiSecretLinks = () => {
   useEffect(() => {
     // Find all text nodes and add secret triggers
     const addSecretTriggers = () => {
-      // Secret: Click on any "music" word
+      // Secret: Double-click on any "music" word - Tear Me Apart
       const musicElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, div');
       
       musicElements.forEach(element => {
         if (element.textContent?.toLowerCase().includes('music')) {
           const handler = () => {
-            playSecretAudio('/audio/alki/like-that.mp3', 'music_word_secret');
+            playSecretAudio('/audio/alki/tear-me-apart.mp3', 'music_word_secret');
           };
           element.addEventListener('dblclick', handler);
         }
 
-        // Secret: Click on any "artist" word
+        // Secret: Double-click on any "artist" word - IPTWHA
         if (element.textContent?.toLowerCase().includes('artist')) {
           const handler = () => {
-            playSecretAudio('/audio/alki/writin-my-wrongs.mp3', 'artist_word_secret');
+            playSecretAudio('/audio/alki/iptwha.mp3', 'artist_word_secret');
           };
           element.addEventListener('dblclick', handler);
         }
 
-        // Secret: Click on any "record" word
+        // Secret: Double-click on any "record" word - Like That
         if (element.textContent?.toLowerCase().includes('record')) {
           const handler = () => {
-            playSecretAudio('/audio/alki/regrets.mp3', 'record_word_secret');
+            playSecretAudio('/audio/alki/like-that.mp3', 'record_word_secret');
           };
           element.addEventListener('dblclick', handler);
         }
@@ -263,6 +263,8 @@ const AlkiSecretLinks = () => {
             color: 'white',
             fontFamily: 'system-ui, -apple-system, sans-serif',
             maxWidth: '500px',
+            maxHeight: '80vh',
+            overflowY: 'auto',
             animation: 'scaleIn 0.3s ease-out',
           }}
         >
@@ -317,19 +319,38 @@ const AlkiSecretLinks = () => {
           <div style={{ background: 'rgba(255,255,255,0.05)', padding: '15px', borderRadius: '10px' }}>
             <h3 style={{ fontSize: '14px', marginBottom: '10px', opacity: 0.8 }}>Secret Locations:</h3>
             <ul style={{ fontSize: '12px', opacity: 0.7, lineHeight: '1.8', paddingLeft: '20px' }}>
-              <li>Triple-click top-left corner</li>
-              <li>Double-click bottom-right corner</li>
-              <li>Hold Shift + click 5 times</li>
-              <li>Press Ctrl+Shift+A</li>
-              <li>Scroll to middle and wait 3 seconds</li>
-              <li>Double-click words: "music", "artist", "record"</li>
-              <li>Type "alki" anywhere on the page</li>
-              <li>Press Ctrl+Alt+M for music player</li>
+              <li>Triple-click top-left corner → Home</li>
+              <li>Double-click bottom-right corner → Okay</li>
+              <li>Hold Shift + click 5 times → Luv 4</li>
+              <li>Press Ctrl+Shift+A → Stay</li>
+              <li>Scroll to middle and wait 3s → Take It All Away</li>
+              <li>Double-click "music" word → Tear Me Apart</li>
+              <li>Double-click "artist" word → IPTWHA</li>
+              <li>Double-click "record" word → Like That</li>
+            </ul>
+          </div>
+
+          <div style={{ marginTop: '20px', background: 'rgba(255,255,255,0.05)', padding: '15px', borderRadius: '10px' }}>
+            <h3 style={{ fontSize: '14px', marginBottom: '10px', opacity: 0.8 }}>Type Triggers:</h3>
+            <ul style={{ fontSize: '12px', opacity: 0.7, lineHeight: '1.8', paddingLeft: '20px' }}>
+              <li>Type "alki" → Open player</li>
+              <li>Type "iptwha" → IPTWHA</li>
+              <li>Type "likethat" → Like That</li>
+              <li>Type "wrongs" → Writin' My Wrongs</li>
+              <li>Type "regrets" → Regrets</li>
+              <li>Type "home" → Home</li>
+              <li>Type "okay" → Okay</li>
+              <li>Type "luv4" → Luv 4</li>
+              <li>Type "stay" → Stay</li>
+              <li>Type "takeaway" → Take It All Away</li>
+              <li>Type "tearme" → Tear Me Apart</li>
             </ul>
           </div>
 
           <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '12px', opacity: 0.6 }}>
-            Progress: {discoveredSecrets.size} / 8 secrets found
+            Progress: {discoveredSecrets.size} / 8 location secrets found
+            <br />
+            Plus 10 type triggers available!
           </div>
         </div>
       )}
