@@ -44,14 +44,14 @@ export function HeroSection() {
           
           {/* Tagline */}
           <p className="text-fade-in text-fade-in-delay-1 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
-            Dream → Reality | Artists Firsts.
+            We own the tech, you own your success. That's helpful.
           </p>
           
           {/* Description */}
           <p className="text-fade-in text-fade-in-delay-2 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Founded by James Rockel at  18 years old, with boundary-pushing artist Alki as co-founder, 
-            we're transforming the music industry with artist-first partnerships that put creators in control 
-            of their careers and revenue.
+            11% commission, 100% helpful. No double-dipping. We make money building technology for creators, 
+            not by taking from them. All tools owned and built by us—seamless integration, zero hidden fees, 
+            complete transparency.
           </p>
           
           {/* CTA Buttons */}
