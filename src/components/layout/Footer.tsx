@@ -44,7 +44,7 @@ export function Footer() {
               <span className="text-white font-bold text-xl">HLPFL</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              World-class record label dedicated to discovering, developing, and promoting exceptional musical talent.
+              11% commission, 0% BS. We own the tech, you own your success. That's helpful.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => {
@@ -119,7 +119,7 @@ export function Footer() {
             © {currentYear} HLPFL. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm mt-2 md:mt-0">
-            Elevating artists to global recognition
+            The 11% revolution: No backdoors, no hidden fees, just helpful.
           </p>
         </div>
       </div>
