@@ -227,7 +227,7 @@ const AlkiSecretLinks = () => {
         // Secret: Double-click on any "artist" word - IPTWHA
         if (element.textContent?.toLowerCase().includes('artist')) {
           const handler = () => {
-            playSecretAudio('/audio/alki/iptwha.mp3', 'artist_word_secret');
+            playSecretAudio('/audio/alki/bad-one.mp3', 'artist_word_secret');
           };
           element.addEventListener('dblclick', handler);
         }
@@ -235,7 +235,7 @@ const AlkiSecretLinks = () => {
         // Secret: Double-click on any "record" word - Like That
         if (element.textContent?.toLowerCase().includes('record')) {
           const handler = () => {
-            playSecretAudio('/audio/alki/like-that.mp3', 'record_word_secret');
+            playSecretAudio('/audio/alki/death-of-me.mp3', 'record_word_secret');
           };
           element.addEventListener('dblclick', handler);
         }
