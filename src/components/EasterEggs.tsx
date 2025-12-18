@@ -12,7 +12,7 @@ const EasterEggs = () => {
   const [scrollDepth, setScrollDepth] = useState(0)
   const [isThrottled, setIsThrottled] = useState(false)
   const lastTriggerTime = useRef(0)
-  const activeEffects = useRef(new Set())
+  const activeEffects = useRef(new Set<HTMLElement>())
   const secretSequence = ['h', 'l', 'p', 'f', 'l']
 
   // Rate limiting function
