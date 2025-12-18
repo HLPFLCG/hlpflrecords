@@ -9,7 +9,7 @@ const ALKI_TRACKS = [
     title: 'IPTWHA',
     file: '/audio/alki/iptwha.mp3',
     trigger: 'iptwha',
-    color: '#FF6B6B',
+    color: '#c87941',
     description: 'The anthem that started it all'
   },
   {
@@ -17,7 +17,7 @@ const ALKI_TRACKS = [
     title: 'Like That',
     file: '/audio/alki/like-that.mp3',
     trigger: 'likethat',
-    color: '#4ECDC4',
+    color: '#d4945c',
     description: 'Smooth vibes, pure energy'
   },
   {
@@ -25,7 +25,7 @@ const ALKI_TRACKS = [
     title: "Writin' My Wrongs",
     file: '/audio/alki/writin-my-wrongs.mp3',
     trigger: 'wrongs',
-    color: '#95E1D3',
+    color: '#a86535',
     description: 'Deep thoughts, real talk'
   },
   {
@@ -33,7 +33,7 @@ const ALKI_TRACKS = [
     title: 'Regrets',
     file: '/audio/alki/regrets.mp3',
     trigger: 'regrets',
-    color: '#F38181',
+    color: '#c87941',
     description: 'No regrets, just lessons'
   },
   {
@@ -41,7 +41,7 @@ const ALKI_TRACKS = [
     title: 'Home',
     file: '/audio/alki/home.mp3',
     trigger: 'home',
-    color: '#FFD93D',
+    color: '#d4945c',
     description: 'Finding your way back'
   },
   {
@@ -49,7 +49,7 @@ const ALKI_TRACKS = [
     title: 'Okay',
     file: '/audio/alki/okay.mp3',
     trigger: 'okay',
-    color: '#6BCB77',
+    color: '#a86535',
     description: 'Everything will be okay'
   },
   {
@@ -57,7 +57,7 @@ const ALKI_TRACKS = [
     title: 'Luv 4',
     file: '/audio/alki/luv4.mp3',
     trigger: 'luv4',
-    color: '#FF6B9D',
+    color: '#c87941',
     description: 'Love in its purest form'
   },
   {
@@ -65,7 +65,7 @@ const ALKI_TRACKS = [
     title: 'Stay',
     file: '/audio/alki/stay.mp3',
     trigger: 'stay',
-    color: '#C44569',
+    color: '#d4945c',
     description: 'Stay with me (ft. Arya)'
   },
   {
@@ -73,7 +73,7 @@ const ALKI_TRACKS = [
     title: 'Take It All Away',
     file: '/audio/alki/take-it-all-away.mp3',
     trigger: 'takeaway',
-    color: '#A8E6CF',
+    color: '#a86535',
     description: 'Let it all go'
   },
   {
@@ -81,7 +81,7 @@ const ALKI_TRACKS = [
     title: 'Tear Me Apart',
     file: '/audio/alki/tear-me-apart.mp3',
     trigger: 'tearme',
-    color: '#FF8B94',
+    color: '#c87941',
     description: 'Raw emotions unleashed'
   }
 ];
@@ -94,6 +94,7 @@ const AlkiMusicEasterEggs = () => {
   const [showVisualizer, setShowVisualizer] = useState(false);
   const [volume, setVolume] = useState(0.7);
   const [audioError, setAudioError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -102,6 +103,17 @@ const AlkiMusicEasterEggs = () => {
   const sourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const lastTriggerRef = useRef<number>(0);
+  const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
+
+  // Detect mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Security: Rate limiting
   const canTrigger = useCallback(() => {
@@ -118,10 +130,11 @@ const AlkiMusicEasterEggs = () => {
         event_category: 'music_engagement',
         event_label: eventName,
         track_title: trackTitle || 'unknown',
+        device_type: isMobile ? 'mobile' : 'desktop',
         non_interaction: true
       });
     }
-  }, []);
+  }, [isMobile]);
 
   // Initialize audio context for visualizer
   const initAudioContext = useCallback(() => {
@@ -130,7 +143,7 @@ const AlkiMusicEasterEggs = () => {
         const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
         audioContextRef.current = new AudioContext();
         analyserRef.current = audioContextRef.current.createAnalyser();
-        analyserRef.current.fftSize = 256;
+        analyserRef.current.fftSize = isMobile ? 128 : 256; // Smaller FFT for mobile
         
         sourceNodeRef.current = audioContextRef.current.createMediaElementSource(audioRef.current);
         sourceNodeRef.current.connect(analyserRef.current);
@@ -139,9 +152,9 @@ const AlkiMusicEasterEggs = () => {
         console.error('Audio context initialization failed:', error);
       }
     }
-  }, []);
+  }, [isMobile]);
 
-  // Visualizer animation
+  // HLPFL-themed visualizer with gold/copper colors
   const drawVisualizer = useCallback(() => {
     if (!canvasRef.current || !analyserRef.current || !showVisualizer) return;
 
@@ -153,7 +166,9 @@ const AlkiMusicEasterEggs = () => {
     const dataArray = new Uint8Array(bufferLength);
     analyserRef.current.getByteFrequencyData(dataArray);
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Dark background matching HLPFL theme
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const barWidth = (canvas.width / bufferLength) * 2.5;
     let barHeight;
@@ -162,19 +177,25 @@ const AlkiMusicEasterEggs = () => {
     for (let i = 0; i < bufferLength; i++) {
       barHeight = (dataArray[i] / 255) * canvas.height * 0.8;
 
+      // HLPFL gold gradient
       const gradient = ctx.createLinearGradient(0, canvas.height - barHeight, 0, canvas.height);
-      const track = currentTrack !== null ? ALKI_TRACKS[currentTrack] : ALKI_TRACKS[0];
-      gradient.addColorStop(0, track.color);
-      gradient.addColorStop(1, track.color + '40');
+      gradient.addColorStop(0, '#d4945c'); // gold-light
+      gradient.addColorStop(0.5, '#c87941'); // gold-primary
+      gradient.addColorStop(1, '#a86535'); // gold-dark
 
       ctx.fillStyle = gradient;
       ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
 
+      // Add glow effect
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = '#c87941';
+
       x += barWidth + 1;
     }
 
+    ctx.shadowBlur = 0;
     animationFrameRef.current = requestAnimationFrame(drawVisualizer);
-  }, [showVisualizer, currentTrack]);
+  }, [showVisualizer]);
 
   // Play track
   const playTrack = useCallback((trackIndex: number) => {
@@ -183,16 +204,12 @@ const AlkiMusicEasterEggs = () => {
     const track = ALKI_TRACKS[trackIndex];
     
     if (audioRef.current) {
-      // Stop current playback
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
-      
-      // Set new source
       audioRef.current.src = track.file;
       audioRef.current.volume = volume;
-      audioRef.current.load(); // Force reload
+      audioRef.current.load();
       
-      // Play with user interaction handling
       const playPromise = audioRef.current.play();
       
       if (playPromise !== undefined) {
@@ -209,12 +226,12 @@ const AlkiMusicEasterEggs = () => {
           })
           .catch(err => {
             console.error('Playback failed:', err);
-            setAudioError(`Failed to play ${track.title}. Click the player to try again.`);
+            setAudioError(`Failed to play ${track.title}. ${isMobile ? 'Tap' : 'Click'} the player to try again.`);
             setIsPlaying(false);
           });
       }
     }
-  }, [volume, canTrigger, initAudioContext, trackEvent]);
+  }, [volume, canTrigger, initAudioContext, trackEvent, isMobile]);
 
   // Stop track
   const stopTrack = useCallback(() => {
@@ -270,7 +287,7 @@ const AlkiMusicEasterEggs = () => {
       position: fixed;
       left: ${Math.random() * 80 + 10}%;
       top: 100%;
-      font-size: ${Math.random() * 30 + 40}px;
+      font-size: ${isMobile ? Math.random() * 20 + 30 : Math.random() * 30 + 40}px;
       color: ${color};
       pointer-events: none;
       z-index: 10000;
@@ -279,35 +296,184 @@ const AlkiMusicEasterEggs = () => {
     `;
     document.body.appendChild(note);
     setTimeout(() => note.remove(), 3000);
-  }, []);
+  }, [isMobile]);
 
-  // Keyboard event handler
+  // Show URL popup
+  const showURLPopup = useCallback((url: string, title: string) => {
+    const popup = document.createElement('div');
+    popup.innerHTML = `
+      <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        <div style="font-size: ${isMobile ? '28px' : '32px'};">🔗</div>
+        <div style="font-weight: bold; font-size: ${isMobile ? '16px' : '18px'};">${title}</div>
+        <a href="${url}" target="_blank" rel="noopener noreferrer" 
+           style="color: white; text-decoration: none; background: rgba(200, 121, 65, 0.3); 
+                  padding: ${isMobile ? '8px 16px' : '10px 20px'}; border-radius: 8px; transition: all 0.2s;
+                  border: 1px solid #c87941;"
+           onmouseover="this.style.background='rgba(200, 121, 65, 0.5)'"
+           onmouseout="this.style.background='rgba(200, 121, 65, 0.3)'">
+          Visit Now →
+        </a>
+      </div>
+    `;
+    popup.style.cssText = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+      border: 2px solid #c87941;
+      color: white;
+      padding: ${isMobile ? '20px 30px' : '30px 40px'};
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(200, 121, 65, 0.3);
+      z-index: 10002;
+      animation: scaleIn 0.3s ease-out, fadeOut 0.3s ease-out 4.7s forwards;
+      font-family: system-ui, -apple-system, sans-serif;
+      text-align: center;
+      max-width: ${isMobile ? '90%' : 'auto'};
+    `;
+    document.body.appendChild(popup);
+    setTimeout(() => popup.remove(), 5000);
+  }, [isMobile]);
+
+  // Mobile-specific: Swipe gestures
   useEffect(() => {
+    if (!isMobile || !showPlayer) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        touchStartRef.current = {
+          x: e.touches[0].clientX,
+          y: e.touches[0].clientY,
+          time: Date.now()
+        };
+      }
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (!touchStartRef.current || !e.changedTouches.length) return;
+
+      const touchEnd = {
+        x: e.changedTouches[0].clientX,
+        y: e.changedTouches[0].clientY,
+        time: Date.now()
+      };
+
+      const deltaX = touchEnd.x - touchStartRef.current.x;
+      const deltaY = touchEnd.y - touchStartRef.current.y;
+      const deltaTime = touchEnd.time - touchStartRef.current.time;
+
+      // Swipe detection (must be fast and horizontal)
+      if (deltaTime < 300 && Math.abs(deltaX) > 50 && Math.abs(deltaY) < 50) {
+        if (deltaX > 0) {
+          // Swipe right - previous track
+          prevTrack();
+          trackEvent('swipe_previous');
+        } else {
+          // Swipe left - next track
+          nextTrack();
+          trackEvent('swipe_next');
+        }
+      }
+
+      touchStartRef.current = null;
+    };
+
+    document.addEventListener('touchstart', handleTouchStart);
+    document.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [isMobile, showPlayer, nextTrack, prevTrack, trackEvent]);
+
+  // Mobile-specific: Shake to shuffle
+  useEffect(() => {
+    if (!isMobile) return;
+
+    let lastX = 0, lastY = 0, lastZ = 0;
+    let shakeCount = 0;
+    let shakeTimeout: NodeJS.Timeout;
+
+    const handleMotion = (e: DeviceMotionEvent) => {
+      const acc = e.accelerationIncludingGravity;
+      if (!acc || !acc.x || !acc.y || !acc.z) return;
+
+      const deltaX = Math.abs(acc.x - lastX);
+      const deltaY = Math.abs(acc.y - lastY);
+      const deltaZ = Math.abs(acc.z - lastZ);
+
+      if (deltaX + deltaY + deltaZ > 30) {
+        shakeCount++;
+        clearTimeout(shakeTimeout);
+
+        if (shakeCount >= 3) {
+          // Shake detected - play random track
+          const randomIndex = Math.floor(Math.random() * ALKI_TRACKS.length);
+          playTrack(randomIndex);
+          trackEvent('shake_to_shuffle');
+          shakeCount = 0;
+        } else {
+          shakeTimeout = setTimeout(() => {
+            shakeCount = 0;
+          }, 1000);
+        }
+      }
+
+      lastX = acc.x;
+      lastY = acc.y;
+      lastZ = acc.z;
+    };
+
+    window.addEventListener('devicemotion', handleMotion);
+    return () => {
+      window.removeEventListener('devicemotion', handleMotion);
+      clearTimeout(shakeTimeout);
+    };
+  }, [isMobile, playTrack, trackEvent]);
+
+  // Keyboard event handler (desktop only)
+  useEffect(() => {
+    if (isMobile) return; // Skip keyboard events on mobile
+
     const handleKeyPress = (e: KeyboardEvent) => {
-      // Ignore if typing in input fields
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         return;
       }
 
       const key = e.key.toLowerCase();
 
-      // Update alki code sequence
       setAlkiCode(prev => {
-        const newCode = [...prev, key].slice(-15); // Increased buffer for longer triggers
+        const newCode = [...prev, key].slice(-20);
         const codeString = newCode.join('');
 
-        // Check for "alki" trigger - opens player with first track
         if (codeString.includes('alki')) {
           if (canTrigger()) {
             setShowPlayer(true);
             playTrack(0);
             trackEvent('alki_code_activated');
-            showMusicNote('🎵', '#FF6B6B');
+            showMusicNote('🎵', '#c87941');
             return [];
           }
         }
 
-        // Check for individual track triggers
+        if (codeString.includes('grouped')) {
+          if (canTrigger()) {
+            showURLPopup('https://app.grouped.com/everythingalki', 'Everything Alki on Grouped');
+            trackEvent('grouped_url_discovered');
+            return [];
+          }
+        }
+
+        if (codeString.includes('instagram') || codeString.includes('insta')) {
+          if (canTrigger()) {
+            showURLPopup('https://instagram.com/alkiotis', 'Follow Alki on Instagram');
+            trackEvent('instagram_url_discovered');
+            return [];
+          }
+        }
+
         ALKI_TRACKS.forEach((track, index) => {
           if (codeString.includes(track.trigger)) {
             if (canTrigger()) {
@@ -321,7 +487,6 @@ const AlkiMusicEasterEggs = () => {
         return newCode;
       });
 
-      // Ctrl+Alt+M: Toggle music player
       if (e.ctrlKey && e.altKey && key === 'm') {
         e.preventDefault();
         if (canTrigger()) {
@@ -330,7 +495,6 @@ const AlkiMusicEasterEggs = () => {
         }
       }
 
-      // Ctrl+Alt+V: Toggle visualizer
       if (e.ctrlKey && e.altKey && key === 'v') {
         e.preventDefault();
         if (canTrigger()) {
@@ -339,13 +503,27 @@ const AlkiMusicEasterEggs = () => {
         }
       }
 
-      // Space: Play/Pause (when player is visible)
+      if (e.ctrlKey && e.altKey && key === 'g') {
+        e.preventDefault();
+        if (canTrigger()) {
+          showURLPopup('https://app.grouped.com/everythingalki', 'Everything Alki on Grouped');
+          trackEvent('grouped_shortcut');
+        }
+      }
+
+      if (e.ctrlKey && e.altKey && key === 'i') {
+        e.preventDefault();
+        if (canTrigger()) {
+          showURLPopup('https://instagram.com/alkiotis', 'Follow Alki on Instagram');
+          trackEvent('instagram_shortcut');
+        }
+      }
+
       if (showPlayer && key === ' ' && !e.ctrlKey && !e.altKey) {
         e.preventDefault();
         togglePlayPause();
       }
 
-      // Arrow keys for track navigation (when player is visible)
       if (showPlayer) {
         if (key === 'arrowright') {
           e.preventDefault();
@@ -359,7 +537,7 @@ const AlkiMusicEasterEggs = () => {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [showPlayer, canTrigger, playTrack, togglePlayPause, nextTrack, prevTrack, trackEvent, showMusicNote]);
+  }, [isMobile, showPlayer, canTrigger, playTrack, togglePlayPause, nextTrack, prevTrack, trackEvent, showMusicNote, showURLPopup]);
 
   // Visualizer animation loop
   useEffect(() => {
@@ -393,7 +571,6 @@ const AlkiMusicEasterEggs = () => {
 
   return (
     <>
-      {/* Hidden audio element */}
       <audio
         ref={audioRef}
         preload="none"
@@ -408,19 +585,21 @@ const AlkiMusicEasterEggs = () => {
         }}
       />
 
-      {/* Music Player UI */}
+      {/* Music Player UI - HLPFL themed */}
       {showPlayer && (
         <div
           style={{
             position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-            width: '340px',
-            maxHeight: '80vh',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            bottom: isMobile ? '10px' : '20px',
+            right: isMobile ? '10px' : '20px',
+            width: isMobile ? 'calc(100% - 20px)' : '360px',
+            maxWidth: isMobile ? '400px' : '360px',
+            maxHeight: '85vh',
+            background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
+            border: '2px solid #c87941',
             borderRadius: '16px',
-            padding: '20px',
-            boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
+            padding: isMobile ? '15px' : '20px',
+            boxShadow: '0 10px 40px rgba(200, 121, 65, 0.3)',
             zIndex: 9999,
             color: 'white',
             fontFamily: 'system-ui, -apple-system, sans-serif',
@@ -428,7 +607,6 @@ const AlkiMusicEasterEggs = () => {
             overflowY: 'auto',
           }}
         >
-          {/* Close button */}
           <button
             onClick={() => {
               setShowPlayer(false);
@@ -438,100 +616,96 @@ const AlkiMusicEasterEggs = () => {
               position: 'absolute',
               top: '10px',
               right: '10px',
-              background: 'rgba(255,255,255,0.2)',
-              border: 'none',
+              background: 'rgba(200, 121, 65, 0.2)',
+              border: '1px solid #c87941',
               borderRadius: '50%',
               width: '30px',
               height: '30px',
               cursor: 'pointer',
-              color: 'white',
+              color: '#c87941',
               fontSize: '18px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
             }}
           >
             ×
           </button>
 
-          {/* Header */}
           <div style={{ marginBottom: '15px' }}>
-            <div style={{ fontSize: '12px', opacity: 0.8, marginBottom: '5px' }}>
+            <div style={{ fontSize: '12px', color: '#d4945c', marginBottom: '5px' }}>
               NOW PLAYING
             </div>
-            <div style={{ fontSize: '20px', fontWeight: 'bold' }}>
+            <div style={{ fontSize: isMobile ? '18px' : '20px', fontWeight: 'bold', color: '#c87941' }}>
               {currentTrack !== null ? ALKI_TRACKS[currentTrack].title : 'Select a track'}
             </div>
-            <div style={{ fontSize: '14px', opacity: 0.9, marginTop: '5px' }}>
+            <div style={{ fontSize: '14px', color: '#d4945c', marginTop: '5px' }}>
               by Alki
             </div>
-            <div style={{ fontSize: '11px', opacity: 0.7, marginTop: '5px' }}>
-              {ALKI_TRACKS.length} tracks available
+            <div style={{ fontSize: '11px', color: '#a86535', marginTop: '5px' }}>
+              {ALKI_TRACKS.length} tracks • {isMobile ? 'Swipe to navigate' : 'Type triggers available'}
             </div>
           </div>
 
-          {/* Error message */}
           {audioError && (
             <div style={{
-              background: 'rgba(255,0,0,0.2)',
+              background: 'rgba(255,0,0,0.1)',
               padding: '10px',
               borderRadius: '8px',
               fontSize: '12px',
               marginBottom: '15px',
-              border: '1px solid rgba(255,0,0,0.3)'
+              border: '1px solid rgba(255,0,0,0.3)',
+              color: '#ff6b6b'
             }}>
               {audioError}
             </div>
           )}
 
-          {/* Track list */}
-          <div style={{ marginBottom: '15px', maxHeight: '250px', overflowY: 'auto' }}>
+          <div style={{ marginBottom: '15px', maxHeight: isMobile ? '200px' : '300px', overflowY: 'auto' }}>
             {ALKI_TRACKS.map((track, index) => (
               <div
                 key={track.id}
                 onClick={() => playTrack(index)}
                 style={{
-                  padding: '10px',
+                  padding: isMobile ? '8px' : '10px',
                   marginBottom: '5px',
-                  background: currentTrack === index ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.1)',
+                  background: currentTrack === index ? 'rgba(200, 121, 65, 0.2)' : 'rgba(200, 121, 65, 0.1)',
                   borderRadius: '8px',
                   cursor: 'pointer',
                   transition: 'all 0.2s',
                   borderLeft: `4px solid ${track.color}`,
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
+                  e.currentTarget.style.background = 'rgba(200, 121, 65, 0.25)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = currentTrack === index ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.1)';
+                  e.currentTarget.style.background = currentTrack === index ? 'rgba(200, 121, 65, 0.2)' : 'rgba(200, 121, 65, 0.1)';
                 }}
               >
-                <div style={{ fontSize: '14px', fontWeight: '500' }}>
+                <div style={{ fontSize: '14px', fontWeight: '500', color: '#c87941' }}>
                   {currentTrack === index && isPlaying ? '▶ ' : ''}{track.title}
                 </div>
-                <div style={{ fontSize: '11px', opacity: 0.7, marginTop: '2px' }}>
+                <div style={{ fontSize: '11px', color: '#a86535', marginTop: '2px' }}>
                   {track.description}
                 </div>
-                <div style={{ fontSize: '10px', opacity: 0.5, marginTop: '2px' }}>
-                  Type: {track.trigger}
-                </div>
+                {!isMobile && (
+                  <div style={{ fontSize: '10px', color: '#6b4a2e', marginTop: '2px' }}>
+                    Type: {track.trigger}
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
-          {/* Controls */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '15px' }}>
             <button
               onClick={prevTrack}
               disabled={currentTrack === null}
               style={{
-                background: 'rgba(255,255,255,0.2)',
-                border: 'none',
+                background: 'rgba(200, 121, 65, 0.2)',
+                border: '1px solid #c87941',
                 borderRadius: '50%',
                 width: '40px',
                 height: '40px',
                 cursor: currentTrack === null ? 'not-allowed' : 'pointer',
-                color: 'white',
+                color: '#c87941',
                 fontSize: '18px',
                 opacity: currentTrack === null ? 0.5 : 1,
               }}
@@ -542,13 +716,13 @@ const AlkiMusicEasterEggs = () => {
               onClick={togglePlayPause}
               disabled={currentTrack === null}
               style={{
-                background: 'rgba(255,255,255,0.3)',
-                border: 'none',
+                background: 'rgba(200, 121, 65, 0.3)',
+                border: '2px solid #c87941',
                 borderRadius: '50%',
                 width: '50px',
                 height: '50px',
                 cursor: currentTrack === null ? 'not-allowed' : 'pointer',
-                color: 'white',
+                color: '#c87941',
                 fontSize: '24px',
                 opacity: currentTrack === null ? 0.5 : 1,
               }}
@@ -559,13 +733,13 @@ const AlkiMusicEasterEggs = () => {
               onClick={nextTrack}
               disabled={currentTrack === null}
               style={{
-                background: 'rgba(255,255,255,0.2)',
-                border: 'none',
+                background: 'rgba(200, 121, 65, 0.2)',
+                border: '1px solid #c87941',
                 borderRadius: '50%',
                 width: '40px',
                 height: '40px',
                 cursor: currentTrack === null ? 'not-allowed' : 'pointer',
-                color: 'white',
+                color: '#c87941',
                 fontSize: '18px',
                 opacity: currentTrack === null ? 0.5 : 1,
               }}
@@ -574,9 +748,8 @@ const AlkiMusicEasterEggs = () => {
             </button>
           </div>
 
-          {/* Volume control */}
           <div style={{ marginBottom: '10px' }}>
-            <div style={{ fontSize: '12px', marginBottom: '5px', opacity: 0.8 }}>
+            <div style={{ fontSize: '12px', marginBottom: '5px', color: '#d4945c' }}>
               Volume: {Math.round(volume * 100)}%
             </div>
             <input
@@ -594,35 +767,82 @@ const AlkiMusicEasterEggs = () => {
               style={{
                 width: '100%',
                 cursor: 'pointer',
+                accentColor: '#c87941',
               }}
             />
           </div>
 
-          {/* Visualizer toggle */}
           <button
             onClick={() => setShowVisualizer(prev => !prev)}
             style={{
               width: '100%',
               padding: '10px',
-              background: showVisualizer ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.1)',
-              border: 'none',
+              background: showVisualizer ? 'rgba(200, 121, 65, 0.3)' : 'rgba(200, 121, 65, 0.1)',
+              border: '1px solid #c87941',
               borderRadius: '8px',
-              color: 'white',
+              color: '#c87941',
               cursor: 'pointer',
               fontSize: '14px',
+              marginBottom: '10px',
             }}
           >
             {showVisualizer ? '🎨 Hide Visualizer' : '🎨 Show Visualizer'}
           </button>
 
-          {/* Keyboard shortcuts hint */}
-          <div style={{ marginTop: '15px', fontSize: '11px', opacity: 0.6, textAlign: 'center' }}>
-            Space: Play/Pause • ← →: Navigate • Ctrl+Alt+V: Visualizer
+          <div style={{ 
+            display: 'flex', 
+            gap: '5px',
+            marginBottom: '10px',
+          }}>
+            <button
+              onClick={() => showURLPopup('https://app.grouped.com/everythingalki', 'Everything Alki')}
+              style={{
+                flex: 1,
+                padding: '8px',
+                background: 'rgba(200, 121, 65, 0.1)',
+                border: '1px solid #c87941',
+                borderRadius: '8px',
+                color: '#c87941',
+                cursor: 'pointer',
+                fontSize: '12px',
+              }}
+            >
+              🔗 Grouped
+            </button>
+            <button
+              onClick={() => showURLPopup('https://instagram.com/alkiotis', 'Follow on IG')}
+              style={{
+                flex: 1,
+                padding: '8px',
+                background: 'rgba(200, 121, 65, 0.1)',
+                border: '1px solid #c87941',
+                borderRadius: '8px',
+                color: '#c87941',
+                cursor: 'pointer',
+                fontSize: '12px',
+              }}
+            >
+              📸 Instagram
+            </button>
+          </div>
+
+          <div style={{ fontSize: '10px', color: '#a86535', textAlign: 'center', lineHeight: '1.4' }}>
+            {isMobile ? (
+              <>
+                <div>Swipe left/right to navigate tracks</div>
+                <div>Shake device to shuffle</div>
+              </>
+            ) : (
+              <>
+                <div>Space: Play/Pause • ← →: Navigate</div>
+                <div>Ctrl+Alt+V: Visualizer • Ctrl+Alt+G: Grouped • Ctrl+Alt+I: Instagram</div>
+              </>
+            )}
           </div>
         </div>
       )}
 
-      {/* Visualizer Canvas */}
+      {/* Visualizer Canvas - HLPFL themed */}
       {showVisualizer && (
         <canvas
           ref={canvasRef}
@@ -630,19 +850,20 @@ const AlkiMusicEasterEggs = () => {
           height={200}
           style={{
             position: 'fixed',
-            bottom: showPlayer ? '420px' : '20px',
-            right: '20px',
-            width: '340px',
-            height: '100px',
-            background: 'rgba(0,0,0,0.8)',
+            bottom: showPlayer ? (isMobile ? '320px' : '500px') : '20px',
+            right: isMobile ? '10px' : '20px',
+            width: isMobile ? 'calc(100% - 20px)' : '360px',
+            maxWidth: isMobile ? '400px' : '360px',
+            height: isMobile ? '80px' : '100px',
+            background: '#0a0a0a',
+            border: '2px solid #c87941',
             borderRadius: '12px',
             zIndex: 9998,
-            boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
+            boxShadow: '0 10px 40px rgba(200, 121, 65, 0.3)',
           }}
         />
       )}
 
-      {/* Animations */}
       <style jsx>{`
         @keyframes slideInUp {
           from {
@@ -663,6 +884,24 @@ const AlkiMusicEasterEggs = () => {
           to {
             transform: translateY(-100vh) rotate(360deg);
             opacity: 0;
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+          }
+          to {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+          }
+        }
+
+        @keyframes fadeOut {
+          to {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.9);
           }
         }
       `}</style>

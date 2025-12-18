@@ -6,8 +6,19 @@ import { useEffect, useCallback, useRef, useState } from 'react';
 const AlkiSecretLinks = () => {
   const [discoveredSecrets, setDiscoveredSecrets] = useState<Set<string>>(new Set());
   const [showSecretMenu, setShowSecretMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const lastClickRef = useRef<number>(0);
+
+  // Detect mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Track analytics
   const trackEvent = useCallback((eventName: string, secretId?: string) => {
@@ -16,10 +27,11 @@ const AlkiSecretLinks = () => {
         event_category: 'secret_engagement',
         event_label: eventName,
         secret_id: secretId || 'unknown',
+        device_type: isMobile ? 'mobile' : 'desktop',
         non_interaction: true
       });
     }
-  }, []);
+  }, [isMobile]);
 
   // Play secret audio
   const playSecretAudio = useCallback((trackUrl: string, secretId: string) => {
@@ -254,8 +266,8 @@ const AlkiSecretLinks = () => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-            border: '2px solid #667eea',
+            background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
+            border: '2px solid #c87941',
             borderRadius: '20px',
             padding: '30px',
             boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
@@ -274,30 +286,30 @@ const AlkiSecretLinks = () => {
               position: 'absolute',
               top: '15px',
               right: '15px',
-              background: 'rgba(255,255,255,0.1)',
-              border: 'none',
+              background: 'rgba(200, 121, 65, 0.2)',
+              border: '1px solid #c87941',
               borderRadius: '50%',
               width: '35px',
               height: '35px',
               cursor: 'pointer',
-              color: 'white',
+              color: '#c87941',
               fontSize: '20px',
             }}
           >
             ×
           </button>
 
-          <h2 style={{ fontSize: '24px', marginBottom: '20px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '24px', marginBottom: '20px', textAlign: 'center', color: '#c87941' }}>
             🎵 Alki's Secret Vault 🎵
           </h2>
 
-          <p style={{ fontSize: '14px', opacity: 0.8, marginBottom: '20px', textAlign: 'center' }}>
+          <p style={{ fontSize: '14px', color: '#d4945c', marginBottom: '20px', textAlign: 'center' }}>
             You've discovered the hidden music collection!
           </p>
 
           <div style={{ marginBottom: '20px' }}>
-            <h3 style={{ fontSize: '16px', marginBottom: '10px' }}>Discovered Secrets:</h3>
-            <div style={{ fontSize: '14px', opacity: 0.9 }}>
+            <h3 style={{ fontSize: '16px', marginBottom: '10px', color: '#c87941' }}>Discovered Secrets:</h3>
+            <div style={{ fontSize: '14px', color: '#d4945c' }}>
               {discoveredSecrets.size === 0 ? (
                 <p style={{ opacity: 0.6 }}>No secrets discovered yet...</p>
               ) : (
@@ -364,7 +376,7 @@ const AlkiSecretLinks = () => {
           width: '30px',
           height: '30px',
           opacity: discoveredSecrets.has('corner_secret') ? 0.5 : 0.1,
-          background: 'radial-gradient(circle, #667eea 0%, transparent 70%)',
+          background: 'radial-gradient(circle, #c87941 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 9997,
           transition: 'opacity 0.3s',
@@ -379,7 +391,7 @@ const AlkiSecretLinks = () => {
           width: '30px',
           height: '30px',
           opacity: discoveredSecrets.has('bottom_secret') ? 0.5 : 0.1,
-          background: 'radial-gradient(circle, #764ba2 0%, transparent 70%)',
+          background: 'radial-gradient(circle, #d4945c 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 9997,
           transition: 'opacity 0.3s',
