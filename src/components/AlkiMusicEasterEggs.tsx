@@ -7,7 +7,7 @@ const ALKI_TRACKS = [
   {
     id: 'iptwha',
     title: 'IPTWHA',
-    file: '/audio/alki/iptwha.wav',
+    file: '/audio/alki/iptwha.mp3',
     trigger: 'iptwha',
     color: '#FF6B6B',
     description: 'The anthem that started it all'

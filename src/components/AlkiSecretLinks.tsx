@@ -95,7 +95,7 @@ const AlkiSecretLinks = () => {
         clearTimeout(cornerTimeout);
         
         if (cornerClicks === 3) {
-          playSecretAudio('/audio/alki/iptwha.wav', 'corner_secret');
+          playSecretAudio('/audio/alki/iptwha.mp3', 'corner_secret');
           cornerClicks = 0;
         } else {
           cornerTimeout = setTimeout(() => {
@@ -172,7 +172,7 @@ const AlkiSecretLinks = () => {
       if (scrollPercent >= 49 && scrollPercent <= 51) {
         scrollTimeout = setTimeout(() => {
           if (!discoveredSecrets.has('scroll_middle_secret')) {
-            playSecretAudio('/audio/alki/iptwha.wav', 'scroll_middle_secret');
+            playSecretAudio('/audio/alki/iptwha.mp3', 'scroll_middle_secret');
           }
         }, 3000);
       }
