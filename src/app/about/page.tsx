@@ -54,10 +54,10 @@ export default function AboutPage() {
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            About <span className="text-gold">HLPFL Records</span>
+            About <span className="text-gold">HLPFL</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            Founded by James Rockel at just 18 years old, HLPFL Records is revolutionizing the music industry with artist-first partnerships. 
+            Founded by James Rockel at just 18 years old, HLPFL is revolutionizing the music industry with artist-first partnerships. 
             With boundary-pushing artist Alki as co-founder, we're proving that independent artists can thrive with our groundbreaking 50/50 model and genuine support.
           </p>
         </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
-                  Founded in 2019, HLPFL Records began when James Rockel, just 18 years old, witnessed countless talented musicians struggle with outdated industry practices. 
+                  Founded in 2019, HLPFL began when James Rockel, just 18 years old, witnessed countless talented musicians struggle with outdated industry practices. 
                   James envisioned a new paradigm where artists keep control of their music and earn fair revenue.
                 </p>
                 <p className="leading-relaxed">
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   Together, they proved the revolutionary 50/50 partnership model works, building a foundation for how modern music careers should function.
                 </p>
                 <p className="leading-relaxed">
-                  Today, from our Grand Rapids headquarters, HLPFL Records continues to transform the industry one artist at a time, 
+                  Today, from our Grand Rapids headquarters, HLPFL continues to transform the industry one artist at a time, 
                   proving that independence, artistic integrity, and commercial success can coexist in the modern music landscape.
                 </p>
               </div>
@@ -160,7 +160,7 @@ export default function AboutPage() {
               Meet Our <span className="text-gold">Team</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The passionate professionals behind HLPFL Records, dedicated to supporting our artists and advancing our mission.
+              The passionate professionals behind HLPFL, dedicated to supporting our artists and advancing our mission.
             </p>
           </div>
           

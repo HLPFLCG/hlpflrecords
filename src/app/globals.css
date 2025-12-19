@@ -12,9 +12,9 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 10, 10, 10;
   --background-end-rgb: 10, 10, 10;
-  --gold-primary: #FFD700;
-  --gold-light: #FFE55C;
-  --gold-dark: #B8860B;
+  --gold-primary: #c87941;
+  --gold-light: #d4945c;
+  --gold-dark: #a86535;
   --font-body: 'Space Grotesk', system-ui, sans-serif;
   --font-heading: 'Bebas Neue', 'Space Grotesk', system-ui, sans-serif;
 }

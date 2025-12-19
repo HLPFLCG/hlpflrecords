@@ -3,8 +3,8 @@ import { Copyright, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Copyright Policy | HLPFL Records',
-  description: 'Copyright Policy and DMCA information for HLPFL Records. Learn about our copyright protection and infringement procedures.',
+  title: 'Copyright Policy | HLPFL',
+  description: 'Copyright Policy and DMCA information for HLPFL. Learn about our copyright protection and infringement procedures.',
 }
 
 export default function CopyrightPage() {
@@ -40,20 +40,20 @@ export default function CopyrightPage() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">1. Copyright Protection</h2>
               <p className="text-gray-300 leading-relaxed">
-                HLPFL Records respects the intellectual property rights of others and expects our users to do the same. All content on this website, including but not limited to music, text, graphics, logos, images, audio clips, video clips, and software, is the property of HLPFL Records, our artists, or our content suppliers and is protected by United States and international copyright laws.
+                HLPFL respects the intellectual property rights of others and expects our users to do the same. All content on this website, including but not limited to music, text, graphics, logos, images, audio clips, video clips, and software, is the property of HLPFL, our artists, or our content suppliers and is protected by United States and international copyright laws.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">2. Ownership of Content</h2>
               
-              <h3 className="text-xl font-semibold text-gold mb-3 mt-6">2.1 HLPFL Records Content</h3>
+              <h3 className="text-xl font-semibold text-gold mb-3 mt-6">2.1 HLPFL Content</h3>
               <p className="text-gray-300 leading-relaxed mb-4">
-                Unless otherwise noted, all materials on this website are owned by HLPFL Records and are protected by copyright, trademark, and other intellectual property laws. This includes:
+                Unless otherwise noted, all materials on this website are owned by HLPFL and are protected by copyright, trademark, and other intellectual property laws. This includes:
               </p>
               <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
                 <li>Website design and layout</li>
-                <li>HLPFL Records logo and branding</li>
+                <li>HLPFL logo and branding</li>
                 <li>Text content and copy</li>
                 <li>Graphics and visual elements</li>
                 <li>Software and code</li>
@@ -61,7 +61,7 @@ export default function CopyrightPage() {
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">2.2 Artist Content</h3>
               <p className="text-gray-300 leading-relaxed">
-                Music, lyrics, artwork, and other creative works by our artists remain the property of the respective artists. HLPFL Records operates under a 50/50 partnership model where artists retain 100% ownership of their master recordings and compositions. We hold licenses to distribute, market, and promote this content as outlined in individual artist agreements.
+                Music, lyrics, artwork, and other creative works by our artists remain the property of the respective artists. HLPFL operates under a 50/50 partnership model where artists retain 100% ownership of their master recordings and compositions. We hold licenses to distribute, market, and promote this content as outlined in individual artist agreements.
               </p>
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">2.3 Third-Party Content</h3>
@@ -86,7 +86,7 @@ export default function CopyrightPage() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">4. Prohibited Uses</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                Without express written permission from HLPFL Records or the applicable rights holder, you may NOT:
+                Without express written permission from HLPFL or the applicable rights holder, you may NOT:
               </p>
               <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
                 <li>Copy, reproduce, or distribute any content from this website</li>
@@ -104,7 +104,7 @@ export default function CopyrightPage() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">5. DMCA Policy</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                HLPFL Records complies with the Digital Millennium Copyright Act (DMCA) and will respond to valid notices of copyright infringement. If you believe that your copyrighted work has been copied in a way that constitutes copyright infringement and is accessible on this website, please notify our Copyright Agent.
+                HLPFL complies with the Digital Millennium Copyright Act (DMCA) and will respond to valid notices of copyright infringement. If you believe that your copyrighted work has been copied in a way that constitutes copyright infringement and is accessible on this website, please notify our Copyright Agent.
               </p>
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">5.1 Filing a DMCA Notice</h3>
@@ -124,7 +124,7 @@ export default function CopyrightPage() {
               <div className="mt-6 p-4 bg-dark/50 rounded-lg">
                 <p className="text-gray-300">
                   <strong className="text-white">DMCA Copyright Agent:</strong><br />
-                  HLPFL Records<br />
+                  HLPFL<br />
                   Attn: Copyright Agent<br />
                   Email: contact@hlpfl.org<br />
                   Subject Line: "DMCA Takedown Request"
@@ -145,7 +145,7 @@ export default function CopyrightPage() {
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">5.3 Repeat Infringer Policy</h3>
               <p className="text-gray-300 leading-relaxed">
-                HLPFL Records will terminate the accounts of users who are repeat infringers of copyright in appropriate circumstances.
+                HLPFL will terminate the accounts of users who are repeat infringers of copyright in appropriate circumstances.
               </p>
             </section>
 
@@ -170,7 +170,7 @@ export default function CopyrightPage() {
               
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">7.1 Master Recording Ownership</h3>
               <p className="text-gray-300 leading-relaxed">
-                Under our 50/50 partnership model, artists retain 100% ownership of their master recordings. HLPFL Records holds exclusive distribution rights as outlined in individual artist agreements but does not claim ownership of the masters.
+                Under our 50/50 partnership model, artists retain 100% ownership of their master recordings. HLPFL holds exclusive distribution rights as outlined in individual artist agreements but does not claim ownership of the masters.
               </p>
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">7.2 Composition Rights</h3>
@@ -187,7 +187,7 @@ export default function CopyrightPage() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">8. User-Generated Content</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                When you submit content to HLPFL Records (such as music submissions, comments, or other materials):
+                When you submit content to HLPFL (such as music submissions, comments, or other materials):
               </p>
               <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
                 <li>You retain ownership of your content</li>
@@ -201,10 +201,10 @@ export default function CopyrightPage() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">9. Trademark Information</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                The following are trademarks or service marks of HLPFL Records:
+                The following are trademarks or service marks of HLPFL:
               </p>
               <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                <li>HLPFL Records®</li>
+                <li>HLPFL®</li>
                 <li>HLPFL logo and design marks</li>
                 <li>Associated branding and slogans</li>
               </ul>
@@ -263,7 +263,7 @@ export default function CopyrightPage() {
               </p>
               <div className="mt-4 p-4 bg-dark/50 rounded-lg">
                 <p className="text-gray-300">
-                  <strong className="text-white">HLPFL Records - Legal Department</strong><br />
+                  <strong className="text-white">HLPFL - Legal Department</strong><br />
                   General Inquiries: legal@hlpfl.org<br />
                   DMCA Notices: dmca@hlpfl.org<br />
                   Copyright Issues: copyright@hlpfl.org<br />

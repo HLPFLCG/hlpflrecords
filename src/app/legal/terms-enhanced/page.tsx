@@ -3,8 +3,8 @@ import { FileText, ArrowLeft, AlertTriangle } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Terms of Service | HLPFL Records',
-  description: 'Terms of Service for HLPFL Records. Read our terms and conditions for using our services.',
+  title: 'Terms of Service | HLPFL',
+  description: 'Terms of Service for HLPFL. Read our terms and conditions for using our services.',
 }
 
 export default function TermsEnhancedPage() {
@@ -54,7 +54,7 @@ export default function TermsEnhancedPage() {
                 INCLUDING ANY MODIFICATIONS WE MAY MAKE FROM TIME TO TIME.
               </p>
               <p className="text-gray-300 leading-relaxed mt-4">
-                These Terms constitute a legally binding agreement between you and HLPFL Records ("Company," "we," "us," or "our"). 
+                These Terms constitute a legally binding agreement between you and HLPFL ("Company," "we," "us," or "our"). 
                 By clicking "I Agree," accessing the Services, or using any part of the Services, you acknowledge that you have read, understood, 
                 and agree to be bound by these Terms and our Privacy Policy, which is incorporated herein by reference.
               </p>
@@ -79,7 +79,7 @@ export default function TermsEnhancedPage() {
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">3.1 Your Content</h3>
               <p className="text-gray-300 leading-relaxed">
                 When you submit, upload, post, or otherwise provide any content, including but not limited to music, text, images, videos, 
-                or other materials ("User Content") to the Services, you grant HLPFL Records a perpetual, irrevocable, worldwide, royalty-free, 
+                or other materials ("User Content") to the Services, you grant HLPFL a perpetual, irrevocable, worldwide, royalty-free, 
                 non-exclusive, transferable, and sublicensable license to use, reproduce, distribute, prepare derivative works of, display, 
                 perform, and otherwise exploit your User Content in connection with the Services and our business operations.
               </p>
@@ -110,7 +110,7 @@ export default function TermsEnhancedPage() {
               <p className="text-gray-300 leading-relaxed">
                 All content, features, and functionality of the Services, including but not limited to text, graphics, logos, icons, images, 
                 audio clips, video clips, data compilations, software, and the compilation thereof (collectively, "Company Content"), 
-                are the exclusive property of HLPFL Records or its licensors and are protected by United States and international copyright, 
+                are the exclusive property of HLPFL or its licensors and are protected by United States and international copyright, 
                 trademark, patent, trade secret, and other intellectual property laws.
               </p>
 
@@ -162,7 +162,7 @@ export default function TermsEnhancedPage() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">6. Indemnification</h2>
               <p className="text-gray-300 leading-relaxed">
-                You agree to defend, indemnify, and hold harmless HLPFL Records and its officers, directors, employees, agents, affiliates, 
+                You agree to defend, indemnify, and hold harmless HLPFL and its officers, directors, employees, agents, affiliates, 
                 successors, and assigns from and against any and all claims, damages, obligations, losses, liabilities, costs, debt, and expenses 
                 (including but not limited to attorney's fees) arising from:
               </p>
@@ -190,7 +190,7 @@ export default function TermsEnhancedPage() {
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">7.1 Mandatory Arbitration</h3>
               <p className="text-gray-300 leading-relaxed">
-                Except as otherwise provided herein, you and HLPFL Records agree that any dispute, claim, or controversy arising out of or relating to 
+                Except as otherwise provided herein, you and HLPFL agree that any dispute, claim, or controversy arising out of or relating to 
                 these Terms or the Services (collectively, "Disputes") will be settled by binding arbitration, rather than in court. 
                 This includes disputes arising out of or relating to interpretation or application of this arbitration provision, 
                 including the enforceability, revocability, or validity of the arbitration provision or any portion of the arbitration provision.
@@ -209,7 +209,7 @@ export default function TermsEnhancedPage() {
                 AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                Unless both you and HLPFL Records agree otherwise, the arbitrator may not consolidate more than one person's claims, 
+                Unless both you and HLPFL agree otherwise, the arbitrator may not consolidate more than one person's claims, 
                 and may not otherwise preside over any form of a representative or class proceeding. If this specific provision is found 
                 to be unenforceable, then the entirety of this arbitration provision shall be null and void.
               </p>
@@ -272,7 +272,7 @@ export default function TermsEnhancedPage() {
               <p className="text-gray-300 leading-relaxed">
                 These Terms shall be governed by and construed in accordance with the laws of the State of Michigan, United States, 
                 without regard to its conflict of law provisions. To the extent that any lawsuit or court proceeding is permitted under these Terms, 
-                you and HLPFL Records agree to submit to the personal and exclusive jurisdiction of the state and federal courts located in 
+                you and HLPFL agree to submit to the personal and exclusive jurisdiction of the state and federal courts located in 
                 Kent County, Michigan.
               </p>
             </section>
@@ -290,8 +290,8 @@ export default function TermsEnhancedPage() {
               <h2 className="text-2xl font-bold text-white mb-4">12. Entire Agreement</h2>
               <p className="text-gray-300 leading-relaxed">
                 These Terms, together with our Privacy Policy and any other legal notices published by us on the Services, 
-                constitute the entire agreement between you and HLPFL Records concerning the Services. These Terms supersede all prior 
-                or contemporaneous communications and proposals, whether electronic, oral, or written, between you and HLPFL Records.
+                constitute the entire agreement between you and HLPFL concerning the Services. These Terms supersede all prior 
+                or contemporaneous communications and proposals, whether electronic, oral, or written, between you and HLPFL.
               </p>
             </section>
 
@@ -309,7 +309,7 @@ export default function TermsEnhancedPage() {
               <h2 className="text-2xl font-bold text-white mb-4">14. No Waiver</h2>
               <p className="text-gray-300 leading-relaxed">
                 Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. 
-                The waiver of any such right or provision will be effective only if in writing and signed by a duly authorized representative of HLPFL Records.
+                The waiver of any such right or provision will be effective only if in writing and signed by a duly authorized representative of HLPFL.
               </p>
             </section>
 
@@ -320,7 +320,7 @@ export default function TermsEnhancedPage() {
               </p>
               <div className="mt-4 p-4 bg-dark/50 rounded-lg">
                 <p className="text-gray-300">
-                  <strong className="text-white">HLPFL Records - Legal Department</strong><br />
+                  <strong className="text-white">HLPFL - Legal Department</strong><br />
                   Email: legal@hlpfl.org<br />
                   General Inquiries: contact@hlpfl.org<br />
                   Website: <a href="https://hlpfl.org" className="text-gold hover:text-gold-light">hlpfl.org</a>

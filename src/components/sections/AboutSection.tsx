@@ -27,7 +27,7 @@ export function AboutSection() {
               </p>
               
               <p className="leading-relaxed">
-                From our Grand Rapids headquarters to global stages, HLPFL Records is building the future of music - one artist partnership at a time. 
+                From our Grand Rapids headquarters to global stages, HLPFL is building the future of music - one artist partnership at a time. 
                 With Alki's boundary-pushing artistry leading the way, we're proving that independent artists can thrive without sacrificing their art or revenue.
               </p>
             </div>
@@ -73,7 +73,7 @@ export function AboutSection() {
                 <div className="w-24 h-24 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-gold text-4xl font-bold">H</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">HLPFL Records</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">HLPFL</h3>
                 <p className="text-gray-400 mb-4">Elevating artists to global recognition</p>
                 <div className="flex justify-center space-x-2">
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" />

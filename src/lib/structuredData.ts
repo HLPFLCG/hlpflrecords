@@ -6,7 +6,7 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "HLPFL Records",
+  "name": "HLPFL",
   "alternateName": "HLPFL",
   "url": "https://hlpfl.org",
   "logo": "https://hlpfl.org/logo.svg",
@@ -45,8 +45,8 @@ export const organizationSchema = {
 export const musicGroupSchema = {
   "@context": "https://schema.org",
   "@type": "MusicGroup",
-  "name": "HLPFL Records Artists",
-  "description": "Collective of talented artists signed to HLPFL Records",
+  "name": "HLPFL Artists",
+  "description": "Collective of talented artists signed to HLPFL",
   "genre": ["Hip Hop", "R&B", "Pop", "Electronic"],
   "foundingLocation": {
     "@type": "Place",
@@ -62,12 +62,12 @@ export const musicGroupSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "HLPFL Records",
+  "name": "HLPFL",
   "url": "https://hlpfl.org",
-  "description": "Official website of HLPFL Records - Premier record label for artist development and music production",
+  "description": "Official website of HLPFL - Premier record label for artist development and music production",
   "publisher": {
     "@type": "Organization",
-    "name": "HLPFL Records"
+    "name": "HLPFL"
   },
   "potentialAction": {
     "@type": "SearchAction",
@@ -93,7 +93,7 @@ export const serviceSchema = {
   "serviceType": "Music Production & Artist Development",
   "provider": {
     "@type": "Organization",
-    "name": "HLPFL Records"
+    "name": "HLPFL"
   },
   "areaServed": "Worldwide",
   "hasOfferCatalog": {
@@ -142,15 +142,15 @@ export const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is HLPFL Records' 50/50 partnership model?",
+      "name": "What is HLPFL' 50/50 partnership model?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "HLPFL Records offers a revolutionary 50/50 partnership model where artists retain 50% ownership of their work while receiving full support from our label. This ensures fair compensation and creative control for artists."
+        "text": "HLPFL offers a revolutionary 50/50 partnership model where artists retain 50% ownership of their work while receiving full support from our label. This ensures fair compensation and creative control for artists."
       }
     },
     {
       "@type": "Question",
-      "name": "How can I submit my music to HLPFL Records?",
+      "name": "How can I submit my music to HLPFL?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "You can submit your music through our contact form by selecting 'Artist Submission' as the inquiry type. Include links to your work and a brief bio. We review all submissions and respond within 1-2 weeks."
@@ -158,10 +158,10 @@ export const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "What services does HLPFL Records provide?",
+      "name": "What services does HLPFL provide?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "HLPFL Records provides comprehensive services including artist development, music production, global distribution, marketing and promotion, and ongoing career support for our artists."
+        "text": "HLPFL provides comprehensive services including artist development, music production, global distribution, marketing and promotion, and ongoing career support for our artists."
       }
     }
   ]

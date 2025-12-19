@@ -39,7 +39,7 @@ export default function ArtistsPage() {
           
           <AnimatedText delay={0.3} className="max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light">
-              Meet the incredible talent that makes up the HLPFL Records family. 
+              Meet the incredible talent that makes up the HLPFL family. 
               Each artist brings their unique voice and vision to our collective mission of creating exceptional music.
             </p>
           </AnimatedText>
@@ -236,7 +236,7 @@ export default function ArtistsPage() {
                 </h2>
                 
                 <p className="text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                  We're always looking for exceptional talent to join the HLPFL Records family. 
+                  We're always looking for exceptional talent to join the HLPFL family. 
                   If you're passionate about music and ready to take your career to the next level, we want to hear from you.
                 </p>
                 

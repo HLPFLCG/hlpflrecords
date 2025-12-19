@@ -143,7 +143,7 @@ export default function PartnersPage() {
                 </div>
               </div>
               <p className="text-gray-300 mb-6">
-                "HLPFL Records consistently delivers high-quality content and maintains excellent communication. 
+                "HLPFL consistently delivers high-quality content and maintains excellent communication. 
                 Their artist-first approach sets them apart in the industry."
               </p>
               <div className="flex text-gold">
@@ -162,7 +162,7 @@ export default function PartnersPage() {
                 </div>
               </div>
               <p className="text-gray-300 mb-6">
-                "Working with HLPFL Records is always a pleasure. They bring us incredible talent and stories 
+                "Working with HLPFL is always a pleasure. They bring us incredible talent and stories 
                 that resonate with our audience. True professionals."
               </p>
               <div className="flex text-gold">

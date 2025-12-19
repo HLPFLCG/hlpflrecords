@@ -47,7 +47,7 @@ export default function ReleasesPage() {
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Explore our complete discography featuring the latest releases from our talented artists. 
-            From chart-topping singles to groundbreaking albums, discover the sound of HLPFL Records.
+            From chart-topping singles to groundbreaking albums, discover the sound of HLPFL.
           </p>
         </div>
       </section>

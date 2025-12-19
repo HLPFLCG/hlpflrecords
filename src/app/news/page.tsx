@@ -20,7 +20,7 @@ export default function NewsPage() {
             News & <span className="text-gold">Updates</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Stay up to date with the latest from HLPFL Records. 
+            Stay up to date with the latest from HLPFL. 
             From new artist signings to album releases and industry insights, discover what's happening in our world.
           </p>
         </div>

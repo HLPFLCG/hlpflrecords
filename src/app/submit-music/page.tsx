@@ -17,7 +17,7 @@ export default function SubmitMusicPage() {
             Submit Your Music
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Join the HLPFL Records family and take your music career to the next level. 
+            Join the HLPFL family and take your music career to the next level. 
             We're always looking for talented artists to join our revolutionary 50/50 partnership program.
           </p>
         </div>
