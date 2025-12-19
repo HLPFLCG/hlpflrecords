@@ -8,6 +8,8 @@ import { Footer } from '@/components/layout/Footer'
 import EasterEggs from '@/components/EasterEggs'
 import AlkiMusicEasterEggs from '@/components/AlkiMusicEasterEggs'
 import AlkiSecretLinks from '@/components/AlkiSecretLinks'
+import { SkipLink } from '@/components/SkipLink'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 
 // Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -158,19 +160,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         
+        <SkipLink />
         <LoadingScreen />
         <StarfieldBackground />
-        <div className="min-h-screen text-white" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
-          <Header />
-          <main className="pt-16">
-            {children}
-          </main>
-          <Footer />
-          <Chatbot />
-          <EasterEggs />
-          <AlkiMusicEasterEggs />
-          <AlkiSecretLinks />
-        </div>
+        <ErrorBoundary>
+          <div className="min-h-screen text-white" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
+            <Header />
+            <main id="main-content" className="pt-16">
+              {children}
+            </main>
+            <Footer />
+            <Chatbot />
+            <EasterEggs />
+            <AlkiMusicEasterEggs />
+            <AlkiSecretLinks />
+          </div>
+        </ErrorBoundary>
       </body>
     </html>
   )
