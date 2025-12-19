@@ -9,9 +9,9 @@ module.exports = {
     extend: {
       colors: {
         gold: {
-          DEFAULT: '#c87941',
-          light: '#d4945c',
-          dark: '#a86535',
+          DEFAULT: '#FFD700',
+          light: '#FFE55C',
+          dark: '#B8860B',
           50: '#fef7f0',
           100: '#fdeee0',
           200: '#f9dcc0',
@@ -38,8 +38,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Iceland', 'system-ui', 'sans-serif'],
-        display: ['Iceland', 'system-ui', 'sans-serif'],
+        sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        display: ['Bebas Neue', 'Space Grotesk', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       fontSize: {
@@ -132,9 +132,9 @@ module.exports = {
         '3xl': '64px',
       },
       boxShadow: {
-        'gold': '0 0 30px rgba(200, 121, 65, 0.3)',
-        'gold-lg': '0 0 50px rgba(200, 121, 65, 0.4)',
-        'inner-gold': 'inset 0 2px 4px 0 rgba(200, 121, 65, 0.2)',
+        'gold': '0 0 30px rgba(255, 215, 0, 0.3)',
+        'gold-lg': '0 0 50px rgba(255, 215, 0, 0.4)',
+        'inner-gold': 'inset 0 2px 4px 0 rgba(255, 215, 0, 0.2)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
