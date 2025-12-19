@@ -201,7 +201,7 @@ export const mockNews: NewsPost[] = [
     publishedAt: new Date('2025-01-17'),
     author: 'HLPFL Team',
     category: 'Releases',
-    image: '/public/images/team/IMG_2768.png',
+    image: '/images/team/IMG_2768.png',
   },
   {
     id: '2',
