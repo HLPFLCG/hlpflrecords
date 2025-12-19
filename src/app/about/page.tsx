@@ -92,7 +92,7 @@ export default function AboutPage() {
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
                   Founded in 2019, HLPFL Records began when James Rockel, just 18 years old, witnessed countless talented musicians struggle with outdated industry practices. 
-                  Born on April 14, 2001, James envisioned a new paradigm where artists keep control of their music and earn fair revenue.
+                  James envisioned a new paradigm where artists keep control of their music and earn fair revenue.
                 </p>
                 <p className="leading-relaxed">
                   The vision became reality when Alki (@alkiotis), a boundary-pushing artist creating the future of rock music, joined as both signed artist and co-founder. 
