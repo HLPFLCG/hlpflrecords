@@ -25,7 +25,7 @@ export const mockReleases: Release[] = [
     artistId: '1',
     type: 'single',
     releaseDate: new Date('2025-01-17'),
-    coverArt: '/images/team/IMG_2768.png',
+    coverArt: '/images/releases/221.png',
     description: 'Angsty and punchy rap record that screams, "I hate you"',
     links: {
       spotify: 'https://open.spotify.com/album/468FaHLWX75g0RJdoEUABD',

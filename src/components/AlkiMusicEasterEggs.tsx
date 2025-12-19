@@ -9,7 +9,7 @@ const ALKI_TRACKS = [
     title: 'IPTWHA',
     file: '/audio/alki/iptwha.mp3',
     trigger: 'iptwha',
-    color: '#c87941',
+    color: '#FFD700',
     description: 'The anthem that started it all'
   },
   {
@@ -17,7 +17,7 @@ const ALKI_TRACKS = [
     title: 'Like That',
     file: '/audio/alki/like-that.mp3',
     trigger: 'likethat',
-    color: '#d4945c',
+    color: '#FFE55C',
     description: 'Smooth vibes, pure energy'
   },
   {
@@ -25,7 +25,7 @@ const ALKI_TRACKS = [
     title: "Writin' My Wrongs",
     file: '/audio/alki/writin-my-wrongs.mp3',
     trigger: 'wrongs',
-    color: '#a86535',
+    color: '#B8860B',
     description: 'Deep thoughts, real talk'
   },
   {
@@ -33,7 +33,7 @@ const ALKI_TRACKS = [
     title: 'Regrets',
     file: '/audio/alki/regrets.mp3',
     trigger: 'regrets',
-    color: '#c87941',
+    color: '#FFD700',
     description: 'No regrets, just lessons'
   },
   {
@@ -41,7 +41,7 @@ const ALKI_TRACKS = [
     title: 'Home',
     file: '/audio/alki/home.mp3',
     trigger: 'home',
-    color: '#d4945c',
+    color: '#FFE55C',
     description: 'Finding your way back'
   },
   {
@@ -49,7 +49,7 @@ const ALKI_TRACKS = [
     title: 'Okay',
     file: '/audio/alki/okay.mp3',
     trigger: 'okay',
-    color: '#a86535',
+    color: '#B8860B',
     description: 'Everything will be okay'
   },
   {
@@ -57,7 +57,7 @@ const ALKI_TRACKS = [
     title: 'Luv 4',
     file: '/audio/alki/luv4.mp3',
     trigger: 'luv4',
-    color: '#c87941',
+    color: '#FFD700',
     description: 'Love in its purest form'
   },
   {
@@ -65,7 +65,7 @@ const ALKI_TRACKS = [
     title: 'Stay',
     file: '/audio/alki/stay.mp3',
     trigger: 'stay',
-    color: '#d4945c',
+    color: '#FFE55C',
     description: 'Stay with me (ft. Arya)'
   },
   {
@@ -73,7 +73,7 @@ const ALKI_TRACKS = [
     title: 'Take It All Away',
     file: '/audio/alki/take-it-all-away.mp3',
     trigger: 'takeaway',
-    color: '#a86535',
+    color: '#B8860B',
     description: 'Let it all go'
   },
   {
@@ -81,7 +81,7 @@ const ALKI_TRACKS = [
     title: 'Tear Me Apart',
     file: '/audio/alki/tear-me-apart.mp3',
     trigger: 'tearme',
-    color: '#c87941',
+    color: '#FFD700',
     description: 'Raw emotions unleashed'
   }
 ];
@@ -179,16 +179,16 @@ const AlkiMusicEasterEggs = () => {
 
       // HLPFL gold gradient
       const gradient = ctx.createLinearGradient(0, canvas.height - barHeight, 0, canvas.height);
-      gradient.addColorStop(0, '#d4945c'); // gold-light
-      gradient.addColorStop(0.5, '#c87941'); // gold-primary
-      gradient.addColorStop(1, '#a86535'); // gold-dark
+      gradient.addColorStop(0, '#FFE55C'); // gold-light
+      gradient.addColorStop(0.5, '#FFD700'); // gold-primary
+      gradient.addColorStop(1, '#B8860B'); // gold-dark
 
       ctx.fillStyle = gradient;
       ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
 
       // Add glow effect
       ctx.shadowBlur = 10;
-      ctx.shadowColor = '#c87941';
+      ctx.shadowColor = '#FFD700';
 
       x += barWidth + 1;
     }
@@ -308,7 +308,7 @@ const AlkiMusicEasterEggs = () => {
         <a href="${url}" target="_blank" rel="noopener noreferrer" 
            style="color: white; text-decoration: none; background: rgba(200, 121, 65, 0.3); 
                   padding: ${isMobile ? '8px 16px' : '10px 20px'}; border-radius: 8px; transition: all 0.2s;
-                  border: 1px solid #c87941;"
+                  border: 1px solid #FFD700;"
            onmouseover="this.style.background='rgba(200, 121, 65, 0.5)'"
            onmouseout="this.style.background='rgba(200, 121, 65, 0.3)'">
           Visit Now →
@@ -321,7 +321,7 @@ const AlkiMusicEasterEggs = () => {
       left: 50%;
       transform: translate(-50%, -50%);
       background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-      border: 2px solid #c87941;
+      border: 2px solid #FFD700;
       color: white;
       padding: ${isMobile ? '20px 30px' : '30px 40px'};
       border-radius: 16px;
@@ -453,7 +453,7 @@ const AlkiMusicEasterEggs = () => {
             setShowPlayer(true);
             playTrack(0);
             trackEvent('alki_code_activated');
-            showMusicNote('🎵', '#c87941');
+            showMusicNote('🎵', '#FFD700');
             return [];
           }
         }
@@ -596,7 +596,7 @@ const AlkiMusicEasterEggs = () => {
             maxWidth: isMobile ? '400px' : '360px',
             maxHeight: '85vh',
             background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
-            border: '2px solid #c87941',
+            border: '2px solid #FFD700',
             borderRadius: '16px',
             padding: isMobile ? '15px' : '20px',
             boxShadow: '0 10px 40px rgba(200, 121, 65, 0.3)',
@@ -617,12 +617,12 @@ const AlkiMusicEasterEggs = () => {
               top: '10px',
               right: '10px',
               background: 'rgba(200, 121, 65, 0.2)',
-              border: '1px solid #c87941',
+              border: '1px solid #FFD700',
               borderRadius: '50%',
               width: '30px',
               height: '30px',
               cursor: 'pointer',
-              color: '#c87941',
+              color: '#FFD700',
               fontSize: '18px',
             }}
           >
@@ -630,16 +630,16 @@ const AlkiMusicEasterEggs = () => {
           </button>
 
           <div style={{ marginBottom: '15px' }}>
-            <div style={{ fontSize: '12px', color: '#d4945c', marginBottom: '5px' }}>
+            <div style={{ fontSize: '12px', color: '#FFE55C', marginBottom: '5px' }}>
               NOW PLAYING
             </div>
-            <div style={{ fontSize: isMobile ? '18px' : '20px', fontWeight: 'bold', color: '#c87941' }}>
+            <div style={{ fontSize: isMobile ? '18px' : '20px', fontWeight: 'bold', color: '#FFD700' }}>
               {currentTrack !== null ? ALKI_TRACKS[currentTrack].title : 'Select a track'}
             </div>
-            <div style={{ fontSize: '14px', color: '#d4945c', marginTop: '5px' }}>
+            <div style={{ fontSize: '14px', color: '#FFE55C', marginTop: '5px' }}>
               by Alki
             </div>
-            <div style={{ fontSize: '11px', color: '#a86535', marginTop: '5px' }}>
+            <div style={{ fontSize: '11px', color: '#B8860B', marginTop: '5px' }}>
               {ALKI_TRACKS.length} tracks • {isMobile ? 'Swipe to navigate' : 'Type triggers available'}
             </div>
           </div>
@@ -679,10 +679,10 @@ const AlkiMusicEasterEggs = () => {
                   e.currentTarget.style.background = currentTrack === index ? 'rgba(200, 121, 65, 0.2)' : 'rgba(200, 121, 65, 0.1)';
                 }}
               >
-                <div style={{ fontSize: '14px', fontWeight: '500', color: '#c87941' }}>
+                <div style={{ fontSize: '14px', fontWeight: '500', color: '#FFD700' }}>
                   {currentTrack === index && isPlaying ? '▶ ' : ''}{track.title}
                 </div>
-                <div style={{ fontSize: '11px', color: '#a86535', marginTop: '2px' }}>
+                <div style={{ fontSize: '11px', color: '#B8860B', marginTop: '2px' }}>
                   {track.description}
                 </div>
                 {!isMobile && (
@@ -700,12 +700,12 @@ const AlkiMusicEasterEggs = () => {
               disabled={currentTrack === null}
               style={{
                 background: 'rgba(200, 121, 65, 0.2)',
-                border: '1px solid #c87941',
+                border: '1px solid #FFD700',
                 borderRadius: '50%',
                 width: '40px',
                 height: '40px',
                 cursor: currentTrack === null ? 'not-allowed' : 'pointer',
-                color: '#c87941',
+                color: '#FFD700',
                 fontSize: '18px',
                 opacity: currentTrack === null ? 0.5 : 1,
               }}
@@ -717,12 +717,12 @@ const AlkiMusicEasterEggs = () => {
               disabled={currentTrack === null}
               style={{
                 background: 'rgba(200, 121, 65, 0.3)',
-                border: '2px solid #c87941',
+                border: '2px solid #FFD700',
                 borderRadius: '50%',
                 width: '50px',
                 height: '50px',
                 cursor: currentTrack === null ? 'not-allowed' : 'pointer',
-                color: '#c87941',
+                color: '#FFD700',
                 fontSize: '24px',
                 opacity: currentTrack === null ? 0.5 : 1,
               }}
@@ -734,12 +734,12 @@ const AlkiMusicEasterEggs = () => {
               disabled={currentTrack === null}
               style={{
                 background: 'rgba(200, 121, 65, 0.2)',
-                border: '1px solid #c87941',
+                border: '1px solid #FFD700',
                 borderRadius: '50%',
                 width: '40px',
                 height: '40px',
                 cursor: currentTrack === null ? 'not-allowed' : 'pointer',
-                color: '#c87941',
+                color: '#FFD700',
                 fontSize: '18px',
                 opacity: currentTrack === null ? 0.5 : 1,
               }}
@@ -749,7 +749,7 @@ const AlkiMusicEasterEggs = () => {
           </div>
 
           <div style={{ marginBottom: '10px' }}>
-            <div style={{ fontSize: '12px', marginBottom: '5px', color: '#d4945c' }}>
+            <div style={{ fontSize: '12px', marginBottom: '5px', color: '#FFE55C' }}>
               Volume: {Math.round(volume * 100)}%
             </div>
             <input
@@ -767,7 +767,7 @@ const AlkiMusicEasterEggs = () => {
               style={{
                 width: '100%',
                 cursor: 'pointer',
-                accentColor: '#c87941',
+                accentColor: '#FFD700',
               }}
             />
           </div>
@@ -778,9 +778,9 @@ const AlkiMusicEasterEggs = () => {
               width: '100%',
               padding: '10px',
               background: showVisualizer ? 'rgba(200, 121, 65, 0.3)' : 'rgba(200, 121, 65, 0.1)',
-              border: '1px solid #c87941',
+              border: '1px solid #FFD700',
               borderRadius: '8px',
-              color: '#c87941',
+              color: '#FFD700',
               cursor: 'pointer',
               fontSize: '14px',
               marginBottom: '10px',
@@ -800,9 +800,9 @@ const AlkiMusicEasterEggs = () => {
                 flex: 1,
                 padding: '8px',
                 background: 'rgba(200, 121, 65, 0.1)',
-                border: '1px solid #c87941',
+                border: '1px solid #FFD700',
                 borderRadius: '8px',
-                color: '#c87941',
+                color: '#FFD700',
                 cursor: 'pointer',
                 fontSize: '12px',
               }}
@@ -815,9 +815,9 @@ const AlkiMusicEasterEggs = () => {
                 flex: 1,
                 padding: '8px',
                 background: 'rgba(200, 121, 65, 0.1)',
-                border: '1px solid #c87941',
+                border: '1px solid #FFD700',
                 borderRadius: '8px',
-                color: '#c87941',
+                color: '#FFD700',
                 cursor: 'pointer',
                 fontSize: '12px',
               }}
@@ -826,7 +826,7 @@ const AlkiMusicEasterEggs = () => {
             </button>
           </div>
 
-          <div style={{ fontSize: '10px', color: '#a86535', textAlign: 'center', lineHeight: '1.4' }}>
+          <div style={{ fontSize: '10px', color: '#B8860B', textAlign: 'center', lineHeight: '1.4' }}>
             {isMobile ? (
               <>
                 <div>Swipe left/right to navigate tracks</div>
@@ -856,7 +856,7 @@ const AlkiMusicEasterEggs = () => {
             maxWidth: isMobile ? '400px' : '360px',
             height: isMobile ? '80px' : '100px',
             background: '#0a0a0a',
-            border: '2px solid #c87941',
+            border: '2px solid #FFD700',
             borderRadius: '12px',
             zIndex: 9998,
             boxShadow: '0 10px 40px rgba(200, 121, 65, 0.3)',
