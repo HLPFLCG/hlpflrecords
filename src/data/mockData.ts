@@ -232,7 +232,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Alki',
     role: 'Co-Founder & Signed Artist',
     bio: 'Boundary-pushing artist creating the future of alternative music. As HLPFL\'s first signed artist and co-founder, Alki embodies our revolutionary artist-first philosophy. With a unique blend of punk, pop, and rap, Alki is proving that independent artists can thrive with the right partnership. Nearly 48,000 monthly listeners and millions of streams.',
-    image: '/images/team/alki.jpg'',
+    image: '/images/team/alki.jpg',
     socials: {
       instagram: 'https://instagram.com/alkiotis',
       spotify: 'https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl',
