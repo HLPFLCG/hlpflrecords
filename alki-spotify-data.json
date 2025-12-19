@@ -1,0 +1,141 @@
+{
+  "artist": {
+    "name": "Alki",
+    "spotify_id": "1Jof1vMpSF5pIWUvG9cizl",
+    "monthly_listeners": 47990,
+    "bio": "piece of sh!t @alkiotis on all platforms",
+    "social_links": {
+      "instagram": "https://www.instagram.com/alkiotis",
+      "spotify": "https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl",
+      "website": "https://app.grouped.com/everythingalki"
+    }
+  },
+  "popular_tracks": [
+    {
+      "title": "Switched Up",
+      "streams": 2972576,
+      "duration": "2:45",
+      "spotify_url": "https://open.spotify.com/track/6gX8JTduPMVPwsnSxHHcc6"
+    },
+    {
+      "title": "Too Much",
+      "streams": 1170622,
+      "duration": "2:31",
+      "spotify_url": "https://open.spotify.com/track/2h2tQSTXDeVYMowUeLV5hu"
+    },
+    {
+      "title": "Planes",
+      "streams": 384780,
+      "duration": "1:57",
+      "spotify_url": "https://open.spotify.com/track/6aSOLPcCSJMZDpfxdbrfVn"
+    },
+    {
+      "title": "Deceiving",
+      "streams": 797918,
+      "duration": "3:02",
+      "spotify_url": "https://open.spotify.com/track/0pEnAkhIkvhSGdubJS0l2Z"
+    },
+    {
+      "title": "Attached",
+      "streams": 241203,
+      "duration": "2:18",
+      "spotify_url": "https://open.spotify.com/track/3pazRuDfwH20WAFQxeS21w"
+    }
+  ],
+  "releases": [
+    {
+      "title": "221",
+      "type": "Single",
+      "release_date": "2025",
+      "tracks": 1,
+      "spotify_url": "https://open.spotify.com/album/468FaHLWX75g0RJdoEUABD",
+      "track_list": [
+        {
+          "title": "221",
+          "duration": "1:49"
+        }
+      ]
+    },
+    {
+      "title": "Lackin",
+      "type": "Single",
+      "release_date": "2025",
+      "tracks": 1,
+      "spotify_url": "https://open.spotify.com/album/5QHzjA4cUCRDOPwWpNosXt",
+      "track_list": [
+        {
+          "title": "Lackin",
+          "duration": "1:42"
+        }
+      ]
+    },
+    {
+      "title": "No Service",
+      "type": "Single",
+      "release_date": "2024",
+      "tracks": 1,
+      "spotify_url": "https://open.spotify.com/album/5KZ4e4dQ5vt2sUo7XBmxyQ",
+      "track_list": [
+        {
+          "title": "No Service",
+          "duration": "1:59"
+        }
+      ]
+    },
+    {
+      "title": "Get Down",
+      "type": "Single",
+      "release_date": "2024",
+      "tracks": 1,
+      "spotify_url": "https://open.spotify.com/album/2AWKJ7CFAnTbxZUNjnuO3G",
+      "track_list": [
+        {
+          "title": "Get Down",
+          "duration": "1:37"
+        }
+      ]
+    },
+    {
+      "title": "Better Off",
+      "type": "Single",
+      "release_date": "2024",
+      "tracks": 1,
+      "artists": ["CRONIN", "Alki"],
+      "spotify_url": "https://open.spotify.com/album/4kOzmQpzk7lDtIiH7n6sXZ",
+      "track_list": [
+        {
+          "title": "Better Off",
+          "duration": "2:14"
+        }
+      ]
+    },
+    {
+      "title": "Switched Up",
+      "type": "Single",
+      "release_date": "2024",
+      "tracks": 1,
+      "spotify_url": "https://open.spotify.com/album/4EF7LaxKklISvrfAqVyWkl"
+    },
+    {
+      "title": "Too Much",
+      "type": "Single",
+      "release_date": "2024",
+      "tracks": 1,
+      "spotify_url": "https://open.spotify.com/album/2zZxWozolia2eFyaa6Vvf9"
+    },
+    {
+      "title": "Planes",
+      "type": "Single",
+      "release_date": "2024",
+      "tracks": 1,
+      "spotify_url": "https://open.spotify.com/album/4S8NsL7dMsYqqshMVzbreE"
+    },
+    {
+      "title": "Deceiving",
+      "type": "Single",
+      "release_date": "2024",
+      "tracks": 1,
+      "spotify_url": "https://open.spotify.com/album/10eFlyNRLA19cGvfCedVIn"
+    }
+  ]
+}

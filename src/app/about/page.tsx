@@ -42,12 +42,10 @@ export default function AboutPage() {
   ]
 
   const stats = [
-    { number: '15+', label: 'Years in Business' },
-    { number: '50+', label: 'Active Artists' },
-    { number: '200+', label: 'Music Releases' },
-    { number: '1B+', label: 'Global Streams' },
-    { number: '30+', label: 'Industry Awards' },
-    { number: '50+', label: 'Team Members' }
+    { number: '1', label: 'Artists' },
+    { number: '10+', label: 'Releases' },
+    { number: '5m+', label: 'Streams' },
+    { number: '6', label: 'Years' }
   ]
 
   return (
@@ -68,7 +66,7 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section className="py-16 px-4 bg-dark-secondary">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-gold mb-2">
@@ -111,7 +109,7 @@ export default function AboutPage() {
                 <div className="w-24 h-24 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-gold text-4xl font-bold">H</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Since 2009</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Since 2019</h3>
                 <p className="text-gray-400">Elevating Artists to Global Recognition</p>
               </div>
             </div>
