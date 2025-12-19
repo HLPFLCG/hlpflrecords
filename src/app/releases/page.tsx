@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { mockReleases } from '@/data/mockData'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
@@ -102,12 +103,13 @@ export default function ReleasesPage() {
             {filteredReleases.map((release) => (
               <Card key={release.id} hover className="overflow-hidden group">
                 <div className="relative aspect-square overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-gold/20 to-dark-tertiary flex items-center justify-center">
-                    <div className="text-center">
-                      <Music className="h-16 w-16 text-gold mb-4" />
-                      <p className="text-gray-400 text-sm">Album Art</p>
-                    </div>
-                  </div>
+                  <Image
+                    src={release.coverArt}
+                    alt={`${release.title} by ${release.artist}`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                   
                   {/* Type Badge */}
                   <div className="absolute top-4 left-4">

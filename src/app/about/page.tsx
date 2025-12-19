@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { mockTeam } from '@/data/mockData'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
@@ -167,15 +168,14 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {mockTeam.map((member) => (
               <Card key={member.id} hover className="overflow-hidden">
-                <div className="aspect-square bg-gradient-to-br from-gold/20 to-dark-tertiary flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-gold text-2xl font-bold">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">Team Photo</p>
-                  </div>
+                <div className="aspect-square bg-gradient-to-br from-gold/20 to-dark-tertiary relative overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={`${member.name} - ${member.role}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
