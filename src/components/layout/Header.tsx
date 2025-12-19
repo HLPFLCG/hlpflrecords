@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, Music } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import Logo from '@/components/Logo'
 
 export function Header() {
@@ -70,8 +71,9 @@ export function Header() {
               ))}
             </div>
 
-            {/* Enhanced CTA Button */}
+            {/* Enhanced CTA Button & Theme Toggle */}
             <div className="hidden md:flex items-center space-x-4">
+              <ThemeToggle />
               <Link href="/contact">
                 <Button variant="outline" size="sm" className="btn-premium group">
                   <span className="mr-2">Submit Music</span>
@@ -80,8 +82,9 @@ export function Header() {
               </Link>
             </div>
 
-            {/* Enhanced Mobile menu button */}
-            <div className="lg:hidden">
+            {/* Enhanced Mobile menu button &amp; Theme Toggle */}
+            <div className="lg:hidden flex items-center space-x-2">
+              <ThemeToggle />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="touch-feedback p-2 rounded-lg glass hover:bg-gold/10 transition-all duration-300"
