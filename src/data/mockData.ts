@@ -201,7 +201,7 @@ export const mockNews: NewsPost[] = [
     publishedAt: new Date('2025-01-17'),
     author: 'HLPFL Team',
     category: 'Releases',
-    image: '/images/news/221-release.jpg',
+    image: '/public/images/team/IMG_2768.png',
   },
   {
     id: '2',
@@ -221,7 +221,7 @@ export const mockTeam: TeamMember[] = [
     name: 'James Rockel',
     role: 'Founder & CEO',
     bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking 50/50 model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
-    image: '/images/team/james-rockel.jpg',
+    image: '/public/images/team/james-rockel.jpg',
     socials: {
       linkedin: '#',
       email: 'contact@hlpfl.org',
@@ -232,7 +232,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Alki',
     role: 'Co-Founder & Signed Artist',
     bio: 'Boundary-pushing artist creating the future of alternative music. As HLPFL\'s first signed artist and co-founder, Alki embodies our revolutionary artist-first philosophy. With a unique blend of punk, pop, and rap, Alki is proving that independent artists can thrive with the right partnership. Nearly 48,000 monthly listeners and millions of streams.',
-    image: '/images/team/alki.jpg',
+    image: '/public/images/team/alki.jpg',
     socials: {
       instagram: 'https://instagram.com/alkiotis',
       spotify: 'https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl',
