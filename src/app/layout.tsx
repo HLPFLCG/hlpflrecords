@@ -6,8 +6,6 @@ import LoadingScreen from '@/components/LoadingScreen'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import CreativeEasterEggs from '@/components/CreativeEasterEggs'
-import AlkiSecretLinks from '@/components/AlkiSecretLinks'
-import { SkipLink } from '@/components/SkipLink'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { EnhancedErrorBoundary } from '@/components/EnhancedErrorBoundary'
 import { PerformanceMonitor } from '@/components/PerformanceMonitor'
@@ -18,11 +16,6 @@ import { ToastContainer } from '@/components/ui/Toast'
 
 // Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
-  ssr: false,
-})
-
-// Dynamically import StarfieldBackground with SSR disabled for Canvas API
-const StarfieldBackground = dynamic(() => import('@/components/StarfieldBackground'), {
   ssr: false,
 })
 
@@ -198,7 +191,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </noscript>
           {/* End Google Tag Manager (noscript) */}
           
-          <SkipLink />
           <PerformanceMonitor />
           <PerformanceMetrics />
           <WebVitals />
@@ -206,7 +198,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <AccessibilityHelper />
           <ToastContainer />
           <LoadingScreen />
-          <StarfieldBackground />
           <EnhancedErrorBoundary>
             <ErrorBoundary>
               <div className="min-h-screen text-white dark:text-white bg-dark dark:bg-dark transition-colors duration-300" style={{ position: 'relative', zIndex: 1 }}>
@@ -217,7 +208,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <Footer />
                 <Chatbot />
                 <CreativeEasterEggs />
-                <AlkiSecretLinks />
               </div>
             </ErrorBoundary>
           </EnhancedErrorBoundary>
