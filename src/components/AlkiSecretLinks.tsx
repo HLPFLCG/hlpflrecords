@@ -89,7 +89,7 @@ const AlkiSecretLinks = () => {
       box-shadow: 0 10px 40px rgba(0,0,0,0.3);
       z-index: 10000;
       animation: slideInRight 0.3s ease-out, fadeOut 0.3s ease-out 2.7s forwards;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
     `;
     document.body.appendChild(notification);
     setTimeout(() => notification.remove(), 3000);
@@ -273,7 +273,7 @@ const AlkiSecretLinks = () => {
             boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             zIndex: 10001,
             color: 'white',
-            fontFamily: 'system-ui, -apple-system, sans-serif',
+            fontFamily: "'Space Grotesk', system-ui, sans-serif",
             maxWidth: '500px',
             maxHeight: '80vh',
             overflowY: 'auto',
