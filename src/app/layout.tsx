@@ -5,8 +5,8 @@ import './globals.css'
 import LoadingScreen from '@/components/LoadingScreen'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import EasterEggs from '@/components/EasterEggs'
-import AlkiMusicEasterEggs from '@/components/AlkiMusicEasterEggs'
+import EasterEggsV2 from '@/components/EasterEggsV2'
+import AlkiMusicPlayerV2 from '@/components/AlkiMusicPlayerV2'
 import AlkiSecretLinks from '@/components/AlkiSecretLinks'
 import { SkipLink } from '@/components/SkipLink'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
@@ -175,8 +175,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </main>
               <Footer />
               <Chatbot />
-              <EasterEggs />
-              <AlkiMusicEasterEggs />
+              <EasterEggsV2 />
+              <AlkiMusicPlayerV2 />
               <AlkiSecretLinks />
             </div>
           </ErrorBoundary>
