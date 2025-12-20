@@ -9,9 +9,12 @@ import CreativeEasterEggs from '@/components/CreativeEasterEggs'
 import AlkiSecretLinks from '@/components/AlkiSecretLinks'
 import { SkipLink } from '@/components/SkipLink'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
+import { EnhancedErrorBoundary } from '@/components/EnhancedErrorBoundary'
 import { PerformanceMonitor } from '@/components/PerformanceMonitor'
 import { PerformanceMetrics } from '@/components/performance/PerformanceMetrics'
 import { AccessibilityHelper } from '@/components/accessibility/AccessibilityHelper'
+import { WebVitals, PerformanceMonitor as WebVitalsMonitor } from '@/components/WebVitals'
+import { ToastContainer } from '@/components/ui/Toast'
 
 // Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -198,21 +201,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <SkipLink />
           <PerformanceMonitor />
           <PerformanceMetrics />
+          <WebVitals />
+          <WebVitalsMonitor />
           <AccessibilityHelper />
+          <ToastContainer />
           <LoadingScreen />
           <StarfieldBackground />
-          <ErrorBoundary>
-            <div className="min-h-screen text-white dark:text-white bg-dark dark:bg-dark transition-colors duration-300" style={{ position: 'relative', zIndex: 1 }}>
-              <Header />
-              <main id="main-content" className="pt-16">
-                {children}
-              </main>
-              <Footer />
-              <Chatbot />
-              <CreativeEasterEggs />
-              <AlkiSecretLinks />
-            </div>
-          </ErrorBoundary>
+          <EnhancedErrorBoundary>
+            <ErrorBoundary>
+              <div className="min-h-screen text-white dark:text-white bg-dark dark:bg-dark transition-colors duration-300" style={{ position: 'relative', zIndex: 1 }}>
+                <Header />
+                <main id="main-content" className="pt-16">
+                  {children}
+                </main>
+                <Footer />
+                <Chatbot />
+                <CreativeEasterEggs />
+                <AlkiSecretLinks />
+              </div>
+            </ErrorBoundary>
+          </EnhancedErrorBoundary>
       </body>
     </html>
   )
