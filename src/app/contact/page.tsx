@@ -80,19 +80,19 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'contact@hlpflrecords.com',
-      href: 'mailto:contact@hlpflrecords.com'
+      value: 'founder@hlpfl.org',
+      href: 'mailto:founder@hlpfl.org'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '+1 (616) 313-5215',
+      href: 'tel:+16163135215'
     },
     {
       icon: MapPin,
       label: 'Address',
-      value: '123 Music Row, Nashville, TN 37203',
+      value: 'Grand Rapids, Michigan',
       href: '#'
     },
     {
@@ -134,7 +134,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-xl text-gray-300 mb-8">
             Founded by James Rockel at 18 and powered by co-founder Alki's boundary-pushing artistry, 
-            we're redefining music industry partnerships. Whether you're interested in our revolutionary 50/50 model, 
+            we're redefining music industry partnerships. Whether you're interested in our revolutionary 11% model, 
             want to join the movement, or have questions about artist success, we're here to help.
           </p>
         </div>
