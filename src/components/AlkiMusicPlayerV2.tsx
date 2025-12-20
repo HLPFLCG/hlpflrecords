@@ -26,6 +26,10 @@ const AlkiMusicPlayerV2 = () => {
   const [showVisualizer, setShowVisualizer] = useState(false);
   const [typedSequence, setTypedSequence] = useState('');
   const [isMobile, setIsMobile] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -191,6 +195,22 @@ const AlkiMusicPlayerV2 = () => {
     }
   }, [isMuted]);
 
+  // Seek to position
+  const seekTo = useCallback((time: number) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = time;
+      setCurrentTime(time);
+    }
+  }, []);
+
+  // Format time (seconds to MM:SS)
+  const formatTime = useCallback((seconds: number) => {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  }, []);
+
   // Toggle visualizer
   const toggleVisualizer = useCallback(() => {
     setShowVisualizer(prev => !prev);
@@ -347,6 +367,30 @@ const AlkiMusicPlayerV2 = () => {
     };
   }, [showVisualizer, isPlaying, drawVisualizer]);
 
+  // Update time
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    const audio = audioRef.current;
+
+    const updateTime = () => setCurrentTime(audio.currentTime);
+    const updateDuration = () => setDuration(audio.duration);
+    const handleLoadStart = () => setIsLoading(true);
+    const handleCanPlay = () => setIsLoading(false);
+
+    audio.addEventListener('timeupdate', updateTime);
+    audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('loadstart', handleLoadStart);
+    audio.addEventListener('canplay', handleCanPlay);
+
+    return () => {
+      audio.removeEventListener('timeupdate', updateTime);
+      audio.removeEventListener('loadedmetadata', updateDuration);
+      audio.removeEventListener('loadstart', handleLoadStart);
+      audio.removeEventListener('canplay', handleCanPlay);
+    };
+  }, []);
+
   // Cleanup
   useEffect(() => {
     return () => {
@@ -394,6 +438,25 @@ const AlkiMusicPlayerV2 = () => {
 
       {/* Controls */}
       <div className="p-4 space-y-4">
+        {/* Progress bar */}
+        <div className="space-y-2">
+          <input
+            type="range"
+            min="0"
+            max={duration || 0}
+            value={currentTime}
+            onChange={(e) => seekTo(parseFloat(e.target.value))}
+            className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-[#c87941]"
+            style={{
+              background: `linear-gradient(to right, #c87941 0%, #c87941 ${(currentTime / duration) * 100}%, #374151 ${(currentTime / duration) * 100}%, #374151 100%)`
+            }}
+          />
+          <div className="flex justify-between text-xs text-white/60">
+            <span>{formatTime(currentTime)}</span>
+            <span>{formatTime(duration)}</span>
+          </div>
+        </div>
+
         {/* Play controls */}
         <div className="flex items-center justify-center gap-4">
           <button
@@ -405,9 +468,16 @@ const AlkiMusicPlayerV2 = () => {
           
           <button
             onClick={togglePlay}
-            className="bg-gradient-to-r from-[#c87941] to-[#d4945c] text-white p-4 rounded-full hover:scale-110 transition-transform"
+            disabled={isLoading}
+            className="bg-gradient-to-r from-[#c87941] to-[#d4945c] text-white p-4 rounded-full hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isPlaying ? <Pause size={24} /> : <Play size={24} />}
+            {isLoading ? (
+              <div className="animate-spin">⏳</div>
+            ) : isPlaying ? (
+              <Pause size={24} />
+            ) : (
+              <Play size={24} />
+            )}
           </button>
           
           <button
@@ -459,10 +529,37 @@ const AlkiMusicPlayerV2 = () => {
           ))}
         </div>
 
-        {/* Tips */}
-        <div className="text-white/50 text-xs space-y-1">
-          <p>💡 Keyboard: Space (play/pause), ← → (tracks)</p>
-          {isMobile && <p>💡 Mobile: Swipe left/right, shake to shuffle</p>}
+        {/* Tips & Shortcuts */}
+        <div className="space-y-2">
+          <button
+            onClick={() => setShowShortcuts(!showShortcuts)}
+            className="w-full text-white/70 hover:text-white text-xs py-2 transition-colors"
+          >
+            {showShortcuts ? '▼' : '▶'} Keyboard Shortcuts & Tips
+          </button>
+          
+          {showShortcuts && (
+            <div className="bg-black/30 rounded-lg p-3 text-xs text-white/70 space-y-2">
+              <div>
+                <p className="text-white font-semibold mb-1">Desktop:</p>
+                <p>• Space - Play/Pause</p>
+                <p>• ← → - Previous/Next track</p>
+                <p>• Ctrl+Alt+V - Toggle visualizer</p>
+              </div>
+              {isMobile && (
+                <div>
+                  <p className="text-white font-semibold mb-1">Mobile:</p>
+                  <p>• Swipe left/right - Change tracks</p>
+                  <p>• Shake device - Shuffle</p>
+                </div>
+              )}
+              <div>
+                <p className="text-white font-semibold mb-1">Type Triggers:</p>
+                <p>• Type "alki" - Open player</p>
+                <p>• Type track names - Play specific tracks</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
