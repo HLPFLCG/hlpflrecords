@@ -11,6 +11,8 @@ import AlkiSecretLinks from '@/components/AlkiSecretLinks'
 import { SkipLink } from '@/components/SkipLink'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { PerformanceMonitor } from '@/components/PerformanceMonitor'
+import { PerformanceMetrics } from '@/components/performance/PerformanceMetrics'
+import { AccessibilityHelper } from '@/components/accessibility/AccessibilityHelper'
 
 // Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -124,6 +126,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Resource Hints for Performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        
         {/* Google Tag Manager */}
         <script dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -148,6 +156,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <meta name="theme-color" content="#c87941" />
         <link rel="icon" href="/images/favicon/hlpflsymbolpnggradient.ico" />
         <link rel="apple-touch-icon" href="/images/favicon/hlpflsymbolpnggradient.png" />
+        
+        {/* Structured Data - Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'HLPFL Records',
+              url: 'https://hlpfl.org',
+              logo: 'https://hlpfl.org/images/logo.png',
+              description: 'World-class record label for artist development and music production',
+              email: 'contact@hlpfl.org',
+              telephone: '+1-616-313-5215',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Grand Rapids',
+                addressRegion: 'MI',
+                addressCountry: 'US',
+              },
+              sameAs: [
+                'https://instagram.com/hlpfl',
+                'https://twitter.com/hlpfl',
+              ],
+            }),
+          }}
+        />
       </head>
       <body className={inter.className}>
         {/* Google Tag Manager (noscript) */}
@@ -163,6 +198,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           
           <SkipLink />
           <PerformanceMonitor />
+          <PerformanceMetrics />
+          <AccessibilityHelper />
           <LoadingScreen />
           <StarfieldBackground />
           <ErrorBoundary>

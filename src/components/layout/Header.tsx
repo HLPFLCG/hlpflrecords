@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Menu, X, Music } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Logo from '@/components/Logo'
+import { GlobalSearch } from '@/components/search/GlobalSearch'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -70,8 +71,9 @@ export function Header() {
               ))}
             </div>
 
-            {/* Enhanced CTA Button */}
+            {/* Search & CTA Button */}
             <div className="hidden md:flex items-center space-x-4">
+              <GlobalSearch />
               <Link href="/contact">
                 <Button variant="outline" size="sm" className="btn-premium group">
                   <span className="mr-2">Submit Music</span>

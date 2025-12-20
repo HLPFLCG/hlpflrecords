@@ -19,10 +19,13 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: true,
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   poweredByHeader: false,
   compress: true,
   generateEtags: false,
+  reactStrictMode: true,
+  swcMinify: true,
   
   // Security headers - commented out for static export compatibility
   // async headers() {
