@@ -39,7 +39,7 @@ export function AboutSection() {
                 <div className="text-sm text-gray-400">Artists</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">10+</div>
+                <div className="text-3xl font-bold text-gold mb-1">37+</div>
                 <div className="text-sm text-gray-400">Releases</div>
               </div>
               <div className="text-center">

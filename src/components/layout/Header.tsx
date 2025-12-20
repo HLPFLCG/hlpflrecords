@@ -2,10 +2,15 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { Menu, X, Music } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import Logo from '@/components/Logo'
+
+// Dynamically import ThemeToggle to avoid SSR issues
+const ThemeToggle = dynamic(() => import('@/components/ui/ThemeToggle').then(mod => ({ default: mod.ThemeToggle })), {
+  ssr: false,
+})
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

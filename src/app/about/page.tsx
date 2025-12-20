@@ -44,7 +44,7 @@ export default function AboutPage() {
 
   const stats = [
     { number: '1', label: 'Artists' },
-    { number: '10+', label: 'Releases' },
+    { number: '37+', label: 'Releases' },
     { number: '5m+', label: 'Streams' },
     { number: '6', label: 'Years' }
   ]

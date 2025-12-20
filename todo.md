@@ -1,15 +1,16 @@
 # HLPFL Records Website - Image Fix & Phase 3 Tasks
 
-## 1. Image Display Issues 🖼️
+## 1. Image Display Issues & Album Updates 🖼️
 - [x] Verify image paths in deployed site
 - [x] Check if Cloudflare Pages deployment is using latest build
 - [x] Fix About page to use actual team images instead of placeholders
 - [x] Fix Releases page to use actual album covers instead of placeholders
-- [x] Code changes completed - ready for rebuild
-- [x] Rebuild site successfully
-- [x] Commit and push changes to GitHub
-- [x] Changes deployed - Cloudflare will auto-redeploy
-- [ ] Verify images display correctly on live site (wait 2-3 minutes for deployment)
+- [x] Add 27 new album covers to releases directory
+- [x] Add 27 new songs to mockData.ts (total: 37 releases)
+- [x] Update stats on home page (10+ → 37+)
+- [x] Update stats on about page (10+ → 37+)
+- [ ] Build and deploy all changes
+- [ ] Verify all images display correctly on live site
 
 ## 2. Easter Eggs Documentation 🥚
 - [x] Document all existing Easter eggs
