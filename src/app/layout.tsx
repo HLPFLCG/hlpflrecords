@@ -11,7 +11,6 @@ import AlkiSecretLinks from '@/components/AlkiSecretLinks'
 import { SkipLink } from '@/components/SkipLink'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { PerformanceMonitor } from '@/components/PerformanceMonitor'
-import { ThemeProvider } from '@/contexts/ThemeContext'
 
 // Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -151,10 +150,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="apple-touch-icon" href="/images/favicon/hlpflsymbolpnggradient.png" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider>
-          {/* Google Tag Manager (noscript) */}
-          <noscript>
-            <iframe
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
               src="https://www.googletagmanager.com/ns.html?id=GTM-WSPNJ5DR"
               height="0"
               width="0"
@@ -180,7 +178,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <AlkiSecretLinks />
             </div>
           </ErrorBoundary>
-        </ThemeProvider>
       </body>
     </html>
   )

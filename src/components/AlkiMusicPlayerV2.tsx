@@ -3,18 +3,18 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { X, Play, Pause, SkipBack, SkipForward, Volume2, VolumeX } from 'lucide-react';
 
-// Top 10 Alki tracks from actual releases
+// Unreleased Alki tracks - Easter egg exclusives
 const ALKI_TRACKS = [
-  { id: '1', title: '221', trigger: '221', file: '/audio/alki/221.mp3', color: '#c87941' },
-  { id: '2', title: 'Lackin', trigger: 'lackin', file: '/audio/alki/lackin.mp3', color: '#d4945c' },
-  { id: '3', title: 'No Service', trigger: 'noservice', file: '/audio/alki/no-service.mp3', color: '#a86535' },
-  { id: '4', title: 'Get Down', trigger: 'getdown', file: '/audio/alki/get-down.mp3', color: '#c87941' },
-  { id: '5', title: 'Better Off', trigger: 'betteroff', file: '/audio/alki/better-off.mp3', color: '#d4945c' },
-  { id: '6', title: 'Switched Up', trigger: 'switchedup', file: '/audio/alki/switched-up.mp3', color: '#a86535' },
-  { id: '7', title: 'Too Much', trigger: 'toomuch', file: '/audio/alki/too-much.mp3', color: '#c87941' },
-  { id: '8', title: 'Planes', trigger: 'planes', file: '/audio/alki/planes.mp3', color: '#d4945c' },
-  { id: '9', title: 'Deceiving', trigger: 'deceiving', file: '/audio/alki/deceiving.mp3', color: '#a86535' },
-  { id: '10', title: 'Attached', trigger: 'attached', file: '/audio/alki/attached.mp3', color: '#c87941' },
+  { id: '1', title: 'IPTWHA', trigger: 'iptwha', file: '/audio/alki/iptwha.mp3', color: '#c87941' },
+  { id: '2', title: 'Like That', trigger: 'likethat', file: '/audio/alki/like-that.mp3', color: '#d4945c' },
+  { id: '3', title: '5D', trigger: '5d', file: '/audio/alki/5d.mp3', color: '#a86535' },
+  { id: '4', title: 'Home', trigger: 'home', file: '/audio/alki/home.mp3', color: '#c87941' },
+  { id: '5', title: 'Regrets', trigger: 'regrets', file: '/audio/alki/regrets.mp3', color: '#d4945c' },
+  { id: '6', title: 'Stay', trigger: 'stay', file: '/audio/alki/stay.mp3', color: '#a86535' },
+  { id: '7', title: 'Okay', trigger: 'okay', file: '/audio/alki/okay.mp3', color: '#c87941' },
+  { id: '8', title: 'Luv 4', trigger: 'luv4', file: '/audio/alki/luv4.mp3', color: '#d4945c' },
+  { id: '9', title: 'Take It All Away', trigger: 'takeaway', file: '/audio/alki/take-it-all-away.mp3', color: '#a86535' },
+  { id: '10', title: 'Tear Me Apart', trigger: 'tearme', file: '/audio/alki/tear-me-apart.mp3', color: '#c87941' },
 ];
 
 const AlkiMusicPlayerV2 = () => {
@@ -59,7 +59,7 @@ const AlkiMusicPlayerV2 = () => {
     const notification = document.createElement('div');
     notification.textContent = `🎵 ${message}`;
     notification.className = 'fixed top-4 right-4 bg-gradient-to-r from-[#c87941] to-[#d4945c] text-white px-6 py-3 rounded-lg font-semibold shadow-lg z-[10000] animate-slide-in-right';
-    notification.style.fontFamily = 'Inter, system-ui, sans-serif';
+    notification.style.fontFamily = "'Space Grotesk', system-ui, sans-serif";
     
     document.body.appendChild(notification);
     setTimeout(() => {

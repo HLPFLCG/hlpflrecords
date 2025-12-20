@@ -2,15 +2,9 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
 import { Menu, X, Music } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Logo from '@/components/Logo'
-
-// Dynamically import ThemeToggle to avoid SSR issues
-const ThemeToggle = dynamic(() => import('@/components/ui/ThemeToggle').then(mod => ({ default: mod.ThemeToggle })), {
-  ssr: false,
-})
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -76,9 +70,8 @@ export function Header() {
               ))}
             </div>
 
-            {/* Enhanced CTA Button & Theme Toggle */}
+            {/* Enhanced CTA Button */}
             <div className="hidden md:flex items-center space-x-4">
-              <ThemeToggle />
               <Link href="/contact">
                 <Button variant="outline" size="sm" className="btn-premium group">
                   <span className="mr-2">Submit Music</span>
@@ -87,9 +80,8 @@ export function Header() {
               </Link>
             </div>
 
-            {/* Enhanced Mobile menu button &amp; Theme Toggle */}
+            {/* Enhanced Mobile menu button */}
             <div className="lg:hidden flex items-center space-x-2">
-              <ThemeToggle />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="touch-feedback p-2 rounded-lg glass hover:bg-gold/10 transition-all duration-300"

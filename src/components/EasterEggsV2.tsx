@@ -29,7 +29,7 @@ const EasterEggsV2 = () => {
     const notification = document.createElement('div');
     notification.textContent = `${emoji} ${message}`;
     notification.className = 'fixed top-4 right-4 bg-gradient-to-r from-[#c87941] to-[#d4945c] text-white px-6 py-3 rounded-lg font-semibold shadow-lg z-[10000] animate-slide-in-right';
-    notification.style.fontFamily = 'Inter, system-ui, sans-serif';
+    notification.style.fontFamily = "'Space Grotesk', system-ui, sans-serif";
     
     document.body.appendChild(notification);
 
@@ -91,7 +91,7 @@ const EasterEggsV2 = () => {
       const effect = document.createElement('div');
       effect.textContent = message;
       effect.className = 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-[#c87941] z-[9999] text-center pointer-events-none px-8';
-      effect.style.fontFamily = 'Inter, system-ui, sans-serif';
+      effect.style.fontFamily = "'Space Grotesk', system-ui, sans-serif";
       effect.style.textShadow = '0 0 20px #c87941';
       effect.style.animation = 'secret-reveal 3s forwards';
       
