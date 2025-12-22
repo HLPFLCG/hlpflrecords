@@ -92,7 +92,7 @@ export function HeroSection() {
               <div className="text-sm text-gray-400 uppercase tracking-wider">Streams</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">37+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">7+</div>
               <div className="text-sm text-gray-400 uppercase tracking-wider">Years</div>
             </div>
           </div>
