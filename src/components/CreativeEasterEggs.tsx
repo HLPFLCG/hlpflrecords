@@ -10,7 +10,7 @@ const SecretMusicPlayer = dynamic(() => import('./SecretMusicPlayer'), { ssr: fa
 const TRACKS = [
   { id: '1', title: '5D', file: '/audio/5d.mp3', color: '#c87941', trigger: 'konami' },
   { id: '2', title: 'Home (Alone)', file: '/audio/home.mp3', color: '#d4945c', trigger: 'logo-clicks' },
-  { id: '3', title: 'Regrets', file: '/audio/regrets.mp3', color: '#a86535', trigger: 'scroll-depth' },
+  { id: '3', title: 'Regrets', file: 'public/audio/regrets ! wip 3 - alki.mp3', color: '#a86535', trigger: 'scroll-depth' },
   { id: '4', title: 'Tear Me Apart', file: '/audio/tear-me-apart.mp3', color: '#c87941', trigger: 'time-based' },
   { id: '5', title: "Writin' My Wrongs", file: '/audio/writin-my-wrongs.mp3', color: '#d4945c', trigger: 'mouse-pattern' },
   { id: '6', title: 'PTSD', file: '/audio/ptsd.mp3', color: '#a86535', trigger: 'hidden' },
