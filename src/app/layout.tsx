@@ -183,7 +183,6 @@ export default function RootLayout({
         <EnhancedErrorBoundary>
           <ErrorBoundary>
             <div className="min-h-screen text-white bg-[#0a0a0a]" style={{ position: 'relative', zIndex: 1 }}>
-              <div className="film-grain" />
               <Header />
               <main id="main-content" className="pt-16">
                 {children}
