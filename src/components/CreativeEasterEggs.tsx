@@ -29,7 +29,7 @@ const SECRET_TRACKS = [
     title: 'Regrets',
     artist: 'Alki',
     trigger: 'scroll',
-    file: '/audio/regrets.mp3',
+    file: '/audio/regrets ! wip 3 - alki.mp3',
     color: '#a86535',
     description: 'Hidden track unlocked by scrolling!'
   },
