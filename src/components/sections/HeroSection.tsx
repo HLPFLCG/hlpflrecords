@@ -91,7 +91,7 @@ export function HeroSection() {
               <div className="text-sm text-gray-400 uppercase tracking-widest">Streams</div>
             </div>
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>6+</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>7+</div>
               <div className="text-sm text-gray-400 uppercase tracking-widest">Years</div>
             </div>
           </div>
