@@ -47,7 +47,7 @@ export function Header() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Enhanced Logo */}
-            <Link href="/" className="group flex items-center space-x-3">
+            <Link href="/" data-logo="true" className="group flex items-center space-x-3">
               <div className="relative">
                 <Logo width={48} height={48} className="w-12 h-12 shadow-lg group-hover:shadow-gold transition-all duration-300 group-hover:scale-105" />
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-gold rounded-full animate-pulse" />

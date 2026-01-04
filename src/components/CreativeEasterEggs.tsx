@@ -2,138 +2,110 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { trackEvent } from '@/lib/analytics';
+import SecretMusicPlayer from '@/components/SecretMusicPlayer';
 
-// Secret music tracks
+// Secret music tracks - all 11 unreleased tracks
 const SECRET_TRACKS = [
   {
-    id: 'secret-1',
+    id: '5d',
     title: '5D',
     artist: 'Alki',
     trigger: 'konami',
-    audioUrl: '/audio/secret/5D.mp3',
-    coverUrl: '/images/releases/secret-5d.jpg',
+    file: '/audio/5d.mp3',
+    color: '#c87941',
     description: 'Hidden track unlocked via Konami Code!'
   },
   {
-    id: 'secret-2',
+    id: 'home',
     title: 'Home (Alone)',
     artist: 'Alki',
     trigger: 'clicks',
-    audioUrl: '/audio/secret/home-alone.mp3',
-    coverUrl: '/images/releases/secret-home.jpg',
+    file: '/audio/home.mp3',
+    color: '#d4945c',
     description: 'Hidden track unlocked by clicking!'
   },
   {
-    id: 'secret-3',
+    id: 'regrets',
     title: 'Regrets',
     artist: 'Alki',
     trigger: 'scroll',
-    audioUrl: '/audio/secret/regrets.mp3',
-    coverUrl: '/images/releases/secret-regrets.jpg',
+    file: '/audio/regrets.mp3',
+    color: '#a86535',
     description: 'Hidden track unlocked by scrolling!'
   },
   {
-    id: 'secret-4',
+    id: 'tear-me-apart',
     title: 'Tear Me Apart',
     artist: 'Alki',
     trigger: 'time',
-    audioUrl: '/audio/secret/tear-me-apart.mp3',
-    coverUrl: '/images/releases/secret-tear.jpg',
+    file: '/audio/tear-me-apart.mp3',
+    color: '#8b5a2b',
     description: 'Hidden track unlocked at 11:11!'
   },
   {
-    id: 'secret-5',
+    id: 'writin-my-wrongs',
     title: "Writin' My Wrongs",
     artist: 'Alki',
     trigger: 'pattern',
-    audioUrl: '/audio/secret/writin-my-wrongs.mp3',
-    coverUrl: '/images/releases/secret-wrongs.jpg',
+    file: '/audio/writin-my-wrongs.mp3',
+    color: '#6b4423',
     description: 'Hidden track unlocked by drawing!'
+  },
+  {
+    id: 'ptsd',
+    title: 'PTSD',
+    artist: 'Alki',
+    trigger: 'random',
+    file: '/audio/ptsd.mp3',
+    color: '#4a3728',
+    description: 'Hidden track!'
+  },
+  {
+    id: 'lottery',
+    title: 'Lottery',
+    artist: 'Alki',
+    trigger: 'random',
+    file: '/audio/lottery.mp3',
+    color: '#d4945c',
+    description: 'Hidden track!'
+  },
+  {
+    id: 'doomed',
+    title: 'Doomed From The Start',
+    artist: 'Alki',
+    trigger: 'random',
+    file: '/audio/doomed.mp3',
+    color: '#8b5a2b',
+    description: 'Hidden track!'
+  },
+  {
+    id: 'death-of-me',
+    title: 'Death Of Me',
+    artist: 'Alki',
+    trigger: 'random',
+    file: '/audio/death-of-me.mp3',
+    color: '#a86535',
+    description: 'Hidden track!'
+  },
+  {
+    id: 'sad-corvette',
+    title: 'Sad! Just In A Corvette',
+    artist: 'Alki',
+    trigger: 'random',
+    file: '/audio/sad-corvette.mp3',
+    color: '#c87941',
+    description: 'Hidden track!'
+  },
+  {
+    id: '1113',
+    title: '1113',
+    artist: 'Alki',
+    trigger: 'random',
+    file: '/audio/1113.mp3',
+    color: '#6b4423',
+    description: 'Hidden track!'
   }
 ];
-
-interface SecretMusicPlayerProps {
-  track: typeof SECRET_TRACKS[0];
-  onClose: () => void;
-}
-
-const SecretMusicPlayer: React.FC<SecretMusicPlayerProps> = ({ track, onClose }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [audio] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return new Audio(track.audioUrl);
-    }
-    return null;
-  });
-
-  useEffect(() => {
-    if (!audio) return;
-
-    const handleEnded = () => setIsPlaying(false);
-    audio.addEventListener('ended', handleEnded);
-
-    return () => {
-      audio.removeEventListener('ended', handleEnded);
-      audio.pause();
-    };
-  }, [audio]);
-
-  const togglePlay = () => {
-    if (!audio) return;
-
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 animate-slideUp">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-              🎵 Secret Track Unlocked!
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {track.description}
-            </p>
-          </div>
-          <button
-            onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-            aria-label="Close"
-          >
-            ✕
-          </button>
-        </div>
-
-        <div className="flex items-center gap-4 mb-4">
-          {track.coverUrl && (
-            <img
-              src={track.coverUrl}
-              alt={track.title}
-              className="w-20 h-20 rounded-lg object-cover"
-            />
-          )}
-          <div>
-            <h4 className="font-bold text-gray-900 dark:text-white">{track.title}</h4>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{track.artist}</p>
-          </div>
-        </div>
-
-        <button
-          onClick={togglePlay}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors"
-        >
-          {isPlaying ? '⏸ Pause' : '▶ Play'}
-        </button>
-      </div>
-    </div>
-  );
-};
 
 const CreativeEasterEggs: React.FC = () => {
   const [activeTrack, setActiveTrack] = useState<typeof SECRET_TRACKS[0] | null>(null);
@@ -188,11 +160,11 @@ const CreativeEasterEggs: React.FC = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!canTrigger) return;
 
-      const key = e.key.toLowerCase();
-      if (key === konamiCode[konamiIndex]) {
+      // Fixed: Compare keys directly (not lowercased)
+      if (e.key === konamiCode[konamiIndex]) {
         konamiIndex++;
         if (konamiIndex === konamiCode.length) {
-          discoverTrack('secret-1');
+          discoverTrack('5d');
           triggerCooldown();
           konamiIndex = 0;
         }
@@ -219,7 +191,7 @@ const CreativeEasterEggs: React.FC = () => {
       if (clickTimer) clearTimeout(clickTimer);
       
       if (clicks >= 7) {
-        discoverTrack('secret-2');
+        discoverTrack('home');
         triggerCooldown();
         clicks = 0;
       } else {
@@ -240,11 +212,10 @@ const CreativeEasterEggs: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (!canTrigger) return;
-
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       
       if (scrollPercent >= 77.5 && scrollPercent <= 78.0) {
-        discoverTrack('secret-3');
+        discoverTrack('regrets');
         triggerCooldown();
       }
     };
@@ -257,14 +228,17 @@ const CreativeEasterEggs: React.FC = () => {
   useEffect(() => {
     const checkTime = () => {
       if (!canTrigger) return;
-
       const now = new Date();
       const hours = now.getHours();
       const minutes = now.getMinutes();
 
       if ((hours === 11 || hours === 23) && minutes === 11) {
-        discoverTrack('secret-4');
-        triggerCooldown();
+        // Check if already triggered this session
+        if (!sessionStorage.getItem('timeEasterEggTriggered')) {
+          discoverTrack('tear-me-apart');
+          triggerCooldown();
+          sessionStorage.setItem('timeEasterEggTriggered', 'true');
+        }
       }
     };
 
@@ -286,7 +260,6 @@ const CreativeEasterEggs: React.FC = () => {
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDrawing || !canTrigger) return;
-
       positions.push({
         x: e.clientX,
         y: e.clientY,
@@ -300,7 +273,7 @@ const CreativeEasterEggs: React.FC = () => {
       if (positions.length >= 30) {
         const isCircle = checkCirclePattern(positions);
         if (isCircle) {
-          discoverTrack('secret-5');
+          discoverTrack('writin-my-wrongs');
           triggerCooldown();
           positions.length = 0;
           isDrawing = false;
@@ -314,7 +287,6 @@ const CreativeEasterEggs: React.FC = () => {
 
     const checkCirclePattern = (points: typeof positions) => {
       if (points.length < 30) return false;
-
       // Calculate center
       const centerX = points.reduce((sum, p) => sum + p.x, 0) / points.length;
       const centerY = points.reduce((sum, p) => sum + p.y, 0) / points.length;
@@ -337,7 +309,6 @@ const CreativeEasterEggs: React.FC = () => {
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
-
     return () => {
       document.removeEventListener('mousedown', handleMouseDown);
       document.removeEventListener('mousemove', handleMouseMove);
@@ -352,7 +323,6 @@ const CreativeEasterEggs: React.FC = () => {
 
     const handleKeyPress = (e: KeyboardEvent) => {
       if (!canTrigger) return;
-
       typedText += e.key.toLowerCase();
       
       if (typedText.length > secretWord.length) {
@@ -360,6 +330,7 @@ const CreativeEasterEggs: React.FC = () => {
       }
 
       if (typedText === secretWord) {
+        // Select a random track from all 11 tracks
         const randomTrack = SECRET_TRACKS[Math.floor(Math.random() * SECRET_TRACKS.length)];
         discoverTrack(randomTrack.id);
         triggerCooldown();
@@ -377,6 +348,7 @@ const CreativeEasterEggs: React.FC = () => {
       const target = e.target as HTMLElement;
       if (!target.closest('footer') || !canTrigger) return;
 
+      // Select a random track from all 11 tracks
       const randomTrack = SECRET_TRACKS[Math.floor(Math.random() * SECRET_TRACKS.length)];
       discoverTrack(randomTrack.id);
       triggerCooldown();
