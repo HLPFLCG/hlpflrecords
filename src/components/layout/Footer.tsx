@@ -44,7 +44,7 @@ export function Footer() {
               <span className="text-white font-bold text-xl">HLPFL</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              Discover. Develop. Distribute. World-class record label bridging the gap between raw talent and global legacy.
+              Acting as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => {

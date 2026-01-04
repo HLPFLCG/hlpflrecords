@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     default: 'HLPFL Records - World-Class Record Label',
     template: '%s | HLPFL'
   },
-  description: 'HLPFL Records: World-class record label. Discover. Develop. Distribute. Premier artist development, high-end production, and strategic global distribution.',
+  description: 'HLPFL Records: To act as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution. Discover. Develop. Distribute.',
   keywords: ['record label', 'music production', 'artist development', 'music distribution', 'HLPFL', 'music licensing', 'artist management', 'Grand Rapids record label', 'Michigan music label'],
   authors: [{ name: 'HLPFL' }],
   creator: 'HLPFL',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://hlpfl.org',
     title: 'HLPFL Records - World-Class Record Label',
-    description: 'Discover. Develop. Distribute. HLPFL Records is a world-class record label bridging the gap between raw talent and global legacy.',
+    description: 'Acting as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution.',
     siteName: 'HLPFL Records',
     images: [
       {

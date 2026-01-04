@@ -47,12 +47,11 @@ export function ServicesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
             <span className="text-gold">Complete Music</span> Business Solutions
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Everything you need to transform your musical talent into a thriving, legally compliant business.
-            From production to promotion, we've got your music career covered.
+            We build careers, not just viral moments. From production to promotion, we've got your music career covered.
           </p>
         </div>
 
@@ -92,12 +91,11 @@ export function ServicesSection() {
         {/* CTA */}
         <div className="text-center mt-16">
           <div className="glass rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Build Your Music Empire?
+            <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
+              Ready to Build Your Legacy?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Let's turn your musical talent into a thriving business. Book a free discovery call and 
-              let's discuss how we can help you build a legally solid, sustainable music career.
+              Let's turn your musical talent into a thriving career. We don't just sign artists; we build legacies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-gold text-dark px-8 py-3 rounded-lg font-semibold hover:bg-gold-light transition-colors hover-lift">

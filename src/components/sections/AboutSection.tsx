@@ -11,24 +11,21 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
               About <span className="text-gold">HLPFL</span>
             </h2>
             
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                Founded by James Rockel in 2019 when he was just 18 years old, HLPFL emerged from a vision to transform how artists succeed in the music industry. 
-                After witnessing countless talented musicians struggle with outdated industry practices, James set out to create a revolutionary artist-first model.
+                HLPFL Records acts as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution.
               </p>
               
               <p className="leading-relaxed">
-                Our groundbreaking 11% partnership model, proven through the success of co-founder and signed artist Alki (@alkiotis), 
-                redefines what it means to be an independent artist. We believe artists deserve creative control, fair revenue splits, and genuine partnerships that elevate their vision.
+                We don't follow trends; we set the standard. We build careers, not just viral moments. We think in 5-year plans, not 15-second clips.
               </p>
               
               <p className="leading-relaxed">
-                From our Grand Rapids headquarters to global stages, HLPFL is building the future of music - one artist partnership at a time. 
-                With Alki's boundary-pushing artistry leading the way, we're proving that independent artists can thrive without sacrificing their art or revenue.
+                We are proudly Grand Rapids-based, exporting the "Midwest Sound" to the world. In an industry of bright, noisy pop marketing, we represent the cool confidence of the studio at 2 AM.
               </p>
             </div>
 
@@ -74,7 +71,7 @@ export function AboutSection() {
                   <span className="text-gold text-4xl font-bold">H</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">HLPFL</h3>
-                <p className="text-gray-400 mb-4">Elevating artists to global recognition</p>
+                <p className="text-gray-400 mb-4" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>Discover. Develop. Distribute.</p>
                 <div className="flex justify-center space-x-2">
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" />
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />

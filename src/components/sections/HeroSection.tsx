@@ -54,8 +54,8 @@ export function HeroSection() {
           
           {/* Description */}
           <p className="text-fade-in text-fade-in-delay-3 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Acting as the filter of excellence in a saturated music market; bridging the gap between raw talent 
-            and global legacy through professional development, high-end production, and strategic distribution.
+            In an industry of bright, noisy pop marketing, we represent the cool confidence of the studio at 2 AM. 
+            We are proudly Grand Rapids-based, exporting the "Midwest Sound" to the world.
           </p>
           
           {/* CTA Buttons */}
