@@ -163,10 +163,6 @@ const CreativeEasterEggs = () => {
   }, []);
   */
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [canTrigger, showNotification, trackEvent]);
-
   // 4. TIME-BASED: Visit at 11:11 AM or PM
   useEffect(() => {
     const checkTime = () => {
