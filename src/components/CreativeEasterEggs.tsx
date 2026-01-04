@@ -128,20 +128,31 @@ const CreativeEasterEggs: React.FC = () => {
 
   // Track discovery
   const discoverTrack = useCallback((trackId: string) => {
-    if (discoveredTracks.has(trackId)) return;
-
+    // Find the track
     const track = SECRET_TRACKS.find(t => t.id === trackId);
-    if (!track) return;
+    if (!track) {
+      console.error('❌ Track not found:', trackId);
+      return;
+    }
 
-    setDiscoveredTracks(prev => new Set([...Array.from(prev), trackId]));
+    console.log('🎵 Discovering track:', track.title, 'File:', track.file);
+    
+    // Set active track to play it
     setActiveTrack(track);
     
-    trackEvent('easter_egg_discovered', 'Easter Egg', track.title, undefined, {
-      track_id: trackId,
-      trigger: track.trigger
-    });
+    // Add to discovered tracks if not already
+    if (!discoveredTracks.has(trackId)) {
+      setDiscoveredTracks(prev => new Set([...Array.from(prev), trackId]));
+      
+      trackEvent('easter_egg_discovered', 'Easter Egg', track.title, undefined, {
+        track_id: trackId,
+        trigger: track.trigger
+      });
 
-    showNotification(`🎵 Secret track discovered: ${track.title}`);
+      showNotification(`🎵 Secret track discovered: ${track.title}`);
+    } else {
+      console.log('🔄 Track already discovered, playing again:', track.title);
+    }
   }, [discoveredTracks, showNotification]);
 
   // Check if we can trigger (cooldown system)
@@ -210,13 +221,23 @@ const CreativeEasterEggs: React.FC = () => {
 
   // 3. SCROLL DEPTH: Scroll to exactly 77.7% of page
   useEffect(() => {
+    let scrollTriggered = false;
+    
     const handleScroll = () => {
-      if (!canTrigger) return;
+      if (!canTrigger || scrollTriggered) return;
+      
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       
       if (scrollPercent >= 77.5 && scrollPercent <= 78.0) {
+        console.log('🎯 Scroll depth trigger activated at:', scrollPercent.toFixed(1) + '%');
+        scrollTriggered = true;
         discoverTrack('regrets');
         triggerCooldown();
+        
+        // Reset after cooldown period
+        setTimeout(() => {
+          scrollTriggered = false;
+        }, 5000);
       }
     };
 
