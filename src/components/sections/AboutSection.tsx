@@ -17,7 +17,7 @@ export function AboutSection() {
             
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                HLPFL Records acts as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution.
+                HLPFL acts as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution.
               </p>
               
               <p className="leading-relaxed">
@@ -32,7 +32,7 @@ export function AboutSection() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">1</div>
+                <div className="text-3xl font-bold text-gold mb-1">5</div>
                 <div className="text-sm text-gray-400">Artists</div>
               </div>
               <div className="text-center">
@@ -40,7 +40,7 @@ export function AboutSection() {
                 <div className="text-sm text-gray-400">Releases</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">5m+</div>
+                <div className="text-3xl font-bold text-gold mb-1">10m+</div>
                 <div className="text-sm text-gray-400">Streams</div>
               </div>
               <div className="text-center">
