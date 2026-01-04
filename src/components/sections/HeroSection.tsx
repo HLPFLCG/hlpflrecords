@@ -44,7 +44,7 @@ export function HeroSection() {
           
           {/* Tagline */}
           <p className="text-fade-in text-fade-in-delay-1 text-2xl sm:text-3xl md:text-4xl text-gold font-light max-w-4xl mx-auto leading-relaxed tracking-wide" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-            World-Class Record Label
+            A Label for Artists, By Artists
           </p>
           
           {/* Mantra */}
@@ -87,11 +87,11 @@ export function HeroSection() {
               <div className="text-sm text-gray-400 uppercase tracking-widest">Releases</div>
             </div>
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>5M+</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>10m+</div>
               <div className="text-sm text-gray-400 uppercase tracking-widest">Streams</div>
             </div>
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>7+</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>6+</div>
               <div className="text-sm text-gray-400 uppercase tracking-widest">Years</div>
             </div>
           </div>
