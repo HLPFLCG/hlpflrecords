@@ -127,6 +127,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         
+        {/* Facebook Domain Verification */}
+        <meta name="facebook-domain-verification" content="ykymyxc54httwc9c2cdwr1dailnvir" />
+        
         {/* Google Tag Manager */}
         <script dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
