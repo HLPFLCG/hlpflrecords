@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import dynamic from 'next/dynamic'
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
+
+// Component Imports
 import LoadingScreen from '@/components/LoadingScreen'
-import { Header } from '@/components/layout/Header'
+import { Header } from '@/components/layout/Header' // <--- This contains your Navigation
 import { Footer } from '@/components/layout/Footer'
 import CreativeEasterEggs from '@/components/CreativeEasterEggs'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
@@ -14,7 +17,7 @@ import { AccessibilityHelper } from '@/components/accessibility/AccessibilityHel
 import { WebVitals, PerformanceMonitor as WebVitalsMonitor } from '@/components/WebVitals'
 import { ToastContainer } from '@/components/ui/Toast'
 
-// Dynamically import Chatbot with SSR disabled to avoid localStorage issues during build
+// Dynamically import Chatbot with SSR disabled
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
   ssr: false,
 })
@@ -88,7 +91,6 @@ export const metadata: Metadata = {
     google: 'your-google-verification-code',
   },
   other: {
-    // ChatGPT and AI-specific metadata
     'chatgpt-entity': 'HLPFL',
     'chatgpt-category': 'Music Entertainment',
     'chatgpt-description': 'HLPFL is a premier record label specializing in artist development, music production, and global distribution. Based in Grand Rapids, Michigan.',
@@ -96,11 +98,9 @@ export const metadata: Metadata = {
     'chatgpt-contact': 'contact@hlpfl.org, 616-313-5215',
     'chatgpt-services': 'Artist Development, Music Production, Music Distribution, Licensing, Artist Management',
     'chatgpt-location': 'Grand Rapids, MI, United States',
-    // Additional SEO tags
     'theme-color': '#c87941',
     'msapplication-TileColor': '#c87941',
     'apple-mobile-web-app-status-bar-style': '#c87941',
-    // Business information
     'business:contact_data:street_address': 'Grand Rapids, MI',
     'business:contact_data:locality': 'Grand Rapids',
     'business:contact_data:region': 'MI',
@@ -129,26 +129,6 @@ export default function RootLayout({
         
         {/* Facebook Domain Verification */}
         <meta name="facebook-domain-verification" content="ykymyxc54httwc9c2cdwr1dailnvir" />
-        
-        {/* Google Tag Manager */}
-        <script dangerouslySetInnerHTML={{
-          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WSPNJ5DR');`
-        }} />
-        {/* End Google Tag Manager */}
-        
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7W14RQ0K9W" />
-        <script dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7W14RQ0K9W');`
-        }} />
         
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#c87941" />
@@ -183,37 +163,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </head>
       <body className={inter.className}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-WSPNJ5DR"
-              height="0"
-              width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
-            />
-          </noscript>
-          {/* End Google Tag Manager (noscript) */}
+        {/* Third Party Scripts 
+            Note: We use the components from @next/third-parties 
+            instead of manual script tags for better performance.
+        */}
+        <GoogleTagManager gtmId="GTM-WSPNJ5DR" />
+        <GoogleAnalytics gaId="G-7W14RQ0K9W" />
           
-          <PerformanceMonitor />
-          <PerformanceMetrics />
-          <WebVitals />
-          <WebVitalsMonitor />
-          <AccessibilityHelper />
-          <ToastContainer />
-          <LoadingScreen />
-          <EnhancedErrorBoundary>
-            <ErrorBoundary>
-              <div className="min-h-screen text-white dark:text-white bg-dark dark:bg-dark transition-colors duration-300" style={{ position: 'relative', zIndex: 1 }}>
-                <Header />
-                <main id="main-content" className="pt-16">
-                  {children}
-                </main>
-                <Footer />
-                <Chatbot />
-                <CreativeEasterEggs />
-              </div>
-            </ErrorBoundary>
-          </EnhancedErrorBoundary>
+        <PerformanceMonitor />
+        <PerformanceMetrics />
+        <WebVitals />
+        <WebVitalsMonitor />
+        <AccessibilityHelper />
+        <ToastContainer />
+        <LoadingScreen />
+        
+        <EnhancedErrorBoundary>
+          <ErrorBoundary>
+            <div className="min-h-screen text-white dark:text-white bg-dark dark:bg-dark transition-colors duration-300" style={{ position: 'relative', zIndex: 1 }}>
+              <Header />
+              <main id="main-content" className="pt-16">
+                {children}
+              </main>
+              <Footer />
+              <Chatbot />
+              <CreativeEasterEggs />
+            </div>
+          </ErrorBoundary>
+        </EnhancedErrorBoundary>
       </body>
     </html>
   )
