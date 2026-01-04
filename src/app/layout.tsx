@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Montserrat } from 'next/font/google'
+import { Space_Grotesk, Bebas_Neue } from 'next/font/google'
 import dynamic from 'next/dynamic'
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
@@ -22,25 +22,27 @@ const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ d
   ssr: false,
 })
 
-// Font configuration
-const inter = Inter({ 
+// Font configuration - HLPFL Brand Typography
+const spaceGrotesk = Space_Grotesk({ 
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-space-grotesk',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 })
 
-const montserrat = Montserrat({ 
+const bebasNeue = Bebas_Neue({ 
   subsets: ['latin'],
-  variable: '--font-montserrat',
+  variable: '--font-bebas-neue',
   display: 'swap',
+  weight: ['400'],
 })
 
 export const metadata: Metadata = {
   title: {
-    default: 'HLPFL - World-Class Record Label',
+    default: 'HLPFL Records - World-Class Record Label',
     template: '%s | HLPFL'
   },
-  description: 'HLPFL is a premier record label dedicated to discovering, developing, and promoting exceptional musical talent. Artist development, music production, and global distribution. Contact us at contact@hlpfl.org or call 616-313-5215.',
+  description: 'HLPFL Records: World-class record label. Discover. Develop. Distribute. Premier artist development, high-end production, and strategic global distribution.',
   keywords: ['record label', 'music production', 'artist development', 'music distribution', 'HLPFL', 'music licensing', 'artist management', 'Grand Rapids record label', 'Michigan music label'],
   authors: [{ name: 'HLPFL' }],
   creator: 'HLPFL',
@@ -58,22 +60,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://hlpfl.org',
-    title: 'HLPFL - World-Class Record Label',
-    description: 'Premier record label dedicated to discovering, developing, and promoting exceptional musical talent. Based in Grand Rapids, MI.',
-    siteName: 'HLPFL',
+    title: 'HLPFL Records - World-Class Record Label',
+    description: 'Discover. Develop. Distribute. HLPFL Records is a world-class record label bridging the gap between raw talent and global legacy.',
+    siteName: 'HLPFL Records',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'HLPFL - Premier Music Label',
+        alt: 'HLPFL Records - Midnight & Gold',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HLPFL - World-Class Record Label',
-    description: 'Premier record label based in Grand Rapids, MI. Artist development, music production, and global distribution.',
+    title: 'HLPFL Records - World-Class Record Label',
+    description: 'Discover. Develop. Distribute. World-class record label for artist development and global distribution.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -162,7 +164,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${spaceGrotesk.className} antialiased`}>
         {/* Third Party Scripts 
             Note: We use the components from @next/third-parties 
             instead of manual script tags for better performance.
@@ -180,7 +182,8 @@ export default function RootLayout({
         
         <EnhancedErrorBoundary>
           <ErrorBoundary>
-            <div className="min-h-screen text-white dark:text-white bg-dark dark:bg-dark transition-colors duration-300" style={{ position: 'relative', zIndex: 1 }}>
+            <div className="min-h-screen text-white bg-[#0a0a0a]" style={{ position: 'relative', zIndex: 1 }}>
+              <div className="film-grain" />
               <Header />
               <main id="main-content" className="pt-16">
                 {children}

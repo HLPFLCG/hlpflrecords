@@ -43,19 +43,23 @@ export function HeroSection() {
           </h1>
           
           {/* Tagline */}
-          <p className="text-fade-in text-fade-in-delay-1 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
-            We own the tech, you own your success. That's helpful.
+          <p className="text-fade-in text-fade-in-delay-1 text-2xl sm:text-3xl md:text-4xl text-gold font-light max-w-4xl mx-auto leading-relaxed tracking-wide" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
+            World-Class Record Label
+          </p>
+          
+          {/* Mantra */}
+          <p className="text-fade-in text-fade-in-delay-2 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
+            Discover. Develop. Distribute.
           </p>
           
           {/* Description */}
-          <p className="text-fade-in text-fade-in-delay-2 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            11% commission, 100% helpful. No double-dipping. We make money building technology for creators, 
-            not by taking from them. All tools owned and built by us—seamless integration, zero hidden fees, 
-            complete transparency.
+          <p className="text-fade-in text-fade-in-delay-3 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Acting as the filter of excellence in a saturated music market; bridging the gap between raw talent 
+            and global legacy through professional development, high-end production, and strategic distribution.
           </p>
           
           {/* CTA Buttons */}
-          <div className="text-fade-in text-fade-in-delay-3 flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="text-fade-in text-fade-in-delay-4 flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="/artists">
               <Button size="lg" className="btn-premium group">
                 <Users className="mr-3 h-5 w-5" />
@@ -70,30 +74,25 @@ export function HeroSection() {
                 Submit Your Music
               </Button>
             </Link>
-            
-            <Button variant="ghost" size="lg" className="btn-premium text-gold hover:text-dark hover:bg-gold group">
-              <Play className="mr-3 h-5 w-5" />
-              Watch Showreel
-            </Button>
           </div>
 
           {/* Stats/Metrics */}
-          <div className="text-fade-in text-fade-in-delay-3 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">5+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wider">Artists</div>
+          <div className="text-fade-in text-fade-in-delay-5 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+            <div className="text-center hover-lift">
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>5+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Artists</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">50+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wider">Releases</div>
+            <div className="text-center hover-lift">
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>50+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Releases</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">5m+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wider">Streams</div>
+            <div className="text-center hover-lift">
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>5M+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Streams</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">7+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wider">Years</div>
+            <div className="text-center hover-lift">
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>7+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Years</div>
             </div>
           </div>
         </div>

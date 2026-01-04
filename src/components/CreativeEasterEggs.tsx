@@ -161,12 +161,11 @@ const CreativeEasterEggs: React.FC = () => {
     const track = SECRET_TRACKS.find(t => t.id === trackId);
     if (!track) return;
 
-    setDiscoveredTracks(prev => new Set([...prev, trackId]));
+    setDiscoveredTracks(prev => new Set([...Array.from(prev), trackId]));
     setActiveTrack(track);
     
-    trackEvent('easter_egg_discovered', {
+    trackEvent('easter_egg_discovered', 'Easter Egg', track.title, undefined, {
       track_id: trackId,
-      track_title: track.title,
       trigger: track.trigger
     });
 

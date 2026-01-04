@@ -34,7 +34,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-black border-t border-gray-800">
+    <footer className="bg-[#0a0a0a] border-t border-gold/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
@@ -44,7 +44,7 @@ export function Footer() {
               <span className="text-white font-bold text-xl">HLPFL</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              11% commission, 0% BS. We own the tech, you own your success. That's helpful.
+              Discover. Develop. Distribute. World-class record label bridging the gap between raw talent and global legacy.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => {
