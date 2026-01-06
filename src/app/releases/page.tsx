@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import { mockReleases } from '@/data/mockData'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
-import { Calendar, Filter, Music, Play } from 'lucide-react'
+import { Calendar, Filter, Play } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
 
 export default function ReleasesPage() {

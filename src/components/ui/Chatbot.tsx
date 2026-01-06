@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Button } from './Button'
 import { ChatbotAnalytics } from '@/lib/chatbotAnalytics'
 
 interface Message {

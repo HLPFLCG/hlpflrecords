@@ -2,9 +2,9 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ArrowRight, Play, Music, Globe, Users } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Logo from '@/components/Logo'
+import { Play, ArrowRight, Music } from 'lucide-react'
 
 export function HeroSection() {
   return (

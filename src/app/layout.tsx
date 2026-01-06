@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Bebas_Neue } from 'next/font/google'
+import { Space_Grotesk } from 'next/font/google'
 import dynamic from 'next/dynamic'
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
@@ -28,13 +28,6 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
-})
-
-const bebasNeue = Bebas_Neue({ 
-  subsets: ['latin'],
-  variable: '--font-bebas-neue',
-  display: 'swap',
-  weight: ['400'],
 })
 
 export const metadata: Metadata = {

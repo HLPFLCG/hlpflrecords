@@ -124,7 +124,7 @@ export function ParallaxElement({
     if (!element) return
 
     const handleScroll = () => {
-      const rect = element.getBoundingClientRect()
+      const _rect = element.getBoundingClientRect()
       const scrolled = window.pageYOffset
       const rate = scrolled * -speed
       

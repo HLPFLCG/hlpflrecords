@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { mockArtists } from '@/data/mockData'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
@@ -28,7 +27,7 @@ export function FeaturedArtistsSection() {
 
         {/* Artists Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {mockArtists.map((artist, index) => (
+          {mockArtists.map((artist, _index) => (
             <Card key={artist.id[1]} hover className="overflow-hidden group">
               <div className="relative aspect-square overflow-hidden">
                 {artist.image && (

@@ -135,7 +135,6 @@ const CreativeEasterEggs: React.FC = () => {
       return;
     }
 
-    console.log('🎵 Discovering track:', track.title, 'File:', track.file);
     
     // Set active track to play it
     setActiveTrack(track);
@@ -151,7 +150,6 @@ const CreativeEasterEggs: React.FC = () => {
 
       showNotification(`🎵 Secret track discovered: ${track.title}`);
     } else {
-      console.log('🔄 Track already discovered, playing again:', track.title);
     }
   }, [discoveredTracks, showNotification]);
 
@@ -230,7 +228,6 @@ const CreativeEasterEggs: React.FC = () => {
       
       if (scrollPercent >= 77.5 && scrollPercent <= 78.0) {
         console.log('🎯 Scroll depth trigger activated at:', scrollPercent.toFixed(1) + '%');
-        scrollTriggered = true;
         discoverTrack('regrets');
         triggerCooldown();
         

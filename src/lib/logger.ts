@@ -32,7 +32,7 @@ class Logger {
   /**
    * Send logs to external service (implement as needed)
    */
-  private sendToExternalService(entry: LogEntry): void {
+  private sendToExternalService(_entry: LogEntry): void {
     // TODO: Implement external logging service integration
     // Examples:
     // - Sentry.captureMessage(entry.message, { level: entry.level, extra: entry.data })
@@ -91,7 +91,7 @@ class Logger {
    */
   debug(message: string, data?: any): void {
     if (this.isDevelopment) {
-      const entry = this.formatLog('debug', message, data)
+      const _entry = this.formatLog('debug', message, data)
       console.debug(`[DEBUG] ${message}`, data || '')
     }
   }

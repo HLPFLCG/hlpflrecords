@@ -62,7 +62,7 @@ export class ChatbotAPIClient {
     }
   }
 
-  private getFallbackResponse(message: string): ChatResponse {
+  private getFallbackResponse(_message: string): ChatResponse {
     const fallbacks = [
       "I'm experiencing some technical difficulties, but I'm here to help! Could you try asking again?",
       "Thanks for your message! I'm connecting to our systems now. How can I help you with HLPFL?",

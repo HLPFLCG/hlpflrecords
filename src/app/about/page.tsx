@@ -131,7 +131,7 @@ export default function AboutPage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => {
+            {values.map((value, _index) => {
               const Icon = value.icon
               return (
                 <Card key={value.title} hover className="h-full">

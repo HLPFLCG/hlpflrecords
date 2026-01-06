@@ -57,7 +57,7 @@ export function ServicesSection() {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
+          {services.map((service, _index) => {
             const Icon = service.icon
             return (
               <Card key={service.title} hover className="h-full">

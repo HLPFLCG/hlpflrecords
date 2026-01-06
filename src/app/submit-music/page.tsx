@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Music, Upload, Mail, User, Phone, Link as LinkIcon } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Music, Mail, Upload, Link as LinkIcon, Phone } from 'lucide-react'
 
 export default function SubmitMusicPage() {
   return (
