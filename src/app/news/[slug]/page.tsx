@@ -17,23 +17,8 @@ export async function generateStaticParams() {
 }
 
 async function getBlogPost(slug: string) {
-  try {
-    // Try to fetch from API first
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/blog/posts/${slug}`, {
-      cache: 'no-store'
-    })
-
-    if (response.ok) {
-      const data = await response.json()
-      if (data.success) {
-        return data.post
-      }
-    }
-  } catch (error) {
-    console.error('Error fetching from API:', error)
-  }
-
-  // Fallback to mockData
+  // Use mockData directly during build time
+  // This avoids network calls during static generation
   const { mockNews } = await import('@/data/mockData')
   return mockNews.find(post => post.slug === slug)
 }
