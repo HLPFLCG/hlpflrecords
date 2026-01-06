@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Play, Save, Playlist, Users, TrendingUp, Link, Copy, Check } from 'lucide-react'
+import { Play, Save, ListMusic, Users, TrendingUp, Link, Copy, Check } from 'lucide-react'
 
 export default function SpotifyToolsPage() {
   const [copied, setCopied] = useState(false)
@@ -94,7 +94,7 @@ export default function SpotifyToolsPage() {
             transition={{ delay: 0.3 }}
             className="bg-glass-card p-6 rounded-2xl"
           >
-            <Playlist className="w-12 h-12 text-[#1DB954] mb-4" />
+            <ListMusic className="w-12 h-12 text-[#1DB954] mb-4" />
             <h3 className="text-3xl font-bold text-white mb-2">234</h3>
             <p className="text-gray-400">Playlists Featured</p>
           </motion.div>
@@ -237,7 +237,7 @@ export default function SpotifyToolsPage() {
           </button>
 
           <button className="p-6 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl border border-gold/30 hover:shadow-gold-hover transition-all">
-            <Playlist className="w-8 h-8 text-gold mb-4" />
+            <ListMusic className="w-8 h-8 text-gold mb-4" />
             <h3 className="text-xl font-bold text-white mb-2">Submit to Playlists</h3>
             <p className="text-gray-400 text-sm">Track your playlist submissions</p>
           </button>
