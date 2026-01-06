@@ -13,7 +13,7 @@ export function Header() {
 
   const navigation = [
     { name: 'Home', href: '/', icon: null },
-    { name: 'Tools', href: '/artist-portal', icon: null },
+    { name: 'Tours', href: '/tours', icon: null },
     { name: 'Artists', href: '/artists', icon: null },
     { name: 'Releases', href: '/releases', icon: null },
     { name: 'Press', href: '/press-releases', icon: null },

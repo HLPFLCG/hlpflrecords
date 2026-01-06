@@ -15,6 +15,20 @@ export const mockArtists: Artist[] = [
       twitter: 'https://twitter.com/alkiotis',
     },
   },
+  {
+    id: '2',
+    name: 'Pardyalone',
+    slug: 'pardyalone',
+    bio: 'Emo-rap sensation and headliner of the revolutionary HLPFL Backyard Tour. Pardyalone brings raw emotion and authentic storytelling to intimate venues across the Midwest. Known for connecting deeply with fans through vulnerable lyrics and powerful performances, Pardyalone represents the future of independent music touring. Partnering with HLPFL on the groundbreaking 50/50 profit-sharing model for the Private Pardy Tour - an 11-city backyard concert series redefining live music experiences.',
+    genre: ['Emo Rap', 'Alternative', 'Hip Hop'],
+    image: '/images/artists/pardyalone.jpg',
+    socials: {
+      spotify: 'https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG',
+      instagram: 'https://www.instagram.com/pardyalone',
+      facebook: 'https://www.facebook.com/pardyalone',
+      youtube: 'https://www.youtube.com/channel/UCeD8aJzfQAhsAzDADLwZmlA',
+    },
+  },
 ]
 
 export const mockReleases: Release[] = [
