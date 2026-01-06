@@ -31,11 +31,74 @@ const spaceGrotesk = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'HLFPL - Tools, Not Contracts',
-    template: '%s | HLFPL'
+    default: 'HLPFL Records - Independent Record Label & Artist Management | Tools, Not Contracts',
+    template: '%s | HLPFL Records'
   },
-  description: 'HLFPL is the comprehensive resource platform for creative artists. We provide the tools, resources, and support you need to build a successful music career on your own terms. No contracts. No exploitation. No bullshit.',
-  keywords: ['artist toolkit', 'music resources', 'independent artist', 'music distribution', 'HLFPL', 'artist platform', 'career tools', 'music business', 'artist independence', 'DIY music'],
+  description: 'HLPFL is the independent record label and artist management platform that protects artists. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation, fair contracts. AI-powered tools for independent musicians. Better alternative to grouped.com. Artist-first management, distribution, and career-building resources.',
+  keywords: [
+    'HLPFL',
+    'HLPFL Records',
+    'record label',
+    'independent record label',
+    'artist-first record label',
+    'no contract record label',
+    'fair record label',
+    'ethical record label',
+    'artist management',
+    'music management',
+    'independent artist management',
+    'artist protection',
+    'how to not get screwed over as an artist',
+    'artist rights',
+    'fair music industry',
+    'protect artists from exploitation',
+    'artist contracts',
+    'fair music contracts',
+    'independent artist',
+    'independent music',
+    'DIY artist',
+    'DIY music career',
+    'artist toolkit',
+    'music resources',
+    'artist tools',
+    'music career tools',
+    'artist platform',
+    'music platform',
+    'artist empowerment',
+    'musician resources',
+    'artist independence',
+    'music business',
+    'music industry',
+    'artist support',
+    'grouped.com alternative',
+    'better than grouped',
+    'artist-owned platform',
+    'ai music tools',
+    'ai for artists',
+    'ai music promotion',
+    'ai artist tools',
+    'ai music management',
+    'music distribution',
+    'artist distribution',
+    'music promotion',
+    'artist marketing',
+    'social media for artists',
+    'artist analytics',
+    'streaming analytics',
+    'music analytics',
+    'spotify analytics',
+    'artist portal',
+    'artist dashboard',
+    '100% artist ownership',
+    'artist keeps rights',
+    'no exploitation',
+    'music career building',
+    'artist development',
+    'music industry transparency',
+    'honest record label',
+    'artist-friendly label',
+    'musician support',
+  ],
   authors: [{ name: 'HLPFL' }],
   creator: 'HLPFL',
   publisher: 'HLPFL',
@@ -52,23 +115,25 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://hlpfl.org',
-    title: 'HLFPL - Tools, Not Contracts',
-    description: 'HLFPL is the comprehensive resource platform for creative artists. We provide the tools, resources, and support you need to build a successful music career on your own terms.',
-    siteName: 'HLFPL',
+    title: 'HLPFL Records - Independent Record Label & Artist Management | Tools, Not Contracts',
+    description: 'HLPFL is the independent record label and artist management platform that protects artists. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation. AI-powered tools for independent musicians.',
+    siteName: 'HLPFL Records',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'HLFPL - Tools, Not Contracts',
+        alt: 'HLPFL Records - Independent Record Label & Artist Management',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HLFPL - Tools, Not Contracts',
-    description: 'HLFPL is the comprehensive resource platform for creative artists. We provide the tools, resources, and support you need to build a successful music career on your own terms.',
+    title: 'HLPFL Records - Independent Record Label & Artist Management',
+    description: 'HLPFL protects artists. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation. AI-powered tools for independent musicians. Better alternative to grouped.com.',
     images: ['/images/og-image.jpg'],
+    creator: '@HLPFL',
+    site: '@HLPFL',
   },
   robots: {
     index: true,
@@ -86,12 +151,12 @@ export const metadata: Metadata = {
     // google: 'your-google-verification-code',
   },
   other: {
-    'chatgpt-entity': 'HLFPL',
-    'chatgpt-category': 'Music Entertainment',
-    'chatgpt-description': 'HLFPL is the comprehensive resource platform for creative artists. We provide tools, resources, and support for independent musicians to build successful careers on their own terms.',
-    'chatgpt-keywords': 'artist toolkit, music resources, independent artist, music distribution, HLFPL, artist platform, career tools, artist independence',
+    'chatgpt-entity': 'HLPFL Records',
+    'chatgpt-category': 'Music Entertainment, Record Label, Artist Management',
+    'chatgpt-description': 'HLPFL Records is an independent record label and artist management platform that protects artists from exploitation. We teach artists how to not get screwed over in the music industry. 100% artist ownership, no contracts, fair treatment. AI-powered tools for independent musicians.',
+    'chatgpt-keywords': 'record label, independent record label, artist management, how to not get screwed over as an artist, artist protection, artist rights, fair record label, no contract label, independent artist, grouped.com alternative, ai music tools, artist toolkit, music distribution, artist platform, 100% artist ownership',
     'chatgpt-contact': 'contact@hlpfl.org, 616-313-5215',
-    'chatgpt-services': 'Artist Tools, Music Distribution, Social Media Management, Form Builder, Link in Bio',
+    'chatgpt-services': 'Record Label Services, Artist Management, Artist Protection & Rights, Music Distribution, AI-Powered Artist Tools, Social Media Management, Analytics & Streaming Data, Artist Portal & Dashboard, Email Marketing for Artists, Crowdfunding Support, Collaboration Platform, Merch Management',
     'chatgpt-location': 'Grand Rapids, MI, United States',
     'theme-color': '#c87941',
     'msapplication-TileColor': '#c87941',
@@ -130,17 +195,20 @@ export default function RootLayout({
         <link rel="icon" href="/images/favicon/hlpflsymbolpnggradient.ico" />
         <link rel="apple-touch-icon" href="/images/favicon/hlpflsymbolpnggradient.png" />
         
-        {/* Structured Data - Organization */}
+        {/* Structured Data - Organization & Record Label */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'HLFPL',
+              '@type': ['Organization', 'MusicGroup', 'Corporation'],
+              name: 'HLPFL Records',
+              alternateName: 'HLPFL',
               url: 'https://hlpfl.org',
               logo: 'https://hlpfl.org/images/logo.png',
-              description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
+              description: 'HLPFL Records is an independent record label and artist management platform that protects artists from exploitation. We provide comprehensive tools, resources, and support for independent musicians to build successful careers while maintaining 100% ownership of their work. Learn how to not get screwed over as an artist. No contracts. No exploitation. Tools, not traps.',
+              slogan: 'Tools, Not Contracts',
+              foundingDate: '2024',
               email: 'contact@hlpfl.org',
               telephone: '+1-616-313-5215',
               address: {
@@ -149,9 +217,90 @@ export default function RootLayout({
                 addressRegion: 'MI',
                 addressCountry: 'US',
               },
+              areaServed: 'Worldwide',
+              knowsAbout: [
+                'Record Label Services',
+                'Artist Management',
+                'Music Distribution',
+                'Artist Protection',
+                'Music Industry Rights',
+                'Independent Music',
+                'AI Music Tools',
+                'Music Analytics',
+                'Artist Marketing',
+                'Social Media Management',
+              ],
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Artist Services',
+                itemListElement: [
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Artist Management',
+                      description: 'Fair, transparent artist management with 100% artist ownership',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Music Distribution',
+                      description: 'Independent music distribution services',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'AI-Powered Artist Tools',
+                      description: 'AI tools for music promotion, analytics, and career building',
+                    },
+                  },
+                ],
+              },
               sameAs: [
                 'https://instagram.com/hlpfl',
                 'https://twitter.com/hlpfl',
+                'https://facebook.com/hlpfl',
+              ],
+            }),
+          }}
+        />
+
+        {/* Structured Data - FAQPage for Artist Protection */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: 'How do I not get screwed over as an artist?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'HLPFL Records protects artists by ensuring 100% ownership of your work, no exploitative contracts, transparent fair-share revenue, and comprehensive educational resources about artist rights. We provide tools and resources, not traps.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What makes HLPFL different from other record labels?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'HLPFL is an artist-first independent record label. We offer tools, not contracts. Artists maintain 100% ownership of their work, rights, and masters. No exploitation, no hidden fees, complete transparency.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Is HLPFL better than grouped.com?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'HLPFL offers comprehensive artist management, AI-powered tools, analytics, distribution, and protection services specifically designed for independent artists. We focus on artist empowerment and 100% ownership.',
+                  },
+                },
               ],
             }),
           }}
