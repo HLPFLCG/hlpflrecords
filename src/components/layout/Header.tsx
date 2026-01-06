@@ -13,7 +13,8 @@ export function Header() {
 
   const navigation = [
     { name: 'Home', href: '/', icon: null },
-    { name: 'Tools', href: '/artist-portal', icon: null },
+    { name: 'Artists', href: '/artists', icon: null },
+    { name: 'Releases', href: '/releases', icon: null },
     { name: 'About', href: '/about', icon: null },
     { name: 'News', href: '/news', icon: null },
     { name: 'Contact', href: '/contact', icon: null },
@@ -73,10 +74,10 @@ export function Header() {
             {/* Search & CTA Button */}
             <div className="hidden md:flex items-center space-x-4">
               <GlobalSearch />
-              <Link href="/artist-portal">
-                <Button variant="outline" size="sm" className="btn-premium group border-amber-500/50 hover:border-amber-400 text-amber-400 hover:text-amber-300">
-                  <span className="mr-2">Get Tools</span>
-                  <div className="w-0 group-hover:w-4 h-0.5 bg-amber-400 transition-all duration-300" />
+              <Link href="/contact">
+                <Button variant="outline" size="sm" className="btn-premium group">
+                  <span className="mr-2">Submit Music</span>
+                  <div className="w-0 group-hover:w-4 h-0.5 bg-gold transition-all duration-300" />
                 </Button>
               </Link>
             </div>

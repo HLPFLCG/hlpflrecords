@@ -1,45 +1,44 @@
 import React from 'react'
-import { Share2, Link as LinkIcon, FileText, Headphones, Users, Database } from 'lucide-react'
+import { Music, Users, Globe, Headphones, TrendingUp, Award } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
-import Link from 'next/link'
 
 export function ServicesSection() {
-  const tools = [
+  const services = [
     {
-      icon: Share2,
-      title: 'Social Media Manager',
-      description: 'Stop wasting hours managing posts across platforms. Our unified dashboard lets you schedule, track, and optimize all your social media from one place.',
-      features: ['Unified Dashboard', 'Content Calendar', 'Analytics & Insights', 'Automated Posting']
-    },
-    {
-      icon: LinkIcon,
-      title: 'Link in Bio Tool',
-      description: 'One link to rule them all. Create a custom landing page that showcases your music, merchandise, tour dates, and everything else you\'re working on.',
-      features: ['Custom Landing Page', 'Instant Updates', 'Click Tracking', 'Mobile Optimized']
-    },
-    {
-      icon: FileText,
-      title: 'Form Builder',
-      description: 'Collect information, build your fanbase, and manage your business with professional forms. No coding required—just powerful forms that work.',
-      features: ['Fan Email Capture', 'Contact Forms', 'Booking Requests', 'Survey Feedback']
+      icon: Users,
+      title: 'Artist Development',
+      description: 'Comprehensive artist development programs to nurture talent and build successful, sustainable music careers.',
+      features: ['Career Planning', 'Brand Development', 'Performance Training', 'Marketing Strategy']
     },
     {
       icon: Headphones,
-      title: 'Music Distribution',
-      description: 'Get your music on Spotify, Apple Music, TikTok, and every major streaming platform. Keep 100% of your royalties. Fast uploads, professional delivery.',
-      features: ['All Major Platforms', '100% Royalties', 'Detailed Analytics', 'Fast Delivery']
+      title: 'Music Production',
+      description: 'State-of-the-art production facilities with world-class producers, engineers, and cutting-edge technology.',
+      features: ['Recording Studios', 'Mixing & Mastering', 'Production Services', 'Sound Design']
     },
     {
-      icon: Users,
-      title: 'Artist Management Services',
-      description: 'When you need professional support without the controlling contracts. Book what you need, when you need it. Strategic guidance on your terms.',
-      features: ['On-Demand Support', 'Industry Connections', 'Strategic Guidance', 'Transparent Pricing']
+      icon: Globe,
+      title: 'Global Distribution',
+      description: 'Worldwide distribution network to get your music to every major platform and reach millions of listeners.',
+      features: ['Digital Distribution', 'Physical Releases', 'Playlist Placement', 'International Marketing']
     },
     {
-      icon: Database,
-      title: 'Alki Music Vault',
-      description: 'Exclusive access to 300+ unreleased songs from Alki\'s catalog. Remix, collaborate, or find inspiration from this massive creative resource.',
-      features: ['300+ Unreleased Tracks', 'Remix Rights', 'Collaboration Tools', 'Creative Inspiration']
+      icon: Music,
+      title: 'Publishing & Rights',
+      description: 'Complete music publishing services including copyright protection, royalty collection, and licensing.',
+      features: ['Copyright Registration', 'Royalty Management', 'Sync Licensing', 'Publishing Administration']
+    },
+    {
+      icon: TrendingUp,
+      title: 'Marketing & Promotion',
+      description: 'Strategic marketing campaigns and promotional services to maximize your music\'s reach and impact.',
+      features: ['Social Media Marketing', 'PR Campaigns', 'Radio Promotion', 'Influencer Partnerships']
+    },
+    {
+      icon: Award,
+      title: 'Career Management',
+      description: 'Personalized career management and strategic guidance to navigate the music industry successfully.',
+      features: ['Contract Negotiation', 'Tour Management', 'Brand Partnerships', 'Long-term Strategy']
     }
   ]
 
@@ -49,36 +48,36 @@ export function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-            Your Complete <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400">Artist Toolkit</span>
+            <span className="text-gold">Complete Music</span> Business Solutions
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Every tool, resource, and advantage you need to build your music career—<span className="text-white font-semibold">no strings attached</span>.
+            We build careers, not just viral moments. From production to promotion, we've got your music career covered.
           </p>
         </div>
 
-        {/* Tools Grid */}
+        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tools.map((tool, index) => {
-            const Icon = tool.icon
+          {services.map((service, index) => {
+            const Icon = service.icon
             return (
-              <Card key={tool.title} hover className="h-full">
+              <Card key={service.title} hover className="h-full">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-amber-500/20 to-orange-600/20 rounded-lg flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-amber-400" />
+                    <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center">
+                      <Icon className="h-6 w-6 text-gold" />
                     </div>
-                    <h3 className="text-xl font-bold text-white">{tool.title}</h3>
+                    <h3 className="text-xl font-bold text-white">{service.title}</h3>
                   </div>
                   <p className="text-gray-300 leading-relaxed">
-                    {tool.description}
+                    {service.description}
                   </p>
                 </CardHeader>
                 
                 <CardContent>
                   <ul className="space-y-2">
-                    {tool.features.map((feature) => (
+                    {service.features.map((feature) => (
                       <li key={feature} className="flex items-center space-x-2 text-sm text-gray-400">
-                        <div className="w-1.5 h-1.5 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full" />
+                        <div className="w-1.5 h-1.5 bg-gold rounded-full" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -91,34 +90,21 @@ export function ServicesSection() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <div className="glass rounded-2xl p-8 max-w-4xl mx-auto border border-amber-500/20">
+          <div className="glass rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-              Ready to Take Control?
+              Ready to Build Your Legacy?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Stop waiting for a label to "discover" you. Start building the career you want right now with tools that work <span className="text-amber-400 font-semibold">for you, not against you</span>.
+              Let's turn your musical talent into a thriving career. We don't just sign artists; we build legacies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/artist-portal">
-                <button className="btn-premium px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105">
-                  Get Started Free
-                </button>
-              </Link>
-              <Link href="/about">
-                <button className="btn-premium px-8 py-4 bg-transparent border-2 border-amber-500/50 hover:border-amber-400 text-amber-400 hover:text-amber-300 font-semibold rounded-lg transition-all duration-300">
-                  Learn More
-                </button>
-              </Link>
+              <button className="bg-gold text-dark px-8 py-3 rounded-lg font-semibold hover:bg-gold-light transition-colors hover-lift">
+                Book Free Discovery Call
+              </button>
+              <button className="border-2 border-gold text-gold px-8 py-3 rounded-lg font-semibold hover:bg-gold hover:text-dark transition-colors">
+                Learn More
+              </button>
             </div>
-          </div>
-        </div>
-
-        {/* Anti-label messaging */}
-        <div className="mt-16 max-w-4xl mx-auto text-center">
-          <div className="inline-block">
-            <p className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400">
-              Tools, Not Contracts. Independence, Not Ownership.
-            </p>
           </div>
         </div>
       </div>
