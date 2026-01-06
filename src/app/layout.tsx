@@ -16,6 +16,7 @@ import { PerformanceMetrics } from '@/components/performance/PerformanceMetrics'
 import { AccessibilityHelper } from '@/components/accessibility/AccessibilityHelper'
 import { WebVitals, PerformanceMonitor as WebVitalsMonitor } from '@/components/WebVitals'
 import { ToastContainer } from '@/components/ui/Toast'
+import { MetaPixel, TikTokPixel, TwitterPixel, LinkedInInsightTag, RedditPixel, MicrosoftClarity, HotjarTracking } from '@/components/Tracking'
 
 // Dynamically import Chatbot with SSR disabled
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -307,13 +308,22 @@ export default function RootLayout({
         />
       </head>
       <body className={`${spaceGrotesk.className} antialiased`}>
-        {/* Third Party Scripts 
-            Note: We use the components from @next/third-parties 
+        {/* Third Party Scripts
+            Note: We use the components from @next/third-parties
             instead of manual script tags for better performance.
         */}
         <GoogleTagManager gtmId="GTM-WSPNJ5DR" />
         <GoogleAnalytics gaId="G-7W14RQ0K9W" />
-          
+
+        {/* Social Media & Marketing Pixels */}
+        <MetaPixel />
+        <TikTokPixel />
+        <TwitterPixel />
+        <LinkedInInsightTag />
+        <RedditPixel />
+        <MicrosoftClarity />
+        <HotjarTracking />
+
         <PerformanceMonitor />
         <PerformanceMetrics />
         <WebVitals />
