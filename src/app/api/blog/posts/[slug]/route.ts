@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { NewsPost } from '@/types';
 
 // In-memory storage (in production, use a database)
-let blogPosts: NewsPost[] = [
+const blogPosts: NewsPost[] = [
   {
     id: '1',
     title: 'Alki Drops New Single "221"',
