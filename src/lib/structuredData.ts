@@ -9,7 +9,7 @@ export const organizationSchema = {
   "name": "HLPFL",
   "alternateName": "HLPFL",
   "url": "https://hlpfl.org",
-  "logo": "https://hlpfl.org/logo.svg",
+  "logo": "https://hlpfl.org/logo.jpg",
   "description": "Comprehensive resource platform for creative artists providing tools and resources to build successful music careers on their own terms.",
   "foundingDate": "2009",
   "founders": [

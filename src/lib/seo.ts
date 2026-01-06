@@ -80,7 +80,7 @@ export const generateSEO = ({
 
     // Verification
     verification: {
-      google: 'your-google-verification-code',
+      google: '', // TODO: Add your Google Search Console verification code
     },
   };
 };
@@ -92,7 +92,7 @@ export const generateMusicGroupSchema = () => {
     '@type': 'MusicGroup',
     name: 'HLPFL Records',
     url: 'https://hlpfl.org',
-    logo: 'https://hlpfl.org/images/logo.png',
+    logo: 'https://hlpfl.org/logo.jpg',
     description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
     foundingDate: '2024',
     genre: ['Hip Hop', 'R&B', 'Pop'],
@@ -110,7 +110,7 @@ export const generateOrganizationSchema = () => {
     '@type': 'Organization',
     name: 'HLPFL Records',
     url: 'https://hlpfl.org',
-    logo: 'https://hlpfl.org/images/logo.png',
+    logo: 'https://hlpfl.org/logo.jpg',
     description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
     email: 'contact@hlpfl.org',
     telephone: '+1-616-313-5215',
