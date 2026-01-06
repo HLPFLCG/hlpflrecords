@@ -139,7 +139,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'HLFPL',
               url: 'https://hlpfl.org',
-              logo: 'https://hlpfl.org/images/logo.png',
+              logo: 'https://hlpfl.org/logo.jpg',
               description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
               email: 'contact@hlpfl.org',
               telephone: '+1-616-313-5215',
