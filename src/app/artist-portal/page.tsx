@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Lock, Mail, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import Logo from '@/components/Logo'
 
 export default function ArtistPortalLoginPage() {
@@ -11,17 +12,34 @@ export default function ArtistPortalLoginPage() {
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
+  const router = useRouter()
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    setError('')
 
-    // TODO: Implement actual authentication with Cloudflare D1
-    // For now, show loading state
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        // Redirect to dashboard on successful login
+        router.push('/dashboard')
+      } else {
+        setError(data.error || 'Login failed')
+      }
+    } catch (err) {
+      setError('Connection error. Please try again.')
+    } finally {
       setIsLoading(false)
-      alert('Authentication system coming soon! Database integration in progress.')
-    }, 1000)
+    }
   }
 
   return (
@@ -55,6 +73,24 @@ export default function ArtistPortalLoginPage() {
           <p className="text-gray-400 text-center mb-8">
             Access your dashboard, contracts, and resources
           </p>
+
+          {/* Error Message */}
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-red-500/10 border border-red-500/50 rounded-xl p-4 mb-6"
+            >
+              <p className="text-red-400 text-sm text-center">{error}</p>
+            </motion.div>
+          )}
+
+          {/* Demo Credentials Info */}
+          <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 mb-6">
+            <p className="text-blue-300 text-xs text-center">
+              <strong>Demo Login:</strong> demo@hlpfl.org / demo123
+            </p>
+          </div>
 
           {/* Login Form */}
           <form onSubmit={handleSignIn} className="space-y-6">
