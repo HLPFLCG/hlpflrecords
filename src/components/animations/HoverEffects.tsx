@@ -9,7 +9,7 @@ interface AnimatedButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'
   variant?: 'primary' | 'secondary' | 'outline';
 }
 
-export const AnimatedButton = ({ children, _variant = 'primary', className = '', ...props }: AnimatedButtonProps) => {
+export const AnimatedButton = ({ children, className = '', ...props }: AnimatedButtonProps) => {
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}
