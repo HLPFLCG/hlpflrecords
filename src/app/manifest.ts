@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'HLPFL Records - World-Class Record Label',
+    name: 'HLFPL - Tools, Not Contracts',
     short_name: 'HLPFL',
-    description: 'Premier record label dedicated to discovering, developing, and promoting exceptional musical talent.',
+    description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers on your own terms.',
     start_url: '/',
     display: 'standalone',
     background_color: '#0a0a0a',

@@ -10,7 +10,7 @@ export const organizationSchema = {
   "alternateName": "HLPFL",
   "url": "https://hlpfl.org",
   "logo": "https://hlpfl.org/logo.svg",
-  "description": "Premier record label dedicated to discovering, developing, and promoting exceptional musical talent. Founded in 2009 with revolutionary 50/50 artist partnerships.",
+  "description": "Comprehensive resource platform for creative artists providing tools and resources to build successful music careers on their own terms.",
   "foundingDate": "2009",
   "founders": [
     {
@@ -64,7 +64,7 @@ export const websiteSchema = {
   "@type": "WebSite",
   "name": "HLPFL",
   "url": "https://hlpfl.org",
-  "description": "Official website of HLPFL - Premier record label for artist development and music production",
+  "description": "Official website of HLFPL - Comprehensive resource platform for creative artists providing tools and resources to build successful music careers",
   "publisher": {
     "@type": "Organization",
     "name": "HLPFL"

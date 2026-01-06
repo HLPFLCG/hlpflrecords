@@ -42,7 +42,7 @@ const LoadingScreen = () => {
     <div id="loading-screen" className={styles['loading-screen']}>
       <div className={styles['loading-content']}>
         <Logo width={80} height={80} className={styles['loading-logo']} />
-        <div className={styles['loading-text']}>Loading HLPFL Records...</div>
+        <div className={styles['loading-text']}>Loading HLFPL...</div>
         
         {/* Progress Bar */}
         <div className={styles['progress-container']}>

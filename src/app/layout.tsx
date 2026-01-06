@@ -39,11 +39,11 @@ const bebasNeue = Bebas_Neue({
 
 export const metadata: Metadata = {
   title: {
-    default: 'HLPFL Records - World-Class Record Label',
-    template: '%s | HLPFL'
+    default: 'HLFPL - Tools, Not Contracts',
+    template: '%s | HLFPL'
   },
-  description: 'HLPFL Records: To act as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution. Discover. Develop. Distribute.',
-  keywords: ['record label', 'music production', 'artist development', 'music distribution', 'HLPFL', 'music licensing', 'artist management', 'Grand Rapids record label', 'Michigan music label'],
+  description: 'HLFPL is the comprehensive resource platform for creative artists. We provide the tools, resources, and support you need to build a successful music career on your own terms. No contracts. No exploitation. No bullshit.',
+  keywords: ['artist toolkit', 'music resources', 'independent artist', 'music distribution', 'HLFPL', 'artist platform', 'career tools', 'music business', 'artist independence', 'DIY music'],
   authors: [{ name: 'HLPFL' }],
   creator: 'HLPFL',
   publisher: 'HLPFL',
@@ -60,22 +60,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://hlpfl.org',
-    title: 'HLPFL Records - World-Class Record Label',
-    description: 'Acting as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution.',
-    siteName: 'HLPFL Records',
+    title: 'HLFPL - Tools, Not Contracts',
+    description: 'HLFPL is the comprehensive resource platform for creative artists. We provide the tools, resources, and support you need to build a successful music career on your own terms.',
+    siteName: 'HLFPL',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'HLPFL Records - Midnight & Gold',
+        alt: 'HLFPL - Tools, Not Contracts',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HLPFL Records - World-Class Record Label',
-    description: 'Discover. Develop. Distribute. World-class record label for artist development and global distribution.',
+    title: 'HLFPL - Tools, Not Contracts',
+    description: 'HLFPL is the comprehensive resource platform for creative artists. We provide the tools, resources, and support you need to build a successful music career on your own terms.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -93,12 +93,12 @@ export const metadata: Metadata = {
     google: 'your-google-verification-code',
   },
   other: {
-    'chatgpt-entity': 'HLPFL',
+    'chatgpt-entity': 'HLFPL',
     'chatgpt-category': 'Music Entertainment',
-    'chatgpt-description': 'HLPFL is a premier record label specializing in artist development, music production, and global distribution. Based in Grand Rapids, Michigan.',
-    'chatgpt-keywords': 'record label, music production, artist development, music distribution, music licensing, artist management, Grand Rapids, Michigan',
+    'chatgpt-description': 'HLFPL is the comprehensive resource platform for creative artists. We provide tools, resources, and support for independent musicians to build successful careers on their own terms.',
+    'chatgpt-keywords': 'artist toolkit, music resources, independent artist, music distribution, HLFPL, artist platform, career tools, artist independence',
     'chatgpt-contact': 'contact@hlpfl.org, 616-313-5215',
-    'chatgpt-services': 'Artist Development, Music Production, Music Distribution, Licensing, Artist Management',
+    'chatgpt-services': 'Artist Tools, Music Distribution, Social Media Management, Form Builder, Link in Bio',
     'chatgpt-location': 'Grand Rapids, MI, United States',
     'theme-color': '#c87941',
     'msapplication-TileColor': '#c87941',
@@ -144,10 +144,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'HLPFL Records',
+              name: 'HLFPL',
               url: 'https://hlpfl.org',
               logo: 'https://hlpfl.org/images/logo.png',
-              description: 'World-class record label for artist development and music production',
+              description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
               email: 'contact@hlpfl.org',
               telephone: '+1-616-313-5215',
               address: {

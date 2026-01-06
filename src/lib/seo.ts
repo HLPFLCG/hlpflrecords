@@ -30,7 +30,7 @@ export const generateSEO = ({
   return {
     title: fullTitle,
     description,
-    keywords: [...keywords, 'HLPFL', 'record label', 'music production'],
+    keywords: [...keywords, 'HLFPL', 'artist toolkit', 'music resources', 'independent artist'],
     authors: [{ name: author }],
     creator: author,
     publisher: 'HLPFL Records',
@@ -93,7 +93,7 @@ export const generateMusicGroupSchema = () => {
     name: 'HLPFL Records',
     url: 'https://hlpfl.org',
     logo: 'https://hlpfl.org/images/logo.png',
-    description: 'Premier record label dedicated to discovering and promoting exceptional musical talent',
+    description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
     foundingDate: '2024',
     genre: ['Hip Hop', 'R&B', 'Pop'],
     sameAs: [
@@ -111,7 +111,7 @@ export const generateOrganizationSchema = () => {
     name: 'HLPFL Records',
     url: 'https://hlpfl.org',
     logo: 'https://hlpfl.org/images/logo.png',
-    description: 'World-class record label for artist development and music production',
+    description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
     email: 'contact@hlpfl.org',
     telephone: '+1-616-313-5215',
     address: {
