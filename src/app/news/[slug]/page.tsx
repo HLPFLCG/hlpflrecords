@@ -5,12 +5,15 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { formatDate } from '@/lib/utils'
+import { mockNews } from '@/data/mockData'
 
 // REQUIRED FOR STATIC EXPORT
+// Generate static params for all blog posts
 export async function generateStaticParams() {
-  // Return empty array since we're using mock data
-  // Add actual slugs here when you have real blog posts
-  return []
+  // Return all blog post slugs from mock data
+  return mockNews.map((post) => ({
+    slug: post.slug,
+  }))
 }
 
 async function getBlogPost(slug: string) {
