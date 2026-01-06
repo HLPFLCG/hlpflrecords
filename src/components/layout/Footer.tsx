@@ -17,19 +17,19 @@ export function Footer() {
   const footerLinks = {
     company: [
       { name: 'About Us', href: '/about' },
+      { name: 'Tools & Resources', href: '/artist-portal' },
       { name: 'Artists', href: '/artists' },
-      { name: 'Releases', href: '/releases' },
       { name: 'News', href: '/news' },
     ],
     legal: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
-      { name: 'Cookie Policy', href: '/cookies' },
+      { name: 'Privacy Policy', href: '/legal/privacy' },
+      { name: 'Terms of Service', href: '/legal/terms' },
+      { name: 'Cookie Policy', href: '/legal/cookies' },
     ],
     artists: [
-      { name: 'Submit Music', href: '/submit' },
-      { name: 'Artist Portal', href: '/portal' },
-      { name: 'Licensing', href: '/licensing' },
+      { name: 'Get Tools', href: '/artist-portal' },
+      { name: 'Music Distribution', href: '/artist-portal' },
+      { name: 'Artist Support', href: '/contact' },
     ],
   }
 
@@ -44,7 +44,7 @@ export function Footer() {
               <span className="text-white font-bold text-xl">HLPFL</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              Acting as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution.
+              HLPFL is the comprehensive resource platform for creative artists. We provide the tools, resources, and support you need to build a successful music career on your own terms. No contracts. No exploitation. No bullshit.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => {
@@ -119,7 +119,7 @@ export function Footer() {
             © {currentYear} HLPFL. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm mt-2 md:mt-0">
-            The 11% revolution: No backdoors, no hidden fees, just helpful.
+            Tools, Not Contracts. Independence, Not Ownership.
           </p>
         </div>
       </div>

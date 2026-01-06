@@ -14,11 +14,10 @@ export function FeaturedArtistsSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Featured <span className="text-gold">Artists</span>
+            Artists Using <span className="text-gold">HLPFL Tools</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Discover the incredible talent that makes up the HLPFL family. 
-            From emerging voices to established stars, our artists represent the best in contemporary music.
+            Independent artists building successful careers on their own terms. See how they're using HLPFL's toolkit to create, distribute, and monetize their music.
           </p>
           <Link href="/artists">
             <Button variant="outline">
@@ -80,16 +79,14 @@ export function FeaturedArtistsSection() {
         <div className="mt-16 text-center">
           <div className="border border-gray-800 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Are You the Next HLPFL Artist?
+              Build Your Own Success Story
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              We're always looking for exceptional talent to join our roster. 
-              If you're passionate about music and ready to take your career to the next level, 
-              we want to hear from you.
+              Join thousands of independent artists who are taking control of their careers with HLPFL's toolkit. No applications, no approval needed—you're already approved.
             </p>
-            <Link href="/contact">
+            <Link href="/artist-portal">
               <Button>
-                Submit Your Music
+                Get Started Free
               </Button>
             </Link>
           </div>

@@ -90,7 +90,7 @@ export const breadcrumbSchema = (items: Array<{ name: string; url: string }>) =>
 export const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Music Production & Artist Development",
+  "serviceType": "Artist Resource Platform & Toolkit",
   "provider": {
     "@type": "Organization",
     "name": "HLPFL"
@@ -104,7 +104,7 @@ export const serviceSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Artist Development",
+          "name": "Social Media Manager",
           "description": "Comprehensive artist development program with 50/50 partnership model"
         }
       },
@@ -112,7 +112,7 @@ export const serviceSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Music Production",
+          "name": "Link in Bio Tool",
           "description": "Professional music production and recording services"
         }
       },

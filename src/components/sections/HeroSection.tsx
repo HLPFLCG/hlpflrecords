@@ -44,34 +44,34 @@ export function HeroSection() {
           
           {/* Tagline */}
           <p className="text-fade-in text-fade-in-delay-1 text-2xl sm:text-3xl md:text-4xl text-gold font-light max-w-4xl mx-auto leading-relaxed tracking-wide" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-            A Label for Artists, By Artists
+            Tools, Not Contracts. Independence, Not Ownership.
           </p>
           
           {/* Mantra */}
           <p className="text-fade-in text-fade-in-delay-2 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-            Discover. Develop. Distribute.
+            Build Your Career. Own Your Music. Keep Your Freedom.
           </p>
           
           {/* Description */}
           <p className="text-fade-in text-fade-in-delay-3 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            In an industry of bright, noisy pop marketing, we represent the cool confidence of the studio at 2 AM. 
-            We are proudly Grand Rapids-based, exporting the "Midwest Sound" to the world.
+            HLPFL provides artists with the resources, tools, and advantages of a traditional label—without the contracts, exploitation, or loss of control. 
+            Everything you need to build a sustainable music career on your own terms.
           </p>
           
           {/* CTA Buttons */}
           <div className="text-fade-in text-fade-in-delay-4 flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/artists">
+            <Link href="/artist-portal">
               <Button size="lg" className="btn-premium group">
-                <Users className="mr-3 h-5 w-5" />
-                Our Artists
+                <Play className="mr-3 h-5 w-5" />
+                Get The Tools
                 <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
               </Button>
             </Link>
             
-            <Link href="/contact">
+            <Link href="/about">
               <Button variant="outline" size="lg" className="btn-premium group">
                 <Music className="mr-3 h-5 w-5" />
-                Submit Your Music
+                Learn More
               </Button>
             </Link>
           </div>
@@ -79,20 +79,20 @@ export function HeroSection() {
           {/* Stats/Metrics */}
           <div className="text-fade-in text-fade-in-delay-5 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>5+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Artists</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>6+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Tools</div>
             </div>
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>50+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Releases</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>0%</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Contracts</div>
             </div>
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>10m+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Streams</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>100%</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Your Control</div>
             </div>
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>7+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Years</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>∞</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Potential</div>
             </div>
           </div>
         </div>

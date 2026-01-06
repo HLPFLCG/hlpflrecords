@@ -6,39 +6,39 @@ export function ServicesSection() {
   const services = [
     {
       icon: Users,
-      title: 'Artist Development',
-      description: 'Comprehensive artist development programs to nurture talent and build successful, sustainable music careers.',
-      features: ['Career Planning', 'Brand Development', 'Performance Training', 'Marketing Strategy']
-    },
-    {
-      icon: Headphones,
-      title: 'Music Production',
-      description: 'State-of-the-art production facilities with world-class producers, engineers, and cutting-edge technology.',
-      features: ['Recording Studios', 'Mixing & Mastering', 'Production Services', 'Sound Design']
+      title: 'Social Media Manager',
+      description: 'Stop wasting hours managing posts across platforms. Our unified dashboard lets you schedule, track, and optimize all your social media from one place.',
+      features: ['Unified Dashboard', 'Content Calendar', 'Analytics & Insights', 'Automated Posting']
     },
     {
       icon: Globe,
-      title: 'Global Distribution',
-      description: 'Worldwide distribution network to get your music to every major platform and reach millions of listeners.',
-      features: ['Digital Distribution', 'Physical Releases', 'Playlist Placement', 'International Marketing']
+      title: 'Link in Bio Tool',
+      description: 'One link to rule them all. Create a custom landing page that showcases your music, merchandise, tour dates, and everything else you\'re working on.',
+      features: ['Custom Landing Page', 'Instant Updates', 'Click Tracking', 'Mobile Optimized']
     },
     {
       icon: Music,
-      title: 'Publishing & Rights',
-      description: 'Complete music publishing services including copyright protection, royalty collection, and licensing.',
-      features: ['Copyright Registration', 'Royalty Management', 'Sync Licensing', 'Publishing Administration']
+      title: 'Music Distribution',
+      description: 'Get your music on Spotify, Apple Music, TikTok, and every major streaming platform. Keep 100% of your royalties. Fast uploads, professional delivery.',
+      features: ['All Major Platforms', '100% Royalties', 'Detailed Analytics', 'Fast Delivery']
+    },
+    {
+      icon: Headphones,
+      title: 'Artist Management Services',
+      description: 'When you need professional support without the controlling contracts. Book what you need, when you need it. Strategic guidance on your terms.',
+      features: ['On-Demand Support', 'Industry Connections', 'Strategic Guidance', 'Transparent Pricing']
     },
     {
       icon: TrendingUp,
-      title: 'Marketing & Promotion',
-      description: 'Strategic marketing campaigns and promotional services to maximize your music\'s reach and impact.',
-      features: ['Social Media Marketing', 'PR Campaigns', 'Radio Promotion', 'Influencer Partnerships']
+      title: 'Form Builder',
+      description: 'Collect information, build your fanbase, and manage your business with professional forms. No coding required—just powerful forms that work.',
+      features: ['Fan Email Capture', 'Contact Forms', 'Booking Requests', 'Survey Feedback']
     },
     {
       icon: Award,
-      title: 'Career Management',
-      description: 'Personalized career management and strategic guidance to navigate the music industry successfully.',
-      features: ['Contract Negotiation', 'Tour Management', 'Brand Partnerships', 'Long-term Strategy']
+      title: 'Alki Music Vault',
+      description: 'Exclusive access to 300+ unreleased songs from Alki\'s catalog. Remix, collaborate, or find inspiration from this massive creative resource.',
+      features: ['300+ Unreleased Tracks', 'Remix Rights', 'Collaboration Tools', 'Creative Inspiration']
     }
   ]
 
@@ -48,10 +48,10 @@ export function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-            <span className="text-gold">Complete Music</span> Business Solutions
+            Your Complete <span className="text-gold">Artist Toolkit</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We build careers, not just viral moments. From production to promotion, we've got your music career covered.
+            Every tool, resource, and advantage you need to build your music career—<span className="text-white font-semibold">no strings attached</span>.
           </p>
         </div>
 
@@ -92,14 +92,14 @@ export function ServicesSection() {
         <div className="text-center mt-16">
           <div className="glass rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-              Ready to Build Your Legacy?
+              Ready to Take Control?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Let's turn your musical talent into a thriving career. We don't just sign artists; we build legacies.
+              Stop waiting for a label to "discover" you. Start building the career you want right now with tools that work <span className="text-gold font-semibold">for you, not against you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-gold text-dark px-8 py-3 rounded-lg font-semibold hover:bg-gold-light transition-colors hover-lift">
-                Book Free Discovery Call
+                Get Started Free
               </button>
               <button className="border-2 border-gold text-gold px-8 py-3 rounded-lg font-semibold hover:bg-gold hover:text-dark transition-colors">
                 Learn More

@@ -12,52 +12,52 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-              About <span className="text-gold">HLPFL</span>
+              The <span className="text-gold">Anti-Label</span> Solution
             </h2>
             
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                HLPFL acts as the filter of excellence in a saturated music market; bridging the gap between raw talent and global legacy through professional development, high-end production, and strategic distribution.
+                <span className="text-white font-semibold">The music industry was designed to exploit artists.</span> Labels take your masters, control your career, and keep you broke while they get rich. We watched this happen to our friends, to our peers, and to artists we believed in. So we built something different.
               </p>
               
               <p className="leading-relaxed">
-                We don't follow trends; we set the standard. We build careers, not just viral moments. We think in 5-year plans, not 15-second clips.
+                HLPFL isn't a record label. We're not here to own your work or tell you what to create. We're here to give you the same power, resources, and advantages that labels have—<span className="text-gold font-semibold">without having to sell your soul to get them</span>.
               </p>
               
               <p className="leading-relaxed">
-                We are proudly Grand Rapids-based, exporting the "Midwest Sound" to the world. In an industry of bright, noisy pop marketing, we represent the cool confidence of the studio at 2 AM.
+                We believe artists shouldn't have to choose between independence and having the resources to compete. With HLPFL, you get both: <span className="text-gold font-semibold">complete creative freedom</span> and <span className="text-gold font-semibold">professional-grade tools</span> to build a sustainable career on your own terms.
               </p>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">5</div>
-                <div className="text-sm text-gray-400">Artists</div>
+                <div className="text-3xl font-bold text-gold mb-1">6+</div>
+                <div className="text-sm text-gray-400">Tools</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">50+</div>
-                <div className="text-sm text-gray-400">Releases</div>
+                <div className="text-3xl font-bold text-gold mb-1">0%</div>
+                <div className="text-sm text-gray-400">Contracts</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">10m+</div>
-                <div className="text-sm text-gray-400">Streams</div>
+                <div className="text-3xl font-bold text-gold mb-1">100%</div>
+                <div className="text-sm text-gray-400">Your Control</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">7+</div>
-                <div className="text-sm text-gray-400">Years</div>
+                <div className="text-3xl font-bold text-gold mb-1">∞</div>
+                <div className="text-sm text-gray-400">Potential</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/about">
+              <Link href="/artist-portal">
                 <Button>
-                  Learn More About Us
+                  Get The Tools
                 </Button>
               </Link>
-              <Link href="/team">
+              <Link href="/about">
                 <Button variant="outline">
-                  Meet Our Team
+                  Learn More
                 </Button>
               </Link>
             </div>
@@ -71,7 +71,7 @@ export function AboutSection() {
                   <span className="text-gold text-4xl font-bold">H</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">HLPFL</h3>
-                <p className="text-gray-400 mb-4" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>Discover. Develop. Distribute.</p>
+                <p className="text-gray-400 mb-4" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>Tools, Not Contracts.</p>
                 <div className="flex justify-center space-x-2">
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" />
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
