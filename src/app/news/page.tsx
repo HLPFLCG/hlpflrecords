@@ -1,15 +1,87 @@
 'use client'
 
-import React from 'react'
-import { mockNews } from '@/data/mockData'
+import React, { useState, useEffect } from 'react'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
-import { Calendar, User, Filter, ArrowRight } from 'lucide-react'
+import { Calendar, User, Filter, ArrowRight, Loader2 } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
+import { NewsPost } from '@/types'
 
 export default function NewsPage() {
+  const [news, setNews] = useState<NewsPost[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState('All')
+
   const categories = ['All', 'News', 'Releases', 'Artists', 'Events', 'Industry']
-  
+
+  useEffect(() => {
+    async function fetchNews() {
+      try {
+        setLoading(true)
+        setError(null)
+
+        // Try to fetch from API first
+        const apiResponse = await fetch('/api/blog/posts')
+        const apiData = await apiResponse.json()
+
+        if (apiData.success && apiData.posts.length > 0) {
+          setNews(apiData.posts)
+        } else {
+          // Fallback to mockData
+          const { mockNews } = await import('@/data/mockData')
+          setNews(mockNews)
+        }
+      } catch (err) {
+        console.error('Error fetching news:', err)
+        setError('Failed to load news')
+
+        // Fallback to mockData on error
+        try {
+          const { mockNews } = await import('@/data/mockData')
+          setNews(mockNews)
+        } catch (fallbackErr) {
+          console.error('Failed to load mock data:', fallbackErr)
+        }
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchNews()
+  }, [])
+
+  const filteredNews = selectedCategory === 'All' 
+    ? news 
+    : news.filter(post => post.category === selectedCategory)
+
+  const featuredPost = filteredNews[0]
+  const otherPosts = filteredNews.slice(1)
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-dark flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 text-gold animate-spin mx-auto mb-4" />
+          <p className="text-white text-lg">Loading news...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error && news.length === 0) {
+    return (
+      <div className="min-h-screen bg-dark flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-400 text-lg mb-4">{error}</p>
+          <Button onClick={() => window.location.reload()}>
+            Try Again
+          </Button>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-dark">
       {/* Header */}
@@ -35,8 +107,9 @@ export default function NewsPage() {
                 {categories.map((category) => (
                   <button
                     key={category}
+                    onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      category === 'All' 
+                      selectedCategory === category 
                         ? 'bg-gold text-dark' 
                         : 'bg-dark-secondary text-gray-300 hover:text-gold hover:bg-dark-tertiary'
                     }`}
@@ -48,25 +121,33 @@ export default function NewsPage() {
             </div>
             
             <div className="text-gray-400">
-              <span className="text-gold font-semibold">{mockNews.length}</span> Articles
+              <span className="text-gold font-semibold">{filteredNews.length}</span> Articles
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Article */}
-      {mockNews.length > 0 && (
+      {featuredPost && (
         <section className="px-4 pb-16">
           <div className="max-w-7xl mx-auto">
             <Card className="overflow-hidden bg-gradient-to-br from-gold/5 to-dark-secondary border-gold/20">
               <div className="lg:grid lg:grid-cols-2 gap-8">
                 <div className="aspect-square lg:aspect-auto bg-gradient-to-br from-gold/20 to-dark-tertiary flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-gold text-2xl font-bold">📰</span>
+                  {featuredPost.image ? (
+                    <img 
+                      src={featuredPost.image} 
+                      alt={featuredPost.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-center p-8">
+                      <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-gold text-2xl font-bold">📰</span>
+                      </div>
+                      <p className="text-gray-400">Featured Image</p>
                     </div>
-                    <p className="text-gray-400">Featured Image</p>
-                  </div>
+                  )}
                 </div>
                 <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
                   <div className="flex items-center space-x-4 mb-4">
@@ -75,24 +156,24 @@ export default function NewsPage() {
                     </span>
                     <span className="text-gray-400 text-sm">•</span>
                     <span className="text-gray-400 text-sm capitalize">
-                      {mockNews[0].category}
+                      {featuredPost.category}
                     </span>
                   </div>
                   <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 hover:text-gold transition-colors cursor-pointer">
-                    {mockNews[0].title}
+                    {featuredPost.title}
                   </h2>
                   <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                    {mockNews[0].excerpt}
+                    {featuredPost.excerpt}
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4 text-gray-400 text-sm">
                       <div className="flex items-center space-x-2">
                         <User className="h-4 w-4" />
-                        <span>{mockNews[0].author}</span>
+                        <span>{featuredPost.author}</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Calendar className="h-4 w-4" />
-                        <span>{formatDate(mockNews[0].publishedAt)}</span>
+                        <span>{formatDate(featuredPost.publishedAt)}</span>
                       </div>
                     </div>
                     <Button>
@@ -112,16 +193,15 @@ export default function NewsPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-8">Latest Articles</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockNews.slice(1).map((article) => (
+            {otherPosts.map((article) => (
               <Card key={article.id} hover className="overflow-hidden group">
                 {article.image && (
-                  <div className="aspect-video bg-gradient-to-br from-gold/20 to-dark-tertiary flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <span className="text-gold text-xl">📰</span>
-                      </div>
-                      <p className="text-gray-400 text-sm">Article Image</p>
-                    </div>
+                  <div className="aspect-video bg-gradient-to-br from-gold/20 to-dark-tertiary flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={article.image} 
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                 )}
                 

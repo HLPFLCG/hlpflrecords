@@ -1,8 +1,27 @@
 import { MetadataRoute } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://hlpfl.org'
+async function getBlogPosts() {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/blog/posts`)
+    const data = await response.json()
+    return data.success ? data.posts : []
+  } catch {
+    const { mockNews } = await import('@/data/mockData')
+    return mockNews
+  }
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hlpfl.org'
   const currentDate = new Date().toISOString()
+  const posts = await getBlogPosts()
+
+  const postUrls = posts.map((post: any) => ({
+    url: `${baseUrl}/news/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
 
   return [
     {
@@ -38,8 +57,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/news`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
+      changeFrequency: 'daily',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/submit-music`,
@@ -89,5 +108,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    ...postUrls,
   ]
 }

@@ -7,7 +7,7 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB" # Available in your code as env.DB
 database_name = "hlpfl-artist-portal"
-database_id = "" # Will be filled after creating database with: wrangler d1 create hlpfl-artist-portal
+database_id = "80d81b5f-61ae-4755-918e-7f6056ac25cb"" # Will be filled after creating database with: wrangler d1 create hlpfl-artist-portal
 
 # Environment Variables (these are public, safe to commit)
 [vars]
