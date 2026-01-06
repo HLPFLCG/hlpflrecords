@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk } from 'next/font/google'
+// Note: Google Fonts are loaded via CSS in globals.css to avoid build-time network dependencies
 import dynamic from 'next/dynamic'
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
@@ -23,12 +23,11 @@ const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ d
 })
 
 // Font configuration - HLPFL Brand Typography
-const spaceGrotesk = Space_Grotesk({ 
-  subsets: ['latin'],
+// Using CSS font loading to avoid build-time network dependencies
+const spaceGrotesk = {
   variable: '--font-space-grotesk',
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
-})
+  className: 'font-space-grotesk'
+}
 
 export const metadata: Metadata = {
   title: {
@@ -83,7 +82,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    // TODO: Replace with actual Google Search Console verification code
+    // google: 'your-google-verification-code',
   },
   other: {
     'chatgpt-entity': 'HLFPL',
