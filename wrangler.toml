@@ -7,9 +7,47 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB" # Available in your code as env.DB
 database_name = "hlpfl-artist-portal"
-database_id = "80d81b5f-61ae-4755-918e-7f6056ac25cb"" # Will be filled after creating database with: wrangler d1 create hlpfl-artist-portal
+database_id = "80d81b5f-61ae-4755-918e-7f6056ac25cb"
 
 # Environment Variables (these are public, safe to commit)
 [vars]
+# Google Analytics & Tag Manager
 NEXT_PUBLIC_GA_ID = "G-7W14RQ0K9W"
 NEXT_PUBLIC_GTM_ID = "GTM-WSPNJ5DR"
+
+# Meta/Facebook Pixel - Add your pixel ID
+NEXT_PUBLIC_META_PIXEL_ID = ""
+
+# TikTok Pixel - Add your pixel ID
+NEXT_PUBLIC_TIKTOK_PIXEL_ID = ""
+
+# Snapchat Pixel - Add your pixel ID
+NEXT_PUBLIC_SNAPCHAT_PIXEL_ID = ""
+
+# Pinterest Tag - Add your tag ID
+NEXT_PUBLIC_PINTEREST_TAG_ID = ""
+
+# LinkedIn Insight Tag - Add your partner ID
+NEXT_PUBLIC_LINKEDIN_PARTNER_ID = ""
+
+# Reddit Pixel - Add your pixel ID
+NEXT_PUBLIC_REDDIT_PIXEL_ID = ""
+
+# Twitter/X Pixel - Add your pixel ID
+NEXT_PUBLIC_TWITTER_PIXEL_ID = ""
+
+# Sentry Error Tracking - Add your DSN
+NEXT_PUBLIC_SENTRY_DSN = ""
+
+# PostHog Product Analytics - Add your project key
+NEXT_PUBLIC_POSTHOG_KEY = ""
+NEXT_PUBLIC_POSTHOG_HOST = "https://app.posthog.com"
+
+# Hotjar User Analytics - Add your site ID
+NEXT_PUBLIC_HOTJAR_ID = ""
+
+# Clarity (Microsoft) - Add your project ID
+NEXT_PUBLIC_CLARITY_PROJECT_ID = ""
+
+# API Configuration
+NEXT_PUBLIC_API_URL = "https://hlpfl.org"

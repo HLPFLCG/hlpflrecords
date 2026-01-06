@@ -1,267 +1,190 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  BarChart3, 
-  Calendar, 
-  Share2, 
-  Play, 
-  Music, 
-  Users, 
-  TrendingUp,
-  DollarSign,
-  Upload,
-  Search,
-  FileText,
-  Link as LinkIcon,
-  Sparkles,
-  Mail
-} from 'lucide-react'
+import { Lock, Mail, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
-export default function ArtistPortalPage() {
-  const tools = [
-    {
-      title: 'Analytics Dashboard',
-      description: 'Track your performance across Spotify, YouTube, and social platforms',
-      icon: BarChart3,
-      href: '/analytics',
-      color: 'from-blue-500 to-blue-600',
-      stats: '2.4M streams'
-    },
-    {
-      title: 'Social Scheduler',
-      description: 'Plan and schedule posts across Instagram, Twitter, and more',
-      icon: Calendar,
-      href: '/social-scheduler',
-      color: 'from-purple-500 to-purple-600',
-      stats: '12 scheduled posts'
-    },
-    {
-      title: 'Spotify Tools',
-      description: 'Pre-save campaigns, playlist submissions, and profile optimization',
-      icon: Play,
-      href: '/spotify-tools',
-      color: 'from-green-500 to-green-600',
-      stats: '1.2M monthly listeners'
-    },
-    {
-      title: 'Email Marketing',
-      description: 'Connect with fans and grow your email list',
-      icon: Mail,
-      href: '/email-marketing',
-      color: 'from-pink-500 to-pink-600',
-      stats: '45.2K subscribers'
-    },
-    {
-      title: 'Crowdfunding',
-      description: 'Launch fan support campaigns and accept donations',
-      icon: DollarSign,
-      href: '/crowdfunding',
-      color: 'from-yellow-500 to-yellow-600',
-      stats: '$12,450 raised'
-    },
-    {
-      title: 'Collaboration Finder',
-      description: 'Connect with other artists and producers',
-      icon: Users,
-      href: '/collaborations',
-      color: 'from-orange-500 to-orange-600',
-      stats: '8 active collaborations'
-    },
-    {
-      title: 'Music Licensing',
-      description: 'License your music for films, TV, and commercials',
-      icon: Music,
-      href: '/licensing',
-      color: 'from-red-500 to-red-600',
-      stats: '5 active licenses'
-    },
-    {
-      title: 'Merch Store',
-      description: 'Create and sell merchandise to your fans',
-      icon: Upload,
-      href: '/merch',
-      color: 'from-indigo-500 to-indigo-600',
-      stats: '234 items sold'
-    }
-  ]
+export default function ArtistPortalLoginPage() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [rememberMe, setRememberMe] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const upcomingTasks = [
-    { task: 'Complete "Midnight Dreams" pre-save campaign', due: '2 days', priority: 'high' },
-    { task: 'Submit to 5 editorial playlists', due: '5 days', priority: 'medium' },
-    { task: 'Schedule Instagram posts for release week', due: '7 days', priority: 'high' },
-    { task: 'Update artist profile on Spotify', due: '10 days', priority: 'low' }
-  ]
+  const handleSignIn = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
 
-  const recentActivity = [
-    { action: 'New follower milestone reached', detail: '45K followers on Spotify', time: '2 hours ago' },
-    { action: 'Playlist placement', detail: 'Added to "New Music Friday" playlist', time: '5 hours ago' },
-    { action: 'Social media post', detail: 'Instagram post reached 10K likes', time: '1 day ago' },
-    { action: 'Revenue update', detail: 'Monthly revenue: $4,560', time: '2 days ago' }
-  ]
+    // TODO: Implement actual authentication with Cloudflare D1
+    // For now, show loading state
+    setTimeout(() => {
+      setIsLoading(false)
+      alert('Authentication system coming soon! Database integration in progress.')
+    }, 1000)
+  }
 
   return (
-    <div className="min-h-screen py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-gold to-gold-dark rounded-2xl mb-6"
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-[#0a0a0a]">
+      <div className="w-full max-w-md">
+        {/* Header with Logo */}
+        <div className="text-center mb-8">
+          <Link href="/" className="inline-block mb-6">
+            <Logo width={80} height={80} className="mx-auto" />
+          </Link>
+          <h1 className="text-white text-2xl font-bold mb-2">HLPFL</h1>
+        </div>
+
+        {/* Login Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-[#1a1a1a] rounded-3xl p-8 border border-gray-800"
+        >
+          {/* Lock Icon */}
+          <div className="flex justify-center mb-6">
+            <div className="w-20 h-20 bg-gradient-to-br from-[#c87941] to-[#a0613a] rounded-2xl flex items-center justify-center">
+              <Lock className="w-10 h-10 text-black" strokeWidth={2.5} />
+            </div>
+          </div>
+
+          {/* Title */}
+          <h2 className="text-white text-3xl font-bold text-center mb-3 tracking-tight">
+            ARTIST PORTAL
+          </h2>
+          <p className="text-gray-400 text-center mb-8">
+            Access your dashboard, contracts, and resources
+          </p>
+
+          {/* Login Form */}
+          <form onSubmit={handleSignIn} className="space-y-6">
+            {/* Email Field */}
+            <div>
+              <label htmlFor="email" className="block text-white text-sm font-medium mb-3">
+                Email Address
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Mail className="h-5 w-5 text-gray-500" />
+                </div>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  className="w-full bg-[#0a0a0a] border border-gray-700 rounded-xl py-4 pl-12 pr-4 text-gray-300 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#c87941] focus:border-transparent transition-all"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Password Field */}
+            <div>
+              <label htmlFor="password" className="block text-white text-sm font-medium mb-3">
+                Password
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Lock className="h-5 w-5 text-gray-500" />
+                </div>
+                <input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="w-full bg-[#0a0a0a] border border-gray-700 rounded-xl py-4 pl-12 pr-4 text-gray-300 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#c87941] focus:border-transparent transition-all"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Remember Me & Forgot Password */}
+            <div className="flex items-center justify-between">
+              <label className="flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="w-5 h-5 bg-[#0a0a0a] border border-gray-700 rounded checked:bg-[#c87941] checked:border-[#c87941] focus:ring-2 focus:ring-[#c87941] transition-all"
+                />
+                <span className="ml-2 text-gray-300 text-sm">Remember me</span>
+              </label>
+              <Link
+                href="/forgot-password"
+                className="text-[#c87941] hover:text-[#d89558] text-sm font-medium transition-colors"
+              >
+                Forgot password?
+              </Link>
+            </div>
+
+            {/* Sign In Button */}
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-[#c87941] to-[#a0613a] hover:from-[#d89558] hover:to-[#c87941] text-black font-bold py-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+            >
+              {isLoading ? 'Signing In...' : 'Sign In'}
+            </button>
+          </form>
+
+          {/* Submit Music Link */}
+          <div className="mt-8 text-center">
+            <p className="text-gray-400 text-sm">
+              Not an artist yet?{' '}
+              <Link
+                href="/submit-music"
+                className="text-[#c87941] hover:text-[#d89558] font-medium transition-colors"
+              >
+                Submit your music
+              </Link>
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Chat with HLPFL Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mt-6"
+        >
+          <button
+            onClick={() => {
+              // Trigger chatbot
+              const chatbotButton = document.querySelector('[data-chatbot-toggle]') as HTMLElement
+              if (chatbotButton) chatbotButton.click()
+            }}
+            className="w-full bg-gradient-to-r from-[#c87941] to-[#a0613a] hover:from-[#d89558] hover:to-[#c87941] text-black font-bold py-4 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
           >
-            <Sparkles className="w-10 h-10 text-dark" />
-          </motion.div>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Artist Portal
-          </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Your complete toolkit for music career management
+            <MessageCircle className="w-5 h-5" />
+            Chat with HLPFL
+          </button>
+        </motion.div>
+
+        {/* Support Link */}
+        <div className="mt-6 text-center">
+          <p className="text-gray-500 text-sm">
+            Need help accessing your account?{' '}
+            <Link
+              href="/contact"
+              className="text-[#c87941] hover:text-[#d89558] font-medium transition-colors"
+            >
+              Contact support
+            </Link>
           </p>
         </div>
 
-        {/* Quick Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12"
-        >
-          <div className="bg-glass-card p-6 rounded-2xl">
-            <TrendingUp className="w-10 h-10 text-green-400 mb-4" />
-            <h3 className="text-3xl font-bold text-white mb-2">+23%</h3>
-            <p className="text-gray-400">Growth this month</p>
-          </div>
-          <div className="bg-glass-card p-6 rounded-2xl">
-            <Play className="w-10 h-10 text-gold mb-4" />
-            <h3 className="text-3xl font-bold text-white mb-2">2.4M</h3>
-            <p className="text-gray-400">Total streams</p>
-          </div>
-          <div className="bg-glass-card p-6 rounded-2xl">
-            <Users className="w-10 h-10 text-gold mb-4" />
-            <h3 className="text-3xl font-bold text-white mb-2">45.2K</h3>
-            <p className="text-gray-400">Total followers</p>
-          </div>
-          <div className="bg-glass-card p-6 rounded-2xl">
-            <DollarSign className="w-10 h-10 text-green-400 mb-4" />
-            <h3 className="text-3xl font-bold text-white mb-2">$12.4K</h3>
-            <p className="text-gray-400">Monthly revenue</p>
-          </div>
-        </motion.div>
-
-        {/* Tools Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl font-bold text-white mb-6">Artist Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tools.map((tool, index) => (
-              <Link key={index} href={tool.href}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-glass-card p-6 rounded-2xl hover:shadow-gold-hover transition-all duration-300 cursor-pointer group"
-                >
-                  <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${tool.color} rounded-xl mb-4`}>
-                    <tool.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-gold transition-colors">
-                    {tool.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm mb-4">{tool.description}</p>
-                  <p className="text-gold text-sm font-semibold">{tool.stats}</p>
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Upcoming Tasks */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-glass-card p-8 rounded-2xl"
+        {/* Footer Link */}
+        <div className="mt-8 text-center">
+          <Link
+            href="/"
+            className="inline-block px-6 py-2 border border-gray-700 rounded-full text-gray-400 hover:text-white hover:border-gray-600 transition-all text-sm"
           >
-            <h2 className="text-2xl font-bold text-white mb-6">Upcoming Tasks</h2>
-            <div className="space-y-4">
-              {upcomingTasks.map((task, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 bg-gray-800/50 rounded-xl">
-                  <div className={`w-3 h-3 rounded-full mt-2 ${
-                    task.priority === 'high' ? 'bg-red-500' : 
-                    task.priority === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
-                  }`} />
-                  <div className="flex-1">
-                    <p className="text-white mb-1">{task.task}</p>
-                    <p className="text-gray-400 text-sm">Due in {task.due}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Recent Activity */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-            className="bg-glass-card p-8 rounded-2xl"
-          >
-            <h2 className="text-2xl font-bold text-white mb-6">Recent Activity</h2>
-            <div className="space-y-4">
-              {recentActivity.map((activity, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 bg-gray-800/50 rounded-xl">
-                  <div className="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-5 h-5 text-gold" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white mb-1">{activity.action}</p>
-                    <p className="text-gray-400 text-sm">{activity.detail}</p>
-                    <p className="text-gray-500 text-xs mt-1">{activity.time}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+            hlpfl.org
+          </Link>
         </div>
-
-        {/* Quick Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
-          <Link href="/release-management">
-            <button className="w-full p-6 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl border border-gold/30 hover:shadow-gold-hover transition-all text-left">
-              <Music className="w-8 h-8 text-gold mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Release Music</h3>
-              <p className="text-gray-400 text-sm">Manage your releases and distribution</p>
-            </button>
-          </Link>
-          
-          <Link href="/press-releases">
-            <button className="w-full p-6 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl border border-gold/30 hover:shadow-gold-hover transition-all text-left">
-              <FileText className="w-8 h-8 text-gold mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Press & PR</h3>
-              <p className="text-gray-400 text-sm">Create press releases and media content</p>
-            </button>
-          </Link>
-          
-          <Link href="/analytics">
-            <button className="w-full p-6 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl border border-gold/30 hover:shadow-gold-hover transition-all text-left">
-              <BarChart3 className="w-8 h-8 text-gold mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">View Analytics</h3>
-              <p className="text-gray-400 text-sm">Track your performance metrics</p>
-            </button>
-          </Link>
-        </motion.div>
       </div>
     </div>
   )
