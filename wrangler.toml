@@ -2,3 +2,14 @@ name = "hlpflrecords"
 compatibility_date = "2024-12-17"
 pages_build_output_dir = "./out"
 compatibility_flags = ["nodejs_compat"]
+
+# Cloudflare D1 Database Binding
+[[d1_databases]]
+binding = "DB" # Available in your code as env.DB
+database_name = "hlpfl-artist-portal"
+database_id = "" # Will be filled after creating database with: wrangler d1 create hlpfl-artist-portal
+
+# Environment Variables (these are public, safe to commit)
+[vars]
+NEXT_PUBLIC_GA_ID = "G-7W14RQ0K9W"
+NEXT_PUBLIC_GTM_ID = "GTM-WSPNJ5DR"
