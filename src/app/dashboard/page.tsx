@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   BarChart3,
@@ -21,10 +21,65 @@ import { useRouter } from 'next/navigation'
 
 export default function DashboardPage() {
   const router = useRouter()
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const [user, setUser] = useState<any>(null)
 
-  const handleLogout = () => {
-    // TODO: Implement actual logout logic
-    router.push('/artist-portal')
+  useEffect(() => {
+    // Verify session on mount
+    const verifySession = async () => {
+      try {
+        const response = await fetch('/api/auth/verify', {
+          method: 'GET',
+          credentials: 'include'
+        })
+
+        const data = await response.json()
+
+        if (data.success && data.authenticated) {
+          setIsAuthenticated(true)
+          setUser(data.user)
+        } else {
+          setIsAuthenticated(false)
+          router.push('/artist-portal')
+        }
+      } catch (error) {
+        console.error('Session verification error:', error)
+        setIsAuthenticated(false)
+        router.push('/artist-portal')
+      }
+    }
+
+    verifySession()
+  }, [router])
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/login', {
+        method: 'DELETE',
+        credentials: 'include'
+      })
+    } catch (error) {
+      console.error('Logout error:', error)
+    } finally {
+      router.push('/artist-portal')
+    }
+  }
+
+  // Show loading while checking authentication
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-[#c87941] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Verifying session...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // If not authenticated, show nothing (will redirect)
+  if (!isAuthenticated) {
+    return null
   }
 
   const tools = [
