@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { mockArtists } from '@/data/mockData'
 import { Button } from '@/components/ui/Button'
-import { Card, CardContent } from '@/components/ui/Card'
+import { Card, CardContent, CardMedia } from '@/components/ui/Card'
 import { PremiumCard, AnimatedText } from '@/components/ui/PremiumCard'
 import { Music, Filter, Users, Star, Play } from 'lucide-react'
 
