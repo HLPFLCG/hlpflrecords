@@ -11,6 +11,7 @@ export default function SocialSchedulerPage() {
       platform: 'Instagram',
       content: 'New track dropping Friday! 🎵 #NewMusic #Alki',
       media: 'image',
+      mediaType: 'image',
       scheduledDate: '2024-01-12',
       scheduledTime: '10:00',
       status: 'scheduled'
@@ -20,6 +21,7 @@ export default function SocialSchedulerPage() {
       platform: 'Twitter',
       content: 'Thank you all for 1M streams! 🎉💜 #Grateful',
       media: 'text',
+      mediaType: 'text',
       scheduledDate: '2024-01-15',
       scheduledTime: '14:00',
       status: 'scheduled'
