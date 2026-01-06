@@ -65,13 +65,13 @@ export function AboutSection() {
 
           {/* Visual */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-gold/10 to-dark-tertiary rounded-2xl flex items-center justify-center">
+            <div className="aspect-square bg-gradient-to-br from-gold/10 to-dark-tertiary rounded-2xl flex items-center justify-center border border-gold/20">
               <div className="text-center p-8">
-                <div className="w-24 h-24 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-gold text-4xl font-bold">H</span>
+                <div className="w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-2xl flex items-center justify-center mx-auto mb-6 border border-gold/30">
+                  <Logo width={90} height={90} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">HLPFL</h3>
-                <p className="text-gray-400 mb-4" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>Tools, Not Contracts.</p>
+                <h3 className="text-3xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>HLPFL</h3>
+                <p className="text-gold mb-4 text-lg" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>Tools, Not Contracts.</p>
                 <div className="flex justify-center space-x-2">
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" />
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
@@ -79,7 +79,7 @@ export function AboutSection() {
                 </div>
               </div>
             </div>
-            
+
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-8 h-8 bg-gold rounded-lg animate-float" />
             <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gold/50 rounded-full animate-float" style={{ animationDelay: '2s' }} />
