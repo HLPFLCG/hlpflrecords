@@ -683,7 +683,7 @@ export const mockTeam: TeamMember[] = [
     image: '/images/team/james-rockel.webp',
     socials: {
       linkedin: '#',
-      email: 'contact@hlpfl.org',
+      email: 'founder@hlpfl.org',
     },
   },
   {
