@@ -7,7 +7,7 @@ export const mockArtists: Artist[] = [
     slug: 'alki',
     bio: 'Boundary-pushing artist creating the future of alternative music. As HLPFL\'s first signed artist and co-founder, Alki embodies our revolutionary artist-first philosophy. With a unique blend of punk energy, pop sensibility, and rap lyricism, Alki is proving that independent artists can thrive with the right partnership. Known for explosive live performances and genre-defying sound. With nearly 48,000 monthly listeners and millions of streams, Alki is rapidly becoming a force in independent music.',
     genre: ['Punk', 'Pop', 'Rap'],
-    image: '/images/team/alki.jpg',
+    image: '/images/team/alki.webp',
     socials: {
       spotify: 'https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl',
       instagram: 'https://www.instagram.com/alkiotis',
@@ -680,7 +680,7 @@ export const mockTeam: TeamMember[] = [
     name: 'James Rockel',
     role: 'Founder & CEO',
     bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking 50/50 model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
-    image: '/images/team/james-rockel.jpg',
+    image: '/images/team/james-rockel.webp',
     socials: {
       linkedin: '#',
       email: 'contact@hlpfl.org',
@@ -691,7 +691,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Alki',
     role: 'Co-Founder & Signed Artist',
     bio: 'Boundary-pushing artist creating the future of alternative music. As HLPFL\'s first signed artist and co-founder, Alki embodies our revolutionary artist-first philosophy. With a unique blend of punk, pop, and rap, Alki is proving that independent artists can thrive with the right partnership. Nearly 48,000 monthly listeners and millions of streams.',
-    image: '/images/team/alki.jpg',
+    image: '/images/team/alki.webp',
     socials: {
       instagram: 'https://instagram.com/alkiotis',
       spotify: 'https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl',
@@ -703,7 +703,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Noah Rank',
     role: 'Director of Sales',
     bio: 'Leading HLPFL\'s sales strategy and business development initiatives. Noah brings expertise in music industry partnerships and revenue growth, helping artists maximize their commercial potential while maintaining creative integrity.',
-    image: '/images/team/noah-rank.jpg',
+    image: '/images/team/noah-rank.webp',
     socials: {
       linkedin: '#',
       email: 'noah@hlpfl.org',

@@ -21,9 +21,12 @@ export default function ArtistPortalLoginPage() {
     setError('')
 
     try {
+      // Note: In production, Cloudflare Pages Functions are at /api/auth/login
+      // During development with static export, this simulates the login
       const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include', // Important for cookies
         body: JSON.stringify({ email, password })
       })
 
