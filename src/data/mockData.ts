@@ -23,10 +23,10 @@ export const mockArtists: Artist[] = [
     genre: ['Emo Rap', 'Alternative', 'Hip Hop'],
     image: '/images/artists/pardyalone.jpg',
     socials: {
-      spotify: 'https://open.spotify.com/artist/pardyalone',
+      spotify: 'https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG',
       instagram: 'https://www.instagram.com/pardyalone',
-      website: 'https://pardyalone.com',
-      twitter: 'https://twitter.com/pardyalone',
+      facebook: 'https://www.facebook.com/pardyalone',
+      youtube: 'https://www.youtube.com/channel/UCeD8aJzfQAhsAzDADLwZmlA',
     },
   },
 ]

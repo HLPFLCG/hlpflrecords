@@ -20,11 +20,23 @@
 ## Current Artist Images
 
 - ✅ Alki: `/images/team/alki.webp` (currently in team directory)
-- ❌ Pardyalone: `/images/artists/pardyalone.jpg` (NEEDS TO BE ADDED)
+- 📸 Pardyalone: `/images/artists/pardyalone.jpg` (image provided by user - needs to be saved to this directory)
 
 ## TODO
 
-- [ ] Add Pardyalone artist photo
+- [x] Get Pardyalone artist photo (image received from user)
+- [ ] Save Pardyalone image to `/public/images/artists/pardyalone.jpg`
 - [ ] Consider moving Alki image to artists directory for consistency
 - [ ] Add tour promotional images
 - [ ] Add venue/backyard example photos
+
+## Pardyalone Image Details
+
+User provided image showing:
+- Pardyalone with distinctive dreadlocks hairstyle
+- Visible neck and face tattoos including "444" under eye
+- Wearing cream/beige knit sweater
+- Energetic expression, tongue out
+- Professional quality photo suitable for artist profile
+
+Image should be saved as `pardyalone.jpg` in this directory.
