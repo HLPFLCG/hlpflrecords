@@ -18,218 +18,295 @@ export default function MerchPage() {
         sold: 89,
         stock: 41,
         category: 'Apparel',
-        image: '/images/merg/tshirt.jpg',
-        rating: 4.8
+        image: '👕',
+        status: 'active',
+        views: 1245
       },
       {
-        name: 'HLPFL Hoodie',
-        price: '$55',
+        name: 'Vinyl Record - Latest Album',
+        price: '$45',
         sold: 67,
         stock: 23,
-        category: 'Apparel',
-        image: '/images/merg/hoodie.jpg',
-        rating: 4.9
-      },
-      {
-        name: 'Album Art Poster',
-        price: '$20',
-        sold: 45,
-        stock: 155,
-        category: 'Art',
-        image: '/images/merg/poster.jpg',
-        rating: 4.7
-      },
-      {
-        name: 'Vinyl Record',
-        price: '$40',
-        sold: 33,
-        stock: 17,
         category: 'Music',
-        image: '/images/merg/vinyl.jpg',
-        rating: 5.0
-      }
+        image: '💿',
+        status: 'active',
+        views: 892
+      },
+      {
+        name: 'Signed Poster Bundle',
+        price: '$25',
+        sold: 45,
+        stock: 0,
+        category: 'Collectibles',
+        image: '🖼️',
+        status: 'sold out',
+        views: 678
+      },
+      {
+        name: 'Beanie - Winter Collection',
+        price: '$20',
+        sold: 33,
+        stock: 67,
+        category: 'Apparel',
+        image: '🧢',
+        status: 'active',
+        views: 534
+      },
     ],
     recentOrders: [
-      { id: '#1234', customer: 'John D.', items: 2, total: '$70.00', status: 'Shipped' },
-      { id: '#1233', customer: 'Sarah M.', items: 1, total: '$35.00', status: 'Processing' },
-      { id: '#1232', customer: 'Mike R.', items: 3, total: '$95.00', status: 'Delivered' }
+      { customer: 'Emily S.', items: 'T-Shirt (M), Poster', total: '$60', status: 'Shipped', time: '2h ago' },
+      { customer: 'Marcus R.', items: 'Vinyl Record', total: '$45', status: 'Processing', time: '5h ago' },
+      { customer: 'Sophia L.', items: 'Beanie, T-Shirt (L)', total: '$55', status: 'Shipped', time: '1d ago' },
+      { customer: 'James K.', items: 'Poster Bundle', total: '$25', status: 'Delivered', time: '2d ago' },
+    ],
+    categories: [
+      { name: 'Apparel', items: 6, revenue: '$4,230' },
+      { name: 'Music', items: 3, revenue: '$3,015' },
+      { name: 'Collectibles', items: 4, revenue: '$1,125' },
+      { name: 'Accessories', items: 2, revenue: '$570' },
     ]
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
-        >
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+    <div className="min-h-screen py-20 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl mb-6"
+          >
+            <Package className="w-10 h-10 text-white" />
+          </motion.div>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Merch Store
           </h1>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Create and sell merchandise to your fans
           </p>
-        </motion.div>
+        </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          {[
-            { label: 'Total Sales', value: mockData.totalSales, icon: ShoppingCart, color: 'from-blue-500 to-blue-600' },
-            { label: 'Revenue', value: mockData.revenue, icon: DollarSign, color: 'from-green-500 to-green-600' },
-            { label: 'Avg. Order', value: mockData.avgOrderValue, icon: TrendingUp, color: 'from-purple-500 to-purple-600' },
-            { label: 'Products', value: mockData.products.length.toString(), icon: Package, color: 'from-pink-500 to-pink-600' }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6"
-            >
-              <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${stat.color} mb-4`}>
-                <stat.icon className="w-6 h-6 text-white" />
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 text-sm mb-1">{stat.label}</p>
-              <p className="text-3xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
-            </motion.div>
-          ))}
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <ShoppingCart className="w-12 h-12 text-indigo-500" />
+              <span className="text-green-400 font-semibold">+15%</span>
+            </div>
+            <h3 className="text-4xl font-bold text-white mb-2">{mockData.totalSales}</h3>
+            <p className="text-gray-400">Items Sold</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <DollarSign className="w-12 h-12 text-gold" />
+              <span className="text-green-400 font-semibold">+23%</span>
+            </div>
+            <h3 className="text-4xl font-bold text-white mb-2">{mockData.revenue}</h3>
+            <p className="text-gray-400">Total Revenue</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <TrendingUp className="w-12 h-12 text-gold" />
+            </div>
+            <h3 className="text-4xl font-bold text-white mb-2">{mockData.avgOrderValue}</h3>
+            <p className="text-gray-400">Avg Order Value</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <Package className="w-12 h-12 text-gold" />
+            </div>
+            <h3 className="text-4xl font-bold text-white mb-2">15</h3>
+            <p className="text-gray-400">Active Products</p>
+          </motion.div>
         </div>
 
         {/* Tabs */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-          <div className="border-b border-gray-200 dark:border-gray-700">
-            <nav className="flex space-x-8 px-6">
-              {['products', 'orders', 'inventory', 'analytics'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-                    activeTab === tab
-                      ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                      : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-                  }`}
-                >
-                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                </button>
-              ))}
-            </nav>
-          </div>
-
-          <div className="p-6">
-            {activeTab === 'products' && (
-              <div className="space-y-6">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Products</h2>
-                  <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                    <Upload className="w-4 h-4" />
-                    Add Product
-                  </button>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {mockData.products.map((product, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
-                    >
-                      <div className="w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center">
-                        <Package className="w-16 h-16 text-gray-400 dark:text-gray-500" />
-                      </div>
-                      <div className="p-4">
-                        <div className="flex items-start justify-between mb-2">
-                          <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{product.name}</h3>
-                          <div className="flex items-center gap-1">
-                            <Star className="w-3 h-3 text-yellow-400 fill-current" />
-                            <span className="text-xs font-medium text-gray-600 dark:text-gray-300">{product.rating}</span>
-                          </div>
-                        </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{product.category}</p>
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-lg font-bold text-gray-900 dark:text-white">{product.price}</span>
-                          <span className="text-xs text-gray-500 dark:text-gray-400">{product.sold} sold</span>
-                        </div>
-                        <div className="text-xs">
-                          <span className={`font-medium ${product.stock < 30 ? 'text-red-500' : 'text-gray-600 dark:text-gray-300'}`}>
-                            {product.stock} in stock
-                          </span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'orders' && (
-              <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Recent Orders</h2>
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b border-gray-200 dark:border-gray-700">
-                        <th className="text-left py-3 px-4 text-sm font-medium text-gray-600 dark:text-gray-300">Order ID</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-gray-600 dark:text-gray-300">Customer</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-gray-600 dark:text-gray-300">Items</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-gray-600 dark:text-gray-300">Total</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-gray-600 dark:text-gray-300">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {mockData.recentOrders.map((order, index) => (
-                        <tr key={index} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                          <td className="py-3 px-4 text-sm font-medium text-gray-900 dark:text-white">{order.id}</td>
-                          <td className="py-3 px-4 text-sm text-gray-600 dark:text-gray-300">{order.customer}</td>
-                          <td className="py-3 px-4 text-sm text-gray-600 dark:text-gray-300">{order.items}</td>
-                          <td className="py-3 px-4 text-sm font-medium text-gray-900 dark:text-white">{order.total}</td>
-                          <td className="py-3 px-4">
-                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                              order.status === 'Delivered' 
-                                ? 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300'
-                                : order.status === 'Shipped'
-                                ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300'
-                                : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300'
-                            }`}>
-                              {order.status}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'inventory' && (
-              <div className="text-center py-12">
-                <Package className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Inventory Management</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Track and manage your merchandise inventory
-                </p>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  Manage Inventory
-                </button>
-              </div>
-            )}
-
-            {activeTab === 'analytics' && (
-              <div className="text-center py-12">
-                <TrendingUp className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Store Analytics</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Detailed analytics and performance metrics
-                </p>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  View Analytics
-                </button>
-              </div>
-            )}
-          </div>
+        <div className="mb-8 flex gap-4">
+          <button
+            onClick={() => setActiveTab('products')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'products'
+                ? 'bg-gold text-dark'
+                : 'bg-glass-card text-gray-400 hover:text-white'
+            }`}
+          >
+            Products
+          </button>
+          <button
+            onClick={() => setActiveTab('orders')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'orders'
+                ? 'bg-gold text-dark'
+                : 'bg-glass-card text-gray-400 hover:text-white'
+            }`}
+          >
+            Recent Orders
+          </button>
+          <button
+            onClick={() => setActiveTab('categories')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'categories'
+                ? 'bg-gold text-dark'
+                : 'bg-glass-card text-gray-400 hover:text-white'
+            }`}
+          >
+            Categories
+          </button>
         </div>
+
+        {/* Content */}
+        {activeTab === 'products' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-white">Your Products</h2>
+              <button className="px-6 py-3 bg-gold text-dark font-semibold rounded-lg hover:shadow-gold-hover transition-all flex items-center gap-2">
+                <Upload className="w-5 h-5" />
+                Add Product
+              </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {mockData.products.map((product, index) => (
+                <div key={index} className="bg-glass-card p-8 rounded-2xl">
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="text-6xl">{product.image}</div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-2">
+                        <div>
+                          <h3 className="text-xl font-bold text-white mb-1">{product.name}</h3>
+                          <p className="text-gray-400 text-sm">{product.category}</p>
+                        </div>
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          product.status === 'active'
+                            ? 'bg-green-500/20 text-green-400'
+                            : 'bg-red-500/20 text-red-400'
+                        }`}>
+                          {product.status}
+                        </span>
+                      </div>
+                      <p className="text-3xl font-bold text-gold mb-4">{product.price}</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4 mb-4 pb-4 border-b border-gray-700">
+                    <div>
+                      <p className="text-gray-400 text-sm mb-1">Sold</p>
+                      <p className="text-white font-bold text-lg">{product.sold}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-sm mb-1">Stock</p>
+                      <p className={`font-bold text-lg ${product.stock === 0 ? 'text-red-400' : 'text-white'}`}>
+                        {product.stock}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-sm mb-1 flex items-center gap-1">
+                        <Eye className="w-3 h-3" />
+                        Views
+                      </p>
+                      <p className="text-white font-bold text-lg">{product.views}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <button className="flex-1 px-4 py-2 bg-gold/20 text-gold font-semibold rounded-lg hover:bg-gold/30 transition-all">
+                      Edit
+                    </button>
+                    <button className="flex-1 px-4 py-2 bg-glass-card text-white font-semibold rounded-lg hover:bg-gray-700 transition-all">
+                      View Stats
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {activeTab === 'orders' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6">Recent Orders</h2>
+            <div className="space-y-4">
+              {mockData.recentOrders.map((order, index) => (
+                <div key={index} className="p-6 bg-gray-800/50 rounded-xl">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-1">{order.customer}</h3>
+                      <p className="text-gray-400 text-sm">{order.items}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-2xl font-bold text-gold mb-1">{order.total}</p>
+                      <p className="text-gray-400 text-sm">{order.time}</p>
+                    </div>
+                  </div>
+                  <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${
+                    order.status === 'Delivered'
+                      ? 'bg-green-500/20 text-green-400'
+                      : order.status === 'Shipped'
+                      ? 'bg-blue-500/20 text-blue-400'
+                      : 'bg-yellow-500/20 text-yellow-400'
+                  }`}>
+                    {order.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {activeTab === 'categories' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            {mockData.categories.map((category, index) => (
+              <div key={index} className="bg-glass-card p-8 rounded-2xl">
+                <h3 className="text-2xl font-bold text-white mb-6">{category.name}</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <p className="text-gray-400">Total Items</p>
+                    <p className="text-2xl font-bold text-white">{category.items}</p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="text-gray-400">Revenue</p>
+                    <p className="text-3xl font-bold text-gold">{category.revenue}</p>
+                  </div>
+                </div>
+                <button className="w-full mt-6 px-4 py-3 bg-gold/20 text-gold font-semibold rounded-lg hover:bg-gold/30 transition-all">
+                  View Products
+                </button>
+              </div>
+            ))}
+          </motion.div>
+        )}
       </div>
     </div>
   )

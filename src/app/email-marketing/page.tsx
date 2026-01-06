@@ -17,151 +17,190 @@ export default function EmailMarketingPage() {
     campaigns: [
       { name: 'New Release Announcement', sent: '42,150', opened: '13,680', clicked: '2,023', date: '3 days ago' },
       { name: 'Tour Dates Reveal', sent: '45,234', opened: '16,284', clicked: '3,157', date: '1 week ago' },
-      { name: 'Exclusive Merch Drop', sent: '43,890', opened: '14,980', clicked: '4,125', date: '2 weeks ago' }
+      { name: 'Exclusive Merch Drop', sent: '43,890', opened: '14,980', clicked: '4,125', date: '2 weeks ago' },
+    ],
+    segments: [
+      { name: 'All Subscribers', count: '45,234', color: '#c87941' },
+      { name: 'Engaged Fans', count: '18,450', color: '#d4945c' },
+      { name: 'VIP Members', count: '2,340', color: '#a86535' },
+      { name: 'New Subscribers', count: '5,123', color: '#8b5a2b' },
     ]
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
-        >
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+    <div className="min-h-screen py-20 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl mb-6"
+          >
+            <Mail className="w-10 h-10 text-white" />
+          </motion.div>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Email Marketing
           </h1>
-          <p className="text-gray-600 dark:text-gray-300">
-            Connect with fans and grow your email list
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Connect with your fans and grow your email list
           </p>
-        </motion.div>
+        </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          {[
-            { label: 'Total Subscribers', value: mockData.subscribers.total, icon: Users, color: 'from-blue-500 to-blue-600' },
-            { label: 'Growth Rate', value: mockData.subscribers.growth, icon: TrendingUp, color: 'from-green-500 to-green-600' },
-            { label: 'Open Rate', value: mockData.subscribers.openRate, icon: Mail, color: 'from-purple-500 to-purple-600' },
-            { label: 'Click Rate', value: mockData.subscribers.clickRate, icon: FileText, color: 'from-pink-500 to-pink-600' }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6"
-            >
-              <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${stat.color} mb-4`}>
-                <stat.icon className="w-6 h-6 text-white" />
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 text-sm mb-1">{stat.label}</p>
-              <p className="text-3xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
-            </motion.div>
-          ))}
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <Users className="w-12 h-12 text-pink-500" />
+              <span className="text-green-400 font-semibold">{mockData.subscribers.growth}</span>
+            </div>
+            <h3 className="text-4xl font-bold text-white mb-2">{mockData.subscribers.total}</h3>
+            <p className="text-gray-400">Total Subscribers</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <Mail className="w-12 h-12 text-gold" />
+            </div>
+            <h3 className="text-4xl font-bold text-white mb-2">{mockData.subscribers.openRate}</h3>
+            <p className="text-gray-400">Average Open Rate</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <TrendingUp className="w-12 h-12 text-gold" />
+            </div>
+            <h3 className="text-4xl font-bold text-white mb-2">{mockData.subscribers.clickRate}</h3>
+            <p className="text-gray-400">Click-Through Rate</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <Send className="w-12 h-12 text-gold" />
+            </div>
+            <h3 className="text-4xl font-bold text-white mb-2">12</h3>
+            <p className="text-gray-400">Campaigns Sent</p>
+          </motion.div>
         </div>
 
         {/* Tabs */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-          <div className="border-b border-gray-200 dark:border-gray-700">
-            <nav className="flex space-x-8 px-6">
-              {['campaigns', 'subscribers', 'templates', 'analytics'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-                    activeTab === tab
-                      ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                      : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-                  }`}
-                >
-                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                </button>
-              ))}
-            </nav>
-          </div>
-
-          <div className="p-6">
-            {activeTab === 'campaigns' && (
-              <div className="space-y-4">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Email Campaigns</h2>
-                  <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                    <Send className="w-4 h-4" />
-                    Create Campaign
-                  </button>
-                </div>
-                {mockData.campaigns.map((campaign, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow"
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-semibold text-gray-900 dark:text-white">{campaign.name}</h3>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">{campaign.date}</span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-4 mt-4">
-                      <div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Sent</p>
-                        <p className="font-semibold text-gray-900 dark:text-white">{campaign.sent}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Opened</p>
-                        <p className="font-semibold text-gray-900 dark:text-white">{campaign.opened}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Clicked</p>
-                        <p className="font-semibold text-gray-900 dark:text-white">{campaign.clicked}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
-
-            {activeTab === 'subscribers' && (
-              <div className="text-center py-12">
-                <Users className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Subscriber Management</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Import, export, and manage your email subscribers
-                </p>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  Import Subscribers
-                </button>
-              </div>
-            )}
-
-            {activeTab === 'templates' && (
-              <div className="text-center py-12">
-                <Edit className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Email Templates</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Create and customize email templates
-                </p>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  Create Template
-                </button>
-              </div>
-            )}
-
-            {activeTab === 'analytics' && (
-              <div className="text-center py-12">
-                <BarChart3 className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Email Analytics</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Detailed analytics and performance metrics
-                </p>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  View Analytics
-                </button>
-              </div>
-            )}
-          </div>
+        <div className="mb-8 flex gap-4">
+          <button
+            onClick={() => setActiveTab('campaigns')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'campaigns'
+                ? 'bg-gold text-dark'
+                : 'bg-glass-card text-gray-400 hover:text-white'
+            }`}
+          >
+            Recent Campaigns
+          </button>
+          <button
+            onClick={() => setActiveTab('segments')}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'segments'
+                ? 'bg-gold text-dark'
+                : 'bg-glass-card text-gray-400 hover:text-white'
+            }`}
+          >
+            Audience Segments
+          </button>
         </div>
+
+        {/* Content */}
+        {activeTab === 'campaigns' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-white">Recent Campaigns</h2>
+              <button className="px-6 py-3 bg-gold text-dark font-semibold rounded-lg hover:shadow-gold-hover transition-all">
+                Create Campaign
+              </button>
+            </div>
+            <div className="space-y-4">
+              {mockData.campaigns.map((campaign, index) => (
+                <div key={index} className="p-6 bg-gray-800/50 rounded-xl">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2">{campaign.name}</h3>
+                      <p className="text-gray-400 text-sm">{campaign.date}</p>
+                    </div>
+                    <button className="text-gold hover:text-gold-light transition-colors">
+                      <Edit className="w-5 h-5" />
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div>
+                      <p className="text-gray-400 text-sm mb-1">Sent</p>
+                      <p className="text-white font-semibold">{campaign.sent}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-sm mb-1">Opened</p>
+                      <p className="text-white font-semibold">{campaign.opened}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-sm mb-1">Clicked</p>
+                      <p className="text-white font-semibold">{campaign.clicked}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {activeTab === 'segments' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-glass-card p-8 rounded-2xl"
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-white">Audience Segments</h2>
+              <button className="px-6 py-3 bg-gold text-dark font-semibold rounded-lg hover:shadow-gold-hover transition-all">
+                Create Segment
+              </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {mockData.segments.map((segment, index) => (
+                <div key={index} className="p-6 bg-gray-800/50 rounded-xl">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div
+                      className="w-4 h-4 rounded-full"
+                      style={{ backgroundColor: segment.color }}
+                    />
+                    <h3 className="text-xl font-bold text-white flex-1">{segment.name}</h3>
+                  </div>
+                  <p className="text-3xl font-bold text-white mb-2">{segment.count}</p>
+                  <p className="text-gray-400 text-sm">subscribers</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </div>
   )

@@ -16,23 +16,30 @@ const blogPosts: NewsPost[] = [
   },
 ];
 
+// Required for static export - generate params for all blog posts
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 // GET: Fetch single blog post by slug
 export async function GET(
-  request: Request,
+  _request: Request,
   { params }: { params: { slug: string } }
 ) {
   try {
     const { slug } = params;
-    
+
     const post = blogPosts.find(post => post.slug === slug);
-    
+
     if (!post) {
       return NextResponse.json(
         { success: false, error: 'Post not found' },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json({
       success: true,
       post,
