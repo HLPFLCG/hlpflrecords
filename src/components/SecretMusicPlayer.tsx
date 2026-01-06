@@ -73,15 +73,15 @@ const SecretMusicPlayer = ({ track, onClose }: SecretMusicPlayerProps) => {
       const barHeight = (dataArray[i] / 255) * canvas.height * 0.8;
 
       const gradient = ctx.createLinearGradient(0, canvas.height - barHeight, 0, canvas.height);
-      gradient.addColorStop(0, '#d4945c');
-      gradient.addColorStop(0.5, track.color);
-      gradient.addColorStop(1, '#a86535');
+      gradient.addColorStop(0, '#d89558');
+      gradient.addColorStop(0.5, '#c87941');
+      gradient.addColorStop(1, '#a0613a');
 
       ctx.fillStyle = gradient;
       ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
 
       ctx.shadowBlur = 15;
-      ctx.shadowColor = track.color;
+      ctx.shadowColor = '#c87941';
 
       x += barWidth + 1;
     }
@@ -219,7 +219,7 @@ const SecretMusicPlayer = ({ track, onClose }: SecretMusicPlayerProps) => {
           />
           {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2" style={{ borderColor: track.color }}></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#c87941]"></div>
             </div>
           )}
         </div>
@@ -241,7 +241,7 @@ const SecretMusicPlayer = ({ track, onClose }: SecretMusicPlayerProps) => {
               onChange={handleSeek}
               className="w-full h-2 rounded-lg appearance-none cursor-pointer"
               style={{
-                background: `linear-gradient(to right, ${track.color} 0%, ${track.color} ${(currentTime / duration) * 100}%, #3f3f46 ${(currentTime / duration) * 100}%, #3f3f46 100%)`
+                background: `linear-gradient(to right, #c87941 0%, #c87941 ${(currentTime / duration) * 100}%, #3f3f46 ${(currentTime / duration) * 100}%, #3f3f46 100%)`
               }}
             />
             <div className="flex justify-between text-xs text-zinc-400">
@@ -254,8 +254,7 @@ const SecretMusicPlayer = ({ track, onClose }: SecretMusicPlayerProps) => {
           <div className="flex items-center justify-center gap-6">
             <button
               onClick={togglePlay}
-              className="p-4 rounded-full transition-all hover:scale-110"
-              style={{ backgroundColor: track.color }}
+              className="p-4 rounded-full transition-all hover:scale-110 bg-gradient-to-br from-[#c87941] to-[#a0613a] shadow-lg"
               aria-label={isPlaying ? 'Pause' : 'Play'}
             >
               {isPlaying ? (
@@ -295,7 +294,7 @@ const SecretMusicPlayer = ({ track, onClose }: SecretMusicPlayerProps) => {
               onChange={handleVolumeChange}
               className="flex-1 h-2 rounded-lg appearance-none cursor-pointer"
               style={{
-                background: `linear-gradient(to right, ${track.color} 0%, ${track.color} ${volume * 100}%, #3f3f46 ${volume * 100}%, #3f3f46 100%)`
+                background: `linear-gradient(to right, #c87941 0%, #c87941 ${volume * 100}%, #3f3f46 ${volume * 100}%, #3f3f46 100%)`
               }}
             />
           </div>
