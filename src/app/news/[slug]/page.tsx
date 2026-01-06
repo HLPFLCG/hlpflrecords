@@ -5,6 +5,16 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { formatDate } from '@/lib/utils'
+import { mockNews } from '@/data/mockData'
+
+// REQUIRED FOR STATIC EXPORT
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  // Return all blog post slugs from mock data
+  return mockNews.map((post) => ({
+    slug: post.slug,
+  }))
+}
 
 async function getBlogPost(slug: string) {
   try {
@@ -12,7 +22,7 @@ async function getBlogPost(slug: string) {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/blog/posts/${slug}`, {
       cache: 'no-store'
     })
-    
+
     if (response.ok) {
       const data = await response.json()
       if (data.success) {
