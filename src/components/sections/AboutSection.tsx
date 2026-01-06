@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
+import Logo from '@/components/Logo'
 
 export function AboutSection() {
   return (
