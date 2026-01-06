@@ -70,8 +70,8 @@ const LoadingScreen = () => {
                 key={i}
                 className="absolute w-2 h-2 bg-[#c87941]/20 rounded-full"
                 initial={{
-                  x: Math.random() * window.innerWidth,
-                  y: Math.random() * window.innerHeight,
+                  x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1920,
+                  y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 1080,
                   scale: 0
                 }}
                 animate={{
