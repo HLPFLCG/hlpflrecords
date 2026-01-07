@@ -10,6 +10,7 @@ export interface Artist {
     instagram?: string
     twitter?: string
     youtube?: string
+    facebook?: string
     website?: string
   }
 }
