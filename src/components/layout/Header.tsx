@@ -13,12 +13,11 @@ export function Header() {
 
   const navigation = [
     { name: 'Home', href: '/', icon: null },
-    { name: 'Tours', href: '/tours', icon: null },
     { name: 'Artists', href: '/artists', icon: null },
     { name: 'Releases', href: '/releases', icon: null },
-    { name: 'Press', href: '/press-releases', icon: null },
     { name: 'About', href: '/about', icon: null },
     { name: 'News', href: '/news', icon: null },
+    { name: 'Artist Portal', href: '/artist-portal', icon: null },
     { name: 'Contact', href: '/contact', icon: null },
   ]
 
@@ -73,15 +72,9 @@ export function Header() {
               ))}
             </div>
 
-            {/* Search & CTA Button */}
+            {/* Search */}
             <div className="hidden md:flex items-center space-x-4">
               <GlobalSearch />
-              <Link href="/artist-portal">
-                <Button variant="outline" size="sm" className="btn-premium group">
-                  <span className="mr-2">Get Tools</span>
-                  <div className="w-0 group-hover:w-4 h-0.5 bg-gold transition-all duration-300" />
-                </Button>
-              </Link>
             </div>
 
             {/* Enhanced Mobile menu button */}
@@ -146,10 +139,10 @@ export function Header() {
 
             {/* Mobile Footer */}
             <div className="p-6 border-t border-gold/20">
-              <Link href="/contact">
+              <Link href="/artist-portal">
                 <Button className="w-full btn-premium group">
                   <Music className="mr-3 h-5 w-5" />
-                  Submit Your Music
+                  Artist Portal
                   <div className="ml-auto w-0 group-hover:w-4 h-0.5 bg-gold transition-all duration-300" />
                 </Button>
               </Link>
