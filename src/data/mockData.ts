@@ -551,14 +551,43 @@ export const mockReleases: Release[] = [
 export const mockNews: NewsPost[] = [
   {
     id: '1',
-    title: 'Alki Drops New Single "221"',
+    title: 'Alki Drops New Single "221" - A Raw Expression of Punk Rage',
     slug: 'alki-221-release',
-    excerpt: 'Alki returns with his most aggressive track yet, "221" - an angsty rap record that pulls no punches.',
-    content: 'Full article content placeholder...',
+    excerpt: 'Alki returns with his most aggressive track yet, "221" - an angsty rap record that pulls no punches. The 1:49 explosive track showcases the artist\'s signature blend of punk energy and raw emotion.',
+    content: `
+# Alki Drops New Single "221" - A Raw Expression of Punk Rage
+
+**January 17, 2025** - Independent artist Alki has released his latest single "221," a blistering 1:49 track that exemplifies his unique fusion of punk rock energy and modern rap delivery.
+
+## The Track
+
+"221" is a raw, unfiltered expression of frustration and anger. The track's aggressive production and Alki's fierce vocal delivery create an intense listening experience that's both cathartic and confrontational. At just under two minutes, the song packs a powerful punch without overstaying its welcome.
+
+"This track is pure emotion," Alki explains. "Sometimes you just need to scream into the void, and '221' is that scream. It's for everyone who's felt misunderstood, betrayed, or just fed up with the BS."
+
+## Building Momentum
+
+With nearly 46,000 monthly listeners on Spotify and a catalog that includes hits like "Switched Up" (3M+ streams), "Too Much" (1.1M+ streams), and "Deceiving" (810K+ streams), Alki continues to build a devoted following through his relentlessly honest approach to music.
+
+As Co-Founder of HLPFL Records, Alki represents the label's core philosophy: artist ownership, creative freedom, and authentic connection with fans. The independent release of "221" demonstrates how artists can maintain complete control while still reaching massive audiences.
+
+## What's Next
+
+"221" is available now on all streaming platforms. With over 300 unreleased tracks in the vault, fans can expect much more from Alki throughout 2025.
+
+**Stream "221":**
+- [Spotify](https://open.spotify.com/album/468FaHLWX75g0RJdoEUABD)
+- [Apple Music](https://music.apple.com/album/221-single/1853361772)
+
+**Follow Alki:**
+- Instagram: [@alkiotis](https://www.instagram.com/alkiotis)
+- Spotify: [Alki](https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl)
+- Website: [alki.info](https://alki.info)
+    `,
     publishedAt: new Date('2025-01-17'),
-    author: 'HLPFL Team',
+    author: 'HLPFL Press Team',
     category: 'Releases',
-    image: '/images/team/IMG_2768.png',
+    image: '/images/releases/221.png',
   },
   {
     id: '2',
@@ -573,13 +602,256 @@ export const mockNews: NewsPost[] = [
   },
   {
     id: '3',
-    title: 'Alki Surpasses 3 Million Streams on "Switched Up"',
+    title: 'Alki Surpasses 3 Million Streams on "Switched Up" - An Independent Success Story',
     slug: 'switched-up-milestone',
-    excerpt: 'Celebrating a major milestone as Alki\'s breakout hit continues to resonate with fans worldwide.',
-    content: 'Full article content placeholder...',
+    excerpt: 'Celebrating a major milestone as Alki\'s breakout hit continues to resonate with fans worldwide, proving independent artists can compete in the streaming era.',
+    content: `
+# Alki Surpasses 3 Million Streams on "Switched Up" - An Independent Success Story
+
+**December 15, 2024** - Independent artist Alki has officially crossed 3 million streams on his breakout single "Switched Up," a significant milestone that demonstrates the power of authentic artistry in the modern music landscape.
+
+## The Breakthrough
+
+Released in September 2021, "Switched Up" became Alki's defining track, resonating with listeners through its raw honesty and infectious melody. The song's success came organically, without traditional label push or radio play—a testament to the changing dynamics of music discovery in the streaming age.
+
+"When I wrote 'Switched Up,' I was going through a rough time dealing with people who turned their backs on me," Alki reflects. "I never expected it to connect with so many people, but I think everyone's experienced that feeling of betrayal. The song just hit different."
+
+## The Numbers Tell a Story
+
+- **3,000,000+ streams** on Spotify alone
+- **45,900+ monthly listeners** across platforms
+- **Zero major label support** - completely independent
+- **100% artist ownership** - Alki owns his masters
+
+## The HLPFL Model
+
+As Co-Founder of HLPFL Records alongside James Rockel, Alki represents a new paradigm in the music industry. The label's revolutionary 50/50 partnership model ensures artists maintain ownership while receiving comprehensive support.
+
+"Too many artists get screwed over by traditional deals," says James Rockel, HLPFL Founder & CEO. "Alki's success with 'Switched Up' proves you don't need to sell your soul to make it in this industry. You need great music and smart partnerships."
+
+## What This Means for Independent Artists
+
+Alki's milestone is more than just a personal achievement—it's a blueprint for independent artists everywhere:
+
+1. **Ownership Matters**: Alki earns from every stream because he owns his masters
+2. **Authenticity Wins**: No focus groups or A&R committees—just honest music
+3. **Direct Connection**: Building relationships with fans through social media and platforms
+4. **Long-Term Thinking**: Success doesn't happen overnight, but it's sustainable
+
+## The Catalog Continues to Grow
+
+While "Switched Up" remains Alki's most-streamed track, his catalog continues to expand:
+- "Too Much" - 1.1M+ streams
+- "Deceiving" - 810K+ streams
+- "Planes" - 400K+ streams
+- "Attached" - 249K+ streams
+
+With 37+ released tracks and over 300 unreleased songs ready to drop, Alki's journey is just beginning.
+
+## Streaming Now
+
+Experience the track that started it all:
+- [Stream "Switched Up" on Spotify](https://open.spotify.com/album/4EF7LaxKklISvrfAqVyWkl)
+- [Apple Music](https://music.apple.com/album/switched-up)
+
+**Follow Alki:**
+- Instagram: [@alkiotis](https://www.instagram.com/alkiotis)
+- Twitter: [@alkiotis](https://twitter.com/alkiotis)
+- Spotify: [Alki Artist Page](https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl)
+
+---
+
+*About HLPFL Records: An independent record label and artist management platform that protects artists from exploitation. Founded on the principle of "Tools, Not Contracts," HLPFL provides comprehensive support while ensuring artists maintain 100% ownership of their work.*
+    `,
     publishedAt: new Date('2024-12-15'),
-    author: 'HLPFL Team',
+    author: 'HLPFL Press Team',
     category: 'News',
+    image: '/images/releases/switched-up.jpg',
+  },
+  {
+    id: '4',
+    title: 'HLPFL Records Welcomes Priv to the Roster - The Future of Alternative Music',
+    slug: 'priv-joins-hlpfl',
+    excerpt: 'Independent label HLPFL Records announces the addition of innovative artist Priv, bringing a fresh experimental sound to the artist-first platform.',
+    content: `
+# HLPFL Records Welcomes Priv to the Roster - The Future of Alternative Music
+
+**January 8, 2026** - HLPFL Records is thrilled to announce the newest addition to our artist-first roster: **Priv**, an emerging talent pushing the boundaries of alternative and experimental music.
+
+## A New Voice in Independent Music
+
+Priv represents the next generation of artists who refuse to be confined by genre labels or industry conventions. With a sound that seamlessly blends alternative, indie, and experimental elements, Priv is carving out a unique space in the modern music landscape.
+
+"Priv embodies everything HLPFL stands for," says James Rockel, Founder & CEO of HLPFL Records. "Complete creative freedom, no compromises, and a commitment to authenticity. We're not here to mold artists into what we think will sell—we're here to amplify their true vision."
+
+## The HLPFL Difference
+
+Unlike traditional record deals that strip artists of ownership and creative control, Priv joins HLPFL under the label's revolutionary partnership model:
+
+- **100% Artist Ownership** - Priv maintains complete ownership of all masters and rights
+- **Full Creative Control** - No A&R interference or forced collaboration
+- **Comprehensive Support** - Access to distribution, marketing, analytics, and career development tools
+- **Fair Revenue Split** - Transparent 50/50 partnership on label services
+- **No Traps, Just Tools** - Everything an independent artist needs to succeed
+
+## What to Expect
+
+While details about upcoming releases are being kept under wraps, Priv has been working intensively in the studio, developing a sound that's both deeply personal and universally resonant.
+
+"I've been making music my whole life, but I've never felt truly free until now," Priv shares. "HLPFL gets it. They understand that the best art comes from artists who aren't afraid to experiment, fail, and try again. No pressure to fit a mold—just pure creation."
+
+## The Growing HLPFL Family
+
+Priv joins an impressive roster that includes:
+
+- **Alki** (Co-Founder) - 46K+ monthly listeners, 3M+ streams on "Switched Up"
+- **Pardyalone** - 436K+ monthly listeners, 60M+ total streams, breakthrough hit "Not a Home" (26M+ streams)
+
+Together, these artists represent HLPFL's commitment to supporting diverse voices who prioritize artistic integrity over commercial compromise.
+
+## A Platform Built for Artists
+
+Beyond traditional label services, HLPFL provides artists with cutting-edge tools:
+
+- **Artist Portal** - Comprehensive dashboard for managing releases, analytics, and fan engagement
+- **Social Media Automation** - AI-powered tools for content creation and scheduling
+- **Email Marketing Suite** - Direct connection with fans without platform dependence
+- **Collaboration Hub** - Connect with other artists, producers, and creatives
+- **B-Roll & Content Library** - Professional visual assets for promotion
+- **Crowdfunding Support** - Tools to fund projects directly from fans
+
+## The Mission Continues
+
+HLPFL was founded on a simple premise: **teach artists how to not get screwed over.** Every feature, every partnership, every decision is made with the artist's long-term success and independence in mind.
+
+"The music industry has exploited artists for too long," Rockel continues. "We're building a different model—one where artists actually thrive, maintain control, and build sustainable careers. Priv is the perfect example of what's possible when you put artists first."
+
+## Stay Tuned
+
+Follow Priv's journey as they prepare to release new music and connect with fans worldwide.
+
+**Follow HLPFL Records:**
+- Website: [hlpfl.org](https://hlpfl.org)
+- Instagram: [@hlpfl](https://instagram.com/hlpfl)
+- Twitter: [@hlpfl](https://twitter.com/hlpfl)
+
+**Join the Movement:**
+- [Artist Portal](https://hlpfl.org/artist-portal)
+- [Submit Your Music](https://hlpfl.org/submit-music)
+- [Learn More](https://hlpfl.org/about)
+
+---
+
+*About HLPFL Records: An independent record label and artist management platform founded by James Rockel at age 18. HLPFL's mission is to protect artists from industry exploitation through transparent partnerships, comprehensive tools, and unwavering commitment to artist ownership. "Tools, Not Contracts."*
+    `,
+    publishedAt: new Date('2026-01-08'),
+    author: 'HLPFL Press Team',
+    category: 'News',
+    image: '/images/team/alki.webp',
+  },
+  {
+    id: '5',
+    title: 'From Bedroom Producer to 46K Monthly Listeners: Inside Alki\'s Independent Rise',
+    slug: 'alki-independent-success-story',
+    excerpt: 'How Alki built a thriving music career without a traditional record deal, proving that artists don\'t need to sacrifice ownership for success.',
+    content: `
+# From Bedroom Producer to 46K Monthly Listeners: Inside Alki's Independent Rise
+
+**January 5, 2026** - In an industry dominated by major labels and massive marketing budgets, Alkiviadis Halkiotis—known professionally as Alki—has carved his own path to success, building a devoted following of nearly 46,000 monthly Spotify listeners while maintaining 100% ownership of his music.
+
+## The Journey
+
+Born Alkiviadis Halkiotis, Alki didn't follow the traditional music industry playbook. No reality TV appearances. No major label showcases. No compromises.
+
+"I started making music in my bedroom because I had things I needed to say," Alki recalls. "I never set out to 'make it' in the traditional sense. I just wanted to create honest music and connect with people who felt the same things I did."
+
+That authenticity has resonated powerfully. With millions of streams across platforms and a catalog of 37+ released tracks (plus 300+ unreleased), Alki has proven that independent artists can compete—and thrive—in the streaming era.
+
+## The Sound
+
+Alki's music defies easy categorization. Blending punk energy, pop hooks, and raw rap delivery, he's created a sound that's uniquely his own.
+
+**Top Tracks:**
+- "Switched Up" - 3,000,000+ streams
+- "Too Much" - 1,100,000+ streams
+- "Deceiving" - 810,000+ streams
+- "Planes" - 400,000+ streams
+
+"I grew up listening to everything," Alki explains. "Why limit yourself to one genre? The best music comes from experimentation and honesty, not staying in your lane."
+
+## The Business Model
+
+Perhaps Alki's most significant achievement isn't musical—it's entrepreneurial. As Co-Founder of HLPFL Records alongside James Rockel, Alki has helped create a new model for artist partnerships.
+
+**The HLPFL Philosophy:**
+1. **Artists Keep Their Masters** - 100% ownership, always
+2. **Transparent Revenue Sharing** - Fair 50/50 split on label services
+3. **Comprehensive Tools** - Everything needed to build a career
+4. **No Hidden Fees** - Complete transparency
+5. **Artist-First Decision Making** - Artists drive the strategy
+
+"James and I started HLPFL because we were tired of seeing talented artists get screwed over," Alki states. "Traditional record deals are designed to benefit the label, not the artist. We flipped that model completely."
+
+## The Numbers Don't Lie
+
+**Alki's Independent Success:**
+- 45,900+ monthly Spotify listeners
+- 37+ released tracks
+- 300+ unreleased tracks ready to drop
+- Millions of streams across platforms
+- Zero label debt
+- 100% master ownership
+- Direct fan relationships
+- Sustainable career trajectory
+
+## The Strategy
+
+How did Alki achieve this level of success independently? The strategy is surprisingly straightforward:
+
+### 1. Consistent Output
+"I don't wait for inspiration. I create constantly. Some tracks hit, some don't, but you have to keep releasing to find what resonates."
+
+### 2. Authentic Connection
+"Social media is powerful when you're real with people. I don't post curated BS. I share my actual life—the good, the bad, the messy."
+
+### 3. Smart Partnerships
+"HLPFL gives me access to distribution, marketing tools, and infrastructure without taking my ownership. That's the key."
+
+### 4. Long-Term Thinking
+"Success isn't viral moments. It's building a catalog that continues to earn and connect with people over years, not weeks."
+
+## The Impact
+
+Alki's success has implications beyond his own career. As independent artists increasingly question the value of traditional record deals, Alki serves as a case study in what's possible.
+
+"You don't need a major label," he emphasizes. "You need great music, smart tools, and the willingness to work. Everything else is noise."
+
+## What's Next
+
+With over 300 unreleased tracks and a growing platform through HLPFL, Alki's trajectory is only pointing upward.
+
+"I'm just getting started," he says. "The music industry tried to tell artists they needed labels to succeed. We're proving that's bullshit. Artists just need ownership, tools, and honesty."
+
+## Listen Now
+
+Experience Alki's music:
+- [Spotify Artist Page](https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl)
+- [Latest Release "221"](https://open.spotify.com/album/468FaHLWX75g0RJdoEUABD)
+- [Grouped Profile](https://app.grouped.com/everythingalki)
+
+**Follow Alki:**
+- Instagram: [@alkiotis](https://www.instagram.com/alkiotis)
+- Twitter: [@alkiotis](https://twitter.com/alkiotis)
+- Website: [alki.info](https://alki.info)
+
+---
+
+*This article is part of HLPFL Records' ongoing series highlighting independent artists who are redefining success in the modern music industry.*
+    `,
+    publishedAt: new Date('2026-01-05'),
+    author: 'HLPFL Editorial Team',
+    category: 'Features',
+    image: '/images/team/alki.webp',
   },
 ]
 
@@ -617,5 +889,40 @@ export const mockTeam: TeamMember[] = [
       linkedin: '#',
       email: 'noah@hlpfl.org',
     },
+  },
+]
+
+// ========================================
+// PARTNERS DATA
+// ========================================
+export interface Partner {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  logo?: string;
+  website?: string;
+  category: 'technology' | 'manufacturing' | 'distribution' | 'services';
+  featured: boolean;
+}
+
+export const mockPartners: Partner[] = [
+  {
+    id: '1',
+    name: 'Limitless Manufacturing Group',
+    slug: 'limitless-manufacturing-group',
+    description: 'Limitless Manufacturing Group is our premier partner for merchandise manufacturing and fulfillment. They provide artists with high-quality, sustainable merchandise production including apparel, accessories, and custom products. Their on-demand manufacturing model eliminates inventory risk, allowing artists to offer professional merch without upfront costs.',
+    website: 'https://limitlessmanufacturinggroup.com',
+    category: 'manufacturing',
+    featured: true,
+  },
+  {
+    id: '2',
+    name: 'Grouped, Inc',
+    slug: 'grouped-inc',
+    description: 'Grouped is the ultimate artist platform for independent musicians. As our strategic technology partner, Grouped provides artists with comprehensive tools for fan engagement, content distribution, and revenue generation. Their platform empowers artists to build direct relationships with fans while maintaining complete ownership and control.',
+    website: 'https://grouped.com',
+    category: 'technology',
+    featured: true,
   },
 ]
