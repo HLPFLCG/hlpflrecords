@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   TrendingUp,
@@ -23,10 +23,82 @@ import {
   PieChart,
   Activity
 } from 'lucide-react'
+import { api } from '@/lib/api-client'
 
 export default function AnalyticsDashboard() {
   const [timeRange, setTimeRange] = useState('30d')
   const [platform, setPlatform] = useState('all')
+  const [analyticsData, setAnalyticsData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  const artistId = 'artist-alki-001'
+
+  useEffect(() => {
+    async function loadAnalytics() {
+      try {
+        setLoading(true)
+
+        // Calculate date range based on timeRange
+        const endDate = new Date().toISOString().split('T')[0]
+        const startDate = new Date()
+        startDate.setDate(startDate.getDate() - (timeRange === '7d' ? 7 : timeRange === '30d' ? 30 : 90))
+        const startDateStr = startDate.toISOString().split('T')[0]
+
+        const response = await api.analytics.get({
+          artistId,
+          startDate: startDateStr,
+          endDate
+        })
+
+        if (response.success && response.data) {
+          setAnalyticsData(response.data)
+        } else {
+          setError(response.error || 'Failed to load analytics')
+        }
+      } catch (err) {
+        setError('An error occurred while loading analytics')
+        console.error('Analytics load error:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadAnalytics()
+  }, [artistId, timeRange])
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading analytics...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-red-400 text-2xl">⚠️</span>
+          </div>
+          <p className="text-white font-bold mb-2">Failed to Load Analytics</p>
+          <p className="text-gray-400 text-sm">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  const totals = analyticsData?.totals || { total_streams: 0, total_listeners: 0, total_saves: 0, total_shares: 0 }
 
   const topLevelStats = [
     {
