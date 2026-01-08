@@ -14,7 +14,13 @@ npx wrangler d1 execute hlpfl-artist-portal --remote --file=database/schema.sql
 npx wrangler d1 execute hlpfl-artist-portal --remote --file=database/seed.sql
 ```
 
-## Adding Album Artwork from Spotify
+## Adding Artist Information and Album Artwork from Spotify
+
+### Quick Reference - Artist Spotify Pages
+
+- **Alki**: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
+- **Priv**: Use the Spotify URL you have
+- **Pardyalone**: https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG
 
 ### Step 1: Get Spotify Image URLs
 
@@ -24,6 +30,18 @@ npx wrangler d1 execute hlpfl-artist-portal --remote --file=database/seed.sql
    - Right-click on the album artwork
    - Select **"Copy Image Address"** or **"Open Image in New Tab"**
    - The URL will look like: `https://i.scdn.co/image/ab67616d0000b273XXXXX`
+
+#### For Priv (Complete Artist Profile)
+1. Visit Priv's Spotify artist page
+2. Use the dedicated template: `database/priv-data.sql`
+3. This file includes:
+   - Complete artist profile (bio, avatar, all social media)
+   - All releases with full metadata
+   - Streaming platform URLs
+   - Analytics data templates
+   - Individual track listings for EPs/albums
+4. Fill in ALL placeholders in the file
+5. Run: `npx wrangler d1 execute hlpfl-artist-portal --file=database/priv-data.sql`
 
 #### For Pardyalone
 1. Visit: https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG
@@ -89,7 +107,9 @@ getArtistAlbums('6M4q5QWjmpjuPAi7LVFEFG');
 
 - **schema.sql** - Complete database schema (25+ tables)
 - **seed.sql** - Sample data for development
-- **update-artwork.sql** - Template for adding album artwork URLs
+- **update-artwork.sql** - Quick template for adding album artwork URLs
+- **priv-data.sql** - Comprehensive template for all Priv artist data (profile + discography)
+- **README.md** - This file - database management guide
 
 ## Helpful Commands
 
