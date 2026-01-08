@@ -326,7 +326,7 @@ export default function CommunityFeed() {
             </div>
 
             <div className="space-y-3">
-              {leaderboard.map((user) => (
+              {leaderboard.map((user: any) => (
                 <div
                   key={user.rank}
                   className="flex items-center justify-between p-3 bg-dark-tertiary rounded-lg"
