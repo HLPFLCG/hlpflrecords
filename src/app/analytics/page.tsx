@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { BarChart3, TrendingUp, Users, Play, Music, Download, Calendar } from 'lucide-react'
+import { BarChart3, TrendingUp, Users, Play, Download } from 'lucide-react'
 
 export default function AnalyticsPage() {
   const [timeframe, setTimeframe] = useState('7d')

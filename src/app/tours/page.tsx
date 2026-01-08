@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Calendar, MapPin, Users, DollarSign, Music, Ticket, Shield, TrendingUp, CheckCircle2, ExternalLink } from 'lucide-react'
+import { Calendar, MapPin, Users, Music, Shield, TrendingUp, CheckCircle2, DollarSign, Ticket } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'

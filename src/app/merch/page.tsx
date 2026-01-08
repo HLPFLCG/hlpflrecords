@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Upload, Package, TrendingUp, DollarSign, ShoppingCart, Star, Eye, Heart } from 'lucide-react'
+import { Upload, Package, TrendingUp, DollarSign, ShoppingCart, Eye } from 'lucide-react'
 
 export default function MerchPage() {
   const [activeTab, setActiveTab] = useState('products')

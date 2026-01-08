@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Users, TrendingUp, Send, Edit, FileText, BarChart3 } from 'lucide-react'
+import { Mail, Users, TrendingUp, Send, Edit } from 'lucide-react'
 
 export default function EmailMarketingPage() {
   const [activeTab, setActiveTab] = useState('campaigns')

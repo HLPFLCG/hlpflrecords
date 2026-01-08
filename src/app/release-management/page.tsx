@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Music, Calendar, TrendingUp, DollarSign, Upload, Plus, Filter, Search, BarChart3, Users } from 'lucide-react'
+import { Music, TrendingUp, DollarSign, Upload, Plus, Users } from 'lucide-react'
 
 export default function ReleaseManagementPage() {
   const [view, setView] = useState('dashboard')

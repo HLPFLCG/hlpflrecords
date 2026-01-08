@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Play, ArrowRight, Check, Calendar, Users, TrendingUp, Shield, Zap, Globe, Music, BarChart3, Radio, Smartphone, Menu, X } from 'lucide-react';
+import { ArrowRight, Check, Smartphone, Radio, Globe, BarChart3, Music, TrendingUp } from 'lucide-react';
 
 export default function ServicesPage() {
   const [activeScenario, setActiveScenario] = useState('release');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     document.title = 'HLPFL Services - Your Complete Music Career Ecosystem';

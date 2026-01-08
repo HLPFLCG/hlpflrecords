@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Calendar, Clock, Share2, Image, Video, Music, Plus, Send } from 'lucide-react'
+import { Calendar, Clock, Share2, Image, Video, Music, Plus } from 'lucide-react'
 
 export default function SocialSchedulerPage() {
   const [scheduledPosts, setScheduledPosts] = useState([
