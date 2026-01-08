@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Package,
@@ -24,6 +24,7 @@ import {
   ExternalLink,
   Sparkles
 } from 'lucide-react'
+import { api } from '@/lib/api-client'
 
 interface Product {
   id: string
@@ -46,87 +47,46 @@ export default function MerchPage() {
   const [showNewProductModal, setShowNewProductModal] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [filterStatus, setFilterStatus] = useState<string>('all')
+  const [productsData, setProductsData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
 
-  // Mock data
-  const products: Product[] = [
-    {
-      id: '1',
-      name: '221 Album Cover T-Shirt',
-      category: 'tshirt',
-      price: 29.99,
-      images: ['/api/placeholder/400/400'],
-      sales: 142,
-      revenue: 4258.58,
-      status: 'active',
-      variants: {
-        size: ['S', 'M', 'L', 'XL', '2XL'],
-        color: ['Black', 'White', 'Navy']
-      },
-      stock: 234
-    },
-    {
-      id: '2',
-      name: 'HLPFL Records Hoodie',
-      category: 'hoodie',
-      price: 54.99,
-      images: ['/api/placeholder/400/400'],
-      sales: 89,
-      revenue: 4894.11,
-      status: 'active',
-      variants: {
-        size: ['S', 'M', 'L', 'XL', '2XL'],
-        color: ['Black', 'Gold', 'Gray']
-      },
-      stock: 156
-    },
-    {
-      id: '3',
-      name: 'Switched Up Vinyl Record',
-      category: 'vinyl',
-      price: 34.99,
-      images: ['/api/placeholder/400/400'],
-      sales: 67,
-      revenue: 2344.33,
-      status: 'active',
-      stock: 45
-    },
-    {
-      id: '4',
-      name: 'Limited Edition Poster Set',
-      category: 'poster',
-      price: 19.99,
-      images: ['/api/placeholder/400/400'],
-      sales: 234,
-      revenue: 4677.66,
-      status: 'active',
-      stock: 89
-    },
-    {
-      id: '5',
-      name: 'Summer Tour Cap',
-      category: 'accessory',
-      price: 24.99,
-      images: ['/api/placeholder/400/400'],
-      sales: 156,
-      revenue: 3898.44,
-      status: 'active',
-      variants: {
-        color: ['Black', 'White', 'Tan']
-      },
-      stock: 267
-    },
-    {
-      id: '6',
-      name: 'New Design Hoodie',
-      category: 'hoodie',
-      price: 59.99,
-      images: ['/api/placeholder/400/400'],
-      sales: 0,
-      revenue: 0,
-      status: 'draft',
-      stock: 0
+  const artistId = 'artist-alki-001'
+
+  useEffect(() => {
+    async function loadProducts() {
+      setLoading(true)
+      const response = await api.products.getAll(artistId)
+      if (response.success && response.data) {
+        setProductsData(response.data)
+      }
+      setLoading(false)
     }
-  ]
+    loadProducts()
+  }, [artistId])
+
+  const products: Product[] = (productsData || []).map((p: any) => ({
+    id: p.id,
+    name: p.name,
+    category: p.category || 'accessory',
+    price: p.price || 0,
+    images: p.image_urls ? JSON.parse(p.image_urls) : ['/api/placeholder/400/400'],
+    sales: p.total_sales || 0,
+    revenue: p.revenue || 0,
+    status: p.status || 'active',
+    variants: p.variants ? JSON.parse(p.variants) : undefined,
+    stock: p.stock_quantity || 0
+  }))
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading products...</p>
+        </div>
+      </div>
+    )
+  }
 
   const orders = [
     {
