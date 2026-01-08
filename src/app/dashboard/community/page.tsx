@@ -56,7 +56,7 @@ export default function CommunityFeed() {
     async function loadCommunity() {
       try {
         setLoading(true)
-        const response = await api.community.getPosts({ artistId })
+        const response = await api.community.getPosts(artistId)
 
         if (response.success && response.data) {
           setCommunityData(response.data)
