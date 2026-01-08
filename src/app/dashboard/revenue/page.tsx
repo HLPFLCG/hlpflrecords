@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   DollarSign,
@@ -20,152 +20,151 @@ import {
   Filter,
   Search
 } from 'lucide-react'
+import { api } from '@/lib/api-client'
 
 export default function RevenuePage() {
   const [timeRange, setTimeRange] = useState('30d')
   const [selectedStream, setSelectedStream] = useState<string | null>(null)
+  const [revenueData, setRevenueData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  // Mock data
-  const totalRevenue = 18742.35
-  const monthlyGrowth = 12.5
-  const pendingPayouts = 3420.50
+  const artistId = 'artist-alki-001'
 
-  const revenueStreams = [
-    {
-      id: 'streaming',
-      name: 'Streaming Revenue',
-      icon: Music,
-      amount: 8420.50,
-      percentage: 44.9,
-      growth: 15.2,
-      color: 'from-green-500 to-emerald-600',
-      platforms: [
-        { name: 'Spotify', amount: 5230.20, streams: 2847392 },
-        { name: 'Apple Music', amount: 2180.40, streams: 982341 },
-        { name: 'YouTube Music', amount: 890.50, streams: 421038 },
-        { name: 'Other', amount: 119.40, streams: 89234 }
-      ]
-    },
-    {
-      id: 'merch',
-      name: 'Merchandise Sales',
-      icon: ShoppingBag,
-      amount: 4850.75,
-      percentage: 25.9,
-      growth: -5.3,
-      color: 'from-purple-500 to-pink-600',
-      items: [
-        { name: 'T-Shirts', sold: 142, revenue: 2840.00 },
-        { name: 'Hoodies', sold: 58, revenue: 1740.00 },
-        { name: 'Vinyl Records', sold: 23, revenue: 230.75 },
-        { name: 'Other', sold: 12, revenue: 40.00 }
-      ]
-    },
-    {
-      id: 'crowdfunding',
-      name: 'Fan Support',
-      icon: Users,
-      amount: 3240.80,
-      percentage: 17.3,
-      growth: 23.8,
-      color: 'from-blue-500 to-cyan-600',
-      supporters: 184,
-      tiers: [
-        { name: 'Bronze ($5)', count: 98, revenue: 490.00 },
-        { name: 'Silver ($15)', count: 54, revenue: 810.00 },
-        { name: 'Gold ($30)', count: 28, revenue: 840.00 },
-        { name: 'Platinum ($50+)', count: 4, revenue: 1100.80 }
-      ]
-    },
-    {
-      id: 'licensing',
-      name: 'Sync & Licensing',
-      icon: Film,
-      amount: 1580.30,
-      percentage: 8.4,
-      growth: 42.1,
-      color: 'from-orange-500 to-red-600',
-      licenses: [
-        { type: 'TV Commercial', count: 1, revenue: 1200.00 },
-        { type: 'YouTube Content', count: 3, revenue: 280.30 },
-        { type: 'Podcast Intro', count: 1, revenue: 100.00 }
-      ]
-    },
-    {
-      id: 'email',
-      name: 'Email Campaigns',
-      icon: Mail,
-      amount: 650.00,
-      percentage: 3.5,
-      growth: 8.7,
-      color: 'from-yellow-500 to-amber-600',
-      campaigns: [
-        { name: 'New Release Promo', conversions: 42, revenue: 420.00 },
-        { name: 'Merch Drop', conversions: 18, revenue: 180.00 },
-        { name: 'Exclusive Content', conversions: 5, revenue: 50.00 }
-      ]
+  useEffect(() => {
+    async function loadRevenue() {
+      try {
+        setLoading(true)
+
+        // Calculate date range based on timeRange
+        const endDate = new Date().toISOString().split('T')[0]
+        const startDate = new Date()
+
+        if (timeRange === '7d') startDate.setDate(startDate.getDate() - 7)
+        else if (timeRange === '30d') startDate.setDate(startDate.getDate() - 30)
+        else if (timeRange === '90d') startDate.setDate(startDate.getDate() - 90)
+        else if (timeRange === '12m') startDate.setMonth(startDate.getMonth() - 12)
+
+        const startDateStr = startDate.toISOString().split('T')[0]
+
+        const response = await api.revenue.get({
+          artistId,
+          startDate: startDateStr,
+          endDate
+        })
+
+        if (response.success && response.data) {
+          setRevenueData(response.data)
+        } else {
+          setError(response.error || 'Failed to load revenue data')
+        }
+      } catch (err) {
+        setError('An error occurred while loading revenue')
+        console.error('Revenue load error:', err)
+      } finally {
+        setLoading(false)
+      }
     }
-  ]
 
-  const revenueByMonth = [
-    { month: 'Jan', amount: 12450 },
-    { month: 'Feb', amount: 13820 },
-    { month: 'Mar', amount: 15230 },
-    { month: 'Apr', amount: 14680 },
-    { month: 'May', amount: 16420 },
-    { month: 'Jun', amount: 18742 }
-  ]
+    loadRevenue()
+  }, [artistId, timeRange])
 
-  const paymentHistory = [
-    {
-      id: '1',
-      date: new Date(2026, 0, 1),
-      description: 'Spotify Streaming - December 2025',
-      amount: 4230.50,
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading revenue data...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-red-400 text-2xl">⚠️</span>
+          </div>
+          <p className="text-white font-bold mb-2">Failed to Load Revenue Data</p>
+          <p className="text-gray-400 text-sm">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  // Extract data from API response
+  const overview = revenueData?.overview || { total_revenue: 0, monthly_growth: 0, pending_payouts: 0, average_monthly: 0 }
+  const totalRevenue = overview.total_revenue
+  const monthlyGrowth = overview.monthly_growth
+  const pendingPayouts = overview.pending_payouts
+  const averageMonthly = overview.average_monthly
+
+  // Map API revenue streams to UI format
+  const streamIconMap: any = {
+    'streaming': Music,
+    'merchandise': ShoppingBag,
+    'crowdfunding': Users,
+    'licensing': Film,
+    'email': Mail
+  }
+
+  const streamColorMap: any = {
+    'streaming': 'from-green-500 to-emerald-600',
+    'merchandise': 'from-purple-500 to-pink-600',
+    'crowdfunding': 'from-blue-500 to-cyan-600',
+    'licensing': 'from-orange-500 to-red-600',
+    'email': 'from-yellow-500 to-amber-600'
+  }
+
+  const revenueStreams = (revenueData?.streams || []).map((stream: any) => ({
+    id: stream.source_type,
+    name: stream.source_name || stream.source_type,
+    icon: streamIconMap[stream.source_type] || DollarSign,
+    amount: stream.amount || 0,
+    percentage: totalRevenue > 0 ? ((stream.amount / totalRevenue) * 100).toFixed(1) : 0,
+    growth: stream.growth_percentage || 0,
+    color: streamColorMap[stream.source_type] || 'from-gray-500 to-gray-600',
+    metadata: stream.metadata || {}
+  }))
+
+  // Group revenue by month from API data
+  const revenueByMonth = (revenueData?.by_month || []).map((item: any) => ({
+    month: new Date(item.month).toLocaleDateString('en-US', { month: 'short' }),
+    amount: item.total_revenue || 0
+  }))
+
+  // Map payouts to payment history and upcoming
+  const allPayouts = revenueData?.payouts || []
+  const paymentHistory = allPayouts
+    .filter((p: any) => p.status === 'paid' || p.status === 'completed')
+    .map((payout: any) => ({
+      id: payout.id,
+      date: new Date(payout.payout_date || payout.created_at),
+      description: payout.description || `${payout.platform} payout`,
+      amount: payout.amount || 0,
       status: 'completed',
-      method: 'Bank Transfer'
-    },
-    {
-      id: '2',
-      date: new Date(2026, 0, 5),
-      description: 'Merch Sales - Week 1',
-      amount: 1240.80,
-      status: 'completed',
-      method: 'PayPal'
-    },
-    {
-      id: '3',
-      date: new Date(2026, 0, 10),
-      description: 'Fan Support - Monthly',
-      amount: 3240.80,
-      status: 'pending',
-      method: 'Stripe'
-    },
-    {
-      id: '4',
-      date: new Date(2026, 0, 12),
-      description: 'Sync License - TV Commercial',
-      amount: 1200.00,
-      status: 'pending',
-      method: 'Wire Transfer'
-    },
-    {
-      id: '5',
-      date: new Date(2025, 11, 20),
-      description: 'Apple Music Streaming - November 2025',
-      amount: 1820.40,
-      status: 'completed',
-      method: 'Bank Transfer'
-    }
-  ]
+      method: payout.payment_method || 'Bank Transfer'
+    }))
+    .slice(0, 5)
 
-  const upcomingPayouts = [
-    { date: new Date(2026, 0, 15), source: 'Spotify', amount: 5230.20 },
-    { date: new Date(2026, 0, 20), source: 'Apple Music', amount: 2180.40 },
-    { date: new Date(2026, 1, 1), source: 'YouTube Music', amount: 890.50 }
-  ]
+  const upcomingPayouts = allPayouts
+    .filter((p: any) => p.status === 'pending' || p.status === 'scheduled')
+    .map((payout: any) => ({
+      date: new Date(payout.payout_date || payout.created_at),
+      source: payout.platform || payout.source,
+      amount: payout.amount || 0
+    }))
+    .slice(0, 3)
 
-  const maxRevenue = Math.max(...revenueByMonth.map(m => m.amount))
+  const maxRevenue = revenueByMonth.length > 0 ? Math.max(...revenueByMonth.map(m => m.amount)) : 1
 
   return (
     <div className="space-y-6">
@@ -245,8 +244,8 @@ export default function RevenuePage() {
             </div>
           </div>
           <h3 className="text-gray-400 text-sm mb-1">Average Monthly</h3>
-          <p className="text-3xl font-bold text-white mb-1">$15,390</p>
-          <p className="text-gray-500 text-xs">Based on last 6 months</p>
+          <p className="text-3xl font-bold text-white mb-1">${averageMonthly.toLocaleString()}</p>
+          <p className="text-gray-500 text-xs">Based on selected period</p>
         </motion.div>
       </div>
 

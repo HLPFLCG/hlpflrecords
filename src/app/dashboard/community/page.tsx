@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   Users,
@@ -21,6 +21,7 @@ import {
   FileText,
   Target
 } from 'lucide-react'
+import { api } from '@/lib/api-client'
 
 interface Post {
   id: string
@@ -45,90 +46,85 @@ interface Post {
 export default function CommunityFeed() {
   const [showComposer, setShowComposer] = useState(false)
   const [filter, setFilter] = useState('all')
+  const [communityData, setCommunityData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  const posts: Post[] = [
-    {
-      id: '1',
-      author: {
-        name: 'Alki',
-        avatar: '/images/team/alki.webp',
-        role: 'Co-Founder & Artist'
-      },
-      content: 'Just dropped "221" - my most aggressive track yet! 🔥 Would love to hear what you all think. Link in my profile.',
-      timestamp: new Date(2026, 0, 8, 14, 30),
-      likes: 24,
-      comments: 8,
-      shares: 5,
-      liked: false,
-      category: 'update'
-    },
-    {
-      id: '2',
-      author: {
-        name: 'Pardyalone',
-        avatar: '/images/artists/IMG_0146.png',
-        role: 'Artist'
-      },
-      content: 'Looking for a producer who specializes in emo-rap/alternative vibes for my next project. DM me if interested! 🎵',
-      timestamp: new Date(2026, 0, 8, 12, 15),
-      likes: 18,
-      comments: 12,
-      shares: 3,
-      liked: true,
-      category: 'collaboration'
-    },
-    {
-      id: '3',
-      author: {
-        name: 'Priv',
-        avatar: '',
-        role: 'Artist'
-      },
-      content: 'Officially hit 1K monthly listeners! Thank you to everyone who\'s been supporting. This is just the beginning 🙏✨',
-      timestamp: new Date(2026, 0, 7, 18, 45),
-      likes: 42,
-      comments: 15,
-      shares: 8,
-      liked: true,
-      category: 'milestone'
-    },
-    {
-      id: '4',
-      author: {
-        name: 'James Rockel',
-        avatar: '/images/team/james-rockel.webp',
-        role: 'Founder & CEO'
-      },
-      content: 'Quick reminder: We have a group call tomorrow at 3PM EST to discuss the new B-Roll hub features. See you all there! 📹',
-      timestamp: new Date(2026, 0, 7, 10, 0),
-      likes: 16,
-      comments: 5,
-      shares: 2,
-      liked: false,
-      category: 'update'
-    },
-    {
-      id: '5',
-      author: {
-        name: 'Alki',
-        avatar: '/images/team/alki.webp',
-        role: 'Co-Founder & Artist'
-      },
-      content: 'What\'s everyone\'s go-to plugin for vocals? I\'ve been using Autotune but curious what else is out there.',
-      timestamp: new Date(2026, 0, 6, 16, 20),
-      likes: 9,
-      comments: 23,
-      shares: 1,
-      liked: false,
-      category: 'question'
+  const artistId = 'artist-alki-001'
+
+  useEffect(() => {
+    async function loadCommunity() {
+      try {
+        setLoading(true)
+        const response = await api.community.getPosts({ artistId })
+
+        if (response.success && response.data) {
+          setCommunityData(response.data)
+        } else {
+          setError(response.error || 'Failed to load community data')
+        }
+      } catch (err) {
+        setError('An error occurred while loading community')
+        console.error('Community load error:', err)
+      } finally {
+        setLoading(false)
+      }
     }
-  ]
 
-  const leaderboard = [
-    { rank: 1, name: 'Pardyalone', contributions: 48, badge: 'Most Active' },
-    { rank: 2, name: 'Alki', contributions: 42, badge: 'Most Helpful' },
-    { rank: 3, name: 'Priv', contributions: 18, badge: 'Rising Star' }
-  ]
+    loadCommunity()
+  }, [artistId])
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading community...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-red-400 text-2xl">⚠️</span>
+          </div>
+          <p className="text-white font-bold mb-2">Failed to Load Community</p>
+          <p className="text-gray-400 text-sm">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  // Extract data from API response
+  const stats = communityData?.stats || { total_artists: 0, active_posts: 0, collaborations: 0, this_week_growth: 0 }
+  const leaderboard = communityData?.leaderboard || []
+
+  const posts: Post[] = (communityData?.posts || []).map((post: any) => ({
+    id: post.id,
+    author: {
+      name: post.author_name || 'Unknown',
+      avatar: post.author_avatar || '',
+      role: post.author_role || 'Artist'
+    },
+    content: post.content || '',
+    media: post.media_urls ? JSON.parse(post.media_urls) : undefined,
+    timestamp: new Date(post.created_at),
+    likes: post.likes_count || 0,
+    comments: post.comments_count || 0,
+    shares: post.shares_count || 0,
+    liked: false,
+    category: (post.category || 'update') as 'update' | 'collaboration' | 'milestone' | 'question'
+  }))
 
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -174,7 +170,7 @@ export default function CommunityFeed() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Total Artists</p>
-              <p className="text-xl font-bold text-white">24</p>
+              <p className="text-xl font-bold text-white">{stats.total_artists}</p>
             </div>
           </div>
         </div>
@@ -186,7 +182,7 @@ export default function CommunityFeed() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Active Posts</p>
-              <p className="text-xl font-bold text-white">156</p>
+              <p className="text-xl font-bold text-white">{stats.active_posts}</p>
             </div>
           </div>
         </div>
@@ -198,7 +194,7 @@ export default function CommunityFeed() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Collaborations</p>
-              <p className="text-xl font-bold text-white">18</p>
+              <p className="text-xl font-bold text-white">{stats.collaborations}</p>
             </div>
           </div>
         </div>
@@ -210,7 +206,7 @@ export default function CommunityFeed() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">This Week</p>
-              <p className="text-xl font-bold text-white">+12</p>
+              <p className="text-xl font-bold text-white">+{stats.this_week_growth}</p>
             </div>
           </div>
         </div>
