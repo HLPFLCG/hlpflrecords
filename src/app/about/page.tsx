@@ -118,8 +118,82 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Tools & Portal Section */}
       <section className="py-20 px-4 bg-dark-secondary">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Your Complete <span className="text-gold">Artist Toolkit</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Every tool, resource, and advantage you need to build your music career—no strings attached.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Users,
+                title: 'Social Media Manager',
+                description: 'Unified dashboard to schedule, track, and optimize all your social media from one place.',
+              },
+              {
+                icon: Globe,
+                title: 'Link in Bio Tool',
+                description: 'Create a custom landing page showcasing your music, merch, tour dates, and more.',
+              },
+              {
+                icon: Music,
+                title: 'Music Distribution',
+                description: 'Get your music on all major platforms. Keep 100% of your royalties.',
+              },
+              {
+                icon: Target,
+                title: 'Artist Management',
+                description: 'Professional support without controlling contracts. Book what you need, when you need it.',
+              },
+              {
+                icon: Award,
+                title: 'Analytics Dashboard',
+                description: 'Track your growth, understand your audience, and make data-driven decisions.',
+              },
+              {
+                icon: Heart,
+                title: 'Alki Music Vault',
+                description: 'Exclusive access to 300+ unreleased songs for remix and collaboration.',
+              },
+            ].map((tool) => {
+              const Icon = tool.icon
+              return (
+                <Card key={tool.title} hover className="h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-gold" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white">{tool.title}</h3>
+                    </div>
+                    <p className="text-gray-300 leading-relaxed">
+                      {tool.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/artist-portal">
+              <Button size="lg">
+                Access Artist Portal
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
