@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   Calendar as CalendarIcon,
@@ -25,6 +25,7 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react'
+import { api } from '@/lib/api-client'
 
 interface SocialPost {
   id: string
@@ -44,6 +45,22 @@ export default function SocialMediaDashboard() {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([])
   const [showComposer, setShowComposer] = useState(false)
   const [currentMonth, setCurrentMonth] = useState(new Date())
+  const [socialData, setSocialData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+
+  const artistId = 'artist-alki-001'
+
+  useEffect(() => {
+    async function loadSocial() {
+      setLoading(true)
+      const response = await api.social.getAccounts(artistId)
+      if (response.success && response.data) {
+        setSocialData(response.data)
+      }
+      setLoading(false)
+    }
+    loadSocial()
+  }, [artistId])
 
   const platforms = [
     { id: 'instagram', name: 'Instagram', icon: Instagram, color: 'from-pink-500 to-purple-500', connected: true },
@@ -53,35 +70,26 @@ export default function SocialMediaDashboard() {
     { id: 'youtube', name: 'YouTube', icon: Youtube, color: 'from-red-500 to-red-700', connected: false }
   ]
 
-  const scheduledPosts: SocialPost[] = [
-    {
-      id: '1',
-      platform: ['instagram', 'twitter'],
-      content: 'New single "Midnight Dreams" drops this Friday! 🎵✨ Pre-save link in bio',
-      scheduledFor: new Date(2026, 0, 10, 14, 0),
-      status: 'scheduled'
-    },
-    {
-      id: '2',
-      platform: ['instagram'],
-      content: 'Behind the scenes from yesterday\'s studio session 🎤🔥',
-      media: ['/images/studio-1.jpg'],
-      scheduledFor: new Date(2026, 0, 9, 18, 0),
-      status: 'scheduled'
-    },
-    {
-      id: '3',
-      platform: ['twitter', 'facebook'],
-      content: 'Thank you all for 50K followers! This is just the beginning 🙏💛',
-      scheduledFor: new Date(2026, 0, 11, 12, 0),
-      status: 'published',
-      engagement: {
-        likes: 2456,
-        comments: 342,
-        shares: 156
-      }
-    }
-  ]
+  const scheduledPosts: SocialPost[] = (socialData?.posts || []).map((post: any) => ({
+    id: post.id,
+    platform: [post.platform],
+    content: post.content || '',
+    media: post.media_urls ? JSON.parse(post.media_urls) : undefined,
+    scheduledFor: new Date(post.scheduled_for),
+    status: post.status || 'draft',
+    engagement: post.engagement_data ? JSON.parse(post.engagement_data) : undefined
+  }))
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading social media...</p>
+        </div>
+      </div>
+    )
+  }
 
   const stats = [
     { label: 'Total Reach', value: '124.5K', change: '+12.3%', positive: true, icon: Users },
