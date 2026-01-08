@@ -37,6 +37,133 @@ SET avatar_url = 'PASTE_ALKI_PROFILE_IMAGE_URL_HERE',
 WHERE id = 'artist-alki-001';
 
 -- ============================================================================
+-- PRIV - Complete Artist Information
+-- Spotify Artist: PASTE_PRIV_SPOTIFY_ARTIST_URL_HERE
+-- ============================================================================
+
+-- Update Priv artist profile with complete information
+UPDATE profiles
+SET
+    avatar_url = 'PASTE_PRIV_PROFILE_IMAGE_URL_HERE',
+    bio = 'PASTE_PRIV_BIO_HERE',
+    spotify_url = 'PASTE_PRIV_SPOTIFY_URL_HERE',
+    apple_music_url = 'PASTE_PRIV_APPLE_MUSIC_URL_HERE',
+    instagram_handle = '@PRIV_INSTAGRAM_HANDLE',
+    twitter_handle = '@PRIV_TWITTER_HANDLE',
+    tiktok_handle = '@PRIV_TIKTOK_HANDLE',
+    youtube_url = 'PASTE_PRIV_YOUTUBE_URL_HERE'
+WHERE id = 'artist-priv-001';
+
+-- Add/Update Priv releases
+-- Release 1
+INSERT OR REPLACE INTO releases (
+    id,
+    artist_id,
+    title,
+    slug,
+    release_type,
+    release_date,
+    cover_art_url,
+    description,
+    genre,
+    spotify_url,
+    apple_music_url,
+    youtube_url,
+    status,
+    total_streams,
+    total_listeners
+) VALUES (
+    'release-priv-001',
+    'artist-priv-001',
+    'RELEASE_TITLE_1',
+    'release-slug-1',
+    'single',  -- or 'ep' or 'album'
+    '2025-XX-XX',
+    'PASTE_ARTWORK_URL_1',
+    'PASTE_DESCRIPTION_HERE',
+    'Alternative/Indie',
+    'PASTE_SPOTIFY_TRACK_URL_1',
+    'PASTE_APPLE_MUSIC_URL_1',
+    'PASTE_YOUTUBE_URL_1',
+    'live',  -- or 'scheduled' or 'draft'
+    0,  -- update with actual stream count
+    0   -- update with actual listener count
+);
+
+-- Release 2
+INSERT OR REPLACE INTO releases (
+    id,
+    artist_id,
+    title,
+    slug,
+    release_type,
+    release_date,
+    cover_art_url,
+    description,
+    genre,
+    spotify_url,
+    apple_music_url,
+    youtube_url,
+    status,
+    total_streams,
+    total_listeners
+) VALUES (
+    'release-priv-002',
+    'artist-priv-001',
+    'RELEASE_TITLE_2',
+    'release-slug-2',
+    'single',
+    '2025-XX-XX',
+    'PASTE_ARTWORK_URL_2',
+    'PASTE_DESCRIPTION_HERE',
+    'Alternative/Indie',
+    'PASTE_SPOTIFY_TRACK_URL_2',
+    'PASTE_APPLE_MUSIC_URL_2',
+    'PASTE_YOUTUBE_URL_2',
+    'live',
+    0,
+    0
+);
+
+-- Release 3
+INSERT OR REPLACE INTO releases (
+    id,
+    artist_id,
+    title,
+    slug,
+    release_type,
+    release_date,
+    cover_art_url,
+    description,
+    genre,
+    spotify_url,
+    apple_music_url,
+    youtube_url,
+    status,
+    total_streams,
+    total_listeners
+) VALUES (
+    'release-priv-003',
+    'artist-priv-001',
+    'RELEASE_TITLE_3',
+    'release-slug-3',
+    'ep',
+    '2025-XX-XX',
+    'PASTE_ARTWORK_URL_3',
+    'PASTE_DESCRIPTION_HERE',
+    'Alternative/Indie',
+    'PASTE_SPOTIFY_ALBUM_URL_3',
+    'PASTE_APPLE_MUSIC_URL_3',
+    'PASTE_YOUTUBE_URL_3',
+    'live',
+    0,
+    0
+);
+
+-- Add more releases as needed by copying the template above
+-- Just increment the ID: release-priv-004, release-priv-005, etc.
+
+-- ============================================================================
 -- PARDYALONE - Album Artwork
 -- Spotify Artist: https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG
 -- ============================================================================
