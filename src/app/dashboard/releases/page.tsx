@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Music,
@@ -25,18 +25,23 @@ import {
   Tag,
   Users
 } from 'lucide-react'
+import { api } from '@/lib/api-client'
 
 interface Release {
   id: string
   title: string
   artist: string
-  coverArt: string
-  releaseDate: Date
+  cover_art_url?: string
+  coverArt?: string
+  release_date: string
+  releaseDate?: Date
   status: 'draft' | 'scheduled' | 'live' | 'archived'
-  type: 'single' | 'ep' | 'album'
-  tracks: number
-  streams: number
-  platforms: string[]
+  release_type: 'single' | 'ep' | 'album'
+  type?: 'single' | 'ep' | 'album'
+  tracks?: number
+  total_streams?: number
+  streams?: number
+  platforms?: string[]
   presaves?: number
 }
 
@@ -45,59 +50,77 @@ export default function ReleasesPage() {
   const [filterStatus, setFilterStatus] = useState<string>('all')
   const [showNewReleaseModal, setShowNewReleaseModal] = useState(false)
   const [selectedRelease, setSelectedRelease] = useState<Release | null>(null)
+  const [releases, setReleases] = useState<Release[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  // Mock data
-  const releases: Release[] = [
-    {
-      id: '1',
-      title: 'Midnight Dreams',
-      artist: 'Alki',
-      coverArt: '/api/placeholder/300/300',
-      releaseDate: new Date(2026, 1, 14),
-      status: 'scheduled',
-      type: 'single',
-      tracks: 1,
-      streams: 0,
-      platforms: ['spotify', 'apple', 'youtube', 'tidal', 'amazon'],
-      presaves: 1247
-    },
-    {
-      id: '2',
-      title: '221',
-      artist: 'Alki',
-      coverArt: '/api/placeholder/300/300',
-      releaseDate: new Date(2025, 11, 15),
-      status: 'live',
-      type: 'single',
-      tracks: 1,
-      streams: 423789,
-      platforms: ['spotify', 'apple', 'youtube', 'tidal', 'soundcloud']
-    },
-    {
-      id: '3',
-      title: 'Switched Up',
-      artist: 'Alki',
-      coverArt: '/api/placeholder/300/300',
-      releaseDate: new Date(2025, 10, 1),
-      status: 'live',
-      type: 'single',
-      tracks: 1,
-      streams: 3247891,
-      platforms: ['spotify', 'apple', 'youtube', 'tidal']
-    },
-    {
-      id: '4',
-      title: 'Summer Vibes EP',
-      artist: 'Priv',
-      coverArt: '/api/placeholder/300/300',
-      releaseDate: new Date(2026, 2, 1),
-      status: 'draft',
-      type: 'ep',
-      tracks: 5,
-      streams: 0,
-      platforms: ['spotify', 'apple']
+  // Use Alki as default artist
+  const artistId = 'artist-alki-001'
+
+  useEffect(() => {
+    async function loadReleases() {
+      try {
+        setLoading(true)
+        const response = await api.releases.getAll(artistId)
+
+        if (response.success && response.data) {
+          // Transform API data to match component interface
+          const transformedReleases = (response.data as any[]).map((release: any) => ({
+            ...release,
+            coverArt: release.cover_art_url || '/api/placeholder/300/300',
+            releaseDate: new Date(release.release_date),
+            type: release.release_type,
+            streams: release.total_streams || 0,
+            tracks: release.track_count || 1,
+            platforms: ['spotify', 'apple', 'youtube', 'tidal']
+          }))
+          setReleases(transformedReleases)
+        } else {
+          setError(response.error || 'Failed to load releases')
+        }
+      } catch (err) {
+        setError('An error occurred while loading releases')
+        console.error('Releases load error:', err)
+      } finally {
+        setLoading(false)
+      }
     }
-  ]
+
+    loadReleases()
+  }, [artistId])
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading releases...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-red-400 text-2xl">⚠️</span>
+          </div>
+          <p className="text-white font-bold mb-2">Failed to Load Releases</p>
+          <p className="text-gray-400 text-sm">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   const platforms = [
     { id: 'spotify', name: 'Spotify', icon: Music, color: 'text-green-400' },

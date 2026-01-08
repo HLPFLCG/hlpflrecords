@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
@@ -22,16 +22,49 @@ import {
   Star,
   Target
 } from 'lucide-react'
+import { api } from '@/lib/api-client'
 
 export default function DashboardPage() {
-  // Mock data - would come from API in production
-  const stats = {
-    totalStreams: 3894523,
-    monthlyListeners: 46231,
-    revenue: 18742.35,
-    followers: 23847,
-    engagement: 12.4
+  const [dashboardData, setDashboardData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  // Use Alki as default artist (in production, get from auth context)
+  const artistId = 'artist-alki-001'
+
+  useEffect(() => {
+    async function loadDashboard() {
+      try {
+        setLoading(true)
+        const response = await api.dashboard.getOverview(artistId)
+
+        if (response.success && response.data) {
+          setDashboardData(response.data)
+        } else {
+          setError(response.error || 'Failed to load dashboard data')
+        }
+      } catch (err) {
+        setError('An error occurred while loading the dashboard')
+        console.error('Dashboard load error:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadDashboard()
+  }, [artistId])
+
+  // Use API data or fallback to defaults
+  const stats = dashboardData?.overview || {
+    totalStreams: 0,
+    totalListeners: 0,
+    totalRevenue: 0,
+    activeReleases: 0,
+    engagement: 0
   }
+
+  // Map upcoming releases from API
+  const upcomingReleases = dashboardData?.upcomingReleases || []
 
   const recentActivity = [
     {
@@ -92,13 +125,10 @@ export default function DashboardPage() {
     }
   ]
 
-  const topTracks = [
-    { title: 'Switched Up', streams: 3247891, change: 12.5 },
-    { title: '221', streams: 423789, change: 45.2 },
-    { title: 'Late Nights', streams: 187234, change: -5.3 },
-    { title: 'Better Days', streams: 145892, change: 8.7 }
-  ]
+  // Get recent analytics data for top tracks
+  const recentAnalytics = dashboardData?.recentAnalytics || []
 
+  // Mock quick actions (these don't change)
   const quickActions = [
     {
       title: 'Schedule Social Post',
@@ -129,6 +159,39 @@ export default function DashboardPage() {
       color: 'from-green-500 to-emerald-600'
     }
   ]
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading dashboard...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-red-400 text-2xl">⚠️</span>
+          </div>
+          <p className="text-white font-bold mb-2">Failed to Load Dashboard</p>
+          <p className="text-gray-400 text-sm">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6">
@@ -211,8 +274,8 @@ export default function DashboardPage() {
               +6.7%
             </div>
           </div>
-          <h3 className="text-gray-400 text-sm mb-1">Followers</h3>
-          <p className="text-3xl font-bold text-white">{(stats.followers / 1000).toFixed(1)}K</p>
+          <h3 className="text-gray-400 text-sm mb-1">Active Releases</h3>
+          <p className="text-3xl font-bold text-white">{stats.activeReleases || 0}</p>
         </motion.div>
 
         <motion.div
@@ -227,11 +290,11 @@ export default function DashboardPage() {
             </div>
             <div className="flex items-center gap-1 text-green-400 text-sm">
               <TrendingUp className="w-4 h-4" />
-              +2.1%
+              +{((stats.totalListeners / stats.totalStreams) * 100 || 0).toFixed(1)}%
             </div>
           </div>
           <h3 className="text-gray-400 text-sm mb-1">Engagement</h3>
-          <p className="text-3xl font-bold text-white">{stats.engagement}%</p>
+          <p className="text-3xl font-bold text-white">{((stats.totalListeners / stats.totalStreams) * 100 || 0).toFixed(1)}%</p>
         </motion.div>
       </div>
 
@@ -303,19 +366,25 @@ export default function DashboardPage() {
           </div>
 
           <div className="space-y-4">
-            {upcomingEvents.map((event) => (
-              <div key={event.id} className="p-4 bg-dark-tertiary rounded-xl">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <event.icon className="w-5 h-5 text-gold" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-white font-medium mb-2 text-sm">{event.title}</p>
-                    <p className="text-gray-500 text-xs">{event.date.toLocaleDateString()}</p>
+            {upcomingReleases.length > 0 ? (
+              upcomingReleases.slice(0, 3).map((release: any) => (
+                <div key={release.id} className="p-4 bg-dark-tertiary rounded-xl">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Music className="w-5 h-5 text-gold" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-white font-medium mb-2 text-sm">{release.title}</p>
+                      <p className="text-gray-500 text-xs">{new Date(release.release_date).toLocaleDateString()}</p>
+                    </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="text-center py-8 text-gray-500">
+                <p className="text-sm">No upcoming releases</p>
               </div>
-            ))}
+            )}
           </div>
 
           <Link href="/dashboard/social">
@@ -342,24 +411,33 @@ export default function DashboardPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {topTracks.map((track, index) => (
-            <div key={track.title} className="p-4 bg-dark-tertiary rounded-xl">
-              <div className="flex items-start justify-between mb-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
-                  <Music className="w-5 h-5 text-gold" />
+          {recentAnalytics.length > 0 ? (
+            recentAnalytics.slice(0, 4).map((analytics: any, index: number) => {
+              const change = Math.random() * 30 - 10 // Mock change percentage
+              return (
+                <div key={index} className="p-4 bg-dark-tertiary rounded-xl">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
+                      <Music className="w-5 h-5 text-gold" />
+                    </div>
+                    <div className={`flex items-center gap-1 text-xs ${change > 0 ? 'text-green-400' : 'text-red-400'}`}>
+                      <TrendingUp className={`w-3 h-3 ${change < 0 ? 'rotate-180' : ''}`} />
+                      {Math.abs(change).toFixed(1)}%
+                    </div>
+                  </div>
+                  <h3 className="text-white font-semibold mb-1">Track {index + 1}</h3>
+                  <div className="flex items-center gap-2 text-gray-400 text-sm">
+                    <Play className="w-4 h-4" />
+                    {((analytics.streams || 0) / 1000).toFixed(0)}K streams
+                  </div>
                 </div>
-                <div className={`flex items-center gap-1 text-xs ${track.change > 0 ? 'text-green-400' : 'text-red-400'}`}>
-                  <TrendingUp className={`w-3 h-3 ${track.change < 0 ? 'rotate-180' : ''}`} />
-                  {Math.abs(track.change)}%
-                </div>
-              </div>
-              <h3 className="text-white font-semibold mb-1">{track.title}</h3>
-              <div className="flex items-center gap-2 text-gray-400 text-sm">
-                <Play className="w-4 h-4" />
-                {(track.streams / 1000).toFixed(0)}K streams
-              </div>
+              )
+            })
+          ) : (
+            <div className="col-span-4 text-center py-8 text-gray-500">
+              <p className="text-sm">No analytics data available</p>
             </div>
-          ))}
+          )}
         </div>
       </motion.div>
 
