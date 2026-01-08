@@ -1,334 +1,445 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import {
-  BarChart3,
-  Calendar,
-  Play,
-  Music,
-  Users,
   TrendingUp,
   DollarSign,
-  Upload,
-  FileText,
-  Sparkles,
+  Music,
+  Users,
+  Calendar,
+  Zap,
+  Eye,
+  Heart,
+  Play,
+  ShoppingBag,
   Mail,
-  LogOut
+  Video,
+  ArrowUpRight,
+  Clock,
+  MessageSquare,
+  Star,
+  Target
 } from 'lucide-react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
 export default function DashboardPage() {
-  const router = useRouter()
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
-  const [user, setUser] = useState<any>(null)
-
-  useEffect(() => {
-    // Verify session on mount
-    const verifySession = async () => {
-      try {
-        const response = await fetch('/api/auth/verify', {
-          method: 'GET',
-          credentials: 'include'
-        })
-
-        const data = await response.json()
-
-        if (data.success && data.authenticated) {
-          setIsAuthenticated(true)
-          setUser(data.user)
-        } else {
-          setIsAuthenticated(false)
-          router.push('/artist-portal')
-        }
-      } catch (error) {
-        console.error('Session verification error:', error)
-        setIsAuthenticated(false)
-        router.push('/artist-portal')
-      }
-    }
-
-    verifySession()
-  }, [router])
-
-  const handleLogout = async () => {
-    try {
-      await fetch('/api/auth/login', {
-        method: 'DELETE',
-        credentials: 'include'
-      })
-    } catch (error) {
-      console.error('Logout error:', error)
-    } finally {
-      router.push('/artist-portal')
-    }
+  // Mock data - would come from API in production
+  const stats = {
+    totalStreams: 3894523,
+    monthlyListeners: 46231,
+    revenue: 18742.35,
+    followers: 23847,
+    engagement: 12.4
   }
-
-  // Show loading while checking authentication
-  if (isAuthenticated === null) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-[#c87941] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Verifying session...</p>
-        </div>
-      </div>
-    )
-  }
-
-  // If not authenticated, show nothing (will redirect)
-  if (!isAuthenticated) {
-    return null
-  }
-
-  const tools = [
-    {
-      title: 'Analytics Dashboard',
-      description: 'Track your performance across Spotify, YouTube, and social platforms',
-      icon: BarChart3,
-      href: '/analytics',
-      color: 'from-blue-500 to-blue-600',
-      stats: '2.4M streams'
-    },
-    {
-      title: 'Social Scheduler',
-      description: 'Plan and schedule posts across Instagram, Twitter, and more',
-      icon: Calendar,
-      href: '/social-scheduler',
-      color: 'from-purple-500 to-purple-600',
-      stats: '12 scheduled posts'
-    },
-    {
-      title: 'Spotify Tools',
-      description: 'Pre-save campaigns, playlist submissions, and profile optimization',
-      icon: Play,
-      href: '/spotify-tools',
-      color: 'from-green-500 to-green-600',
-      stats: '1.2M monthly listeners'
-    },
-    {
-      title: 'Email Marketing',
-      description: 'Connect with fans and grow your email list',
-      icon: Mail,
-      href: '/email-marketing',
-      color: 'from-pink-500 to-pink-600',
-      stats: '45.2K subscribers'
-    },
-    {
-      title: 'Crowdfunding',
-      description: 'Launch fan support campaigns and accept donations',
-      icon: DollarSign,
-      href: '/crowdfunding',
-      color: 'from-yellow-500 to-yellow-600',
-      stats: '$12,450 raised'
-    },
-    {
-      title: 'Collaboration Finder',
-      description: 'Connect with other artists and producers',
-      icon: Users,
-      href: '/collaborations',
-      color: 'from-orange-500 to-orange-600',
-      stats: '8 active collaborations'
-    },
-    {
-      title: 'Music Licensing',
-      description: 'License your music for films, TV, and commercials',
-      icon: Music,
-      href: '/licensing',
-      color: 'from-red-500 to-red-600',
-      stats: '5 active licenses'
-    },
-    {
-      title: 'Merch Store',
-      description: 'Create and sell merchandise to your fans',
-      icon: Upload,
-      href: '/merch',
-      color: 'from-indigo-500 to-indigo-600',
-      stats: '234 items sold'
-    }
-  ]
-
-  const upcomingTasks = [
-    { task: 'Complete "Midnight Dreams" pre-save campaign', due: '2 days', priority: 'high' },
-    { task: 'Submit to 5 editorial playlists', due: '5 days', priority: 'medium' },
-    { task: 'Schedule Instagram posts for release week', due: '7 days', priority: 'high' },
-    { task: 'Update artist profile on Spotify', due: '10 days', priority: 'low' }
-  ]
 
   const recentActivity = [
-    { action: 'New follower milestone reached', detail: '45K followers on Spotify', time: '2 hours ago' },
-    { action: 'Playlist placement', detail: 'Added to "New Music Friday" playlist', time: '5 hours ago' },
-    { action: 'Social media post', detail: 'Instagram post reached 10K likes', time: '1 day ago' },
-    { action: 'Revenue update', detail: 'Monthly revenue: $4,560', time: '2 days ago' }
+    {
+      id: '1',
+      type: 'release',
+      title: 'New single "221" reached 100K streams',
+      time: '2 hours ago',
+      icon: Music,
+      color: 'from-green-500 to-emerald-600'
+    },
+    {
+      id: '2',
+      type: 'community',
+      title: 'Priv commented on your post',
+      time: '5 hours ago',
+      icon: MessageSquare,
+      color: 'from-blue-500 to-cyan-600'
+    },
+    {
+      id: '3',
+      type: 'revenue',
+      title: 'Payment of $4,230.50 processed',
+      time: '1 day ago',
+      icon: DollarSign,
+      color: 'from-gold to-gold-dark'
+    },
+    {
+      id: '4',
+      type: 'boost',
+      title: 'Viral boost campaign achieved 250K reach',
+      time: '2 days ago',
+      icon: Zap,
+      color: 'from-purple-500 to-pink-600'
+    }
+  ]
+
+  const upcomingEvents = [
+    {
+      id: '1',
+      title: 'New Release: Midnight Dreams',
+      date: new Date(2026, 1, 14),
+      type: 'release',
+      icon: Music
+    },
+    {
+      id: '2',
+      title: 'Email Campaign: Valentine\'s Merch',
+      date: new Date(2026, 1, 10),
+      type: 'email',
+      icon: Mail
+    },
+    {
+      id: '3',
+      title: 'Spotify Editorial Playlist Submission',
+      date: new Date(2026, 0, 15),
+      type: 'promotion',
+      icon: Star
+    }
+  ]
+
+  const topTracks = [
+    { title: 'Switched Up', streams: 3247891, change: 12.5 },
+    { title: '221', streams: 423789, change: 45.2 },
+    { title: 'Late Nights', streams: 187234, change: -5.3 },
+    { title: 'Better Days', streams: 145892, change: 8.7 }
+  ]
+
+  const quickActions = [
+    {
+      title: 'Schedule Social Post',
+      description: 'Plan your next social media post',
+      href: '/dashboard/social',
+      icon: Calendar,
+      color: 'from-blue-500 to-cyan-600'
+    },
+    {
+      title: 'Upload B-Roll',
+      description: 'Add new video content',
+      href: '/dashboard/broll',
+      icon: Video,
+      color: 'from-purple-500 to-pink-600'
+    },
+    {
+      title: 'Start Viral Boost',
+      description: 'Launch a new campaign',
+      href: '/dashboard/boost',
+      icon: Zap,
+      color: 'from-orange-500 to-red-600'
+    },
+    {
+      title: 'Create Email',
+      description: 'Send to your fans',
+      href: '/dashboard/email',
+      icon: Mail,
+      color: 'from-green-500 to-emerald-600'
+    }
   ]
 
   return (
-    <div className="min-h-screen py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-12">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#c87941] to-[#a0613a] rounded-2xl mb-4"
-            >
-              <Sparkles className="w-8 h-8 text-black" />
-            </motion.div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
-              Artist Dashboard
-            </h1>
-            <p className="text-lg text-gray-400">
-              Welcome back! Here's your complete toolkit
-            </p>
-          </div>
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-xl transition-all"
-          >
-            <LogOut className="w-5 h-5" />
-            Logout
-          </button>
-        </div>
+    <div className="space-y-6">
+      {/* Welcome Header */}
+      <div>
+        <h1 className="text-3xl font-bold text-white mb-2">Welcome back, Alki 👋</h1>
+        <p className="text-gray-400">Here's what's happening with your music today</p>
+      </div>
 
-        {/* Quick Stats */}
+      {/* Top Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12"
+          className="bg-gradient-to-br from-gold/20 to-gold-dark/10 border border-gold/30 rounded-2xl p-6"
         >
-          <div className="bg-glass-card p-6 rounded-2xl border border-gray-800">
-            <TrendingUp className="w-10 h-10 text-green-400 mb-4" />
-            <h3 className="text-3xl font-bold text-white mb-2">+23%</h3>
-            <p className="text-gray-400">Growth this month</p>
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
+              <Play className="w-6 h-6 text-gold" />
+            </div>
+            <div className="flex items-center gap-1 text-green-400 text-sm">
+              <TrendingUp className="w-4 h-4" />
+              +12.5%
+            </div>
           </div>
-          <div className="bg-glass-card p-6 rounded-2xl border border-gray-800">
-            <Play className="w-10 h-10 text-[#c87941] mb-4" />
-            <h3 className="text-3xl font-bold text-white mb-2">2.4M</h3>
-            <p className="text-gray-400">Total streams</p>
-          </div>
-          <div className="bg-glass-card p-6 rounded-2xl border border-gray-800">
-            <Users className="w-10 h-10 text-[#c87941] mb-4" />
-            <h3 className="text-3xl font-bold text-white mb-2">45.2K</h3>
-            <p className="text-gray-400">Total followers</p>
-          </div>
-          <div className="bg-glass-card p-6 rounded-2xl border border-gray-800">
-            <DollarSign className="w-10 h-10 text-green-400 mb-4" />
-            <h3 className="text-3xl font-bold text-white mb-2">$12.4K</h3>
-            <p className="text-gray-400">Monthly revenue</p>
-          </div>
+          <h3 className="text-gray-400 text-sm mb-1">Total Streams</h3>
+          <p className="text-3xl font-bold text-white">{(stats.totalStreams / 1000000).toFixed(1)}M</p>
         </motion.div>
 
-        {/* Tools Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="bg-dark-secondary border border-gray-800 rounded-2xl p-6"
+        >
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+              <Users className="w-6 h-6 text-blue-400" />
+            </div>
+            <div className="flex items-center gap-1 text-green-400 text-sm">
+              <TrendingUp className="w-4 h-4" />
+              +8.2%
+            </div>
+          </div>
+          <h3 className="text-gray-400 text-sm mb-1">Monthly Listeners</h3>
+          <p className="text-3xl font-bold text-white">{(stats.monthlyListeners / 1000).toFixed(1)}K</p>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-12"
+          className="bg-dark-secondary border border-gray-800 rounded-2xl p-6"
         >
-          <h2 className="text-3xl font-bold text-white mb-6">Artist Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tools.map((tool, index) => (
-              <Link key={index} href={tool.href}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-glass-card p-6 rounded-2xl border border-gray-800 hover:border-[#c87941] transition-all duration-300 cursor-pointer group"
-                >
-                  <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${tool.color} rounded-xl mb-4`}>
-                    <tool.icon className="w-7 h-7 text-white" />
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+              <DollarSign className="w-6 h-6 text-green-400" />
+            </div>
+            <div className="flex items-center gap-1 text-green-400 text-sm">
+              <TrendingUp className="w-4 h-4" />
+              +15.3%
+            </div>
+          </div>
+          <h3 className="text-gray-400 text-sm mb-1">Revenue (30d)</h3>
+          <p className="text-3xl font-bold text-white">${(stats.revenue / 1000).toFixed(1)}K</p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-dark-secondary border border-gray-800 rounded-2xl p-6"
+        >
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
+              <Heart className="w-6 h-6 text-purple-400" />
+            </div>
+            <div className="flex items-center gap-1 text-green-400 text-sm">
+              <TrendingUp className="w-4 h-4" />
+              +6.7%
+            </div>
+          </div>
+          <h3 className="text-gray-400 text-sm mb-1">Followers</h3>
+          <p className="text-3xl font-bold text-white">{(stats.followers / 1000).toFixed(1)}K</p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="bg-dark-secondary border border-gray-800 rounded-2xl p-6"
+        >
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center">
+              <Target className="w-6 h-6 text-orange-400" />
+            </div>
+            <div className="flex items-center gap-1 text-green-400 text-sm">
+              <TrendingUp className="w-4 h-4" />
+              +2.1%
+            </div>
+          </div>
+          <h3 className="text-gray-400 text-sm mb-1">Engagement</h3>
+          <p className="text-3xl font-bold text-white">{stats.engagement}%</p>
+        </motion.div>
+      </div>
+
+      {/* Quick Actions */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {quickActions.map((action, index) => (
+          <motion.div
+            key={action.title}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 + index * 0.1 }}
+          >
+            <Link href={action.href}>
+              <div className="bg-dark-secondary border border-gray-800 rounded-2xl p-6 hover:border-gold transition-all cursor-pointer group">
+                <div className={`w-12 h-12 bg-gradient-to-br ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <action.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-white font-bold mb-1 group-hover:text-gold transition-colors">{action.title}</h3>
+                <p className="text-gray-400 text-sm">{action.description}</p>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Recent Activity */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="lg:col-span-2 bg-dark-secondary border border-gray-800 rounded-2xl p-6"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold text-white">Recent Activity</h2>
+            <Link href="/dashboard/analytics" className="text-gold text-sm hover:text-gold-dark transition-colors">
+              View All
+            </Link>
+          </div>
+
+          <div className="space-y-4">
+            {recentActivity.map((activity) => (
+              <div key={activity.id} className="flex items-start gap-4 p-4 bg-dark-tertiary rounded-xl hover:bg-opacity-80 transition-all">
+                <div className={`w-10 h-10 bg-gradient-to-br ${activity.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                  <activity.icon className="w-5 h-5 text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-medium mb-1">{activity.title}</p>
+                  <div className="flex items-center gap-2 text-gray-500 text-sm">
+                    <Clock className="w-4 h-4" />
+                    {activity.time}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#c87941] transition-colors">
-                    {tool.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm mb-4">{tool.description}</p>
-                  <p className="text-[#c87941] text-sm font-semibold">{tool.stats}</p>
-                </motion.div>
-              </Link>
+                </div>
+              </div>
             ))}
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Upcoming Tasks */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-glass-card p-8 rounded-2xl border border-gray-800"
-          >
-            <h2 className="text-2xl font-bold text-white mb-6">Upcoming Tasks</h2>
-            <div className="space-y-4">
-              {upcomingTasks.map((task, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 bg-gray-800/50 rounded-xl">
-                  <div className={`w-3 h-3 rounded-full mt-2 ${
-                    task.priority === 'high' ? 'bg-red-500' :
-                    task.priority === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
-                  }`} />
-                  <div className="flex-1">
-                    <p className="text-white mb-1">{task.task}</p>
-                    <p className="text-gray-400 text-sm">Due in {task.due}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Recent Activity */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-            className="bg-glass-card p-8 rounded-2xl border border-gray-800"
-          >
-            <h2 className="text-2xl font-bold text-white mb-6">Recent Activity</h2>
-            <div className="space-y-4">
-              {recentActivity.map((activity, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 bg-gray-800/50 rounded-xl">
-                  <div className="w-10 h-10 bg-[#c87941]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-5 h-5 text-[#c87941]" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white mb-1">{activity.action}</p>
-                    <p className="text-gray-400 text-sm">{activity.detail}</p>
-                    <p className="text-gray-500 text-xs mt-1">{activity.time}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Quick Actions */}
+        {/* Upcoming Events */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
+          transition={{ delay: 1.0 }}
+          className="bg-dark-secondary border border-gray-800 rounded-2xl p-6"
         >
-          <Link href="/release-management">
-            <button className="w-full p-6 bg-gradient-to-br from-[#c87941]/20 to-[#a0613a]/10 rounded-2xl border border-[#c87941]/30 hover:shadow-lg hover:shadow-[#c87941]/20 transition-all text-left">
-              <Music className="w-8 h-8 text-[#c87941] mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Release Music</h3>
-              <p className="text-gray-400 text-sm">Manage your releases and distribution</p>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold text-white">Upcoming</h2>
+            <Calendar className="w-5 h-5 text-gray-400" />
+          </div>
+
+          <div className="space-y-4">
+            {upcomingEvents.map((event) => (
+              <div key={event.id} className="p-4 bg-dark-tertiary rounded-xl">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <event.icon className="w-5 h-5 text-gold" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-white font-medium mb-2 text-sm">{event.title}</p>
+                    <p className="text-gray-500 text-xs">{event.date.toLocaleDateString()}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <Link href="/dashboard/social">
+            <button className="w-full mt-4 px-4 py-2 bg-dark-tertiary border border-gray-700 text-white rounded-lg hover:border-gold transition-all">
+              View Calendar
             </button>
           </Link>
+        </motion.div>
+      </div>
 
-          <Link href="/press-releases">
-            <button className="w-full p-6 bg-gradient-to-br from-[#c87941]/20 to-[#a0613a]/10 rounded-2xl border border-[#c87941]/30 hover:shadow-lg hover:shadow-[#c87941]/20 transition-all text-left">
-              <FileText className="w-8 h-8 text-[#c87941] mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Press & PR</h3>
-              <p className="text-gray-400 text-sm">Create press releases and media content</p>
-            </button>
+      {/* Top Tracks Performance */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.1 }}
+        className="bg-dark-secondary border border-gray-800 rounded-2xl p-6"
+      >
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold text-white">Top Performing Tracks</h2>
+          <Link href="/dashboard/analytics" className="text-gold text-sm hover:text-gold-dark transition-colors flex items-center gap-1">
+            View Analytics
+            <ArrowUpRight className="w-4 h-4" />
           </Link>
+        </div>
 
-          <Link href="/analytics">
-            <button className="w-full p-6 bg-gradient-to-br from-[#c87941]/20 to-[#a0613a]/10 rounded-2xl border border-[#c87941]/30 hover:shadow-lg hover:shadow-[#c87941]/20 transition-all text-left">
-              <BarChart3 className="w-8 h-8 text-[#c87941] mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">View Analytics</h3>
-              <p className="text-gray-400 text-sm">Track your performance metrics</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {topTracks.map((track, index) => (
+            <div key={track.title} className="p-4 bg-dark-tertiary rounded-xl">
+              <div className="flex items-start justify-between mb-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
+                  <Music className="w-5 h-5 text-gold" />
+                </div>
+                <div className={`flex items-center gap-1 text-xs ${track.change > 0 ? 'text-green-400' : 'text-red-400'}`}>
+                  <TrendingUp className={`w-3 h-3 ${track.change < 0 ? 'rotate-180' : ''}`} />
+                  {Math.abs(track.change)}%
+                </div>
+              </div>
+              <h3 className="text-white font-semibold mb-1">{track.title}</h3>
+              <div className="flex items-center gap-2 text-gray-400 text-sm">
+                <Play className="w-4 h-4" />
+                {(track.streams / 1000).toFixed(0)}K streams
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Platform Overview */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+          className="bg-dark-secondary border border-gray-800 rounded-2xl p-6"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold text-white">Platform Performance</h2>
+            <Link href="/dashboard/analytics" className="text-gold text-sm hover:text-gold-dark transition-colors">
+              Details
+            </Link>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { platform: 'Spotify', streams: 2847392, percentage: 73, color: 'from-green-500 to-emerald-600' },
+              { platform: 'Apple Music', streams: 982341, percentage: 25, color: 'from-pink-500 to-red-600' },
+              { platform: 'YouTube Music', streams: 421038, percentage: 11, color: 'from-red-500 to-orange-600' },
+              { platform: 'Other', streams: 143752, percentage: 4, color: 'from-gray-500 to-gray-700' }
+            ].map((platform, index) => (
+              <div key={platform.platform}>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-white font-medium">{platform.platform}</span>
+                  <span className="text-gray-400 text-sm">{(platform.streams / 1000).toFixed(0)}K</span>
+                </div>
+                <div className="h-2 bg-dark-tertiary rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${platform.percentage}%` }}
+                    transition={{ duration: 0.8, delay: 1.3 + index * 0.1 }}
+                    className={`h-full bg-gradient-to-r ${platform.color} rounded-full`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Community Highlights */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3 }}
+          className="bg-dark-secondary border border-gray-800 rounded-2xl p-6"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold text-white">Community Highlights</h2>
+            <Link href="/dashboard/community" className="text-gold text-sm hover:text-gold-dark transition-colors">
+              View All
+            </Link>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { author: 'Priv', action: 'started a new collaboration', time: '3h ago' },
+              { author: 'Pardyalone', action: 'reached 5M streams milestone', time: '1d ago' },
+              { author: 'HLPFL Team', action: 'posted a platform update', time: '2d ago' }
+            ].map((highlight, index) => (
+              <div key={index} className="flex items-start gap-3 p-3 bg-dark-tertiary rounded-lg">
+                <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center text-sm font-bold text-dark flex-shrink-0">
+                  {highlight.author.charAt(0)}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white text-sm">
+                    <span className="font-semibold">{highlight.author}</span> {highlight.action}
+                  </p>
+                  <p className="text-gray-500 text-xs mt-1">{highlight.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <Link href="/dashboard/community">
+            <button className="w-full mt-4 px-4 py-2 bg-gradient-to-r from-gold to-gold-dark text-dark font-semibold rounded-lg hover:shadow-lg transition-all">
+              Join the Conversation
             </button>
           </Link>
         </motion.div>
