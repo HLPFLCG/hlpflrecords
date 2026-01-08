@@ -75,3 +75,14 @@ export interface ContactForm {
   message: string
   type: 'general' | 'artist-submission' | 'business'
 }
+
+export interface Partner {
+  id: string
+  name: string
+  slug: string
+  description: string
+  logo?: string
+  website?: string
+  category: 'technology' | 'manufacturing' | 'distribution' | 'services'
+  featured: boolean
+}

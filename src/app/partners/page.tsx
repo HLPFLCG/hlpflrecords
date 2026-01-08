@@ -1,11 +1,14 @@
 'use client'
 
 import React from 'react'
-import { Users, Music, Radio, Tv, Globe, Building, ArrowRight, Check } from 'lucide-react'
+import { Users, Music, Radio, Tv, Globe, Building, ArrowRight, Check, Package, Sparkles, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
+import { mockPartners } from '@/data/mockData'
 
 export default function PartnersPage() {
+  const featuredPartners = mockPartners.filter(p => p.featured)
+
   return (
     <div className="min-h-screen py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -18,9 +21,76 @@ export default function PartnersPage() {
             Our Partners
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We collaborate with industry-leading partners to provide our artists with the best distribution, 
+            We collaborate with industry-leading partners to provide our artists with the best distribution,
             technology, media exposure, and performance opportunities.
           </p>
+        </div>
+
+        {/* Featured Strategic Partners */}
+        <div className="mb-20">
+          <div className="flex items-center justify-center mb-12">
+            <Sparkles className="w-6 h-6 text-gold mr-3" />
+            <h2 className="text-3xl font-bold text-white">Featured Strategic Partners</h2>
+            <Sparkles className="w-6 h-6 text-gold ml-3" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {featuredPartners.map((partner) => (
+              <div
+                key={partner.id}
+                className="bg-gradient-to-br from-dark-secondary to-dark-tertiary border-2 border-gold/40 rounded-2xl p-8 hover:border-gold/70 transition-all duration-300 hover:transform hover:scale-105 shadow-xl"
+              >
+                <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl flex items-center justify-center mr-4">
+                      {partner.category === 'manufacturing' ? (
+                        <Package className="w-8 h-8 text-gold" />
+                      ) : (
+                        <Globe className="w-8 h-8 text-gold" />
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-1">{partner.name}</h3>
+                      <p className="text-sm text-gold font-medium capitalize">{partner.category} Partner</p>
+                    </div>
+                  </div>
+                  {partner.website && (
+                    <a
+                      href={partner.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gold hover:text-gold-light transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
+
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  {partner.description}
+                </p>
+
+                {partner.website && (
+                  <a
+                    href={partner.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-gold hover:text-gold-light font-semibold transition-colors"
+                  >
+                    Visit Website
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-gradient-to-r from-gold/10 to-gold-dark/10 border border-gold/30 rounded-xl p-6 text-center">
+            <p className="text-gray-300">
+              These strategic partnerships enable HLPFL artists to access world-class manufacturing, technology, and fan engagement tools
+              while maintaining 100% ownership and control of their careers.
+            </p>
+          </div>
         </div>
 
         {/* Partner Categories */}
