@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Users, Music, Search, MessageCircle, Star, MapPin, Headphones } from 'lucide-react'
+import { Users, Music, Search, MessageCircle, Star, MapPin } from 'lucide-react'
 
 export default function CollaborationsPage() {
   const [activeTab, setActiveTab] = useState('discover')

@@ -1,488 +1,206 @@
-# 🎵 HLPFL RECORDS - COMPLETE DOCUMENTATION
+# 🎵 HLPFL Records
 
-## 📚 DOCUMENTATION SUITE
+> The Artist-First Music Company
 
-Welcome to the complete documentation for the HLPFL Records website. This suite includes everything you need to understand, maintain, and enhance the site.
+**50/50 Revenue Split** • **11% Management Fee** • **Artist-Owned Masters**
 
----
+![Version](https://img.shields.io/badge/version-2.1.0-blue)
+![Next.js](https://img.shields.io/badge/Next.js-14.2.35-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
+![License](https://img.shields.io/badge/license-Proprietary-red)
 
-## 📖 AVAILABLE GUIDES
+## 🌟 Overview
 
-### 1. 📘 [COMPLETE SITE GUIDE](./COMPLETE_SITE_GUIDE.md)
-**Comprehensive overview of the entire website**
-- Site architecture and structure
-- All features and functionality
-- Components reference
-- Data structure
-- Performance metrics
-- Security features
-- Accessibility compliance
-- SEO implementation
-- Maintenance procedures
+HLPFL Records is a modern, artist-first record label platform built with Next.js 14. We provide comprehensive services for musicians while maintaining transparency and fair compensation.
 
-**Who should read this:** Everyone - start here for a complete understanding of the site.
+### Key Statistics
+- **2 Featured Artists**: Alki & Pardyalone
+- **27+ Releases**: Complete discography
+- **68M+ Total Streams**: Combined streaming metrics
+- **100+ Services**: Documented in comprehensive guide
 
----
+## 🚀 Quick Start
 
-### 2. ✏️ [EDITING GUIDE](./EDITING_GUIDE.md)
-**Step-by-step instructions for content management**
-- Adding new releases
-- Editing existing releases
-- Managing team members
-- Updating images
-- Modifying text content
-- Managing Easter eggs
-- Deployment process
-- Common tasks
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-**Who should read this:** Content managers, editors, anyone updating site content.
+### Installation
 
----
-
-### 3. 🥚 [EASTER EGGS GUIDE](./EASTER_EGGS_GUIDE.md)
-**Complete documentation of hidden features**
-- All 7 Easter egg triggers explained
-- 11 unreleased tracks
-- Technical implementation
-- Adding new Easter eggs
-- Modifying existing triggers
-- Analytics tracking
-- Testing procedures
-
-**Who should read this:** Developers, content creators, anyone managing Easter eggs.
-
----
-
-### 4. 📊 [ANALYTICS GUIDE](./ANALYTICS_GUIDE.md)
-**Data tracking and analytics documentation**
-- Analytics setup
-- Tracked events (50+)
-- Custom metrics
-- Performance monitoring
-- User behavior analysis
-- Easter egg analytics
-- Conversion tracking
-- Reports and dashboards
-
-**Who should read this:** Marketing team, analysts, developers implementing tracking.
-
----
-
-### 5. 💻 [DEVELOPER GUIDE](./DEVELOPER_GUIDE.md)
-**Technical development documentation**
-- Development environment setup
-- Project structure
-- Architecture overview
-- Component development
-- State management
-- API integration
-- Testing procedures
-- Performance optimization
-- Best practices
-
-**Who should read this:** Developers, technical team members.
-
----
-
-### 6. 🚀 [DEPLOYMENT GUIDE](./DEPLOYMENT_GUIDE.md)
-**Deployment and hosting documentation**
-- Pre-deployment checklist
-- Cloudflare Pages setup
-- GitHub Actions CI/CD
-- Environment configuration
-- Domain setup
-- SSL/TLS configuration
-- Monitoring and alerts
-- Rollback procedures
-
-**Who should read this:** DevOps, developers, anyone deploying changes.
-
----
-
-### 7. 🔧 [TROUBLESHOOTING GUIDE](./TROUBLESHOOTING_GUIDE.md)
-**Solutions for common issues**
-- Quick diagnostics
-- Build and deployment issues
-- Content and display problems
-- Performance issues
-- Feature-specific problems
-- Browser compatibility
-- Mobile issues
-- Emergency procedures
-
-**Who should read this:** Everyone - reference when encountering issues.
-
----
-
-### 8. 📚 [API REFERENCE](./API_REFERENCE.md)
-**Complete API documentation**
-- Components API
-- Hooks API
-- Utilities API
-- Types and interfaces
-- Analytics API
-- Cache API
-- SEO API
-- Code examples
-
-**Who should read this:** Developers building features or integrating with the codebase.
-
----
-
-## 🎯 QUICK START
-
-### For Content Editors
-1. Read the [Editing Guide](./EDITING_GUIDE.md)
-2. Learn how to add releases and update content
-3. Reference [Troubleshooting Guide](./TROUBLESHOOTING_GUIDE.md) if issues arise
-
-### For Developers
-1. Read the [Developer Guide](./DEVELOPER_GUIDE.md)
-2. Set up your development environment
-3. Review [API Reference](./API_REFERENCE.md) for available components
-4. Check [Deployment Guide](./DEPLOYMENT_GUIDE.md) before deploying
-
-### For Analysts
-1. Read the [Analytics Guide](./ANALYTICS_GUIDE.md)
-2. Understand tracked events and metrics
-3. Set up custom reports and dashboards
-
-### For Everyone
-1. Start with [Complete Site Guide](./COMPLETE_SITE_GUIDE.md)
-2. Explore [Easter Eggs Guide](./EASTER_EGGS_GUIDE.md) for hidden features
-3. Keep [Troubleshooting Guide](./TROUBLESHOOTING_GUIDE.md) handy
-
----
-
-## 🌟 SITE OVERVIEW
-
-### Key Features
-- **37 Music Releases** by artist Alki
-- **5 Team Members** with detailed profiles
-- **7 Creative Easter Eggs** with 11 unreleased tracks
-- **Global Search** (Cmd+K) across all content
-- **Performance Dashboard** (Ctrl+Shift+P) for monitoring
-- **Real-time Analytics** tracking user behavior
-- **98/100 Performance Score** on Lighthouse
-- **100% Accessibility Compliance** (WCAG 2.1 AAA)
-
-### Technology Stack
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animation:** Framer Motion
-- **Hosting:** Cloudflare Pages
-- **Domain:** https://hlpfl.org
-- **CI/CD:** GitHub Actions
-
-### Performance Metrics
-- **Load Time:** < 2 seconds
-- **LCP:** < 2.5 seconds
-- **FID:** < 100ms
-- **CLS:** < 0.1
-- **Uptime:** 99.9%+
-
----
-
-## 📋 COMMON TASKS
-
-### Adding a New Release
 ```bash
-# 1. Add cover art image
-cp cover.jpg public/images/releases/
-
-# 2. Edit releases.json
-# Add new release object
-
-# 3. Commit and deploy
-git add .
-git commit -m "Add new release"
-git push origin main
-```
-📖 **Full instructions:** [Editing Guide - Adding New Releases](./EDITING_GUIDE.md#adding-new-releases)
-
-### Updating Team Member
-```bash
-# 1. Edit team.json
-# Update member information
-
-# 2. Commit and deploy
-git add .
-git commit -m "Update team member"
-git push origin main
-```
-📖 **Full instructions:** [Editing Guide - Managing Team Members](./EDITING_GUIDE.md#managing-team-members)
-
-### Deploying Changes
-```bash
-# 1. Make your changes
-# 2. Test locally (optional)
-npm run build
-
-# 3. Commit and push
-git add .
-git commit -m "Your changes"
-git push origin main
-
-# 4. Monitor deployment
-# GitHub Actions will automatically deploy
-```
-📖 **Full instructions:** [Deployment Guide](./DEPLOYMENT_GUIDE.md)
-
-### Troubleshooting Issues
-```bash
-# 1. Clear browser cache
-Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)
-
-# 2. Check console for errors
-F12 → Console tab
-
-# 3. Verify changes were deployed
-# Check GitHub Actions status
-```
-📖 **Full instructions:** [Troubleshooting Guide](./TROUBLESHOOTING_GUIDE.md)
-
----
-
-## 🔗 QUICK LINKS
-
-### Live Site
-- **Production:** https://hlpfl.org
-- **Repository:** https://github.com/HLPFLCG/hlpflrecords
-
-### Development
-- **Local:** http://localhost:3000
-- **GitHub Actions:** https://github.com/HLPFLCG/hlpflrecords/actions
-- **Cloudflare Pages:** https://dash.cloudflare.com
-
-### Resources
-- [Next.js Documentation](https://nextjs.org/docs)
-- [React Documentation](https://react.dev)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [TypeScript Documentation](https://www.typescriptlang.org/docs)
-- [Cloudflare Pages Documentation](https://developers.cloudflare.com/pages)
-
----
-
-## 🎨 EASTER EGGS
-
-The site includes 7 hidden Easter eggs that unlock 11 unreleased tracks:
-
-1. **Konami Code** (↑↑↓↓←→←→BA) → "5D"
-2. **Logo Clicks** (7x in 3s) → "Home (Alone)"
-3. **Scroll Depth** (77.7%) → "Regrets"
-4. **Time-Based** (11:11 AM/PM) → "Tear Me Apart"
-5. **Mouse Pattern** (circle) → "Writin' My Wrongs"
-6. **Hidden Text** (type "hlpfl") → Random track
-7. **Footer Double-Click** → Random track
-
-📖 **Full details:** [Easter Eggs Guide](./EASTER_EGGS_GUIDE.md)
-
----
-
-## 📊 ANALYTICS
-
-The site tracks comprehensive analytics including:
-- Page views and user behavior
-- Search queries and results
-- Easter egg discoveries
-- Streaming platform clicks
-- Performance metrics
-- Error tracking
-- Conversion funnels
-
-📖 **Full details:** [Analytics Guide](./ANALYTICS_GUIDE.md)
-
----
-
-## 🛠️ DEVELOPMENT
-
-### Setup
-```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/HLPFLCG/hlpflrecords.git
+
+# Navigate to project directory
 cd hlpflrecords
 
 # Install dependencies
 npm install
 
-# Create environment file
-cp .env.example .env.local
-
 # Run development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-### Available Scripts
+## 📁 Project Structure
+
+```
+hlpflrecords/
+├── src/
+│   ├── app/                # Next.js 14 App Router pages
+│   ├── components/         # Reusable React components
+│   ├── contexts/           # React contexts
+│   ├── data/               # Mock data and content
+│   ├── lib/                # Utility functions
+│   └── styles/             # Global styles
+├── public/
+│   ├── images/             # Static images
+│   ├── manifest.webmanifest # PWA manifest
+│   └── sw.js               # Service worker
+├── docs/                   # Complete documentation
+└── package.json            # Dependencies and scripts
+```
+
+## 📚 Documentation
+
+All comprehensive documentation is located in the `/docs` folder:
+
+### Core Documentation
+- **[Project Overview](./docs/PROJECT_OVERVIEW.md)** - Complete technical and business documentation
+- **[Session Summary](./docs/SESSION_SUMMARY.md)** - Latest development session details
+- **[Apple App Conversion](./docs/APPLE_APP_CONVERSION.md)** - iOS app development roadmap
+
+### Feature Guides
+- **[Complete Site Guide](./docs/COMPLETE_SITE_GUIDE.md)** - Comprehensive site overview
+- **[Editing Guide](./docs/EDITING_GUIDE.md)** - Content management instructions
+- **[Developer Guide](./docs/DEVELOPER_GUIDE.md)** - Development best practices
+- **[Deployment Guide](./docs/DEPLOYMENT_GUIDE.md)** - Deployment procedures
+
+### Reference Documentation
+- **[API Reference](./docs/API_REFERENCE.md)** - API endpoints and usage
+- **[Analytics Guide](./docs/ANALYTICS_GUIDE.md)** - Analytics implementation
+- **[Troubleshooting Guide](./docs/TROUBLESHOOTING_GUIDE.md)** - Common issues and solutions
+- **[Environment Variables](./docs/ENVIRONMENT_VARIABLES_GUIDE.md)** - Configuration guide
+
+## 🛠️ Technology Stack
+
+### Frontend
+- **Next.js 14.2.35** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Advanced animations
+- **Lucide React** - Icon library
+
+### Build & Development
+- **Turbopack** - Fast bundler for development
+- **ESLint** - Code quality and consistency
+- **PostCSS** - CSS processing
+
+### Progressive Web App
+- **next-pwa** - Service worker and offline support
+- **Workbox** - Advanced caching strategies
+
+## ✨ Key Features
+
+### Artist Services
+- Complete artist services guide (11 categories, 100+ services)
+- Transparent 50/50 revenue split
+- 11% management fee (vs 15-20% industry standard)
+- Artist-owned masters policy
+
+### Website Features
+- Artist profiles and discographies
+- Release catalog with streaming links
+- News and content management
+- Artist portal with tools
+- Services guide
+- Tour information
+- PWA with offline support
+- Mobile-responsive design
+
+## 🎨 Artists
+
+### Alki
+- **Real Name**: Alkiviadis Halkiotis
+- **Genre**: Punk, Pop, Rap, Alternative
+- **Stats**: 46K+ monthly listeners, 6M+ streams
+- **Releases**: 13 singles and EPs
+
+### Pardyalone
+- **Real Name**: Kalvin Tyler Beal
+- **Genre**: Alternative Hip-Hop, Emo Rap, Indie, Pop
+- **Stats**: 436K+ monthly listeners, 62M+ streams
+- **Releases**: 14 singles and albums
+
+## 📦 Available Scripts
+
 ```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
+npm run dev          # Start development server with Turbopack
+npm run build        # Create production build
+npm start            # Start production server
 npm run lint         # Run ESLint
-npm run type-check   # Run TypeScript compiler
-npm test             # Run tests
 ```
 
-📖 **Full instructions:** [Developer Guide](./DEVELOPER_GUIDE.md)
+## 🌐 Deployment
 
----
+The site is configured for Cloudflare Pages deployment:
 
-## 🚀 DEPLOYMENT
+- **Build Command**: `npm run build`
+- **Output Directory**: `.next`
+- **Node Version**: 18+
 
-### Automatic Deployment
-Every push to the `main` branch automatically deploys to production via GitHub Actions.
+See [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md) for detailed instructions.
 
-### Manual Deployment
-```bash
-git add .
-git commit -m "Your changes"
-git push origin main
-```
+## 📱 Mobile App
 
-### Rollback
-```bash
-# Via Cloudflare Dashboard
-# Pages → Deployments → Rollback
+Planning for iOS app development is documented in [Apple App Conversion Guide](./docs/APPLE_APP_CONVERSION.md).
 
-# Or via Git
-git revert HEAD
-git push origin main
-```
+### Recommended Approach
+1. **Phase 1**: Capacitor conversion (4-8 weeks, $15K-$40K)
+2. **Phase 2**: React Native rebuild (3-6 months, $50K-$150K)
 
-📖 **Full instructions:** [Deployment Guide](./DEPLOYMENT_GUIDE.md)
+## 🤝 Contributing
 
----
+This is a proprietary project for HLPFL Records. For internal development:
 
-## 🔍 TROUBLESHOOTING
-
-### Common Issues
-
-**Changes not showing?**
-- Clear browser cache (Cmd+Shift+R)
-- Check GitHub Actions status
-- Wait 2-3 minutes for deployment
-
-**Build failing?**
-- Validate JSON syntax
-- Check for TypeScript errors
-- Verify all files committed
-
-**Images not loading?**
-- Check file paths
-- Verify file exists
-- Ensure correct case
-
-📖 **Full solutions:** [Troubleshooting Guide](./TROUBLESHOOTING_GUIDE.md)
-
----
-
-## 📞 SUPPORT
-
-### Getting Help
-1. Check relevant guide for your issue
-2. Review [Troubleshooting Guide](./TROUBLESHOOTING_GUIDE.md)
-3. Search GitHub Issues
-4. Contact team for support
-
-### Reporting Issues
-When reporting issues, include:
-- Browser and version
-- Steps to reproduce
-- Expected vs actual behavior
-- Screenshots or error messages
-- Console logs
-
----
-
-## 📝 CONTRIBUTING
-
-### Making Changes
-1. Create a feature branch
+1. Create feature branch from `main`
 2. Make your changes
-3. Test thoroughly
-4. Submit pull request
-5. Wait for review
+3. Build and test locally
+4. Submit pull request for review
+5. Merge after approval
 
-### Code Standards
-- Follow TypeScript best practices
-- Use Tailwind CSS for styling
-- Write tests for new features
-- Document new components
-- Maintain accessibility
+## 📄 License
 
-📖 **Full guidelines:** [Developer Guide - Best Practices](./DEVELOPER_GUIDE.md#best-practices)
+Proprietary - HLPFL Records © 2026
 
----
+## 📧 Contact
 
-## 📄 LICENSE
+- **Website**: [hlpfl.org](https://hlpfl.org)
+- **Email**: contact@hlpfl.org
+- **GitHub**: [HLPFLCG/hlpflrecords](https://github.com/HLPFLCG/hlpflrecords)
 
-Copyright © 2024 HLPFL Records. All rights reserved.
+## 🎯 Core Values
 
----
+### Transparency
+No hidden fees, no mysterious deductions. Real-time dashboards showing every stream, every sale, every dollar.
 
-## 🎉 CONCLUSION
+### Fairness
+50/50 revenue split and 11% management fee aren't gimmicks—they're how we believe the industry should work.
 
-This documentation suite provides everything needed to work with the HLPFL Records website. Each guide is comprehensive and includes practical examples.
+### Advocacy
+We fight for artists because it's the right thing to do.
 
-### Documentation Structure
-```
-📚 Documentation Suite
-├── 📘 Complete Site Guide (Overview)
-├── ✏️ Editing Guide (Content Management)
-├── 🥚 Easter Eggs Guide (Hidden Features)
-├── 📊 Analytics Guide (Data Tracking)
-├── 💻 Developer Guide (Technical)
-├── 🚀 Deployment Guide (Hosting)
-├── 🔧 Troubleshooting Guide (Problem Solving)
-└── 📚 API Reference (Code Documentation)
-```
+### Education
+An educated artist is an empowered artist. We want you to understand everything about your career.
 
-### Quick Reference Card
-
-| Task | Guide | Section |
-|------|-------|---------|
-| Add release | Editing Guide | Adding New Releases |
-| Update team | Editing Guide | Managing Team Members |
-| Deploy changes | Deployment Guide | Deployment Process |
-| Fix issues | Troubleshooting Guide | Relevant section |
-| Build feature | Developer Guide | Component Development |
-| Track analytics | Analytics Guide | Event Tracking |
-| Manage Easter eggs | Easter Eggs Guide | All sections |
-| Use components | API Reference | Components API |
+### Flexibility
+Take what you need, leave what you don't. No bundled deals designed to lock you in.
 
 ---
 
-**Last Updated:** 2024  
-**Version:** 2.0.0  
-**Total Documentation:** 8 comprehensive guides  
-**Total Pages:** 500+ pages of documentation  
-**Status:** Production Ready ✅
-
----
-
-## 🌟 HIGHLIGHTS
-
-### What Makes This Documentation Special
-- ✅ **Comprehensive:** Covers every aspect of the site
-- ✅ **Practical:** Includes real examples and code snippets
-- ✅ **Organized:** Clear structure and navigation
-- ✅ **Searchable:** Easy to find what you need
-- ✅ **Up-to-date:** Reflects current implementation
-- ✅ **Accessible:** Written for all skill levels
-- ✅ **Complete:** Nothing left undocumented
-
-### Documentation Stats
-- **Total Guides:** 8
-- **Total Sections:** 80+
-- **Code Examples:** 200+
-- **Troubleshooting Solutions:** 50+
-- **API Endpoints:** 100+
-- **Component Docs:** 17
-- **Hook Docs:** 5
-- **Utility Docs:** 7
-
----
-
-**Happy Building! 🚀**
-
-For questions or support, refer to the appropriate guide or contact the HLPFL Records team.
+**Built with ❤️ for artists, by HLPFL Records**
