@@ -1,29 +1,49 @@
 /**
  * Database Connection Utilities
  *
- * This file provides utilities for connecting to Supabase (PostgreSQL)
- * and Cloudflare D1 (SQLite) databases.
+ * This file provides utilities for connecting to Cloudflare D1 (SQLite) database.
+ * Supabase support is optional and requires @supabase/supabase-js to be installed.
  */
 
-import { createClient } from '@supabase/supabase-js';
+// Type-safe database client (will be bound by Cloudflare Workers/Pages)
+export type D1Database = {
+  prepare: (query: string) => D1PreparedStatement;
+  dump: () => Promise<ArrayBuffer>;
+  batch: <T = unknown>(statements: D1PreparedStatement[]) => Promise<T[]>;
+  exec: (query: string) => Promise<D1ExecResult>;
+};
 
-// Supabase Configuration
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+export type D1PreparedStatement = {
+  bind: (...values: unknown[]) => D1PreparedStatement;
+  first: <T = unknown>(colName?: string) => Promise<T | null>;
+  run: () => Promise<D1Result>;
+  all: <T = unknown>() => Promise<D1Result<T>>;
+  raw: <T = unknown>() => Promise<T[]>;
+};
+
+export type D1Result<T = unknown> = {
+  results: T[];
+  success: boolean;
+  meta: {
+    duration: number;
+    rows_read: number;
+    rows_written: number;
+  };
+};
+
+export type D1ExecResult = {
+  count: number;
+  duration: number;
+};
 
 /**
- * Public Supabase Client (Client-side)
- * Use this for public operations that don't require elevated privileges
+ * Supabase Client (Optional - requires @supabase/supabase-js package)
+ * Uncomment and install the package if you want to use Supabase
  */
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
-/**
- * Admin Supabase Client (Server-side only)
- * Use this for admin operations that require service role privileges
- * NEVER expose this on the client side
- */
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+// import { createClient } from '@supabase/supabase-js';
+// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+// const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 /**
  * Database Query Helpers
@@ -78,18 +98,19 @@ export interface AnalyticsStream {
 }
 
 /**
- * Get profile by ID
+ * Cloudflare D1 Database Helper Functions
+ * These functions work with the D1 database bound in wrangler.toml
  */
-export async function getProfile(userId: string): Promise<Profile | null> {
-  try {
-    const { data, error } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', userId)
-      .single();
 
-    if (error) throw error;
-    return data;
+/**
+ * Get profile by ID (D1 version)
+ * Usage: await getProfile(db, userId)
+ */
+export async function getProfile(db: D1Database, userId: string): Promise<Profile | null> {
+  try {
+    const stmt = db.prepare('SELECT * FROM profiles WHERE id = ?').bind(userId);
+    const result = await stmt.first<Profile>();
+    return result;
   } catch (error) {
     console.error('Error fetching profile:', error);
     return null;
@@ -97,18 +118,13 @@ export async function getProfile(userId: string): Promise<Profile | null> {
 }
 
 /**
- * Get profile by email
+ * Get profile by email (D1 version)
  */
-export async function getProfileByEmail(email: string): Promise<Profile | null> {
+export async function getProfileByEmail(db: D1Database, email: string): Promise<Profile | null> {
   try {
-    const { data, error } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('email', email)
-      .single();
-
-    if (error) throw error;
-    return data;
+    const stmt = db.prepare('SELECT * FROM profiles WHERE email = ?').bind(email);
+    const result = await stmt.first<Profile>();
+    return result;
   } catch (error) {
     console.error('Error fetching profile by email:', error);
     return null;
@@ -116,18 +132,15 @@ export async function getProfileByEmail(email: string): Promise<Profile | null> 
 }
 
 /**
- * Get releases for an artist
+ * Get releases for an artist (D1 version)
  */
-export async function getArtistReleases(artistId: string): Promise<Release[]> {
+export async function getArtistReleases(db: D1Database, artistId: string): Promise<Release[]> {
   try {
-    const { data, error } = await supabase
-      .from('releases')
-      .select('*')
-      .eq('artist_id', artistId)
-      .order('release_date', { ascending: false });
-
-    if (error) throw error;
-    return data || [];
+    const stmt = db.prepare(
+      'SELECT * FROM releases WHERE artist_id = ? ORDER BY release_date DESC'
+    ).bind(artistId);
+    const result = await stmt.all<Release>();
+    return result.results || [];
   } catch (error) {
     console.error('Error fetching releases:', error);
     return [];
@@ -135,30 +148,32 @@ export async function getArtistReleases(artistId: string): Promise<Release[]> {
 }
 
 /**
- * Get analytics for an artist
+ * Get analytics for an artist (D1 version)
  */
 export async function getArtistAnalytics(
+  db: D1Database,
   artistId: string,
   startDate?: string,
   endDate?: string
 ): Promise<AnalyticsStream[]> {
   try {
-    let query = supabase
-      .from('analytics_streams')
-      .select('*')
-      .eq('artist_id', artistId);
+    let query = 'SELECT * FROM analytics_streams WHERE artist_id = ?';
+    const bindings: unknown[] = [artistId];
 
     if (startDate) {
-      query = query.gte('date', startDate);
+      query += ' AND date >= ?';
+      bindings.push(startDate);
     }
     if (endDate) {
-      query = query.lte('date', endDate);
+      query += ' AND date <= ?';
+      bindings.push(endDate);
     }
 
-    const { data, error } = await query.order('date', { ascending: false });
+    query += ' ORDER BY date DESC';
 
-    if (error) throw error;
-    return data || [];
+    const stmt = db.prepare(query).bind(...bindings);
+    const result = await stmt.all<AnalyticsStream>();
+    return result.results || [];
   } catch (error) {
     console.error('Error fetching analytics:', error);
     return [];
@@ -166,18 +181,25 @@ export async function getArtistAnalytics(
 }
 
 /**
- * Create or update profile
+ * Create or update profile (D1 version)
  */
-export async function upsertProfile(profile: Partial<Profile>): Promise<Profile | null> {
+export async function upsertProfile(db: D1Database, profile: Partial<Profile>): Promise<Profile | null> {
   try {
-    const { data, error } = await supabaseAdmin
-      .from('profiles')
-      .upsert(profile)
-      .select()
-      .single();
+    const fields = Object.keys(profile);
+    const values = Object.values(profile);
+    const placeholders = fields.map(() => '?').join(', ');
+    const updates = fields.map(f => `${f} = excluded.${f}`).join(', ');
 
-    if (error) throw error;
-    return data;
+    const query = `
+      INSERT INTO profiles (${fields.join(', ')})
+      VALUES (${placeholders})
+      ON CONFLICT(id) DO UPDATE SET ${updates}
+      RETURNING *
+    `;
+
+    const stmt = db.prepare(query).bind(...values);
+    const result = await stmt.first<Profile>();
+    return result;
   } catch (error) {
     console.error('Error upserting profile:', error);
     return null;
@@ -185,16 +207,13 @@ export async function upsertProfile(profile: Partial<Profile>): Promise<Profile 
 }
 
 /**
- * Check if database is connected
+ * Check if database is connected (D1 version)
  */
-export async function isDatabaseConnected(): Promise<boolean> {
+export async function isDatabaseConnected(db: D1Database): Promise<boolean> {
   try {
-    const { error } = await supabase
-      .from('profiles')
-      .select('id')
-      .limit(1);
-
-    return !error;
+    const stmt = db.prepare('SELECT 1 as test LIMIT 1');
+    await stmt.first();
+    return true;
   } catch (error) {
     console.error('Database connection check failed:', error);
     return false;
@@ -205,11 +224,11 @@ export async function isDatabaseConnected(): Promise<boolean> {
  * Initialize database connection
  * Call this on app startup to verify connectivity
  */
-export async function initializeDatabase(): Promise<{
+export async function initializeDatabase(db: D1Database): Promise<{
   connected: boolean;
   message: string;
 }> {
-  const connected = await isDatabaseConnected();
+  const connected = await isDatabaseConnected(db);
 
   if (connected) {
     return {
@@ -219,14 +238,12 @@ export async function initializeDatabase(): Promise<{
   } else {
     return {
       connected: false,
-      message: 'Database connection failed. Check environment variables.',
+      message: 'Database connection failed. Check Cloudflare D1 configuration.',
     };
   }
 }
 
 export default {
-  supabase,
-  supabaseAdmin,
   getProfile,
   getProfileByEmail,
   getArtistReleases,
