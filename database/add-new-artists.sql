@@ -1,7 +1,8 @@
--- Add new artists to the database
--- Fill in the artist names and other details from Spotify
+-- Add new HLPFL artists to the database
+-- Artist profiles for Writ3rs Block and Adam Rodway
 
--- Artist 1: https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG
+-- Artist 1: Writ3rs Block
+-- Spotify: https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG
 INSERT INTO profiles (
   id,
   email,
@@ -15,20 +16,21 @@ INSERT INTO profiles (
   created_at,
   updated_at
 ) VALUES (
-  'artist-new-001',
-  'artist1@hlpfl.org', -- Update with actual email
+  'artist-writ3rsblock-001',
+  'writ3rsblockmusic@gmail.com',
   'artist',
-  'Artist Name 1', -- REPLACE: Get artist name from Spotify
-  'https://i.scdn.co/image/XXXXX', -- REPLACE: Get profile image URL from Spotify
+  'Writ3rs Block',
+  NULL, -- Add profile image URL from Spotify: Right-click artist image > Copy image address
   'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
-  NULL, -- Add Instagram URL if available
-  NULL, -- Add Twitter URL if available
-  'Bio for artist 1', -- REPLACE: Add artist bio
+  'https://www.instagram.com/writ3rsblockmusic/',
+  NULL,
+  'HLPFL Records artist bringing innovative sounds and creative vision.',
   datetime('now'),
   datetime('now')
 );
 
--- Artist 2: https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5
+-- Artist 2: Adam Rodway
+-- Spotify: https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5
 INSERT INTO profiles (
   id,
   email,
@@ -42,24 +44,57 @@ INSERT INTO profiles (
   created_at,
   updated_at
 ) VALUES (
-  'artist-new-002',
-  'artist2@hlpfl.org', -- Update with actual email
+  'artist-adamrodway-001',
+  'adamrodway@hlpfl.org', -- Update with actual email if provided
   'artist',
-  'Artist Name 2', -- REPLACE: Get artist name from Spotify
-  'https://i.scdn.co/image/XXXXX', -- REPLACE: Get profile image URL from Spotify
+  'Adam Rodway',
+  NULL, -- Add profile image URL from Spotify: Right-click artist image > Copy image address
   'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
-  NULL, -- Add Instagram URL if available
-  NULL, -- Add Twitter URL if available
-  'Bio for artist 2', -- REPLACE: Add artist bio
+  'https://www.instagram.com/adam.rodway/',
+  NULL,
+  'HLPFL Records artist creating unique musical experiences.',
   datetime('now'),
   datetime('now')
 );
 
--- Note: To get artist details from Spotify:
--- 1. Open each Spotify URL in your browser
--- 2. Get the artist name from the page title
--- 3. Right-click the artist profile image and copy the image URL
--- 4. Copy any bio/description text
--- 5. Update the SQL statements above with the real data
--- 6. Run this SQL file against your D1 database:
---    wrangler d1 execute hlpfl-artist-portal --file=./database/add-new-artists.sql
+-- Optional: Add sample analytics data for new artists
+-- Uncomment and customize as needed
+
+-- Writ3rs Block Analytics
+-- INSERT INTO analytics_streams (id, artist_id, release_id, platform, date, streams, listeners, created_at)
+-- VALUES
+--   (lower(hex(randomblob(16))), 'artist-writ3rsblock-001', NULL, 'Spotify', date('now', '-7 days'), 1250, 980, datetime('now')),
+--   (lower(hex(randomblob(16))), 'artist-writ3rsblock-001', NULL, 'Apple Music', date('now', '-7 days'), 450, 320, datetime('now'));
+
+-- Adam Rodway Analytics
+-- INSERT INTO analytics_streams (id, artist_id, release_id, platform, date, streams, listeners, created_at)
+-- VALUES
+--   (lower(hex(randomblob(16))), 'artist-adamrodway-001', NULL, 'Spotify', date('now', '-7 days'), 890, 670, datetime('now')),
+--   (lower(hex(randomblob(16))), 'artist-adamrodway-001', NULL, 'Apple Music', date('now', '-7 days'), 320, 240, datetime('now'));
+
+-- ============================================================================
+-- INSTRUCTIONS TO COMPLETE SETUP:
+-- ============================================================================
+--
+-- 1. GET PROFILE IMAGES:
+--    - Open each artist's Spotify page in your browser
+--    - Right-click on their profile image
+--    - Select "Copy image address" or "Copy image URL"
+--    - Update the avatar_url fields above with the copied URLs
+--
+-- 2. RUN THIS SQL FILE:
+--    Local database:
+--      wrangler d1 execute hlpfl-artist-portal --local --file=./database/add-new-artists.sql
+--
+--    Production database:
+--      wrangler d1 execute hlpfl-artist-portal --file=./database/add-new-artists.sql
+--
+-- 3. ADD RELEASES (Optional):
+--    You can add their releases using the dashboard at /dashboard/releases
+--    or by creating additional SQL INSERT statements
+--
+-- 4. VERIFY:
+--    Check the artists appear in your dashboard at /dashboard
+--    View their profiles to ensure all data is correct
+--
+-- ============================================================================
