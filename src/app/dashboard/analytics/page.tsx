@@ -100,81 +100,162 @@ export default function AnalyticsDashboard() {
 
   const totals = analyticsData?.totals || { total_streams: 0, total_listeners: 0, total_saves: 0, total_shares: 0 }
 
+  // Format numbers for display
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}K`
+    return num.toString()
+  }
+
+  // Calculate engagement rate
+  const engagementRate = totals.total_streams > 0
+    ? ((totals.total_saves + totals.total_shares) / totals.total_streams * 100).toFixed(1)
+    : '0.0'
+
   const topLevelStats = [
     {
       label: 'Total Streams',
-      value: '2.4M',
-      change: '+23.5%',
+      value: formatNumber(totals.total_streams),
+      change: '+23.5%', // Would need historical data to calculate
       positive: true,
       icon: Play,
       color: 'from-green-500 to-green-600'
     },
     {
       label: 'Monthly Listeners',
-      value: '124.5K',
-      change: '+12.3%',
+      value: formatNumber(totals.total_listeners),
+      change: '+12.3%', // Would need historical data to calculate
       positive: true,
       icon: Users,
       color: 'from-blue-500 to-blue-600'
     },
     {
-      label: 'Total Revenue',
-      value: '$12,450',
-      change: '+18.2%',
+      label: 'Total Saves',
+      value: formatNumber(totals.total_saves),
+      change: '+18.2%', // Would need historical data to calculate
       positive: true,
-      icon: DollarSign,
+      icon: Download,
       color: 'from-gold to-gold-dark'
     },
     {
       label: 'Engagement Rate',
-      value: '8.2%',
-      change: '-2.1%',
+      value: `${engagementRate}%`,
+      change: '-2.1%', // Would need historical data to calculate
       positive: false,
       icon: Heart,
       color: 'from-pink-500 to-pink-600'
     }
   ]
 
-  const platformBreakdown = [
-    { platform: 'Spotify', streams: '1.2M', percentage: 50, color: 'bg-green-500' },
-    { platform: 'Apple Music', streams: '480K', percentage: 20, color: 'bg-pink-500' },
-    { platform: 'YouTube Music', streams: '360K', percentage: 15, color: 'bg-red-500' },
-    { platform: 'Amazon Music', streams: '240K', percentage: 10, color: 'bg-blue-500' },
-    { platform: 'Other', streams: '120K', percentage: 5, color: 'bg-gray-500' }
-  ]
+  // Group streams by platform from API data
+  const streamsByPlatform = (analyticsData?.streams || []).reduce((acc: any, stream: any) => {
+    const platform = stream.platform || 'Other'
+    if (!acc[platform]) acc[platform] = 0
+    acc[platform] += stream.streams || 0
+    return acc
+  }, {})
 
-  const topTracks = [
-    { title: 'Midnight Dreams', streams: '456K', trend: '+12%', positive: true },
-    { title: 'Switched Up', streams: '3.2M', trend: '+5%', positive: true },
-    { title: 'Too Much', streams: '1.1M', trend: '-3%', positive: false },
-    { title: 'Deceiving', streams: '810K', trend: '+8%', positive: true },
-    { title: 'Planes', streams: '400K', trend: '+15%', positive: true }
-  ]
+  const totalPlatformStreams = Object.values(streamsByPlatform).reduce((sum: number, val: any) => sum + val, 0)
 
-  const geographicData = [
-    { country: 'United States', listeners: '45.2K', percentage: 36 },
-    { country: 'United Kingdom', listeners: '18.7K', percentage: 15 },
-    { country: 'Canada', listeners: '12.4K', percentage: 10 },
-    { country: 'Australia', listeners: '9.3K', percentage: 7 },
-    { country: 'Germany', listeners: '8.1K', percentage: 6 },
-    { country: 'Other', listeners: '30.8K', percentage: 26 }
-  ]
+  const platformColors: any = {
+    'Spotify': 'bg-green-500',
+    'Apple Music': 'bg-pink-500',
+    'YouTube Music': 'bg-red-500',
+    'Amazon Music': 'bg-blue-500',
+    'Other': 'bg-gray-500'
+  }
 
-  const demographics = [
-    { age: '18-24', percentage: 32, male: 18, female: 14 },
-    { age: '25-34', percentage: 28, male: 15, female: 13 },
-    { age: '35-44', percentage: 20, male: 11, female: 9 },
-    { age: '45-54', percentage: 12, male: 6, female: 6 },
-    { age: '55+', percentage: 8, male: 4, female: 4 }
-  ]
+  const platformBreakdown = Object.entries(streamsByPlatform).map(([platform, streams]: [string, any]) => ({
+    platform,
+    streams: formatNumber(streams),
+    percentage: totalPlatformStreams > 0 ? Math.round((streams / totalPlatformStreams) * 100) : 0,
+    color: platformColors[platform] || 'bg-gray-500'
+  })).sort((a, b) => b.percentage - a.percentage)
 
-  // Simulated chart data - In production, this would be real data
-  const streamsByDay = Array.from({ length: 30 }, (_, i) => ({
-    day: i + 1,
-    streams: Math.floor(Math.random() * 50000) + 30000
-  }))
+  // Top tracks from API data (grouped by release/track)
+  const trackStreams = (analyticsData?.streams || []).reduce((acc: any, stream: any) => {
+    const releaseId = stream.release_id || 'unknown'
+    if (!acc[releaseId]) {
+      acc[releaseId] = { releaseId, streams: 0, title: stream.release_title || 'Unknown Track' }
+    }
+    acc[releaseId].streams += stream.streams || 0
+    return acc
+  }, {})
 
-  const maxStreams = Math.max(...streamsByDay.map(d => d.streams))
+  const topTracks = Object.values(trackStreams)
+    .sort((a: any, b: any) => b.streams - a.streams)
+    .slice(0, 5)
+    .map((track: any) => ({
+      title: track.title,
+      streams: formatNumber(track.streams),
+      trend: '+0%', // Would need historical data
+      positive: true
+    }))
+
+  // Group demographics by country
+  const countryCounts = (analyticsData?.demographics || [])
+    .filter((d: any) => d.country)
+    .reduce((acc: any, demo: any) => {
+      if (!acc[demo.country]) acc[demo.country] = 0
+      acc[demo.country] += demo.listener_count || 0
+      return acc
+    }, {})
+
+  const totalCountryListeners = Object.values(countryCounts).reduce((sum: number, val: any) => sum + val, 0)
+
+  const geographicData = Object.entries(countryCounts)
+    .map(([country, listeners]: [string, any]) => ({
+      country,
+      listeners: formatNumber(listeners),
+      percentage: totalCountryListeners > 0 ? Math.round((listeners / totalCountryListeners) * 100) : 0
+    }))
+    .sort((a, b) => b.percentage - a.percentage)
+    .slice(0, 6)
+
+  // Group demographics by age and gender
+  const ageGroups = (analyticsData?.demographics || [])
+    .filter((d: any) => d.age_range)
+    .reduce((acc: any, demo: any) => {
+      const age = demo.age_range
+      if (!acc[age]) acc[age] = { age, male: 0, female: 0, total: 0 }
+      const count = demo.listener_count || 0
+      if (demo.gender === 'male') acc[age].male += count
+      if (demo.gender === 'female') acc[age].female += count
+      acc[age].total += count
+      return acc
+    }, {})
+
+  const totalDemoListeners = Object.values(ageGroups).reduce((sum: number, group: any) => sum + group.total, 0)
+
+  const demographics = Object.entries(ageGroups)
+    .map(([age, data]: [string, any]) => ({
+      age,
+      percentage: totalDemoListeners > 0 ? Math.round((data.total / totalDemoListeners) * 100) : 0,
+      male: totalDemoListeners > 0 ? Math.round((data.male / totalDemoListeners) * 100) : 0,
+      female: totalDemoListeners > 0 ? Math.round((data.female / totalDemoListeners) * 100) : 0
+    }))
+    .sort((a, b) => {
+      const ageOrder = ['18-24', '25-34', '35-44', '45-54', '55+']
+      return ageOrder.indexOf(a.age) - ageOrder.indexOf(b.age)
+    })
+
+  // Group streams by date for chart
+  const streamsByDate = (analyticsData?.streams || []).reduce((acc: any, stream: any) => {
+    const date = stream.date || new Date().toISOString().split('T')[0]
+    if (!acc[date]) acc[date] = 0
+    acc[date] += stream.streams || 0
+    return acc
+  }, {})
+
+  const streamsByDay = Object.entries(streamsByDate)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([date, streams], index) => ({
+      day: index + 1,
+      streams: streams as number,
+      date
+    }))
+
+  const maxStreams = streamsByDay.length > 0 ? Math.max(...streamsByDay.map(d => d.streams)) : 1
 
   return (
     <div className="space-y-6">
@@ -415,8 +496,8 @@ export default function AnalyticsDashboard() {
               <Eye className="w-5 h-5 text-purple-400" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Profile Views</p>
-              <p className="text-2xl font-bold text-white">34.2K</p>
+              <p className="text-gray-400 text-sm">Total Listeners</p>
+              <p className="text-2xl font-bold text-white">{formatNumber(totals.total_listeners)}</p>
             </div>
           </div>
           <div className="flex items-center space-x-2 text-green-400 text-sm">
@@ -432,7 +513,7 @@ export default function AnalyticsDashboard() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Saves</p>
-              <p className="text-2xl font-bold text-white">12.8K</p>
+              <p className="text-2xl font-bold text-white">{formatNumber(totals.total_saves)}</p>
             </div>
           </div>
           <div className="flex items-center space-x-2 text-green-400 text-sm">
@@ -448,7 +529,7 @@ export default function AnalyticsDashboard() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Shares</p>
-              <p className="text-2xl font-bold text-white">5.4K</p>
+              <p className="text-2xl font-bold text-white">{formatNumber(totals.total_shares)}</p>
             </div>
           </div>
           <div className="flex items-center space-x-2 text-red-400 text-sm">
