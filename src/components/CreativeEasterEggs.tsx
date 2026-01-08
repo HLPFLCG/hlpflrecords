@@ -161,52 +161,97 @@ const CreativeEasterEggs: React.FC = () => {
     setTimeout(() => setCanTrigger(true), 5000); // 5 second cooldown
   }, []);
 
-  // 1. KONAMI CODE: ↑↑↓↓←→←→BA
+  // 1. ENHANCED KONAMI CODE: ↑↑↓↓←→←→BA + SHIFT (must complete within 10 seconds)
   useEffect(() => {
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     let konamiIndex = 0;
+    let konamiTimer: NodeJS.Timeout | null = null;
+    let shiftPressed = false;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!canTrigger) return;
 
-      // Fixed: Compare keys directly (not lowercased)
-      if (e.key === konamiCode[konamiIndex]) {
+      // Track shift key
+      if (e.key === 'Shift') {
+        shiftPressed = true;
+        return;
+      }
+
+      // Start timer on first key
+      if (konamiIndex === 0) {
+        if (konamiTimer) clearTimeout(konamiTimer);
+        konamiTimer = setTimeout(() => {
+          konamiIndex = 0;
+        }, 10000); // 10 second window
+      }
+
+      // Check if key matches and shift is pressed
+      if (e.key === konamiCode[konamiIndex] && shiftPressed) {
         konamiIndex++;
         if (konamiIndex === konamiCode.length) {
           discoverTrack('5d');
           triggerCooldown();
           konamiIndex = 0;
+          if (konamiTimer) clearTimeout(konamiTimer);
         }
+      } else if (e.key === konamiCode[konamiIndex]) {
+        // Right key but no shift - reset
+        konamiIndex = 0;
+        if (konamiTimer) clearTimeout(konamiTimer);
       } else {
         konamiIndex = 0;
+        if (konamiTimer) clearTimeout(konamiTimer);
       }
     };
 
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key === 'Shift') shiftPressed = false;
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+      if (konamiTimer) clearTimeout(konamiTimer);
+    };
   }, [canTrigger, discoverTrack, triggerCooldown]);
 
-  // 2. CLICK PATTERN: Click logo 7 times in 3 seconds
+  // 2. ENHANCED CLICK PATTERN: Triple-click logo exactly 3 times (with 1-2 second gaps between triple-clicks)
   useEffect(() => {
-    let clicks = 0;
+    let tripleClickCount = 0;
+    let lastTripleClickTime = 0;
     let clickTimer: NodeJS.Timeout | null = null;
 
     const handleLogoClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target.closest('[data-logo]') || !canTrigger) return;
 
-      clicks++;
-      
-      if (clickTimer) clearTimeout(clickTimer);
-      
-      if (clicks >= 7) {
-        discoverTrack('home');
-        triggerCooldown();
-        clicks = 0;
-      } else {
-        clickTimer = setTimeout(() => {
-          clicks = 0;
-        }, 3000);
+      // Detect triple click (3 rapid clicks)
+      if (e.detail === 3) {
+        const now = Date.now();
+        const timeSinceLastTriple = now - lastTripleClickTime;
+
+        // Must be between 1-2.5 seconds since last triple-click
+        if (tripleClickCount === 0 || (timeSinceLastTriple >= 1000 && timeSinceLastTriple <= 2500)) {
+          tripleClickCount++;
+          lastTripleClickTime = now;
+
+          if (tripleClickCount >= 3) {
+            discoverTrack('home');
+            triggerCooldown();
+            tripleClickCount = 0;
+          } else {
+            // Reset if no triple-click within 3 seconds
+            if (clickTimer) clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => {
+              tripleClickCount = 0;
+            }, 3000);
+          }
+        } else {
+          // Wrong timing, reset
+          tripleClickCount = 0;
+        }
       }
     };
 
@@ -217,29 +262,45 @@ const CreativeEasterEggs: React.FC = () => {
     };
   }, [canTrigger, discoverTrack, triggerCooldown]);
 
-  // 3. SCROLL DEPTH: Scroll to exactly 77.7% of page
+  // 3. ADVANCED SCROLL PATTERN: Scroll down to 66.6%, then up to 33.3%, then down to 88.8% within 15 seconds
   useEffect(() => {
-    let scrollTriggered = false;
-    
+    let scrollStage = 0;
+    let scrollTimer: NodeJS.Timeout | null = null;
+    const targetScrolls = [66.6, 33.3, 88.8];
+    const tolerance = 1.5; // ±1.5%
+
     const handleScroll = () => {
-      if (!canTrigger || scrollTriggered) return;
-      
+      if (!canTrigger) return;
+
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      
-      if (scrollPercent >= 77.5 && scrollPercent <= 78.0) {
-        console.log('🎯 Scroll depth trigger activated at:', scrollPercent.toFixed(1) + '%');
-        discoverTrack('regrets');
-        triggerCooldown();
-        
-        // Reset after cooldown period
-        setTimeout(() => {
-          scrollTriggered = false;
-        }, 5000);
+      const targetScroll = targetScrolls[scrollStage];
+
+      // Check if we hit the current target scroll depth
+      if (Math.abs(scrollPercent - targetScroll) <= tolerance) {
+        scrollStage++;
+
+        // Start timer on first hit
+        if (scrollStage === 1) {
+          scrollTimer = setTimeout(() => {
+            scrollStage = 0;
+          }, 15000); // 15 second window to complete pattern
+        }
+
+        // Complete pattern
+        if (scrollStage === 3) {
+          discoverTrack('regrets');
+          triggerCooldown();
+          scrollStage = 0;
+          if (scrollTimer) clearTimeout(scrollTimer);
+        }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimer) clearTimeout(scrollTimer);
+    };
   }, [canTrigger, discoverTrack, triggerCooldown]);
 
   // 4. TIME-BASED: Visit at 11:11 AM or PM
@@ -334,46 +395,121 @@ const CreativeEasterEggs: React.FC = () => {
     };
   }, [canTrigger, discoverTrack, triggerCooldown]);
 
-  // 6. HIDDEN TEXT: Type "hlpfl" anywhere
+  // 6. ADVANCED HIDDEN TEXT: Type "hlpfl" but each letter must be typed with ALT key held
   useEffect(() => {
     let typedText = '';
     const secretWord = 'hlpfl';
+    let altPressed = false;
 
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (!canTrigger) return;
-      typedText += e.key.toLowerCase();
-      
-      if (typedText.length > secretWord.length) {
-        typedText = typedText.slice(-secretWord.length);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Alt') {
+        altPressed = true;
+        return;
       }
 
-      if (typedText === secretWord) {
-        // Select a random track from all 11 tracks
-        const randomTrack = SECRET_TRACKS[Math.floor(Math.random() * SECRET_TRACKS.length)];
-        discoverTrack(randomTrack.id);
-        triggerCooldown();
-        typedText = '';
+      if (!canTrigger || !altPressed) {
+        // Reset if typing without alt key
+        if (!altPressed && e.key.toLowerCase().match(/[a-z]/)) {
+          typedText = '';
+        }
+        return;
+      }
+
+      // Only count if alt is pressed
+      if (altPressed && e.key.toLowerCase().match(/[a-z]/)) {
+        typedText += e.key.toLowerCase();
+
+        if (typedText.length > secretWord.length) {
+          typedText = typedText.slice(-secretWord.length);
+        }
+
+        if (typedText === secretWord) {
+          // Select a random track from all 11 tracks
+          const randomTrack = SECRET_TRACKS[Math.floor(Math.random() * SECRET_TRACKS.length)];
+          discoverTrack(randomTrack.id);
+          triggerCooldown();
+          typedText = '';
+        }
       }
     };
 
-    window.addEventListener('keypress', handleKeyPress);
-    return () => window.removeEventListener('keypress', handleKeyPress);
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key === 'Alt') {
+        altPressed = false;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
   }, [canTrigger, discoverTrack, triggerCooldown]);
 
-  // 7. FOOTER EASTER EGG: Double-click footer
+  // 7. ADVANCED FOOTER EASTER EGG: Right-click footer, then left-click within 2 seconds, 3 times in a row
   useEffect(() => {
-    const handleDoubleClick = (e: MouseEvent) => {
+    let rightClickCount = 0;
+    let leftClickCount = 0;
+    let sequenceTimer: NodeJS.Timeout | null = null;
+
+    const handleContextMenu = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target.closest('footer') || !canTrigger) return;
 
-      // Select a random track from all 11 tracks
-      const randomTrack = SECRET_TRACKS[Math.floor(Math.random() * SECRET_TRACKS.length)];
-      discoverTrack(randomTrack.id);
-      triggerCooldown();
+      e.preventDefault(); // Prevent context menu
+
+      // Start sequence
+      if (leftClickCount === 0) {
+        rightClickCount++;
+
+        // Start timer
+        if (sequenceTimer) clearTimeout(sequenceTimer);
+        sequenceTimer = setTimeout(() => {
+          rightClickCount = 0;
+          leftClickCount = 0;
+        }, 2000);
+      }
     };
 
-    document.addEventListener('dblclick', handleDoubleClick);
-    return () => document.removeEventListener('dblclick', handleDoubleClick);
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('footer') || !canTrigger) return;
+
+      // Only count left clicks after a right click
+      if (rightClickCount > 0) {
+        leftClickCount++;
+
+        if (leftClickCount === 1) {
+          // Reset for next sequence
+          rightClickCount = 0;
+
+          // Start new timer
+          if (sequenceTimer) clearTimeout(sequenceTimer);
+          sequenceTimer = setTimeout(() => {
+            leftClickCount = 0;
+          }, 2000);
+        }
+      }
+
+      // Check if we've completed 3 sequences
+      if (leftClickCount >= 3) {
+        const randomTrack = SECRET_TRACKS[Math.floor(Math.random() * SECRET_TRACKS.length)];
+        discoverTrack(randomTrack.id);
+        triggerCooldown();
+        rightClickCount = 0;
+        leftClickCount = 0;
+        if (sequenceTimer) clearTimeout(sequenceTimer);
+      }
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('click', handleClick);
+      if (sequenceTimer) clearTimeout(sequenceTimer);
+    };
   }, [canTrigger, discoverTrack, triggerCooldown]);
 
   return (

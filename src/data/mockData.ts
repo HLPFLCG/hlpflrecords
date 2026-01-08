@@ -33,6 +33,19 @@ export const mockArtists: Artist[] = [
       website: 'https://pardyalone.com',
     },
   },
+  {
+    id: '3',
+    name: 'Priv',
+    slug: 'priv',
+    bio: 'Priv is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, Priv represents the next generation of independent music. As part of the HLPFL family, Priv maintains complete creative control and ownership while accessing the tools and support needed to build a sustainable music career.\n\nStay tuned for upcoming releases and performances from this exciting new talent.',
+    genre: ['Alternative', 'Indie', 'Experimental'],
+    image: '',
+    socials: {
+      spotify: '', // TODO: Add Priv's Spotify artist link
+      instagram: '',
+      twitter: '',
+    },
+  },
 ]
 
 // ========================================
