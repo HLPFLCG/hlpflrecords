@@ -19,6 +19,7 @@ export function Footer() {
       { name: 'About Us', href: '/about' },
       { name: 'Tools & Resources', href: '/artist-portal' },
       { name: 'Artists', href: '/artists' },
+      { name: 'Tours', href: '/tours' },
       { name: 'News', href: '/news' },
     ],
     legal: [

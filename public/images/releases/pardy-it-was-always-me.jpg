@@ -1,0 +1,11 @@
+<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradpardy-it-was-always-me.jpg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a2a2a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#gradpardy-it-was-always-me.jpg)"/>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#c87941" text-anchor="middle">PARDYALONE</text>
+  <text x="400" y="450" font-family="Arial, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle" opacity="0.8">IT WAS ALWAYS ME</text>
+</svg>
