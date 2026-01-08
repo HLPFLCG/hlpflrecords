@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { api } from '@/lib/api-client'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Mail,
@@ -52,76 +53,54 @@ export default function EmailPage() {
   const [showNewCampaignModal, setShowNewCampaignModal] = useState(false)
   const [selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null)
   const [activeTab, setActiveTab] = useState<'campaigns' | 'subscribers' | 'templates'>('campaigns')
+  const [emailData, setEmailData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
 
-  // Mock data
-  const campaigns: Campaign[] = [
-    {
-      id: '1',
-      name: 'New Release: Midnight Dreams',
-      subject: '🎵 Our New Single "Midnight Dreams" is Out Now!',
-      status: 'sent',
-      recipients: 45231,
-      opens: 18492,
-      clicks: 4523,
-      sentDate: new Date(2026, 0, 5)
-    },
-    {
-      id: '2',
-      name: 'Valentine\'s Day Merch Drop',
-      subject: '💝 Limited Edition Valentine\'s Merch - 24 Hours Only',
-      status: 'scheduled',
-      recipients: 45231,
-      opens: 0,
-      clicks: 0,
-      scheduledDate: new Date(2026, 1, 14)
-    },
-    {
-      id: '3',
-      name: 'Behind the Scenes: Studio Session',
-      subject: '🎬 Exclusive: See How We Made Our Latest Track',
-      status: 'sent',
-      recipients: 42850,
-      opens: 21425,
-      clicks: 8570,
-      sentDate: new Date(2025, 11, 28)
-    },
-    {
-      id: '4',
-      name: 'Tour Announcement Draft',
-      subject: '🎤 We\'re Coming to Your City!',
-      status: 'draft',
-      recipients: 0,
-      opens: 0,
-      clicks: 0
-    }
-  ]
+  const artistId = 'artist-alki-001'
 
-  const subscribers: Subscriber[] = [
-    {
-      id: '1',
-      email: 'john.doe@example.com',
-      name: 'John Doe',
-      subscribed: new Date(2025, 10, 15),
-      status: 'active',
-      tags: ['Fan', 'Merch Buyer']
-    },
-    {
-      id: '2',
-      email: 'jane.smith@example.com',
-      name: 'Jane Smith',
-      subscribed: new Date(2025, 9, 3),
-      status: 'active',
-      tags: ['Fan', 'VIP']
-    },
-    {
-      id: '3',
-      email: 'mike.johnson@example.com',
-      name: 'Mike Johnson',
-      subscribed: new Date(2025, 8, 20),
-      status: 'active',
-      tags: ['Fan']
+  useEffect(() => {
+    async function loadEmail() {
+      setLoading(true)
+      const response = await api.email.getCampaigns(artistId)
+      if (response.success && response.data) {
+        setEmailData(response.data)
+      }
+      setLoading(false)
     }
-  ]
+    loadEmail()
+  }, [artistId])
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading email campaigns...</p>
+        </div>
+      </div>
+    )
+  }
+
+  const campaigns: Campaign[] = (emailData?.campaigns || []).map((c: any) => ({
+    id: c.id,
+    name: c.name,
+    subject: c.subject,
+    status: c.status || 'draft',
+    recipients: c.recipients_count || 0,
+    opens: c.opens_count || 0,
+    clicks: c.clicks_count || 0,
+    sentDate: c.sent_date ? new Date(c.sent_date) : undefined,
+    scheduledDate: c.scheduled_date ? new Date(c.scheduled_date) : undefined
+  }))
+
+  const subscribers: Subscriber[] = (emailData?.subscribers || []).map((s: any) => ({
+    id: s.id,
+    email: s.email,
+    name: s.name || 'Unknown',
+    subscribed: new Date(s.subscribed_date),
+    status: s.status || 'active',
+    tags: s.tags ? JSON.parse(s.tags) : []
+  }))
 
   const templates = [
     {
