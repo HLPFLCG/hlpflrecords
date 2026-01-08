@@ -10,8 +10,8 @@ INSERT INTO profiles (
   artist_name,
   avatar_url,
   spotify_url,
-  instagram_url,
-  twitter_url,
+  instagram_handle,
+  twitter_handle,
   bio,
   created_at,
   updated_at
@@ -22,7 +22,7 @@ INSERT INTO profiles (
   'Writ3rs Block',
   NULL, -- Add profile image URL from Spotify: Right-click artist image > Copy image address
   'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
-  'https://www.instagram.com/writ3rsblockmusic/',
+  'writ3rsblockmusic',
   NULL,
   'HLPFL Records artist bringing innovative sounds and creative vision.',
   datetime('now'),
@@ -38,8 +38,8 @@ INSERT INTO profiles (
   artist_name,
   avatar_url,
   spotify_url,
-  instagram_url,
-  twitter_url,
+  instagram_handle,
+  twitter_handle,
   bio,
   created_at,
   updated_at
@@ -50,7 +50,7 @@ INSERT INTO profiles (
   'Adam Rodway',
   NULL, -- Add profile image URL from Spotify: Right-click artist image > Copy image address
   'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
-  'https://www.instagram.com/adam.rodway/',
+  'adam.rodway',
   NULL,
   'HLPFL Records artist creating unique musical experiences.',
   datetime('now'),
