@@ -17,6 +17,7 @@ import { AccessibilityHelper } from '@/components/accessibility/AccessibilityHel
 import { WebVitals, PerformanceMonitor as WebVitalsMonitor } from '@/components/WebVitals'
 import { ToastContainer } from '@/components/ui/Toast'
 import { MetaPixel, TikTokPixel, TwitterPixel, LinkedInInsightTag, RedditPixel, MicrosoftClarity, HotjarTracking } from '@/components/Tracking'
+import CookieConsent from '@/components/CookieConsent'
 
 // Dynamically import Chatbot with SSR disabled
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -150,7 +151,23 @@ export const metadata: Metadata = {
   verification: {
     // TODO: Replace with actual Google Search Console verification code
     // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+    // bing: 'your-bing-verification-code',
   },
+  applicationName: 'HLPFL Records',
+  referrer: 'origin-when-cross-origin',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'HLPFL Records',
+    startupImage: [
+      {
+        url: '/images/og-image.jpg',
+        media: '(device-width: 768px) and (device-height: 1024px)',
+      },
+    ],
+  },
+  category: 'Music',
   other: {
     'chatgpt-entity': 'HLPFL Records',
     'chatgpt-category': 'Music Entertainment, Record Label, Artist Management',
@@ -182,19 +199,46 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Enhanced Mobile & Viewport Optimization */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="HandheldFriendly" content="true" />
+
         {/* Resource Hints for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        
-        {/* Facebook Domain Verification */}
+        <link rel="dns-prefetch" href="https://www.facebook.com" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+
+        {/* SEO & Social Media Verification */}
         <meta name="facebook-domain-verification" content="ykymyxc54httwc9c2cdwr1dailnvir" />
-        
+        <meta name="google-site-verification" content="" />
+        <meta name="msvalidate.01" content="" />
+
+        {/* PWA Manifest & Icons */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#c87941" />
+        <meta name="msapplication-TileColor" content="#c87941" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="icon" href="/images/favicon/hlpflsymbolpnggradient.ico" />
         <link rel="apple-touch-icon" href="/images/favicon/hlpflsymbolpnggradient.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/hlpflsymbolpnggradient.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/hlpflsymbolpnggradient.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/hlpflsymbolpnggradient.png" />
+
+        {/* Additional SEO */}
+        <meta name="author" content="HLPFL Records" />
+        <meta name="copyright" content="HLPFL Records" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <link rel="canonical" href="https://hlpfl.org" />
         
         {/* Structured Data - Organization & Record Label */}
         <script
@@ -345,6 +389,7 @@ export default function RootLayout({
             </div>
           </ErrorBoundary>
         </EnhancedErrorBoundary>
+        <CookieConsent />
       </body>
     </html>
   )
