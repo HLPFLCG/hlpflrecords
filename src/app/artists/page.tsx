@@ -7,7 +7,7 @@ import { mockArtists } from '@/data/mockData'
 import { Button } from '@/components/ui/Button'
 import { CardContent, CardMedia } from '@/components/ui/Card'
 import { PremiumCard, AnimatedText } from '@/components/ui/PremiumCard'
-import { Music, Users, Play } from 'lucide-react'
+import { Music, Filter, Users, Star, Play } from 'lucide-react'
 
 export default function ArtistsPage() {
   const genres = ['All', 'Pop', 'R&B', 'Hip-Hop', 'Rock', 'Electronic', 'Jazz', 'Classical']
