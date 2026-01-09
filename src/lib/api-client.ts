@@ -3,6 +3,8 @@
  *
  * This client provides a type-safe interface for calling the Cloudflare Pages Functions API.
  * All API calls return consistent response format with success/error handling.
+ *
+ * @module api-client
  */
 
 // Response types
