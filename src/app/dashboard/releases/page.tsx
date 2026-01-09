@@ -139,7 +139,7 @@ export default function ReleasesPage() {
     totalReleases: releases.length,
     liveReleases: releases.filter(r => r.status === 'live').length,
     scheduledReleases: releases.filter(r => r.status === 'scheduled').length,
-    totalStreams: releases.reduce((sum, r) => sum + r.streams, 0)
+    totalStreams: releases.reduce((sum, r) => sum + (r.streams || 0), 0)
   }
 
   return (
