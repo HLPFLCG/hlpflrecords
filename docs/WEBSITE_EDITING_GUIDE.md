@@ -130,19 +130,18 @@ hlpflrecords/
 **Current Team:**
 - James Rockel (Founder & CEO)
 - Alki (Co-Founder & Signed Artist)
-- Noah Rank (Director of Sales)
 
 **Example:**
 ```typescript
 {
   id: '3',
-  name: 'Noah Rank',
-  role: 'Director of Sales',
+  name: 'New Team Member',
+  role: 'Role Title',
   bio: 'Team member biography...',
-  image: '/images/team/noah-rank.jpg',
+  image: '/images/team/team-member.jpg',
   socials: {
     linkedin: '#',
-    email: 'noah@hlpfl.org',
+    email: 'member@hlpfl.org',
   },
 }
 ```

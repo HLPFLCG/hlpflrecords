@@ -879,17 +879,6 @@ export const mockTeam: TeamMember[] = [
       website: 'https://alki.info',
     },
   },
-  {
-    id: '3',
-    name: 'Noah Rank',
-    role: 'Director of Sales',
-    bio: 'Leading HLPFL\'s sales strategy and business development initiatives. Noah brings expertise in music industry partnerships and revenue growth, helping artists maximize their commercial potential while maintaining creative integrity.',
-    image: '/images/team/noah-rank.webp',
-    socials: {
-      linkedin: '#',
-      email: 'noah@hlpfl.org',
-    },
-  },
 ]
 
 // ========================================
