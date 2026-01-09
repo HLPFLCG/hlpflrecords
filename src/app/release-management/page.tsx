@@ -143,7 +143,6 @@ export default function ReleaseManagementPage() {
                   <option>Select artist</option>
                   <option>Alki</option>
                   <option>James Rockel</option>
-                  <option>Noah Rank</option>
                 </select>
               </div>
 

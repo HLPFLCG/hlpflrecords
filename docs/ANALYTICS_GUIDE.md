@@ -161,8 +161,8 @@ analytics.event('streaming_click', {
 ```typescript
 // When user clicks team member
 analytics.event('team_member_click', {
-  member_id: 'noah-rank',
-  member_name: 'Noah Rank',
+  member_id: 'james-rockel',
+  member_name: 'James Rockel',
   member_role: 'Founder & CEO',
   click_location: 'team_page',
 });

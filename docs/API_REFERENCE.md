@@ -982,9 +982,9 @@ const albumSchema = generateSchema('MusicAlbum', {
 
 // Person schema
 const personSchema = generateSchema('Person', {
-  name: 'Noah Rank',
+  name: 'James Rockel',
   jobTitle: 'Founder & CEO',
-  image: 'https://hlpfl.org/team/noah.jpg',
+  image: 'https://hlpfl.org/team/james.jpg',
 });
 ```
 
