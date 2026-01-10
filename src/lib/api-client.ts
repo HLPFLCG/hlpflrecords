@@ -1,9 +1,10 @@
 /**
  * API Client for HLPFL Artist Portal
  *
- * This client provides a type-safe interface for calling the Cloudflare Pages Functions API.
- * All API calls return consistent response format with success/error handling.
+ * Provides type-safe interface for Cloudflare Pages Functions API
+ * All API calls return consistent response format with success/error handling
  *
+ * @version 2.0.0
  * @module api-client
  */
 
@@ -354,7 +355,8 @@ export const emailApi = {
 };
 
 /**
- * Export all API clients as a single object
+ * Combined API object with all endpoint clients
+ * This is the main export used by dashboard pages
  */
 export const api = {
   dashboard: dashboardApi,
