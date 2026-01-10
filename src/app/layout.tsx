@@ -36,10 +36,16 @@ export const metadata: Metadata = {
     default: 'HLPFL Records - Independent Record Label & Artist Management | Tools, Not Contracts',
     template: '%s | HLPFL Records'
   },
-  description: 'HLPFL is the independent record label and artist management platform that protects artists. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation, fair contracts. AI-powered tools for independent musicians. Better alternative to grouped.com. Artist-first management, distribution, and career-building resources.',
+  description: 'HLPFL is the independent record label and artist management platform that protects artists. Home to Alki (46K+ monthly listeners), Pardyalone (436K+ monthly listeners), and Priv. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation, fair contracts. AI-powered tools for independent musicians. Better alternative to grouped.com. Artist-first management, distribution, and career-building resources.',
   keywords: [
     'HLPFL',
     'HLPFL Records',
+    'Alki',
+    'Alki artist',
+    'Pardyalone',
+    'Pardyalone artist',
+    'Priv',
+    'Priv artist',
     'record label',
     'independent record label',
     'artist-first record label',
