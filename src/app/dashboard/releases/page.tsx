@@ -315,11 +315,11 @@ export default function ReleasesPage() {
                   <div className="flex items-center gap-4 text-sm">
                     <div className="flex items-center gap-1 text-gray-400">
                       <Play className="w-4 h-4" />
-                      {(release.streams / 1000).toFixed(0)}K
+                      {((release.streams || 0) / 1000).toFixed(0)}K
                     </div>
                     <div className="flex items-center gap-1 text-gray-400">
                       <Music className="w-4 h-4" />
-                      {release.tracks} {release.tracks === 1 ? 'track' : 'tracks'}
+                      {release.tracks || 0} {(release.tracks || 0) === 1 ? 'track' : 'tracks'}
                     </div>
                   </div>
                 )}
@@ -372,12 +372,12 @@ export default function ReleasesPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Music className="w-4 h-4" />
-                      {release.tracks} {release.tracks === 1 ? 'track' : 'tracks'}
+                      {release.tracks || 0} {(release.tracks || 0) === 1 ? 'track' : 'tracks'}
                     </div>
                     {release.status === 'live' && (
                       <div className="flex items-center gap-2">
                         <Play className="w-4 h-4" />
-                        {(release.streams / 1000).toFixed(0)}K streams
+                        {((release.streams || 0) / 1000).toFixed(0)}K streams
                       </div>
                     )}
                     {release.status === 'scheduled' && release.presaves && (
