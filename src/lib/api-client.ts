@@ -1,328 +1,77 @@
-/**
- * API Client for HLPFL Artist Portal Dashboard
- *
- * This is the COMPLETE and ONLY correct version of this file.
- * It provides ALL API endpoints needed for the dashboard pages.
- *
- * DO NOT REPLACE with chatbot code - this is for dashboard API calls.
- *
- * @version 3.0.0
- * @date 2026-01-09
- */
-
-// ============================================================================
-// TYPE DEFINITIONS
-// ============================================================================
-
-export interface ApiResponse<T = any> {
-  success: boolean;
-  data?: T;
-  error?: string;
-  details?: string;
+// API Client for HLPFL Chatbot
+interface ChatMessage {
+  message: string
+  userId: string
+  sessionId?: string
 }
 
-export interface PaginatedResponse<T = any> {
-  success: boolean;
-  data: {
-    items: T[];
-    total: number;
-    limit: number;
-    offset: number;
-  };
+interface ChatResponse {
+  response: string
+  timestamp: string
+  sessionId?: string
 }
 
-// ============================================================================
-// BASE CONFIGURATION
-// ============================================================================
+export class ChatbotAPIClient {
+  private readonly baseURL: string
+  private readonly userId: string
 
-const API_BASE_URL = typeof window !== 'undefined'
-  ? window.location.origin
-  : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8788';
+  constructor(baseURL: string = 'https://hlpfl.io') {
+    this.baseURL = baseURL
+    this.userId = this.getOrCreateUserId()
+  }
 
-// ============================================================================
-// CORE FETCH WRAPPER
-// ============================================================================
+  private getOrCreateUserId(): string {
+    if (typeof window !== 'undefined') {
+      let userId = localStorage.getItem('hlpfl_user_id')
+      if (!userId) {
+        userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+        localStorage.setItem('hlpfl_user_id', userId)
+      }
+      return userId
+    }
+    return `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+  }
 
-async function apiFetch<T>(
-  endpoint: string,
-  options?: RequestInit
-): Promise<ApiResponse<T>> {
-  try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-      ...options,
-      headers: {
-        'Content-Type': 'application/json',
-        ...options?.headers,
-      },
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      return {
-        success: false,
-        error: data.error || 'Request failed',
-        details: data.details,
-      };
+  async sendMessage(message: string, sessionId?: string): Promise<ChatResponse> {
+    const payload: ChatMessage = {
+      message,
+      userId: this.userId,
+      sessionId
     }
 
-    return data;
-  } catch (error) {
-    console.error('API fetch error:', error);
+    try {
+      const response = await fetch(`${this.baseURL}/api/chat`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'HLPFL-Chatbot/1.0'
+        },
+        body: JSON.stringify(payload)
+      })
+
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status} ${response.statusText}`)
+      }
+
+      const data: ChatResponse = await response.json()
+      return data
+    } catch (error) {
+      console.error('Chatbot API Error:', error)
+      // Fallback to local responses
+      return this.getFallbackResponse(message)
+    }
+  }
+
+  private getFallbackResponse(_message: string): ChatResponse {
+    const fallbacks = [
+      "I'm experiencing some technical difficulties, but I'm here to help! Could you try asking again?",
+      "Thanks for your message! I'm connecting to our systems now. How can I help you with HLPFL?",
+      "I'm here to assist you with HLPFL! What would you like to know about our services or artist opportunities?"
+    ]
+    
     return {
-      success: false,
-      error: error instanceof Error ? error.message : 'Network error',
-    };
+      response: fallbacks[Math.floor(Math.random() * fallbacks.length)],
+      timestamp: new Date().toISOString()
+    }
   }
 }
-
-// ============================================================================
-// DASHBOARD API
-// ============================================================================
-
-export const dashboardApi = {
-  async getOverview(artistId: string) {
-    return apiFetch(`/api/dashboard?artistId=${artistId}`);
-  },
-};
-
-// ============================================================================
-// RELEASES API
-// ============================================================================
-
-export const releasesApi = {
-  async getAll(artistId: string) {
-    return apiFetch(`/api/releases?artistId=${artistId}`);
-  },
-
-  async getById(artistId: string, releaseId: string) {
-    return apiFetch(`/api/releases?artistId=${artistId}&releaseId=${releaseId}`);
-  },
-
-  async create(release: {
-    artistId: string;
-    title: string;
-    slug: string;
-    releaseType: 'single' | 'ep' | 'album';
-    releaseDate: string;
-    coverArtUrl?: string;
-    description?: string;
-    genre?: string;
-  }) {
-    return apiFetch('/api/releases', {
-      method: 'POST',
-      body: JSON.stringify(release),
-    });
-  },
-
-  async update(releaseId: string, updates: any) {
-    return apiFetch('/api/releases', {
-      method: 'PUT',
-      body: JSON.stringify({ releaseId, ...updates }),
-    });
-  },
-
-  async delete(artistId: string, releaseId: string) {
-    return apiFetch(`/api/releases?artistId=${artistId}&releaseId=${releaseId}`, {
-      method: 'DELETE',
-    });
-  },
-};
-
-// ============================================================================
-// ANALYTICS API
-// ============================================================================
-
-export const analyticsApi = {
-  async get(params: {
-    artistId: string;
-    startDate?: string;
-    endDate?: string;
-    releaseId?: string;
-  }) {
-    const query = new URLSearchParams(
-      Object.entries(params).filter(([_, v]) => v !== undefined) as [string, string][]
-    );
-    return apiFetch(`/api/analytics?${query}`);
-  },
-};
-
-// ============================================================================
-// REVENUE API
-// ============================================================================
-
-export const revenueApi = {
-  async get(params: {
-    artistId: string;
-    startDate?: string;
-    endDate?: string;
-    source?: string;
-  }) {
-    const query = new URLSearchParams(
-      Object.entries(params).filter(([_, v]) => v !== undefined) as [string, string][]
-    );
-    return apiFetch(`/api/revenue?${query}`);
-  },
-};
-
-// ============================================================================
-// COMMUNITY API
-// ============================================================================
-
-export const communityApi = {
-  async getPosts(artistId: string, limit = 20, offset = 0) {
-    return apiFetch(`/api/community?artistId=${artistId}&limit=${limit}&offset=${offset}`);
-  },
-
-  async getPost(artistId: string, postId: string) {
-    return apiFetch(`/api/community?artistId=${artistId}&postId=${postId}`);
-  },
-
-  async createPost(post: {
-    artistId: string;
-    userId: string;
-    content: string;
-    imageUrl?: string;
-    videoUrl?: string;
-  }) {
-    return apiFetch('/api/community', {
-      method: 'POST',
-      body: JSON.stringify(post),
-    });
-  },
-
-  async deletePost(artistId: string, postId: string) {
-    return apiFetch(`/api/community?artistId=${artistId}&postId=${postId}`, {
-      method: 'DELETE',
-    });
-  },
-};
-
-// ============================================================================
-// PRODUCTS/MERCH API
-// ============================================================================
-
-export const productsApi = {
-  async getAll(artistId: string) {
-    return apiFetch(`/api/products?artistId=${artistId}`);
-  },
-
-  async getById(artistId: string, productId: string) {
-    return apiFetch(`/api/products?artistId=${artistId}&productId=${productId}`);
-  },
-
-  async getOrders(artistId: string) {
-    return apiFetch(`/api/products?artistId=${artistId}&type=orders`);
-  },
-
-  async create(product: {
-    artistId: string;
-    name: string;
-    description?: string;
-    category: 'apparel' | 'accessories' | 'music' | 'other';
-    price: number;
-    currency?: string;
-    stock?: number;
-    sizes?: string[];
-    colors?: string[];
-  }) {
-    return apiFetch('/api/products', {
-      method: 'POST',
-      body: JSON.stringify(product),
-    });
-  },
-};
-
-// ============================================================================
-// SOCIAL MEDIA API
-// ============================================================================
-
-export const socialApi = {
-  async getAccounts(artistId: string) {
-    return apiFetch(`/api/social?artistId=${artistId}&type=accounts`);
-  },
-
-  async getPosts(artistId: string) {
-    return apiFetch(`/api/social?artistId=${artistId}&type=posts`);
-  },
-
-  async schedulePost(post: {
-    artistId: string;
-    accountId?: string;
-    content: string;
-    mediaUrls?: string[];
-    scheduledFor: string;
-    platforms?: string[];
-  }) {
-    return apiFetch('/api/social', {
-      method: 'POST',
-      body: JSON.stringify(post),
-    });
-  },
-
-  async deletePost(artistId: string, postId: string) {
-    return apiFetch(`/api/social?artistId=${artistId}&postId=${postId}`, {
-      method: 'DELETE',
-    });
-  },
-};
-
-// ============================================================================
-// EMAIL CAMPAIGNS API
-// ============================================================================
-
-export const emailApi = {
-  async getCampaigns(artistId: string) {
-    return apiFetch(`/api/email?artistId=${artistId}&type=campaigns`);
-  },
-
-  async getCampaign(artistId: string, campaignId: string) {
-    return apiFetch(`/api/email?artistId=${artistId}&campaignId=${campaignId}`);
-  },
-
-  async getSubscribers(artistId: string) {
-    return apiFetch(`/api/email?artistId=${artistId}&type=subscribers`);
-  },
-
-  async createCampaign(campaign: {
-    artistId: string;
-    name: string;
-    subject: string;
-    previewText?: string;
-    htmlContent: string;
-    scheduledFor?: string;
-  }) {
-    return apiFetch('/api/email', {
-      method: 'POST',
-      body: JSON.stringify(campaign),
-    });
-  },
-};
-
-// ============================================================================
-// MAIN API EXPORT - THIS IS WHAT DASHBOARD PAGES IMPORT
-// ============================================================================
-
-/**
- * Combined API client object.
- * This is the main export used throughout the dashboard.
- *
- * Usage:
- *   import { api } from '@/lib/api-client'
- *   const data = await api.dashboard.getOverview(artistId)
- */
-export const api = {
-  dashboard: dashboardApi,
-  releases: releasesApi,
-  analytics: analyticsApi,
-  revenue: revenueApi,
-  community: communityApi,
-  products: productsApi,
-  social: socialApi,
-  email: emailApi,
-};
-
-/**
- * Default export
- */
-export default api;
