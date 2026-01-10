@@ -37,11 +37,11 @@ export const mockArtists: Artist[] = [
     id: '3',
     name: 'Priv',
     slug: 'priv',
-    bio: 'Priv is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, Priv represents the next generation of independent music. As part of the HLPFL family, Priv maintains complete creative control and ownership while accessing the tools and support needed to build a sustainable music career.\n\nStay tuned for upcoming releases and performances from this exciting new talent.',
+    bio: 'Priv is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, Priv represents the next generation of independent music. With 872 monthly listeners on Spotify and growing, Priv is building a devoted following through authentic storytelling and experimental production.\n\nAs part of the HLPFL family, Priv maintains complete creative control and ownership while accessing the tools and support needed to build a sustainable music career. Stay tuned for upcoming releases and performances from this exciting new talent.',
     genre: ['Alternative', 'Indie', 'Experimental'],
     image: '',
     socials: {
-      spotify: '', // TODO: Add Priv's Spotify artist link
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
       instagram: '',
       twitter: '',
     },
