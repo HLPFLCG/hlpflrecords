@@ -306,7 +306,7 @@ export default function ReleasesPage() {
                 <div className="flex items-center justify-between text-sm mb-3">
                   <div className="flex items-center gap-2 text-gray-400">
                     <Calendar className="w-4 h-4" />
-                    {release.releaseDate ? new Date(release.releaseDate).toLocaleDateString() : 'TBA'}
+                    {release.releaseDate?.toLocaleDateString() || 'TBA'}
                   </div>
                   <span className="text-gray-500 uppercase text-xs">{release.type}</span>
                 </div>
@@ -368,7 +368,7 @@ export default function ReleasesPage() {
                   <div className="flex items-center gap-6 text-sm text-gray-400">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
-                      {release.releaseDate.toLocaleDateString()}
+                      {release.releaseDate?.toLocaleDateString() || 'N/A'}
                     </div>
                     <div className="flex items-center gap-2">
                       <Music className="w-4 h-4" />
@@ -566,7 +566,7 @@ export default function ReleasesPage() {
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="bg-dark-tertiary rounded-xl p-4">
                     <Play className="w-8 h-8 text-gold mb-2" />
-                    <p className="text-2xl font-bold text-white mb-1">{(selectedRelease.streams / 1000).toFixed(0)}K</p>
+                    <p className="text-2xl font-bold text-white mb-1">{((selectedRelease.streams || 0) / 1000).toFixed(0)}K</p>
                     <p className="text-gray-400 text-sm">Total Streams</p>
                   </div>
                   <div className="bg-dark-tertiary rounded-xl p-4">
@@ -586,7 +586,7 @@ export default function ReleasesPage() {
                 <div>
                   <h3 className="text-white font-semibold mb-3">Distribution Platforms</h3>
                   <div className="flex flex-wrap gap-2">
-                    {selectedRelease.platforms.map((platformId) => {
+                    {selectedRelease.platforms?.map((platformId) => {
                       const platform = platforms.find(p => p.id === platformId)
                       return platform ? (
                         <div key={platformId} className="flex items-center gap-2 px-3 py-2 bg-dark-tertiary rounded-lg">

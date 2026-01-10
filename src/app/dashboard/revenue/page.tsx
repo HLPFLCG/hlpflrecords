@@ -164,7 +164,7 @@ export default function RevenuePage() {
     }))
     .slice(0, 3)
 
-  const maxRevenue = revenueByMonth.length > 0 ? Math.max(...revenueByMonth.map(m => m.amount)) : 1
+  const maxRevenue = revenueByMonth.length > 0 ? Math.max(...revenueByMonth.map((m: any) => m.amount)) : 1
 
   return (
     <div className="space-y-6">
@@ -258,7 +258,7 @@ export default function RevenuePage() {
       >
         <h2 className="text-xl font-bold text-white mb-6">Revenue Over Time</h2>
         <div className="space-y-4">
-          {revenueByMonth.map((data, index) => (
+          {revenueByMonth.map((data: any, index: number) => (
             <div key={data.month} className="space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-gray-400 text-sm">{data.month}</span>
@@ -281,7 +281,7 @@ export default function RevenuePage() {
       <div>
         <h2 className="text-2xl font-bold text-white mb-4">Revenue Streams</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {revenueStreams.map((stream, index) => (
+          {revenueStreams.map((stream: any, index: number) => (
             <motion.div
               key={stream.id}
               initial={{ opacity: 0, y: 20 }}
@@ -316,7 +316,7 @@ export default function RevenuePage() {
                   animate={{ opacity: 1, height: 'auto' }}
                   className="mt-4 pt-4 border-t border-gray-700 space-y-3"
                 >
-                  {stream.id === 'streaming' && stream.platforms?.map((platform) => (
+                  {stream.id === 'streaming' && stream.platforms?.map((platform: any) => (
                     <div key={platform.name} className="flex items-center justify-between">
                       <div>
                         <p className="text-white text-sm">{platform.name}</p>
@@ -325,7 +325,7 @@ export default function RevenuePage() {
                       <p className="text-gray-300 font-semibold">${platform.amount.toLocaleString()}</p>
                     </div>
                   ))}
-                  {stream.id === 'merch' && stream.items?.map((item) => (
+                  {stream.id === 'merch' && stream.items?.map((item: any) => (
                     <div key={item.name} className="flex items-center justify-between">
                       <div>
                         <p className="text-white text-sm">{item.name}</p>
@@ -334,7 +334,7 @@ export default function RevenuePage() {
                       <p className="text-gray-300 font-semibold">${item.revenue.toLocaleString()}</p>
                     </div>
                   ))}
-                  {stream.id === 'crowdfunding' && stream.tiers?.map((tier) => (
+                  {stream.id === 'crowdfunding' && stream.tiers?.map((tier: any) => (
                     <div key={tier.name} className="flex items-center justify-between">
                       <div>
                         <p className="text-white text-sm">{tier.name}</p>
@@ -343,7 +343,7 @@ export default function RevenuePage() {
                       <p className="text-gray-300 font-semibold">${tier.revenue.toLocaleString()}</p>
                     </div>
                   ))}
-                  {stream.id === 'licensing' && stream.licenses?.map((license, idx) => (
+                  {stream.id === 'licensing' && stream.licenses?.map((license: any, idx: number) => (
                     <div key={idx} className="flex items-center justify-between">
                       <div>
                         <p className="text-white text-sm">{license.type}</p>
@@ -352,7 +352,7 @@ export default function RevenuePage() {
                       <p className="text-gray-300 font-semibold">${license.revenue.toLocaleString()}</p>
                     </div>
                   ))}
-                  {stream.id === 'email' && stream.campaigns?.map((campaign) => (
+                  {stream.id === 'email' && stream.campaigns?.map((campaign: any) => (
                     <div key={campaign.name} className="flex items-center justify-between">
                       <div>
                         <p className="text-white text-sm">{campaign.name}</p>
@@ -382,7 +382,7 @@ export default function RevenuePage() {
           </div>
 
           <div className="space-y-4">
-            {paymentHistory.map((payment) => (
+            {paymentHistory.map((payment: any) => (
               <div key={payment.id} className="flex items-start gap-4 p-4 bg-dark-tertiary rounded-xl">
                 <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
                   <CreditCard className="w-5 h-5 text-gold" />
@@ -423,7 +423,7 @@ export default function RevenuePage() {
           </div>
 
           <div className="space-y-4">
-            {upcomingPayouts.map((payout, index) => (
+            {upcomingPayouts.map((payout: any, index: number) => (
               <div key={index} className="flex items-center justify-between p-4 bg-dark-tertiary rounded-xl">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
