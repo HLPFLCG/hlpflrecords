@@ -306,7 +306,7 @@ export default function ReleasesPage() {
                 <div className="flex items-center justify-between text-sm mb-3">
                   <div className="flex items-center gap-2 text-gray-400">
                     <Calendar className="w-4 h-4" />
-                    {release.releaseDate.toLocaleDateString()}
+                    {release.releaseDate ? new Date(release.releaseDate).toLocaleDateString() : 'TBA'}
                   </div>
                   <span className="text-gray-500 uppercase text-xs">{release.type}</span>
                 </div>
