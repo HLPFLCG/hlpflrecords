@@ -46,6 +46,32 @@ export const mockArtists: Artist[] = [
       twitter: '',
     },
   },
+  {
+    id: '4',
+    name: 'Adam Rodway',
+    slug: 'adam-rodway',
+    bio: 'Adam Rodway is a rising Pop/Rock artist from Toronto, Canada, known for his introspective yet catchy sound that resonates with anyone who\'s faced the trials of personal growth and heartbreak. His music combines pop\'s infectious hooks with indie pop\'s reflective and emotional depth, creating songs that stick with you long after the first listen.\n\nRecent collaborations with producer Matt Snell (known for working with Dua Lipa) have elevated Adam\'s sound to new heights. Popular tracks like "Tarantino," "Too Late," and "Hold Just Anyone" showcase his ability to blend vulnerability with radio-ready production.\n\nAs part of the HLPFL family, Adam maintains complete artistic control while accessing the resources needed to build a sustainable career in the modern music industry.',
+    genre: ['Pop', 'Indie Pop', 'Rock', 'Alternative'],
+    image: '',
+    socials: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+      instagram: '',
+      twitter: '',
+    },
+  },
+  {
+    id: '5',
+    name: 'Writ3rs Block',
+    slug: 'writ3rs-block',
+    bio: 'Writ3rs Block is an innovative artist bringing unique energy to the HLPFL roster. With a sound that defies conventional categorization, Writ3rs Block creates music that connects with listeners on a deeply personal level.\n\nKnown for tracks like "Lonesome Dove" and the album "Too Much To Dream (The Chocolate Shop Demos)," Writ3rs Block represents the creative freedom that HLPFL champions. Under the label\'s artist-first model, they maintain complete ownership and creative control while building a devoted fanbase.\n\nStay tuned for new releases and projects from this exciting talent.',
+    genre: ['Alternative', 'Indie', 'Experimental'],
+    image: '',
+    socials: {
+      spotify: 'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
+      instagram: '',
+      twitter: '',
+    },
+  },
 ]
 
 // ========================================
