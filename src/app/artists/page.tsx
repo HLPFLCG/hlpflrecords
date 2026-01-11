@@ -177,33 +177,30 @@ export default function ArtistsPage() {
                           </motion.a>
                         )}
                         {artist.socials?.instagram && (
-                          <motion.div
+                          <motion.a
+                            href={artist.socials.instagram}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-10 h-10 rounded-lg bg-gold/10 hover:bg-gold/20 flex items-center justify-center transition-all duration-300 cursor-pointer"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                           >
                             <span className="text-gold text-sm font-bold">IG</span>
-                          </motion.div>
+                          </motion.a>
                         )}
                         {artist.socials?.twitter && (
-                          <motion.div
+                          <motion.a
+                            href={artist.socials.twitter}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-10 h-10 rounded-lg bg-gold/10 hover:bg-gold/20 flex items-center justify-center transition-all duration-300 cursor-pointer"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                           >
                             <span className="text-gold text-sm font-bold">TW</span>
-                          </motion.div>
+                          </motion.a>
                         )}
                       </div>
-                      
-                      <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="text-gold hover:text-gold-light"
-                      onClick={() => alert(`Artist profile for ${artist.name} coming soon!`)}
-                    >
-                      View Profile →
-                    </Button>
                     </div>
                   </div>
                 </CardContent>
