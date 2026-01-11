@@ -25,15 +25,6 @@ const SECRET_TRACKS = [
     description: 'Hidden track unlocked by clicking!'
   },
   {
-    id: 'regrets',
-    title: 'Regrets',
-    artist: 'Alki',
-    trigger: 'scroll',
-    file: '/audio/regrets.mp3',
-    color: '#a86535',
-    description: 'Hidden track unlocked by scrolling!'
-  },
-  {
     id: 'tear-me-apart',
     title: 'Tear Me Apart',
     artist: 'Alki',
@@ -262,46 +253,6 @@ const CreativeEasterEggs: React.FC = () => {
     };
   }, [canTrigger, discoverTrack, triggerCooldown]);
 
-  // 3. ADVANCED SCROLL PATTERN: Scroll down to 66.6%, then up to 33.3%, then down to 88.8% within 15 seconds
-  useEffect(() => {
-    let scrollStage = 0;
-    let scrollTimer: NodeJS.Timeout | null = null;
-    const targetScrolls = [66.6, 33.3, 88.8];
-    const tolerance = 1.5; // ±1.5%
-
-    const handleScroll = () => {
-      if (!canTrigger) return;
-
-      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      const targetScroll = targetScrolls[scrollStage];
-
-      // Check if we hit the current target scroll depth
-      if (Math.abs(scrollPercent - targetScroll) <= tolerance) {
-        scrollStage++;
-
-        // Start timer on first hit
-        if (scrollStage === 1) {
-          scrollTimer = setTimeout(() => {
-            scrollStage = 0;
-          }, 15000); // 15 second window to complete pattern
-        }
-
-        // Complete pattern
-        if (scrollStage === 3) {
-          discoverTrack('regrets');
-          triggerCooldown();
-          scrollStage = 0;
-          if (scrollTimer) clearTimeout(scrollTimer);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (scrollTimer) clearTimeout(scrollTimer);
-    };
-  }, [canTrigger, discoverTrack, triggerCooldown]);
 
   // 4. TIME-BASED: Visit at 11:11 AM or PM
   useEffect(() => {
@@ -395,10 +346,10 @@ const CreativeEasterEggs: React.FC = () => {
     };
   }, [canTrigger, discoverTrack, triggerCooldown]);
 
-  // 6. ADVANCED HIDDEN TEXT: Type "hlpfl" but each letter must be typed with ALT key held
+  // 6. ADVANCED HIDDEN TEXT: Type "music" but each letter must be typed with ALT key held
   useEffect(() => {
     let typedText = '';
-    const secretWord = 'hlpfl';
+    const secretWord = 'music';
     let altPressed = false;
 
     const handleKeyDown = (e: KeyboardEvent) => {
