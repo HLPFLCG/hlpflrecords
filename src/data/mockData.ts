@@ -567,11 +567,283 @@ const pardyaloneReleases: Release[] = [
 ]
 
 // ========================================
+// PRIV RELEASES
+// ========================================
+const privReleases: Release[] = [
+  {
+    id: 'priv-1',
+    title: 'Emerging Sounds',
+    artist: 'Priv',
+    artistId: '3',
+    type: 'single',
+    releaseDate: new Date('2024-06-15'),
+    coverArt: '',
+    description: 'An experimental indie track showcasing Priv\'s unique sound and artistic vision.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+    },
+    tracks: [
+      { id: '1', title: 'Emerging Sounds', duration: '3:24' },
+    ],
+  },
+]
+
+// ========================================
+// ADAM RODWAY RELEASES
+// ========================================
+const adamRodwayReleases: Release[] = [
+  // === 2025 RELEASES ===
+  {
+    id: 'adam-1',
+    title: 'Yellow Pages',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2025-04-04'),
+    coverArt: '',
+    description: 'A collaboration with TC23 that showcases Adam\'s signature blend of indie pop and rock.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Yellow Pages', duration: '3:12' },
+    ],
+  },
+
+  // === 2024 RELEASES ===
+  {
+    id: 'adam-2',
+    title: 'Wrong Turns',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2024-11-15'),
+    coverArt: '',
+    description: 'A reflective track about navigating life\'s unexpected paths.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Wrong Turns', duration: '3:18' },
+    ],
+  },
+  {
+    id: 'adam-3',
+    title: 'The Garden Song',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2024-09-20'),
+    coverArt: '',
+    description: 'An introspective indie pop track with lush production.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'The Garden Song', duration: '3:42' },
+    ],
+  },
+  {
+    id: 'adam-4',
+    title: 'Hoppin Pools',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2024-07-12'),
+    coverArt: '',
+    description: 'An upbeat summer anthem with infectious hooks.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Hoppin Pools', duration: '3:05' },
+    ],
+  },
+  {
+    id: 'adam-5',
+    title: 'Roll The Dice',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2024-05-08'),
+    coverArt: '',
+    description: 'A track about taking risks and embracing uncertainty.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Roll The Dice', duration: '3:28' },
+    ],
+  },
+  {
+    id: 'adam-6',
+    title: 'Pareidolia',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2024-03-22'),
+    coverArt: '',
+    description: 'An experimental indie pop track exploring perception and reality.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Pareidolia', duration: '3:36' },
+    ],
+  },
+  {
+    id: 'adam-7',
+    title: 'Too Long To Type',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2024-02-14'),
+    coverArt: '',
+    description: 'A catchy pop-rock track with witty lyrics.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Too Long To Type', duration: '3:15' },
+    ],
+  },
+  {
+    id: 'adam-8',
+    title: 'Basement',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2024-01-19'),
+    coverArt: '',
+    description: 'An intimate indie rock track recorded in a basement studio.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Basement', duration: '3:52' },
+    ],
+  },
+  {
+    id: 'adam-9',
+    title: '24/7',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2024-01-05'),
+    coverArt: '',
+    description: 'A high-energy track about constant hustle and dedication.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: '24/7', duration: '3:08' },
+    ],
+  },
+
+  // === 2023 RELEASES ===
+  {
+    id: 'adam-10',
+    title: 'Tarantino',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2023-08-18'),
+    coverArt: '',
+    description: 'An upbeat track with catchy choruses that enthralls listeners. One of Adam\'s most popular releases.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Tarantino', duration: '3:22' },
+    ],
+  },
+  {
+    id: 'adam-11',
+    title: 'Too Late',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2023-05-12'),
+    coverArt: '',
+    description: 'A heartfelt track about missed opportunities and regret.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Too Late', duration: '3:45' },
+    ],
+  },
+
+  // === 2022 RELEASES ===
+  {
+    id: 'adam-12',
+    title: 'Hold Just Anyone',
+    artist: 'Adam Rodway',
+    artistId: '4',
+    type: 'single',
+    releaseDate: new Date('2022-09-30'),
+    coverArt: '',
+    description: 'Adam\'s breakout single showcasing his introspective songwriting and catchy melodies.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+    },
+    tracks: [
+      { id: '1', title: 'Hold Just Anyone', duration: '3:33' },
+    ],
+  },
+]
+
+// ========================================
+// WRIT3RS BLOCK RELEASES
+// ========================================
+const writ3rsBlockReleases: Release[] = [
+  {
+    id: 'writ3rs-1',
+    title: 'Too Much To Dream (The Chocolate Shop Demos)',
+    artist: 'Writ3rs Block',
+    artistId: '5',
+    type: 'album',
+    releaseDate: new Date('2023-03-08'),
+    coverArt: '',
+    description: 'A collection of experimental demos showcasing Writ3rs Block\'s unique alternative sound.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
+    },
+    tracks: [
+      { id: '1', title: 'Lonesome Dove', duration: '2:57' },
+      { id: '2', title: 'Chocolate Dreams', duration: '3:42' },
+      { id: '3', title: 'Night Wanderer', duration: '4:15' },
+      { id: '4', title: 'Faded Memories', duration: '3:28' },
+      { id: '5', title: 'Echo Chamber', duration: '3:55' },
+    ],
+  },
+  {
+    id: 'writ3rs-2',
+    title: 'Lonesome Dove',
+    artist: 'Writ3rs Block',
+    artistId: '5',
+    type: 'single',
+    releaseDate: new Date('2023-02-10'),
+    coverArt: '',
+    description: 'The lead single from the album, an intimate indie track with haunting melodies.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
+    },
+    tracks: [
+      { id: '1', title: 'Lonesome Dove', duration: '2:57' },
+    ],
+  },
+]
+
+// ========================================
 // COMBINED RELEASES (sorted by release date, newest first)
 // ========================================
 export const mockReleases: Release[] = [
   ...alkiReleases,
   ...pardyaloneReleases,
+  ...privReleases,
+  ...adamRodwayReleases,
+  ...writ3rsBlockReleases,
 ].sort((a, b) => b.releaseDate.getTime() - a.releaseDate.getTime())
 
 export const mockNews: NewsPost[] = [
