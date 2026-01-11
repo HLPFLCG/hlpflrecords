@@ -56,7 +56,6 @@ export const mockArtists: Artist[] = [
     socials: {
       spotify: 'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
       instagram: 'https://www.instagram.com/writ3rsblockmusic',
-      email: 'writ3rsblockmusic@gmail.com',
     },
   },
   {
@@ -70,7 +69,6 @@ export const mockArtists: Artist[] = [
       spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
       instagram: 'https://www.instagram.com/adam.rodway',
       apple: 'https://music.apple.com/ca/artist/adam-rodway/1651612685',
-      email: 'adamrodway@hlpfl.org',
     },
   },
 ]
