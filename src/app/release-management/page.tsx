@@ -51,12 +51,12 @@ export default function ReleaseManagementPage() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
               <div className="bg-glass-card p-6 rounded-2xl">
                 <Music className="w-10 h-10 text-gold mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">24</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">50+</h3>
                 <p className="text-gray-400">Total Releases</p>
               </div>
               <div className="bg-glass-card p-6 rounded-2xl">
                 <TrendingUp className="w-10 h-10 text-green-400 mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">2.1M</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">63M+</h3>
                 <p className="text-gray-400">Total Streams</p>
               </div>
               <div className="bg-glass-card p-6 rounded-2xl">
@@ -66,7 +66,7 @@ export default function ReleaseManagementPage() {
               </div>
               <div className="bg-glass-card p-6 rounded-2xl">
                 <Users className="w-10 h-10 text-gold mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">8</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">5</h3>
                 <p className="text-gray-400">Active Artists</p>
               </div>
             </div>
