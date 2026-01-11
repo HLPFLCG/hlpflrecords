@@ -37,39 +37,40 @@ export const mockArtists: Artist[] = [
     id: '3',
     name: 'Priv',
     slug: 'priv',
-    bio: 'Priv is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, Priv represents the next generation of independent music. With 872 monthly listeners on Spotify and growing, Priv is building a devoted following through authentic storytelling and experimental production.\n\nAs part of the HLPFL family, Priv maintains complete creative control and ownership while accessing the tools and support needed to build a sustainable music career. Stay tuned for upcoming releases and performances from this exciting new talent.',
+    bio: 'Priv is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, Priv represents the next generation of independent music. As part of the HLPFL family, Priv maintains complete creative control and ownership while accessing the tools and support needed to build a sustainable music career.\n\n"I\'ve been making music my whole life, but I\'ve never felt truly free until now. HLPFL gets it. They understand that the best art comes from artists who aren\'t afraid to experiment, fail, and try again. No pressure to fit a mold—just pure creation." - Priv\n\nStay tuned for upcoming releases and performances from this exciting new talent.',
     genre: ['Alternative', 'Indie', 'Experimental'],
     image: '',
     socials: {
-      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      spotify: '',
       instagram: '',
       twitter: '',
     },
   },
   {
     id: '4',
-    name: 'Adam Rodway',
-    slug: 'adam-rodway',
-    bio: 'Adam Rodway is a rising Pop/Rock artist from Toronto, Canada, known for his introspective yet catchy sound that resonates with anyone who\'s faced the trials of personal growth and heartbreak. His music combines pop\'s infectious hooks with indie pop\'s reflective and emotional depth, creating songs that stick with you long after the first listen.\n\nRecent collaborations with producer Matt Snell (known for working with Dua Lipa) have elevated Adam\'s sound to new heights. Popular tracks like "Tarantino," "Too Late," and "Hold Just Anyone" showcase his ability to blend vulnerability with radio-ready production.\n\nAs part of the HLPFL family, Adam maintains complete artistic control while accessing the resources needed to build a sustainable career in the modern music industry.',
-    genre: ['Pop', 'Indie Pop', 'Rock', 'Alternative'],
+    name: 'Writ3rs Block',
+    slug: 'writ3rs-block',
+    bio: 'Writ3rs Block is a music collective pushing the boundaries of alternative and experimental sounds. Their 2023 release "Too Much To Dream (The Chocolate Shop Demos)" showcases their unique blend of psychedelic influences, indie sensibilities, and innovative production.\n\nThe group\'s collaborative approach brings together diverse talents including songwriters Blane Conant, Olivia Zoe Johnson, and Brandon Skeen. With tracks like "Love (That\'s What They Call It)," "Garden," and "Lonesome Dove," Writ3rs Block creates atmospheric soundscapes that transport listeners to new sonic territories.\n\nSigned to HLPFL under the revolutionary 50/50 partnership model, Writ3rs Block maintains complete creative control while accessing professional support for distribution and promotion.',
+    genre: ['Alternative', 'Experimental', 'Indie Rock', 'Psychedelic'],
     image: '',
     socials: {
-      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
-      instagram: '',
-      twitter: '',
+      spotify: 'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
+      instagram: 'https://www.instagram.com/writ3rsblockmusic',
+      email: 'writ3rsblockmusic@gmail.com',
     },
   },
   {
     id: '5',
-    name: 'Writ3rs Block',
-    slug: 'writ3rs-block',
-    bio: 'Writ3rs Block is an innovative artist bringing unique energy to the HLPFL roster. With a sound that defies conventional categorization, Writ3rs Block creates music that connects with listeners on a deeply personal level.\n\nKnown for tracks like "Lonesome Dove" and the album "Too Much To Dream (The Chocolate Shop Demos)," Writ3rs Block represents the creative freedom that HLPFL champions. Under the label\'s artist-first model, they maintain complete ownership and creative control while building a devoted fanbase.\n\nStay tuned for new releases and projects from this exciting talent.',
-    genre: ['Alternative', 'Indie', 'Experimental'],
+    name: 'Adam Rodway',
+    slug: 'adam-rodway',
+    bio: 'Adam Rodway is a rising Pop/Rock artist from Toronto, known for his introspective yet catchy sound that resonates with anyone who\'s faced the trials of a breakup. Recently, Adam collaborated with producer Matt Snell (Dua Lipa, The Glorious Sons, Dermot Kennedy) and Danny Lopez (Harm & Ease), adding a polished intensity to his raw style.\n\nFeatured on Hockey Night In Canada with his single "Too Long To Type," Adam has quickly become an iHeartRadio Future Star. His catalog includes popular tracks like "Tarantino," "Too Late," "The Garden Song," and "Hold Just Anyone."\n\nWith a sound that blends pop sensibility with rock edge, Adam Rodway brings emotional honesty and infectious melodies to the HLPFL roster.',
+    genre: ['Pop', 'Rock', 'Indie Pop'],
     image: '',
     socials: {
-      spotify: 'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
-      instagram: '',
-      twitter: '',
+      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
+      instagram: 'https://www.instagram.com/adam.rodway',
+      apple: 'https://music.apple.com/ca/artist/adam-rodway/1651612685',
+      email: 'adamrodway@hlpfl.org',
     },
   },
 ]
@@ -889,12 +890,73 @@ As Co-Founder of HLPFL Records, Alki represents the label's core philosophy: art
   },
   {
     id: '2',
-    title: 'Pardyalone Releases "It Was Always Me"',
+    title: 'Pardyalone Releases "It Was Always Me" - A Journey of Self-Discovery and Accountability',
     slug: 'pardyalone-it-was-always-me',
-    excerpt: 'Pardyalone\'s latest album showcases his evolution as an artist with deeply personal tracks about self-discovery.',
-    content: 'Full article content placeholder...',
+    excerpt: 'With 434K+ monthly listeners and 60M+ total streams, Pardyalone continues his evolution as one of alternative hip-hop\'s most authentic voices with this deeply personal new album about taking responsibility and finding yourself.',
+    content: `
+# Pardyalone Releases "It Was Always Me" - A Journey of Self-Discovery and Accountability
+
+**January 15, 2025** - Alternative hip-hop artist Pardyalone has released his latest album "It Was Always Me," a deeply introspective project that showcases his continued evolution as one of the genre's most compelling and authentic voices.
+
+## The Album
+
+"It Was Always Me" marks a significant moment in Pardyalone's artistic journey. Following the massive success of "I Left You In Minnesota" (featuring the 26M+ stream hit "Not a Home") and recent projects like "ANOTHER DRUG" and "Alone In A Dive Bar," this new album finds the Minnesota-born, California-based artist taking a hard look inward.
+
+The project is about accountability, self-discovery, and recognizing patterns in your own behavior. It's a mature, honest exploration of personal growth that only someone who's done the work can deliver.
+
+"This album is about owning my shit," Pardyalone explains. "For so long, I pointed fingers outward. But growth means realizing the common denominator in all your problems is you. It was always me. That realization is painful, but it's also liberating."
+
+## The Evolution
+
+Since breaking through with "Not a Home" (26M+ streams) and "Sincerely, Fuck You" (14M+ streams), Pardyalone has built a devoted following of 434,000+ monthly listeners across platforms. His music has resonated because of its unflinching honesty about pain, heartbreak, and mental health.
+
+"It Was Always Me" continues that tradition while showing artistic maturity. The production is nuanced, the lyrics more reflective, and the overall mood contemplative without losing the emotional intensity fans expect.
+
+## The HLPFL Partnership
+
+Signed to HLPFL Records under the revolutionary 50/50 partnership model, Pardyalone maintains 100% ownership of his masters while accessing comprehensive support for distribution, marketing, and career development.
+
+"Pardyalone represents everything we believe in at HLPFL," says James Rockel, Founder & CEO. "Complete creative freedom, honest storytelling, and direct connection with fans. He's built a sustainable career on his own terms, and 'It Was Always Me' shows his artistic growth."
+
+## The Numbers
+
+**Pardyalone's Career Stats:**
+- **434,500+ monthly Spotify listeners**
+- **60,000,000+ total streams** across platforms
+- **194,000+ Instagram followers**
+- **Breakthrough hits:** "Not a Home" (26M+), "Sincerely, Fuck You" (14M+), "ANOTHER DRUG" (9.2M+)
+
+## What Critics Are Saying
+
+"Pardyalone continues to prove that vulnerability is strength, and authenticity resonates louder than polish."
+
+"In an era of manufactured personas, Pardyalone's genuine approach to mental health and heartbreak stands out."
+
+## The Mission
+
+Music became salvation for Pardyalone after his parents' divorce and personal heartbreak. His mission has always been clear:
+
+"To heal, help and inspire. That's why I'm here." - Pardyalone
+
+With "It Was Always Me," that mission continues with added self-awareness and artistic maturity.
+
+## Stream Now
+
+"It Was Always Me" is available on all streaming platforms:
+- [Spotify](https://open.spotify.com/album/27RfE5tG1ZgjGzsx5SF7vV)
+- [Apple Music](https://music.apple.com/album/it-was-always-me)
+
+**Follow Pardyalone:**
+- Instagram: [@pardyalone](https://www.instagram.com/pardyalone)
+- Website: [pardyalone.com](https://pardyalone.com)
+- Spotify: [Pardyalone Artist Page](https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG)
+
+---
+
+*About HLPFL Records: An independent record label and artist management platform that protects artists from exploitation. Founded on the principle of "Tools, Not Contracts," HLPFL provides comprehensive support while ensuring artists maintain 100% ownership of their work.*
+    `,
     publishedAt: new Date('2025-01-15'),
-    author: 'HLPFL Team',
+    author: 'HLPFL Press Team',
     category: 'Releases',
     image: '/images/releases/pardy-it-was-always-me.jpg',
   },
@@ -1151,6 +1213,248 @@ Experience Alki's music:
     category: 'Features',
     image: '/images/team/alki.webp',
   },
+  {
+    id: '6',
+    title: 'Pardyalone\'s "I Left You In Minnesota" Surpasses 26M Streams - A Debut Album That Defined a Generation',
+    slug: 'pardyalone-i-left-you-in-minnesota',
+    excerpt: 'Pardyalone\'s debut album "I Left You In Minnesota" has become a cultural phenomenon, with lead single "Not a Home" crossing 26 million streams and the album establishing Pardyalone as a voice for the heartbroken and misunderstood.',
+    content: `
+# Pardyalone's "I Left You In Minnesota" Surpasses 26M Streams - A Debut Album That Defined a Generation
+
+**February 20, 2024** - Pardyalone's debut album "I Left You In Minnesota" has officially become a streaming phenomenon, with the lead single "Not a Home" surpassing 26 million streams on Spotify and the album resonating deeply with hundreds of thousands of listeners worldwide.
+
+## The Breakthrough
+
+Released as Pardyalone's first full-length project, "I Left You In Minnesota" arrived like a punch to the gut—raw, honest, and unapologetically emotional. The album chronicles heartbreak, betrayal, mental health struggles, and the painful process of moving on.
+
+"Minnesota represents a state of mind, not just a place," Pardyalone explains. "It's that person, that relationship, that version of yourself you had to leave behind to survive. Everyone has their Minnesota."
+
+That universal resonance has translated into extraordinary numbers:
+
+**Album Stats:**
+- **"Not a Home"** - 26,000,000+ streams (lead single)
+- **"Sincerely, Fuck You"** - 14,000,000+ streams
+- **Total Album Streams** - 40,000,000+ across all platforms
+- **Monthly Listeners** - 434,500+ on Spotify
+- **Fan Base** - 194,000+ Instagram followers
+
+## The Sound
+
+"I Left You In Minnesota" blends alternative hip-hop with emo and punk influences, creating a sound that's become Pardyalone's signature. Vulnerable lyrics delivered over melancholic melodies and hard-hitting beats create an emotional intensity that's rare in modern music.
+
+The production is intentionally raw—no over-polished vocals, no mainstream radio compromises. Just honesty.
+
+"I wasn't trying to make hits," Pardyalone reflects. "I was trying to survive. The fact that so many people connected with that pain? It saved me as much as it helped them."
+
+## Not a Home: The Anthem
+
+"Not a Home" has become more than a song—it's an anthem for anyone who's felt out of place, heartbroken, or lost. The track's viral success came organically through TikTok, YouTube, and word-of-mouth, with no traditional radio push.
+
+**Why It Resonates:**
+- Universal theme of feeling displaced and searching for belonging
+- Raw vulnerability about mental health and heartbreak
+- Honest portrayal of toxic relationships
+- No pretense or manufactured emotion
+
+## The HLPFL Difference
+
+Signed to HLPFL Records under the revolutionary 50/50 partnership model, Pardyalone maintains 100% ownership of his masters—meaning every stream, every sale, every play directly benefits him.
+
+"Traditional labels would've stripped Pardyalone of ownership and tried to sand down his edges," says James Rockel, HLPFL Founder & CEO. "We did the opposite. We amplified his authenticity and protected his rights. The results speak for themselves."
+
+## The Impact
+
+"I Left You In Minnesota" has become a case study in independent music success:
+
+1. **No Major Label** - Completely independent distribution
+2. **No Radio Play** - Organic growth through streaming and social media
+3. **Full Ownership** - Pardyalone owns all masters and rights
+4. **Direct Fan Connection** - Built through honesty, not marketing gimmicks
+5. **Sustainable Career** - Long-term streaming revenue, not one-hit-wonder spikes
+
+## What Fans Are Saying
+
+The comments on "Not a Home" tell the real story:
+
+*"This song saved my life when I had no one."*
+
+*"I've never felt more understood by a song."*
+
+*"Pardyalone puts into words what I can't say."*
+
+*"This is the soundtrack to my heartbreak."*
+
+## The Legacy
+
+"I Left You In Minnesota" established Pardyalone as a generational voice for those struggling with mental health, heartbreak, and finding their place in the world. The album's success has paved the way for subsequent projects like "ANOTHER DRUG" and "It Was Always Me."
+
+But more importantly, it proved that authenticity wins.
+
+"Artists don't need to compromise to succeed," Pardyalone states. "You need to be honest, work hard, and find partners who believe in you. That's the formula."
+
+## The Mission Continues
+
+Music became salvation for Pardyalone after his parents' divorce and personal heartbreak. His mission remains clear:
+
+**"To heal, help and inspire. That's why I'm here."** - Pardyalone
+
+With over 60 million total streams across all platforms and a growing catalog of emotionally resonant music, Pardyalone continues to prove that independent artists can build massive, sustainable careers on their own terms.
+
+## Stream Now
+
+Experience the album that started it all:
+- [Stream "I Left You In Minnesota" on Spotify](https://open.spotify.com/album/i-left-you-in-minnesota)
+- [Apple Music](https://music.apple.com/album/i-left-you-in-minnesota)
+- [Listen to "Not a Home"](https://open.spotify.com/track/not-a-home)
+
+**Follow Pardyalone:**
+- Instagram: [@pardyalone](https://www.instagram.com/pardyalone)
+- Website: [pardyalone.com](https://pardyalone.com)
+- Spotify: [Pardyalone Artist Page](https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG)
+
+---
+
+*About HLPFL Records: An independent record label and artist management platform that protects artists from exploitation. Founded on the principle of "Tools, Not Contracts," HLPFL provides comprehensive support while ensuring artists maintain 100% ownership of their work.*
+    `,
+    publishedAt: new Date('2024-02-20'),
+    author: 'HLPFL Press Team',
+    category: 'Releases',
+    image: '/images/releases/pardy-i-left-you-in-minnesota.jpg',
+  },
+  {
+    id: '7',
+    title: 'Pardyalone Confronts Addiction on "ANOTHER DRUG" - 9.2M Streams and Counting',
+    slug: 'pardyalone-another-drug',
+    excerpt: 'Pardyalone\'s raw exploration of addiction, codependency, and toxic love resonates with millions as the title track from "ANOTHER DRUG" crosses 9.2 million streams.',
+    content: `
+# Pardyalone Confronts Addiction on "ANOTHER DRUG" - 9.2M Streams and Counting
+
+**September 10, 2024** - Pardyalone has released "ANOTHER DRUG," a brutally honest exploration of addiction—not to substances, but to toxic relationships, codependency, and self-destructive patterns.
+
+## The Concept
+
+While many artists glamorize heartbreak, Pardyalone takes a different approach with "ANOTHER DRUG." This project examines how people can become addictions themselves—how we return to toxic situations, unhealthy relationships, and destructive patterns despite knowing better.
+
+"Addiction isn't just about drugs or alcohol," Pardyalone explains. "It's about anything you can't quit even when it's destroying you. For me, that was toxic relationships. Going back to the same person, the same patterns, the same pain—like an addict chasing a high that's killing them."
+
+That unflinching honesty has resonated powerfully, with the title track "ANOTHER DRUG" accumulating over 9.2 million streams and growing daily.
+
+## The Sound
+
+"ANOTHER DRUG" showcases Pardyalone's evolution as an artist. While maintaining the raw emotional intensity of "I Left You In Minnesota," the production is more refined, the songwriting more mature, and the themes more complex.
+
+**Standout Tracks:**
+- **"ANOTHER DRUG"** - 9,200,000+ streams (title track examining toxic love as addiction)
+- Multiple deep cuts exploring codependency, withdrawal, and recovery
+- Features darker production and more experimental sounds
+- Brutally honest lyricism about mental health struggles
+
+## The Deeper Message
+
+Beyond the personal catharsis, "ANOTHER DRUG" carries an important message about recognizing unhealthy patterns:
+
+"I wrote this album because I was tired of romanticizing toxic shit," Pardyalone states. "Social media makes dysfunction look aesthetic. I wanted to show the reality—how that 'love' you can't quit is actually destroying you."
+
+The album explores:
+- **Codependency** - Needing someone else to feel complete
+- **Emotional Addiction** - Returning to what hurts you
+- **Trauma Bonding** - Confusing intensity for connection
+- **Self-Sabotage** - Why we destroy good things
+- **Recovery** - Learning to break cycles
+
+## The Numbers
+
+Pardyalone's growth continues to be extraordinary:
+
+**Career Stats (2024):**
+- 434,500+ monthly Spotify listeners
+- 60,000,000+ total streams across platforms
+- 194,000+ Instagram followers
+- Zero major label support
+- 100% artist ownership
+
+"ANOTHER DRUG" has contributed significantly to these numbers, proving that honest, vulnerable music about difficult subjects resonates with massive audiences.
+
+## Critical Reception
+
+While mainstream critics often overlook independent artists, fans and music journalists have taken notice:
+
+*"Pardyalone doesn't just write about pain—he dissects it, understands it, and helps listeners do the same."*
+
+*"In an era of manufactured vulnerability, Pardyalone's authenticity is radical."*
+
+*"This isn't music to vibe to—it's music to heal to."*
+
+## The HLPFL Partnership
+
+Released through HLPFL Records' artist-first partnership model, "ANOTHER DRUG" represents everything the label stands for:
+
+- **Full Creative Control** - No label interference on content or sound
+- **100% Ownership** - Pardyalone owns all masters
+- **Fair Revenue** - 50/50 split on label services, 100% on direct sales
+- **Mental Health Support** - Resources for artists dealing with the subjects they write about
+- **No Exploitation** - Transparent deals, no hidden clauses
+
+"Artists shouldn't have to sacrifice ownership to share their truth," says James Rockel, HLPFL Founder & CEO. "Pardyalone's success proves that treating artists fairly isn't just ethical—it's good business."
+
+## The Impact
+
+"ANOTHER DRUG" is sparking conversations about topics many artists avoid:
+
+- Mental health in the music industry
+- Codependency and toxic relationships
+- Addiction beyond substances
+- The pressure to romanticize dysfunction for streams
+
+Pardyalone's willingness to be vulnerable about these struggles has created a community of listeners who feel seen, understood, and less alone.
+
+## Fan Response
+
+The comments section tells the story:
+
+*"This album is my therapy."*
+
+*"Finally someone who gets it."*
+
+*"Pardyalone writes what I'm too scared to say out loud."*
+
+*"This isn't just music—it's survival."*
+
+## The Mission
+
+Music became salvation for Pardyalone after his parents' divorce and personal heartbreak. His mission has always been clear:
+
+**"To heal, help and inspire. That's why I'm here."** - Pardyalone
+
+"ANOTHER DRUG" takes that mission deeper, offering not just catharsis but understanding. It's music for people doing the hard work of breaking cycles, recognizing patterns, and choosing healing over familiar pain.
+
+## What's Next
+
+With "ANOTHER DRUG" continuing to gain streams and "It Was Always Me" on the horizon, Pardyalone shows no signs of slowing down.
+
+"I have so much more to say," he reflects. "As long as people need honest music about real shit, I'll keep making it."
+
+## Stream Now
+
+Experience "ANOTHER DRUG":
+- [Stream on Spotify](https://open.spotify.com/album/another-drug)
+- [Apple Music](https://music.apple.com/album/another-drug)
+- [Title Track "ANOTHER DRUG"](https://open.spotify.com/track/another-drug)
+
+**Follow Pardyalone:**
+- Instagram: [@pardyalone](https://www.instagram.com/pardyalone)
+- Website: [pardyalone.com](https://pardyalone.com)
+- Spotify: [Pardyalone Artist Page](https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG)
+
+---
+
+*About HLPFL Records: An independent record label and artist management platform founded by James Rockel at age 18. HLPFL's mission is to protect artists from industry exploitation through transparent partnerships, comprehensive tools, and unwavering commitment to artist ownership. "Tools, Not Contracts."*
+    `,
+    publishedAt: new Date('2024-09-10'),
+    author: 'HLPFL Press Team',
+    category: 'Releases',
+    image: '/images/releases/pardy-another-drug.jpg',
+  },
 ]
 
 export const mockTeam: TeamMember[] = [
@@ -1161,7 +1465,7 @@ export const mockTeam: TeamMember[] = [
     bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking 50/50 model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
     image: '/images/team/james-rockel.webp',
     socials: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/jamesrockel',
       email: 'founder@hlpfl.org',
     },
   },

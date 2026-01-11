@@ -201,15 +201,6 @@ export default function ArtistsPage() {
                           </motion.a>
                         )}
                       </div>
-                      
-                      <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="text-gold hover:text-gold-light"
-                      onClick={() => alert(`Artist profile for ${artist.name} coming soon!`)}
-                    >
-                      View Profile →
-                    </Button>
                     </div>
                   </div>
                 </CardContent>

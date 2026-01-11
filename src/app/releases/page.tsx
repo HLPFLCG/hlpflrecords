@@ -174,19 +174,25 @@ export default function ReleasesPage() {
                   {release.links && (
                     <div className="flex space-x-2">
                       {release.links.spotify && (
-                        <Button variant="ghost" size="sm" className="text-xs px-3">
-                          Spotify
-                        </Button>
+                        <a href={release.links.spotify} target="_blank" rel="noopener noreferrer">
+                          <Button variant="ghost" size="sm" className="text-xs px-3">
+                            Spotify
+                          </Button>
+                        </a>
                       )}
                       {release.links.apple && (
-                        <Button variant="ghost" size="sm" className="text-xs px-3">
-                          Apple Music
-                        </Button>
+                        <a href={release.links.apple} target="_blank" rel="noopener noreferrer">
+                          <Button variant="ghost" size="sm" className="text-xs px-3">
+                            Apple Music
+                          </Button>
+                        </a>
                       )}
                       {release.links.youtube && (
-                        <Button variant="ghost" size="sm" className="text-xs px-3">
-                          YouTube
-                        </Button>
+                        <a href={release.links.youtube} target="_blank" rel="noopener noreferrer">
+                          <Button variant="ghost" size="sm" className="text-xs px-3">
+                            YouTube
+                          </Button>
+                        </a>
                       )}
                     </div>
                   )}

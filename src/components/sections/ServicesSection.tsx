@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Music, Users, Globe, Headphones, TrendingUp, Award } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 
@@ -98,12 +99,16 @@ export function ServicesSection() {
               Stop waiting for a label to "discover" you. Start building the career you want right now with tools that work <span className="text-gold font-semibold">for you, not against you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gold text-dark px-8 py-3 rounded-lg font-semibold hover:bg-gold-light transition-colors hover-lift">
-                Get Started Free
-              </button>
-              <button className="border-2 border-gold text-gold px-8 py-3 rounded-lg font-semibold hover:bg-gold hover:text-dark transition-colors">
-                Learn More
-              </button>
+              <Link href="/artist-portal">
+                <button className="bg-gold text-dark px-8 py-3 rounded-lg font-semibold hover:bg-gold-light transition-colors hover-lift">
+                  Get Started Free
+                </button>
+              </Link>
+              <Link href="/about">
+                <button className="border-2 border-gold text-gold px-8 py-3 rounded-lg font-semibold hover:bg-gold hover:text-dark transition-colors">
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
