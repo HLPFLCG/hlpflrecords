@@ -85,7 +85,7 @@ export function FeaturedArtistsSection() {
                     )}
                     {artist.socials.instagram && (
                       <a
-                        href={`https://instagram.com/${artist.socials.instagram}`}
+                        href={artist.socials.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 px-3 py-2 bg-gradient-to-br from-[#E4405F] to-[#c13584] hover:from-[#c13584] hover:to-[#E4405F] text-white rounded-lg transition-all flex items-center justify-center gap-2 text-sm font-medium shadow-lg hover:shadow-xl hover:scale-105"
