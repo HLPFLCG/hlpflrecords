@@ -43,7 +43,7 @@ export default function AboutPage() {
   ]
 
   const stats = [
-    { number: '5', label: 'Artists' },
+    { number: '4', label: 'Artists' },
     { number: '50+', label: 'Releases' },
     { number: '63m+', label: 'Streams' },
     { number: '7', label: 'Years' }
@@ -58,8 +58,8 @@ export default function AboutPage() {
             About <span className="text-gold">HLPFL</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            Founded by James Rockel at just 18 years old, HLPFL is revolutionizing the music industry with artist-first partnerships. 
-            With boundary-pushing artist Alki as co-founder, we're proving that independent artists can thrive with our groundbreaking 50/50 model and genuine support.
+            Founded by James Rockel at just 18 years old, HLPFL is revolutionizing the music industry with artist-first partnerships.
+            We're proving that independent artists can thrive with our groundbreaking 50/50 model and genuine support.
           </p>
         </div>
       </section>
@@ -92,15 +92,15 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
-                  Founded in 2019, HLPFL began when James Rockel, just 18 years old, witnessed countless talented musicians struggle with outdated industry practices. 
+                  Founded in 2019, HLPFL began when James Rockel, just 18 years old, witnessed countless talented musicians struggle with outdated industry practices.
                   James envisioned a new paradigm where artists keep control of their music and earn fair revenue.
                 </p>
                 <p className="leading-relaxed">
-                  The vision became reality when Alki (@alkiotis), a boundary-pushing artist creating the future of rock music, joined as both signed artist and co-founder. 
-                  Together, they proved the revolutionary 50/50 partnership model works, building a foundation for how modern music careers should function.
+                  The vision became reality with the revolutionary 50/50 partnership model, building a foundation for how modern music careers should function.
+                  By signing talented artists like Pardyalone, Priv, Writ3rs Block, and Adam Rodway, we've proven that this model works.
                 </p>
                 <p className="leading-relaxed">
-                  Today, from our Grand Rapids headquarters, HLPFL continues to transform the industry one artist at a time, 
+                  Today, from our Grand Rapids headquarters, HLPFL continues to transform the industry one artist at a time,
                   proving that independence, artistic integrity, and commercial success can coexist in the modern music landscape.
                 </p>
               </div>
@@ -156,11 +156,6 @@ export default function AboutPage() {
                 icon: Award,
                 title: 'Analytics Dashboard',
                 description: 'Track your growth, understand your audience, and make data-driven decisions.',
-              },
-              {
-                icon: Heart,
-                title: 'Alki Music Vault',
-                description: 'Exclusive access to 300+ unreleased songs for remix and collaboration.',
               },
             ].map((tool) => {
               const Icon = tool.icon
