@@ -26,7 +26,7 @@ const [error, setError] = useState(null);
 
 useEffect(() => {
   async function fetchData() {
-    const response = await api.dashboard.getOverview('artist-alki-001');
+    const response = await api.dashboard.getOverview('artist-priv-001');
 
     if (response.success) {
       setData(response.data);
@@ -59,7 +59,7 @@ function DashboardPage() {
 ```
 
 For development, you can use the sample artist IDs from the seed data:
-- `artist-alki-001` - Alki (main artist)
+- `artist-priv-001` - PRIV (main artist)
 - `artist-priv-001` - Priv
 - `artist-pardy-001` - Pardyalone
 
@@ -88,7 +88,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     async function loadDashboard() {
-      const response = await api.dashboard.getOverview('artist-alki-001');
+      const response = await api.dashboard.getOverview('artist-priv-001');
 
       if (response.success) {
         setOverview(response.data);
@@ -168,7 +168,7 @@ export default function AnalyticsPage() {
   useEffect(() => {
     async function loadAnalytics() {
       const response = await api.analytics.get({
-        artistId: 'artist-alki-001',
+        artistId: 'artist-priv-001',
         startDate,
         endDate,
       });
@@ -252,7 +252,7 @@ export default function ReleasesPage() {
   }, []);
 
   async function loadReleases() {
-    const response = await api.releases.getAll('artist-alki-001');
+    const response = await api.releases.getAll('artist-priv-001');
     if (response.success) {
       setReleases(response.data);
     }
@@ -260,7 +260,7 @@ export default function ReleasesPage() {
 
   async function handleCreateRelease(releaseData) {
     const response = await api.releases.create({
-      artistId: 'artist-alki-001',
+      artistId: 'artist-priv-001',
       ...releaseData,
     });
 
@@ -274,7 +274,7 @@ export default function ReleasesPage() {
     const confirmed = confirm('Delete this release?');
     if (!confirmed) return;
 
-    const response = await api.releases.delete('artist-alki-001', releaseId);
+    const response = await api.releases.delete('artist-priv-001', releaseId);
     if (response.success) {
       await loadReleases(); // Refresh list
     }
@@ -337,7 +337,7 @@ export default function RevenuePage() {
   useEffect(() => {
     async function loadRevenue() {
       const response = await api.revenue.get({
-        artistId: 'artist-alki-001',
+        artistId: 'artist-priv-001',
         startDate,
         endDate,
       });
@@ -425,7 +425,7 @@ export default function CommunityPage() {
 
   async function loadPosts() {
     const response = await api.community.getPosts(
-      'artist-alki-001',
+      'artist-priv-001',
       limit,
       page * limit
     );
@@ -438,8 +438,8 @@ export default function CommunityPage() {
 
   async function handleCreatePost(content, imageUrl, videoUrl) {
     const response = await api.community.createPost({
-      artistId: 'artist-alki-001',
-      userId: 'artist-alki-001', // Current user
+      artistId: 'artist-priv-001',
+      userId: 'artist-priv-001', // Current user
       content,
       imageUrl,
       videoUrl,
@@ -451,7 +451,7 @@ export default function CommunityPage() {
   }
 
   async function handleDeletePost(postId) {
-    const response = await api.community.deletePost('artist-alki-001', postId);
+    const response = await api.community.deletePost('artist-priv-001', postId);
     if (response.success) {
       await loadPosts(); // Refresh feed
     }
@@ -583,19 +583,19 @@ if (response.success) {
 3. Test API endpoints:
    ```bash
    # Get dashboard overview
-   curl http://localhost:8788/api/dashboard?artistId=artist-alki-001
+   curl http://localhost:8788/api/dashboard?artistId=artist-priv-001
 
    # Get releases
-   curl http://localhost:8788/api/releases?artistId=artist-alki-001
+   curl http://localhost:8788/api/releases?artistId=artist-priv-001
 
    # Get analytics
-   curl http://localhost:8788/api/analytics?artistId=artist-alki-001&startDate=2025-12-01
+   curl http://localhost:8788/api/analytics?artistId=artist-priv-001&startDate=2025-12-01
    ```
 
 ### Sample Artist IDs
 
 Use these IDs from the seed data for testing:
-- `artist-alki-001` - Alki (3.2M streams, multiple releases)
+- `artist-priv-001` - PRIV (3.2M streams, multiple releases)
 - `artist-priv-001` - Priv (423K streams)
 - `artist-pardy-001` - Pardyalone (187K streams)
 

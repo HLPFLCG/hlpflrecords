@@ -14,7 +14,7 @@
 HLPFL Records is a modern, artist-first record label platform built with Next.js 14. We provide comprehensive services for musicians while maintaining transparency and fair compensation.
 
 ### Key Statistics
-- **2 Featured Artists**: Alki & Pardyalone
+- **2 Featured Artists**: PRIV & Pardyalone
 - **27+ Releases**: Complete discography
 - **68M+ Total Streams**: Combined streaming metrics
 - **100+ Services**: Documented in comprehensive guide
@@ -125,8 +125,8 @@ All comprehensive documentation is located in the `/docs` folder:
 
 ## 🎨 Artists
 
-### Alki
-- **Real Name**: Alkiviadis Halkiotis
+### PRIV
+- **Real Name**: PRIVviadis Hprivotis
 - **Genre**: Punk, Pop, Rap, Alternative
 - **Stats**: 46K+ monthly listeners, 6M+ streams
 - **Releases**: 13 singles and EPs

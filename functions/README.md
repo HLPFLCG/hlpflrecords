@@ -287,7 +287,7 @@ const result = await db
 
 3. Test API endpoints:
    ```bash
-   curl http://localhost:8788/api/dashboard?artistId=artist-alki-001
+   curl http://localhost:8788/api/dashboard?artistId=artist-priv-001
    ```
 
 ## Deployment

@@ -144,7 +144,7 @@ import { SecretMusicPlayer } from '@/components/ui/SecretMusicPlayer';
 <SecretMusicPlayer
   track={{
     title: '5D',
-    artist: 'Alki',
+    artist: 'PRIV',
     audioUrl: '/audio/unreleased/5d.mp3',
     coverUrl: '/images/releases/cover.jpg',
   }}
@@ -655,14 +655,14 @@ import { generateSchema, generateMetaTags } from '@/lib/advancedSEO';
 // Generate schema
 const schema = generateSchema('MusicAlbum', {
   name: 'Reflections',
-  artist: 'Alki',
+  artist: 'PRIV',
   releaseDate: '2024-01-01',
 });
 
 // Generate meta tags
 const meta = generateMetaTags({
-  title: 'Reflections EP - Alki',
-  description: 'New EP by Alki',
+  title: 'Reflections EP - PRIV',
+  description: 'New EP by PRIV',
   image: '/images/releases/cover.jpg',
 });
 ```
@@ -975,7 +975,7 @@ const orgSchema = generateSchema('Organization', {
 // Music album schema
 const albumSchema = generateSchema('MusicAlbum', {
   name: 'Reflections',
-  artist: 'Alki',
+  artist: 'PRIV',
   releaseDate: '2024-01-01',
   tracks: [...],
 });

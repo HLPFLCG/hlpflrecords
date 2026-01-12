@@ -18,7 +18,7 @@
 
 ### What is HLPFL Records?
 HLPFL Records is a modern, high-performance music label website showcasing:
-- **37 Music Releases** by artist Alki
+- **37 Music Releases** by artist PRIV
 - **5 Team Members** with detailed profiles
 - **7 Creative Easter Eggs** for fan engagement
 - **Advanced Search** functionality (Cmd+K)
@@ -579,7 +579,7 @@ toast.success('Message', {
     {
       "id": "unique-id",
       "title": "Release Title",
-      "artist": "Alki",
+      "artist": "PRIV",
       "type": "Single | EP | Album",
       "releaseDate": "2024-01-01",
       "coverArt": "/images/releases/cover.jpg",

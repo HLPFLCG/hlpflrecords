@@ -28,7 +28,7 @@
   - product_images table for merch
 
 ### Seed Data
-- [x] Sample artists (Alki, Priv, Pardyalone)
+- [x] Sample artists (PRIV, Priv, Pardyalone)
 - [x] Sample releases with realistic stream counts
 - [x] Sample analytics, revenue, products
 - [ ] **ACTION NEEDED**: Album artwork URLs (need to be filled from Spotify)
@@ -106,7 +106,7 @@ const releases = [
 // After integration:
 import { api } from '@/lib/api-client';
 
-const response = await api.releases.getAll('artist-alki-001');
+const response = await api.releases.getAll('artist-priv-001');
 if (response.success) {
   const releases = response.data; // Includes cover_art_url from database
 }
@@ -117,12 +117,12 @@ if (response.success) {
 ### 1. Add Spotify Artwork URLs
 **Priority**: High
 **Files**:
-- `database/update-artwork.sql` - Template for Alki and Pardyalone
+- `database/update-artwork.sql` - Template for PRIV and Pardyalone
 - `database/priv-data.sql` - Complete template for Priv
 
 **Steps**:
 1. Visit artist Spotify pages:
-   - Alki: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
+   - PRIV: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
    - Priv: (use provided URL)
    - Pardyalone: https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG
 2. Right-click album artwork → Copy Image Address
@@ -189,7 +189,7 @@ npx wrangler d1 execute hlpfl-artist-portal --remote --file=database/update-artw
 ✅ No critical bugs detected
 
 ### What Needs Images
-📷 Album artwork URLs (Alki, Priv, Pardyalone)
+📷 Album artwork URLs (PRIV, Priv, Pardyalone)
 📷 Artist profile avatars
 📷 Product images for merch
 

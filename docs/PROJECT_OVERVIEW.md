@@ -17,7 +17,7 @@ HLPFL Records is a modern, artist-first record label website built with Next.js 
 
 ## Key Statistics
 
-- **2 Featured Artists**: Alki and Pardyalone
+- **2 Featured Artists**: PRIV and Pardyalone
 - **27+ Releases**: Comprehensive discography across both artists
 - **68M+ Total Streams**: Combined streaming metrics
 - **6 Years**: Industry experience
@@ -26,7 +26,7 @@ HLPFL Records is a modern, artist-first record label website built with Next.js 
 
 ### 1. Artist Profiles
 - Detailed artist pages with bios, discographies, and streaming stats
-- **Alki**: Michigan-based artist blending punk, pop, and rap (46K monthly listeners, 6M+ streams)
+- **PRIV**: Michigan-based artist blending punk, pop, and rap (46K monthly listeners, 6M+ streams)
 - **Pardyalone**: Minnesota emo rap artist (436K monthly listeners, 62M+ streams)
 
 ### 2. Comprehensive Services Guide
@@ -156,8 +156,8 @@ hlpflrecords/
 
 ## Artists and Content
 
-### Alki
-- **Real Name**: Alkiviadis Halkiotis
+### PRIV
+- **Real Name**: PRIVviadis Hprivotis
 - **Location**: Michigan
 - **Genre**: Punk, Pop, Rap, Alternative
 - **Stats**: 46K+ monthly listeners, 6M+ total streams

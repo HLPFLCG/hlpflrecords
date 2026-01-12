@@ -120,7 +120,7 @@ import { Music, Filter, Users, Star, Play } from 'lucide-react'
 - Contact information
 
 **Key Highlights**:
-- 2 Featured Artists (Alki, Pardyalone)
+- 2 Featured Artists (PRIV, Pardyalone)
 - 27+ Releases
 - 68M+ Total Streams
 - 50/50 Revenue Split
@@ -217,7 +217,7 @@ Files Changed: 6
 
 ### Active Features
 ✅ Homepage with featured artists
-✅ Artist profiles (Alki, Pardyalone)
+✅ Artist profiles (PRIV, Pardyalone)
 ✅ Release catalog (27 releases)
 ✅ News section (3 articles)
 ✅ Artist Portal with tools
@@ -279,8 +279,8 @@ Files Changed: 6
 - **PWA**: next-pwa with Workbox
 
 ### Data Structure
-**Artists**: 2 (Alki, Pardyalone)
-**Releases**: 27 (13 Alki + 14 Pardyalone)
+**Artists**: 2 (PRIV, Pardyalone)
+**Releases**: 27 (13 PRIV + 14 Pardyalone)
 **News Articles**: 3 featured
 **Services**: 100+ documented in services guide
 **Pages**: 40 routes

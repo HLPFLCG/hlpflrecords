@@ -50,7 +50,7 @@ cd public/images/releases/
 
 # Add your image file
 # Recommended naming: artist-title.jpg
-# Example: alki-new-single.jpg
+# Example: priv-new-single.jpg
 ```
 
 **Image Requirements:**
@@ -67,10 +67,10 @@ Open `data/releases.json` and add your new release:
 {
   "id": "unique-slug-here",
   "title": "Your Release Title",
-  "artist": "Alki",
+  "artist": "PRIV",
   "type": "Single",
   "releaseDate": "2024-12-15",
-  "coverArt": "/images/releases/alki-new-single.jpg",
+  "coverArt": "/images/releases/priv-new-single.jpg",
   "streamingLinks": {
     "spotify": "https://open.spotify.com/track/...",
     "appleMusic": "https://music.apple.com/...",
@@ -104,7 +104,7 @@ Open `data/releases.json` and add your new release:
 - `id`: Unique identifier (lowercase, hyphens, no spaces)
   - Example: `"new-single-2024"`
 - `title`: Release title
-- `artist`: Artist name (usually "Alki")
+- `artist`: Artist name (usually "PRIV")
 - `type`: One of: `"Single"`, `"EP"`, `"Album"`, `"Mixtape"`
 - `releaseDate`: Format: `"YYYY-MM-DD"`
 - `coverArt`: Path to image file
@@ -152,15 +152,15 @@ For releases with multiple tracks:
 {
   "id": "reflections-ep",
   "title": "Reflections",
-  "artist": "Alki",
+  "artist": "PRIV",
   "type": "EP",
   "releaseDate": "2024-12-20",
-  "coverArt": "/images/releases/alki-reflections.jpg",
+  "coverArt": "/images/releases/priv-reflections.jpg",
   "streamingLinks": {
     "spotify": "https://open.spotify.com/album/abc123",
     "appleMusic": "https://music.apple.com/album/abc123",
     "youtube": "https://youtube.com/playlist?list=abc123",
-    "soundcloud": "https://soundcloud.com/alki/sets/reflections"
+    "soundcloud": "https://soundcloud.com/priv/sets/reflections"
   },
   "tracks": [
     {
@@ -189,9 +189,9 @@ For releases with multiple tracks:
       "explicit": false
     }
   ],
-  "description": "A deeply personal EP exploring themes of introspection and growth. Recorded over 6 months, this project represents a new chapter in Alki's artistic journey.",
+  "description": "A deeply personal EP exploring themes of introspection and growth. Recorded over 6 months, this project represents a new chapter in PRIV's artistic journey.",
   "credits": {
-    "producer": ["Alki", "Producer Name"],
+    "producer": ["PRIV", "Producer Name"],
     "engineer": ["Engineer Name"],
     "mixer": ["Mixer Name"],
     "mastering": ["Mastering Engineer"],
@@ -436,9 +436,9 @@ git push origin main
 ```
 
 ### Image Naming Conventions
-- **Lowercase only:** `alki-new-single.jpg` ✅ not `Alki-New-Single.jpg` ❌
+- **Lowercase only:** `priv-new-single.jpg` ✅ not `PRIV-New-Single.jpg` ❌
 - **Hyphens for spaces:** `my-release.jpg` ✅ not `my_release.jpg` ❌
-- **Descriptive names:** `alki-reflections-ep.jpg` ✅ not `image1.jpg` ❌
+- **Descriptive names:** `priv-reflections-ep.jpg` ✅ not `image1.jpg` ❌
 - **No special characters:** Only letters, numbers, hyphens
 
 ---
@@ -516,7 +516,7 @@ const unreleasedTracks = [
   {
     id: 'track-slug',
     title: 'Track Title',
-    artist: 'Alki',
+    artist: 'PRIV',
     audioUrl: '/audio/unreleased/track-name.mp3',
     coverUrl: '/images/releases/cover.jpg', // optional
   },
@@ -655,7 +655,7 @@ git push origin main --force
 ### Task 1: Add a New Single
 ```bash
 # 1. Add cover art
-cp ~/Downloads/cover.jpg public/images/releases/alki-new-single.jpg
+cp ~/Downloads/cover.jpg public/images/releases/priv-new-single.jpg
 
 # 2. Edit releases.json
 # Add new release object (see example above)
@@ -771,13 +771,13 @@ export const metadata = {
    // ❌ Wrong - extra comma
    {
      "title": "Track",
-     "artist": "Alki",
+     "artist": "PRIV",
    }
    
    // ✅ Correct
    {
      "title": "Track",
-     "artist": "Alki"
+     "artist": "PRIV"
    }
    ```
 

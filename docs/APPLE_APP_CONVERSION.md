@@ -340,7 +340,7 @@ and 100% artist-owned masters.
 
 Features:
 • Browse artists and releases
-• Stream music from Alki, Pardyalone, and more
+• Stream music from PRIV, Pardyalone, and more
 • Access the artist portal
 • Stay updated with latest news
 • Transparent analytics and insights
