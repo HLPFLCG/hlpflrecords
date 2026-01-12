@@ -50,7 +50,7 @@ export default function CommunityFeed() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const artistId = 'artist-alki-001'
+  const artistId = 'artist-priv-001'
 
   useEffect(() => {
     async function loadCommunity() {

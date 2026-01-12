@@ -54,8 +54,8 @@ export default function ReleasesPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  // Use Alki as default artist
-  const artistId = 'artist-alki-001'
+  // Use PRIV as default artist
+  const artistId = 'artist-priv-001'
 
   useEffect(() => {
     async function loadReleases() {

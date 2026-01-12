@@ -39,8 +39,8 @@ export default function DashboardPage() {
     }
   }, [router])
 
-  // Use Alki as default artist (in production, get from auth context)
-  const artistId = 'artist-alki-001'
+  // Use PRIV as default artist (in production, get from auth context)
+  const artistId = 'artist-priv-001'
 
   useEffect(() => {
     async function loadDashboard() {
@@ -207,7 +207,7 @@ export default function DashboardPage() {
     <div className="space-y-6">
       {/* Welcome Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Welcome back, Alki 👋</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Welcome back, PRIV</h1>
         <p className="text-gray-400">Here's what's happening with your music today</p>
       </div>
 
