@@ -377,12 +377,12 @@ CREATE INDEX idx_merch_orders_fulfillment_status ON merch_orders(fulfillment_sta
 INSERT INTO profiles (id, email, artist_name, display_name, role, spotify_url, instagram_handle)
 VALUES (
   'demo-artist-1',
-  'alki@hlpfl.org',
-  'Alki',
-  'Alki',
+  'priv@hlpfl.org',
+  'PRIV',
+  'PRIV',
   'artist',
-  'https://open.spotify.com/artist/alki',
-  'alkimusic'
+  'https://open.spotify.com/artist/priv',
+  'privmusic'
 );
 
 -- Insert demo release
@@ -390,10 +390,10 @@ INSERT INTO releases (id, artist_id, title, slug, release_type, release_date, to
 VALUES (
   'demo-release-1',
   'demo-artist-1',
-  '221',
-  '221-alki',
+  'Emerging Sounds',
+  'emerging-sounds-priv',
   'single',
-  '2024-01-15',
-  500000,
+  '2025-11-01',
+  2847392,
   'released'
 );

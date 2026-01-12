@@ -11,41 +11,41 @@ export default function PressReleasesPage() {
   const pressReleases = [
     {
       id: 1,
-      title: 'Alki Announces Breakthrough Debut Album "Midnight Dreams"',
-      category: 'Album Release',
-      date: '2024-01-10',
-      excerpt: 'Rising artist Alki drops highly anticipated debut album, blending R&B with electronic elements...',
-      keywords: ['alki', 'album release', 'R&B', 'new music', 'debut album', 'midnight dreams'],
+      title: 'PRIV Releases New Single "Emerging Sounds"',
+      category: 'Single Release',
+      date: '2025-11-01',
+      excerpt: 'Emerging artist PRIV drops new single blending indie vibes with modern production...',
+      keywords: ['priv', 'single release', 'indie', 'new music', 'emerging sounds'],
       seoScore: 95,
-      views: 15420
+      views: 12420
     },
     {
       id: 2,
-      title: 'HLPFL Records Signs Multi-Year Deal with Alki',
+      title: 'HLPFL Records Welcomes PRIV to the Roster',
       category: 'Label News',
-      date: '2024-01-08',
-      excerpt: 'In a landmark deal, HLPFL Records partners with Alki for exclusive distribution and artist development...',
-      keywords: ['hlpfl records', 'alki', 'record deal', 'label partnership', 'music industry'],
+      date: '2025-10-15',
+      excerpt: 'HLPFL Records announces partnership with rising indie artist PRIV...',
+      keywords: ['hlpfl records', 'priv', 'record deal', 'label partnership', 'music industry'],
       seoScore: 92,
-      views: 12350
+      views: 8350
     },
     {
       id: 3,
-      title: 'Alki\'s "Neon Nights" Reaches 1 Million Spotify Streams',
+      title: 'Pardyalone Surpasses 400K Monthly Listeners',
       category: 'Achievement',
-      date: '2024-01-05',
-      excerpt: 'Viral hit "Neon Nights" crosses 1 million streams milestone on Spotify...',
-      keywords: ['alki', 'spotify', 'million streams', 'viral hit', 'neon nights', 'music streaming'],
+      date: '2025-12-20',
+      excerpt: 'Pardyalone continues meteoric rise with 400K+ monthly listeners on Spotify...',
+      keywords: ['pardyalone', 'spotify', 'monthly listeners', 'milestone', 'music streaming'],
       seoScore: 98,
       views: 28900
     },
     {
       id: 4,
-      title: 'Interview: Alki on His Creative Process and Musical Journey',
-      category: 'Interview',
-      date: '2024-01-03',
-      excerpt: 'Exclusive interview with Alki discussing his inspiration, creative process, and future plans...',
-      keywords: ['alki interview', 'artist interview', 'creative process', 'music journey', 'artist development'],
+      title: 'HLPFL Records: Artist-First Approach Disrupts Music Industry',
+      category: 'Industry News',
+      date: '2025-09-03',
+      excerpt: 'How HLPFL Records is changing the game with 100% artist ownership and fair contracts...',
+      keywords: ['hlpfl records', 'artist rights', 'music industry', 'fair contracts', 'artist development'],
       seoScore: 88,
       views: 9800
     }
@@ -187,7 +187,7 @@ export default function PressReleasesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
               <h4 className="text-gold font-semibold mb-2">Keyword Research</h4>
-              <p className="text-gray-400 text-sm">Target high-volume, low-competition keywords related to Alki and music industry</p>
+              <p className="text-gray-400 text-sm">Target high-volume, low-competition keywords related to your artists and music industry</p>
             </div>
             <div>
               <h4 className="text-gold font-semibold mb-2">Meta Tags</h4>

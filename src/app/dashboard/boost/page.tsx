@@ -51,8 +51,8 @@ export default function ViralBoostDashboard() {
   const campaigns: BoostCampaign[] = [
     {
       id: '1',
-      title: 'New Single "Midnight Dreams" Release',
-      creator: 'Alki',
+      title: 'New Single "New Horizons" Release',
+      creator: 'PRIV',
       contentType: 'release',
       contentUrl: 'https://open.spotify.com/...',
       platforms: ['instagram', 'twitter', 'tiktok'],
@@ -65,8 +65,8 @@ export default function ViralBoostDashboard() {
     },
     {
       id: '2',
-      title: 'Music Video Drop - "Switched Up"',
-      creator: 'Alki',
+      title: 'Music Video Drop - "Emerging Sounds"',
+      creator: 'PRIV',
       contentType: 'video',
       contentUrl: 'https://youtube.com/...',
       platforms: ['instagram', 'twitter', 'youtube'],
@@ -125,9 +125,8 @@ export default function ViralBoostDashboard() {
   ]
 
   const participants = [
-    { name: 'Alki', avatar: '/images/team/alki.webp', credits: 42, participated: 15 },
+    { name: 'PRIV', avatar: '/images/artists/priv.svg', credits: 42, participated: 15 },
     { name: 'Pardyalone', avatar: '/images/artists/IMG_0146.png', credits: 38, participated: 14 },
-    { name: 'Priv', avatar: '', credits: 12, participated: 8 },
     { name: 'James Rockel', avatar: '/images/team/james-rockel.webp', credits: 28, participated: 12 }
   ]
 

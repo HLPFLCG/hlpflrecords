@@ -22,18 +22,18 @@ VALUES (
   CURRENT_TIMESTAMP
 );
 
--- Alki - Real Artist Profile
+-- PRIV - Artist Profile
 INSERT OR REPLACE INTO profiles (id, email, artist_name, display_name, role, bio, spotify_url, instagram_handle, twitter_handle, created_at, updated_at)
 VALUES (
-  'alki-artist-1',
-  'alki@hlpfl.org',
-  'Alki',
-  'Alki',
+  'priv-artist-1',
+  'priv@hlpfl.org',
+  'PRIV',
+  'PRIV',
   'artist',
-  'Boundary-pushing artist creating the future of alternative music. Nearly 48,000 monthly listeners and millions of streams.',
-  'https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl',
-  'alkiotis',
-  'alkiotis',
+  'Emerging artist bringing a fresh perspective to the alternative scene. Blending indie vibes with modern production.',
+  'https://open.spotify.com/artist/priv',
+  'privmusic',
+  'privmusic',
   CURRENT_TIMESTAMP,
   CURRENT_TIMESTAMP
 );
@@ -57,37 +57,37 @@ VALUES (
 
 INSERT OR REPLACE INTO releases (id, artist_id, title, slug, release_type, release_date, cover_art_url, description, total_streams, total_listeners, status, spotify_url, apple_music_url, created_at, updated_at)
 VALUES (
-  '221-single',
-  'alki-artist-1',
-  '221',
-  '221-alki',
+  'emerging-sounds-single',
+  'priv-artist-1',
+  'Emerging Sounds',
+  'emerging-sounds-priv',
   'single',
-  '2025-01-17',
-  '/images/releases/221.png',
-  'Angsty and punchy rap record that screams, "I hate you"',
-  250000,
-  45000,
+  '2025-11-01',
+  '/images/releases/emerging-sounds.png',
+  'Fresh indie track blending modern production with authentic emotion',
+  2847392,
+  142380,
   'released',
-  'https://open.spotify.com/album/468FaHLWX75g0RJdoEUABD',
-  'https://music.apple.com/album/221-single/1853361772',
+  'https://open.spotify.com/album/priv-emerging-sounds',
+  'https://music.apple.com/album/emerging-sounds',
   CURRENT_TIMESTAMP,
   CURRENT_TIMESTAMP
 );
 
 INSERT OR REPLACE INTO releases (id, artist_id, title, slug, release_type, release_date, cover_art_url, description, total_streams, total_listeners, status, spotify_url, created_at, updated_at)
 VALUES (
-  'switched-up-single',
-  'alki-artist-1',
-  'Switched Up',
-  'switched-up-alki',
+  'night-drive-single',
+  'priv-artist-1',
+  'Night Drive',
+  'night-drive-priv',
   'single',
-  '2024-09-20',
-  '/images/releases/switched-up.jpg',
-  'Alki''s breakout hit with nearly 3 million streams.',
-  2950000,
-  890000,
+  '2025-12-15',
+  '/images/releases/night-drive.jpg',
+  'PRIV''s atmospheric single exploring late night thoughts.',
+  523789,
+  52380,
   'released',
-  'https://open.spotify.com/album/4EF7LaxKklISvrfAqVyWkl',
+  'https://open.spotify.com/album/priv-night-drive',
   CURRENT_TIMESTAMP,
   CURRENT_TIMESTAMP
 );
@@ -98,9 +98,9 @@ VALUES (
 
 INSERT OR REPLACE INTO analytics_streams (id, artist_id, release_id, date, platform, streams, listeners, saves, country_code, created_at)
 VALUES
-  ('analytics-1', 'alki-artist-1', '221-single', DATE('now', '-1 day'), 'spotify', 15420, 8932, 523, 'US', CURRENT_TIMESTAMP),
-  ('analytics-2', 'alki-artist-1', '221-single', DATE('now', '-1 day'), 'apple_music', 5234, 3122, 189, 'US', CURRENT_TIMESTAMP),
-  ('analytics-3', 'alki-artist-1', 'switched-up-single', DATE('now', '-1 day'), 'spotify', 28490, 18234, 1421, 'US', CURRENT_TIMESTAMP),
+  ('analytics-1', 'priv-artist-1', '221-single', DATE('now', '-1 day'), 'spotify', 15420, 8932, 523, 'US', CURRENT_TIMESTAMP),
+  ('analytics-2', 'priv-artist-1', '221-single', DATE('now', '-1 day'), 'apple_music', 5234, 3122, 189, 'US', CURRENT_TIMESTAMP),
+  ('analytics-3', 'priv-artist-1', 'switched-up-single', DATE('now', '-1 day'), 'spotify', 28490, 18234, 1421, 'US', CURRENT_TIMESTAMP),
   ('analytics-4', 'demo-user-1', NULL, DATE('now', '-1 day'), 'spotify', 1200, 450, 23, 'US', CURRENT_TIMESTAMP);
 
 -- =============================================================================
@@ -109,8 +109,8 @@ VALUES
 
 INSERT OR REPLACE INTO email_subscribers (id, artist_id, email, first_name, last_name, status, subscribed_at, created_at)
 VALUES
-  ('sub-1', 'alki-artist-1', 'fan1@example.com', 'John', 'Doe', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('sub-2', 'alki-artist-1', 'fan2@example.com', 'Jane', 'Smith', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  ('sub-1', 'priv-artist-1', 'fan1@example.com', 'John', 'Doe', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  ('sub-2', 'priv-artist-1', 'fan2@example.com', 'Jane', 'Smith', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
   ('sub-3', 'demo-user-1', 'testfan@example.com', 'Test', 'Fan', 'active', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 -- =============================================================================
@@ -119,5 +119,5 @@ VALUES
 
 INSERT OR REPLACE INTO social_posts (id, artist_id, content, platforms, scheduled_for, status, created_at, updated_at)
 VALUES
-  ('post-1', 'alki-artist-1', 'New single "221" out now! Stream everywhere 🔥', '["instagram", "twitter"]', DATETIME('now', '+1 day'), 'scheduled', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+  ('post-1', 'priv-artist-1', 'New single "221" out now! Stream everywhere 🔥', '["instagram", "twitter"]', DATETIME('now', '+1 day'), 'scheduled', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
   ('post-2', 'demo-user-1', 'Testing the social scheduler!', '["instagram"]', DATETIME('now', '+2 days'), 'scheduled', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

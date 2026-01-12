@@ -37,9 +37,9 @@ export function ServicesSection() {
     },
     {
       icon: Award,
-      title: 'Alki Music Vault',
-      description: 'Exclusive access to 300+ unreleased songs from Alki\'s catalog. Remix, collaborate, or find inspiration from this massive creative resource.',
-      features: ['300+ Unreleased Tracks', 'Remix Rights', 'Collaboration Tools', 'Creative Inspiration']
+      title: 'HLPFL Music Vault',
+      description: 'Exclusive access to unreleased tracks and stems from our roster. Remix, collaborate, or find inspiration from this creative resource.',
+      features: ['Unreleased Tracks', 'Remix Rights', 'Collaboration Tools', 'Creative Inspiration']
     }
   ]
 

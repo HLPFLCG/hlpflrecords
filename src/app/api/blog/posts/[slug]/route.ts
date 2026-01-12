@@ -5,14 +5,14 @@ import { NewsPost } from '@/types';
 const blogPosts: NewsPost[] = [
   {
     id: '1',
-    title: 'Alki Drops New Single "221"',
-    slug: 'alki-221-release',
-    excerpt: 'Alki returns with his most aggressive track yet...',
+    title: 'PRIV Releases New Single "Emerging Sounds"',
+    slug: 'priv-emerging-sounds-release',
+    excerpt: 'PRIV drops debut single blending indie vibes with modern production...',
     content: 'Full content here...',
-    publishedAt: new Date('2025-01-17'),
+    publishedAt: new Date('2025-11-01'),
     author: 'HLPFL Team',
     category: 'Releases',
-    image: '/images/team/IMG_2768.png',
+    image: '/images/artists/priv.svg',
   },
 ];
 

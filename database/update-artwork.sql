@@ -6,35 +6,28 @@
 --   3. Paste the URL below
 
 -- ============================================================================
--- ALKI - Album Artwork
--- Spotify Artist: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
+-- PRIV - Album Artwork (Primary Artist)
 -- ============================================================================
 
--- "Switched Up" single
+-- "Emerging Sounds" single
 UPDATE releases
-SET cover_art_url = 'PASTE_SWITCHED_UP_ARTWORK_URL_HERE'
-WHERE id = 'release-switched-up';
+SET cover_art_url = 'PASTE_EMERGING_SOUNDS_ARTWORK_URL_HERE'
+WHERE id = 'release-emerging-sounds';
 
--- "221" single
+-- "Night Drive" single
 UPDATE releases
-SET cover_art_url = 'PASTE_221_ARTWORK_URL_HERE'
-WHERE id = 'release-221';
+SET cover_art_url = 'PASTE_NIGHT_DRIVE_ARTWORK_URL_HERE'
+WHERE id = 'release-night-drive';
 
--- "Late Nights" single
+-- "City Lights" single
 UPDATE releases
-SET cover_art_url = 'PASTE_LATE_NIGHTS_ARTWORK_URL_HERE'
-WHERE id = 'release-late-nights';
+SET cover_art_url = 'PASTE_CITY_LIGHTS_ARTWORK_URL_HERE'
+WHERE id = 'release-city-lights';
 
--- "Midnight Dreams" single (upcoming)
+-- "New Horizons" single (upcoming)
 UPDATE releases
-SET cover_art_url = 'PASTE_MIDNIGHT_DREAMS_ARTWORK_URL_HERE'
-WHERE id = 'release-midnight-dreams';
-
--- Update Alki artist profile avatar
-UPDATE profiles
-SET avatar_url = 'PASTE_ALKI_PROFILE_IMAGE_URL_HERE',
-    spotify_url = 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt'
-WHERE id = 'artist-alki-001';
+SET cover_art_url = 'PASTE_NEW_HORIZONS_ARTWORK_URL_HERE'
+WHERE id = 'release-new-horizons';
 
 -- ============================================================================
 -- PRIV - Complete Artist Information
