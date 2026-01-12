@@ -32,7 +32,7 @@ export default function AnalyticsDashboard() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const artistId = 'artist-priv-001'
+  const artistId = 'demo-artist-001'
 
   useEffect(() => {
     async function loadAnalytics() {

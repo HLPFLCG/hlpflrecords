@@ -1,112 +1,124 @@
--- HLPFL Artist Portal - Seed Data
--- Sample data for development and testing
+-- HLPFL Artist Portal - Demo Data
+-- Clean demo account setup
 
 -- ============================================================================
--- SAMPLE ARTISTS
+-- CLEAR ALL EXISTING DATA
 -- ============================================================================
 
-INSERT OR IGNORE INTO profiles (id, email, role, artist_name, display_name, bio, spotify_url, instagram_handle, twitter_handle) VALUES
-('artist-priv-001', 'priv@hlpflrecords.com', 'artist', 'PRIV', 'PRIV', 'Emerging artist bringing a fresh perspective to the alternative scene. Blending indie vibes with modern production.', 'https://open.spotify.com/artist/priv', '@privmusic', '@privmusic'),
-('artist-pardyalone-001', 'pardyalone@hlpflrecords.com', 'artist', 'Pardyalone', 'Pardyalone', 'Independent artist with millions of streams worldwide.', '', '@pardyalone', '@pardyalone'),
-('admin-001', 'admin@hlpflrecords.com', 'admin', NULL, 'HLPFL Admin', 'HLPFL Records Administration', NULL, NULL, NULL);
+DELETE FROM boost_participants;
+DELETE FROM boost_campaigns;
+DELETE FROM email_subscribers;
+DELETE FROM email_campaigns;
+DELETE FROM scheduled_posts;
+DELETE FROM social_accounts;
+DELETE FROM community_likes;
+DELETE FROM community_comments;
+DELETE FROM community_posts;
+DELETE FROM broll_clips;
+DELETE FROM broll_videos;
+DELETE FROM orders;
+DELETE FROM products;
+DELETE FROM payouts;
+DELETE FROM revenue_streams;
+DELETE FROM analytics_demographics;
+DELETE FROM analytics_streams;
+DELETE FROM tracks;
+DELETE FROM releases;
+DELETE FROM notifications;
+DELETE FROM sessions;
+DELETE FROM profiles;
 
 -- ============================================================================
--- SAMPLE RELEASES
+-- DEMO ACCOUNT
 -- ============================================================================
 
-INSERT OR IGNORE INTO releases (id, artist_id, title, slug, release_type, release_date, status, total_streams, total_listeners, genre) VALUES
-('release-emerging-sounds', 'artist-priv-001', 'Emerging Sounds', 'emerging-sounds', 'single', '2025-11-01', 'live', 2847392, 142380, 'Indie/Alternative'),
-('release-night-drive', 'artist-priv-001', 'Night Drive', 'night-drive', 'single', '2025-12-15', 'live', 523789, 52380, 'Alternative'),
-('release-city-lights', 'artist-priv-001', 'City Lights', 'city-lights', 'single', '2025-09-10', 'live', 287234, 38934, 'Indie'),
-('release-new-horizons', 'artist-priv-001', 'New Horizons', 'new-horizons', 'single', '2026-02-14', 'scheduled', 0, 0, 'Alternative'),
-('release-summer-ep', 'artist-priv-001', 'Summer Vibes EP', 'summer-vibes-ep', 'ep', '2026-03-01', 'draft', 0, 0, 'Indie/Alternative');
+INSERT INTO profiles (id, email, role, artist_name, display_name, bio, spotify_url, instagram_handle, twitter_handle) VALUES
+('demo-artist-001', 'demo@hlpfl.org', 'artist', 'Demo Artist', 'Demo Artist', 'Welcome to the HLPFL Records demo account. This showcases all platform features.', 'https://open.spotify.com/artist/demo', '@demoartist', '@demoartist');
 
 -- ============================================================================
--- SAMPLE ANALYTICS
+-- RELEASES
 -- ============================================================================
 
--- Last 30 days of streaming data for PRIV
-INSERT OR IGNORE INTO analytics_streams (id, artist_id, release_id, date, platform, streams, listeners, saves, country_code) VALUES
-('analytics-001', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'spotify', 45230, 8420, 1240, 'US'),
-('analytics-002', 'artist-priv-001', 'release-emerging-sounds', '2026-01-07', 'spotify', 43180, 8240, 1180, 'US'),
-('analytics-003', 'artist-priv-001', 'release-emerging-sounds', '2026-01-06', 'spotify', 42950, 8120, 1150, 'US'),
-('analytics-004', 'artist-priv-001', 'release-night-drive', '2026-01-08', 'spotify', 12420, 3240, 520, 'US'),
-('analytics-005', 'artist-priv-001', 'release-night-drive', '2026-01-07', 'spotify', 11890, 3120, 480, 'US'),
-('analytics-006', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'apple_music', 18240, 2840, 620, 'US'),
-('analytics-007', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'youtube', 8420, 1240, 280, 'US'),
-('analytics-008', 'artist-priv-001', 'release-city-lights', '2026-01-08', 'spotify', 8920, 2180, 380, 'US'),
-('analytics-009', 'artist-priv-001', 'release-city-lights', '2026-01-07', 'spotify', 8450, 2040, 350, 'US');
-
--- Analytics demographics
-INSERT OR IGNORE INTO analytics_demographics (id, artist_id, date, age_range, gender, country_code, listeners) VALUES
-('demo-001', 'artist-priv-001', '2026-01-08', '18-24', 'male', 'US', 4280),
-('demo-002', 'artist-priv-001', '2026-01-08', '18-24', 'female', 'US', 3920),
-('demo-003', 'artist-priv-001', '2026-01-08', '25-34', 'male', 'US', 2840),
-('demo-004', 'artist-priv-001', '2026-01-08', '18-24', 'female', 'GB', 2420),
-('demo-005', 'artist-priv-001', '2026-01-08', '25-34', 'male', 'CA', 1890),
-('demo-006', 'artist-priv-001', '2026-01-08', '18-24', 'female', 'AU', 1240);
+INSERT INTO releases (id, artist_id, title, slug, release_type, release_date, status, total_streams, total_listeners, genre) VALUES
+('release-001', 'demo-artist-001', 'First Light', 'first-light', 'single', '2025-10-15', 'live', 1250000, 85000, 'Alternative'),
+('release-002', 'demo-artist-001', 'Midnight Run', 'midnight-run', 'single', '2025-12-01', 'live', 450000, 32000, 'Indie'),
+('release-003', 'demo-artist-001', 'New Dawn EP', 'new-dawn-ep', 'ep', '2026-02-01', 'scheduled', 0, 0, 'Alternative');
 
 -- ============================================================================
--- SAMPLE REVENUE
+-- ANALYTICS - STREAMS
 -- ============================================================================
 
-INSERT OR IGNORE INTO revenue_streams (id, artist_id, source, amount, date, description) VALUES
-('revenue-001', 'artist-priv-001', 'streaming', 3830.50, '2026-01-01', 'Spotify streaming revenue - December 2025'),
-('revenue-002', 'artist-priv-001', 'streaming', 1620.40, '2025-12-20', 'Apple Music streaming revenue - November 2025'),
-('revenue-003', 'artist-priv-001', 'merch', 2540.00, '2026-01-05', 'T-shirt sales - 127 units'),
-('revenue-004', 'artist-priv-001', 'merch', 1640.00, '2026-01-05', 'Hoodie sales - 54 units'),
-('revenue-005', 'artist-priv-001', 'crowdfunding', 2840.80, '2026-01-10', 'Monthly fan support'),
-('revenue-006', 'artist-priv-001', 'licensing', 1500.00, '2026-01-12', 'Podcast intro sync license');
-
-INSERT OR IGNORE INTO payouts (id, artist_id, amount, status, method, scheduled_date) VALUES
-('payout-001', 'artist-priv-001', 4830.20, 'pending', 'bank_transfer', '2026-01-15'),
-('payout-002', 'artist-priv-001', 1980.40, 'pending', 'bank_transfer', '2026-01-20'),
-('payout-003', 'artist-priv-001', 790.50, 'pending', 'bank_transfer', '2026-02-01');
+INSERT INTO analytics_streams (id, artist_id, release_id, date, platform, streams, listeners, saves, country_code) VALUES
+('stream-001', 'demo-artist-001', 'release-001', '2026-01-10', 'spotify', 28500, 4200, 850, 'US'),
+('stream-002', 'demo-artist-001', 'release-001', '2026-01-09', 'spotify', 27200, 4100, 820, 'US'),
+('stream-003', 'demo-artist-001', 'release-001', '2026-01-08', 'spotify', 26800, 3950, 790, 'US'),
+('stream-004', 'demo-artist-001', 'release-002', '2026-01-10', 'spotify', 8500, 1800, 320, 'US'),
+('stream-005', 'demo-artist-001', 'release-002', '2026-01-09', 'spotify', 8200, 1750, 300, 'US'),
+('stream-006', 'demo-artist-001', 'release-001', '2026-01-10', 'apple_music', 12400, 2100, 420, 'US'),
+('stream-007', 'demo-artist-001', 'release-001', '2026-01-10', 'youtube', 5200, 980, 180, 'US');
 
 -- ============================================================================
--- SAMPLE PRODUCTS
+-- ANALYTICS - DEMOGRAPHICS
 -- ============================================================================
 
-INSERT OR IGNORE INTO products (id, artist_id, name, category, price, stock, sales, revenue, status) VALUES
-('product-001', 'artist-priv-001', 'Emerging Sounds T-Shirt', 'tshirt', 29.99, 234, 127, 3808.73, 'active'),
-('product-002', 'artist-priv-001', 'PRIV Logo Hoodie', 'hoodie', 54.99, 156, 78, 4289.22, 'active'),
-('product-003', 'artist-priv-001', 'Night Drive Vinyl Record', 'vinyl', 34.99, 45, 52, 1819.48, 'active'),
-('product-004', 'artist-priv-001', 'Limited Edition Poster Set', 'poster', 19.99, 89, 198, 3958.02, 'active');
+INSERT INTO analytics_demographics (id, artist_id, date, age_range, gender, country_code, listeners) VALUES
+('demo-001', 'demo-artist-001', '2026-01-10', '18-24', 'male', 'US', 2800),
+('demo-002', 'demo-artist-001', '2026-01-10', '18-24', 'female', 'US', 2400),
+('demo-003', 'demo-artist-001', '2026-01-10', '25-34', 'male', 'US', 1900),
+('demo-004', 'demo-artist-001', '2026-01-10', '25-34', 'female', 'GB', 1200),
+('demo-005', 'demo-artist-001', '2026-01-10', '18-24', 'male', 'CA', 950);
 
 -- ============================================================================
--- SAMPLE COMMUNITY POSTS
+-- REVENUE
 -- ============================================================================
 
-INSERT OR IGNORE INTO community_posts (id, author_id, content, category, likes, comments_count, shares) VALUES
-('post-001', 'artist-priv-001', 'Just finished recording my first EP! Can''t wait to share it with you all. Looking for feedback on the mix - anyone want to give it a listen?', 'update', 45, 12, 5),
-('post-002', 'artist-priv-001', 'Huge milestone! "Emerging Sounds" just hit 2 million streams on Spotify. Thank you all for the incredible support!', 'milestone', 189, 54, 72),
-('post-003', 'artist-pardyalone-001', 'Looking to collaborate with a producer for my next project. Anyone interested in working together?', 'collaboration', 78, 34, 12);
+INSERT INTO revenue_streams (id, artist_id, source, amount, date, description) VALUES
+('rev-001', 'demo-artist-001', 'streaming', 2450.00, '2026-01-01', 'Spotify - December 2025'),
+('rev-002', 'demo-artist-001', 'streaming', 980.00, '2026-01-01', 'Apple Music - December 2025'),
+('rev-003', 'demo-artist-001', 'merch', 1850.00, '2026-01-05', 'T-shirt sales'),
+('rev-004', 'demo-artist-001', 'crowdfunding', 1200.00, '2026-01-10', 'Fan support');
+
+INSERT INTO payouts (id, artist_id, amount, status, method, scheduled_date) VALUES
+('payout-001', 'demo-artist-001', 3430.00, 'pending', 'bank_transfer', '2026-01-15');
 
 -- ============================================================================
--- SAMPLE EMAIL CAMPAIGNS
+-- PRODUCTS
 -- ============================================================================
 
-INSERT OR IGNORE INTO email_campaigns (id, artist_id, name, subject, content, status, recipients_count, opens, clicks, sent_at) VALUES
-('campaign-001', 'artist-priv-001', 'New Release: Night Drive', 'New Single "Night Drive" is Out Now!', 'Check out our latest single...', 'sent', 38420, 15368, 3842, '2025-12-15'),
-('campaign-002', 'artist-priv-001', 'Behind the Scenes: Studio Session', 'Exclusive: See How We Made Our Latest Track', 'Go behind the scenes...', 'sent', 36280, 18140, 7252, '2025-12-28');
-
-INSERT OR IGNORE INTO email_subscribers (id, artist_id, email, name, status) VALUES
-('sub-001', 'artist-priv-001', 'fan1@example.com', 'John Doe', 'active'),
-('sub-002', 'artist-priv-001', 'fan2@example.com', 'Jane Smith', 'active'),
-('sub-003', 'artist-priv-001', 'fan3@example.com', 'Mike Johnson', 'active');
+INSERT INTO products (id, artist_id, name, category, price, stock, sales, revenue, status) VALUES
+('prod-001', 'demo-artist-001', 'Demo Artist T-Shirt', 'tshirt', 29.99, 150, 62, 1859.38, 'active'),
+('prod-002', 'demo-artist-001', 'Logo Hoodie', 'hoodie', 54.99, 80, 34, 1869.66, 'active');
 
 -- ============================================================================
--- SAMPLE BOOST CAMPAIGNS
+-- COMMUNITY
 -- ============================================================================
 
-INSERT OR IGNORE INTO boost_campaigns (id, creator_id, title, content_type, platforms, launch_time, status, participants_count, total_reach, goal_reach) VALUES
-('boost-001', 'artist-priv-001', 'New Horizons Release Boost', 'release', '["instagram","twitter","tiktok"]', '2026-02-14T12:00:00Z', 'pending', 38, 0, 400000),
-('boost-002', 'artist-priv-001', 'Night Drive Viral Push', 'release', '["instagram","twitter"]', '2025-12-15T09:00:00Z', 'completed', 52, 218420, 180000);
+INSERT INTO community_posts (id, author_id, content, category, likes, comments_count, shares) VALUES
+('post-001', 'demo-artist-001', 'Welcome to my artist page! Excited to share my journey with you all.', 'update', 45, 12, 5),
+('post-002', 'demo-artist-001', 'First Light just hit 1 million streams! Thank you for all the support!', 'milestone', 128, 34, 28);
 
 -- ============================================================================
--- SAMPLE SCHEDULED SOCIAL POSTS
+-- EMAIL
 -- ============================================================================
 
-INSERT OR IGNORE INTO scheduled_posts (id, artist_id, platforms, content, scheduled_time, status) VALUES
-('social-post-001', 'artist-priv-001', '["instagram","twitter"]', 'New music dropping this Friday! Pre-save link in bio', '2026-02-10T18:00:00Z', 'scheduled'),
-('social-post-002', 'artist-priv-001', '["instagram","tiktok"]', 'Behind the scenes from today''s studio session', '2026-01-09T15:00:00Z', 'scheduled');
+INSERT INTO email_campaigns (id, artist_id, name, subject, content, status, recipients_count, opens, clicks, sent_at) VALUES
+('email-001', 'demo-artist-001', 'New Release Announcement', 'New Single Out Now!', 'Check out my latest single...', 'sent', 2500, 1200, 380, '2025-12-01');
+
+INSERT INTO email_subscribers (id, artist_id, email, name, status) VALUES
+('sub-001', 'demo-artist-001', 'fan1@example.com', 'Fan One', 'active'),
+('sub-002', 'demo-artist-001', 'fan2@example.com', 'Fan Two', 'active'),
+('sub-003', 'demo-artist-001', 'fan3@example.com', 'Fan Three', 'active');
+
+-- ============================================================================
+-- BOOST CAMPAIGNS
+-- ============================================================================
+
+INSERT INTO boost_campaigns (id, creator_id, title, content_type, platforms, launch_time, status, participants_count, total_reach, goal_reach) VALUES
+('boost-001', 'demo-artist-001', 'New Dawn EP Launch', 'release', '["instagram","twitter"]', '2026-02-01T12:00:00Z', 'pending', 15, 0, 100000);
+
+-- ============================================================================
+-- SCHEDULED POSTS
+-- ============================================================================
+
+INSERT INTO scheduled_posts (id, artist_id, platforms, content, scheduled_time, status) VALUES
+('social-001', 'demo-artist-001', '["instagram","twitter"]', 'New music coming soon! Stay tuned...', '2026-01-20T18:00:00Z', 'scheduled');

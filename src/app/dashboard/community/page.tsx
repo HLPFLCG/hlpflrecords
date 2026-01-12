@@ -50,7 +50,7 @@ export default function CommunityFeed() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const artistId = 'artist-priv-001'
+  const artistId = 'demo-artist-001'
 
   useEffect(() => {
     async function loadCommunity() {
@@ -359,13 +359,13 @@ export default function CommunityFeed() {
 
             <div className="space-y-3">
               <div className="p-3 bg-dark-tertiary rounded-lg cursor-pointer hover:bg-dark-tertiary/70 transition-colors">
-                <p className="text-white font-medium text-sm mb-1">PRIV × Producer Needed</p>
+                <p className="text-white font-medium text-sm mb-1">Demo Artist × Producer Needed</p>
                 <p className="text-gray-400 text-xs mb-2">Looking for beats in indie alternative style</p>
                 <span className="text-xs text-green-400">3 interested</span>
               </div>
 
               <div className="p-3 bg-dark-tertiary rounded-lg cursor-pointer hover:bg-dark-tertiary/70 transition-colors">
-                <p className="text-white font-medium text-sm mb-1">Pardyalone × Mixer</p>
+                <p className="text-white font-medium text-sm mb-1">Demo Artist × Mixer</p>
                 <p className="text-gray-400 text-xs mb-2">Need mixing engineer for new EP</p>
                 <span className="text-xs text-green-400">5 interested</span>
               </div>

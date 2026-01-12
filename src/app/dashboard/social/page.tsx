@@ -48,7 +48,7 @@ export default function SocialMediaDashboard() {
   const [socialData, setSocialData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
-  const artistId = 'artist-priv-001'
+  const artistId = 'demo-artist-001'
 
   useEffect(() => {
     async function loadSocial() {

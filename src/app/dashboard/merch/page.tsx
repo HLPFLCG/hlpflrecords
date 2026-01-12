@@ -50,7 +50,7 @@ export default function MerchPage() {
   const [productsData, setProductsData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
-  const artistId = 'artist-priv-001'
+  const artistId = 'demo-artist-001'
 
   useEffect(() => {
     async function loadProducts() {
