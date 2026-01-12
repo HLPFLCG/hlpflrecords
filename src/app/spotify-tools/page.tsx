@@ -16,13 +16,13 @@ export default function SpotifyToolsPage() {
   const presaveCampaigns = [
     {
       id: 1,
-      title: 'Midnight Dreams - Pre-Save Campaign',
-      track: 'Midnight Dreams',
-      releaseDate: '2024-01-20',
-      presaves: 2450,
+      title: 'New Horizons - Pre-Save Campaign',
+      track: 'New Horizons',
+      releaseDate: '2026-02-14',
+      presaves: 1850,
       goal: 5000,
-      progress: 49,
-      link: 'https://presave.al.music/alki-midnight-dreams'
+      progress: 37,
+      link: 'https://presave.hlpfl.org/priv-new-horizons'
     }
   ]
 

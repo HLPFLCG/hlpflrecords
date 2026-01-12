@@ -10,10 +10,10 @@ export default function ReleaseManagementPage() {
   const releases = [
     {
       id: 1,
-      title: 'Midnight Dreams',
-      artist: 'Alki',
-      type: 'Album',
-      releaseDate: '2024-01-20',
+      title: 'New Horizons',
+      artist: 'PRIV',
+      type: 'Single',
+      releaseDate: '2026-02-14',
       status: 'Upcoming',
       streams: 0,
       revenue: 0,
@@ -21,23 +21,23 @@ export default function ReleaseManagementPage() {
     },
     {
       id: 2,
-      title: 'Neon Nights',
-      artist: 'Alki',
+      title: 'Emerging Sounds',
+      artist: 'PRIV',
       type: 'Single',
-      releaseDate: '2023-12-15',
+      releaseDate: '2025-11-01',
       status: 'Released',
-      streams: 1250000,
+      streams: 2847392,
       revenue: 4560,
       progress: 100
     },
     {
       id: 3,
-      title: 'Summer Vibes',
-      artist: 'Various Artists',
-      type: 'Compilation',
-      releaseDate: '2023-11-01',
+      title: 'Night Drive',
+      artist: 'PRIV',
+      type: 'Single',
+      releaseDate: '2025-12-15',
       status: 'Released',
-      streams: 890000,
+      streams: 523789,
       revenue: 3210,
       progress: 100
     }
@@ -141,8 +141,8 @@ export default function ReleaseManagementPage() {
                 <label className="block text-gray-400 mb-2">Artist</label>
                 <select className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold">
                   <option>Select artist</option>
-                  <option>Alki</option>
-                  <option>James Rockel</option>
+                  <option>PRIV</option>
+                  <option>Pardyalone</option>
                 </select>
               </div>
 

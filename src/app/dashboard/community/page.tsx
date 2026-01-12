@@ -359,8 +359,8 @@ export default function CommunityFeed() {
 
             <div className="space-y-3">
               <div className="p-3 bg-dark-tertiary rounded-lg cursor-pointer hover:bg-dark-tertiary/70 transition-colors">
-                <p className="text-white font-medium text-sm mb-1">Alki × Producer Needed</p>
-                <p className="text-gray-400 text-xs mb-2">Looking for beats in alternative punk style</p>
+                <p className="text-white font-medium text-sm mb-1">PRIV × Producer Needed</p>
+                <p className="text-gray-400 text-xs mb-2">Looking for beats in indie alternative style</p>
                 <span className="text-xs text-green-400">3 interested</span>
               </div>
 
@@ -368,12 +368,6 @@ export default function CommunityFeed() {
                 <p className="text-white font-medium text-sm mb-1">Pardyalone × Mixer</p>
                 <p className="text-gray-400 text-xs mb-2">Need mixing engineer for new EP</p>
                 <span className="text-xs text-green-400">5 interested</span>
-              </div>
-
-              <div className="p-3 bg-dark-tertiary rounded-lg cursor-pointer hover:bg-dark-tertiary/70 transition-colors">
-                <p className="text-white font-medium text-sm mb-1">Priv × Videographer</p>
-                <p className="text-gray-400 text-xs mb-2">Music video collaboration</p>
-                <span className="text-xs text-green-400">2 interested</span>
               </div>
             </div>
 

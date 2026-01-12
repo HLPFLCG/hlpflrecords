@@ -73,7 +73,7 @@ export default function ToursPage() {
   ]
 
   const experienceFeatures = [
-    'Meet & greet with Pardyalone and Alki',
+    'Meet & greet with Pardyalone',
     'Complimentary alcohol and cannabis (21+ only)',
     'Exclusive merchandise with NFC technology',
     'Professional concert-quality sound and lighting',
@@ -113,7 +113,7 @@ export default function ToursPage() {
               The Private Pardy Tour
             </p>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-              Featuring <span className="text-[#c87941] font-semibold">Pardyalone</span> as headliner with <span className="text-[#c87941] font-semibold">Alki</span> as opener
+              Featuring <span className="text-[#c87941] font-semibold">Pardyalone</span> as headliner
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mb-8">

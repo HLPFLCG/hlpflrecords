@@ -35,7 +35,7 @@ describe('SecretMusicPlayer', () => {
     render(<SecretMusicPlayer track={mockTrack} onClose={mockOnClose} />);
     
     expect(screen.getByText('Test Track')).toBeInTheDocument();
-    expect(screen.getByText('Alki - Unreleased Track')).toBeInTheDocument();
+    expect(screen.getByText('HLPFL - Hidden Track')).toBeInTheDocument();
   });
 
   it('auto-plays on mount', async () => {

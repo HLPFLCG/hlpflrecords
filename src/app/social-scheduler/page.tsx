@@ -9,20 +9,20 @@ export default function SocialSchedulerPage() {
     {
       id: 1,
       platform: 'Instagram',
-      content: 'New track dropping Friday! 🎵 #NewMusic #Alki',
+      content: 'New track dropping Friday! #NewMusic #PRIV',
       media: 'image',
       mediaType: 'image',
-      scheduledDate: '2024-01-12',
+      scheduledDate: '2026-02-10',
       scheduledTime: '10:00',
       status: 'scheduled'
     },
     {
       id: 2,
       platform: 'Twitter',
-      content: 'Thank you all for 1M streams! 🎉💜 #Grateful',
+      content: 'Thank you all for the support! #Grateful',
       media: 'text',
       mediaType: 'text',
-      scheduledDate: '2024-01-15',
+      scheduledDate: '2026-02-15',
       scheduledTime: '14:00',
       status: 'scheduled'
     }

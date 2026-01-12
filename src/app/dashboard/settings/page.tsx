@@ -115,7 +115,7 @@ export default function SettingsPage() {
                 {/* Avatar */}
                 <div className="flex items-center gap-6">
                   <div className="w-24 h-24 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center text-3xl font-bold text-dark">
-                    A
+                    P
                   </div>
                   <div>
                     <button className="px-4 py-2 bg-dark-tertiary border border-gray-700 text-white rounded-lg hover:border-gold transition-all mb-2">
@@ -131,7 +131,7 @@ export default function SettingsPage() {
                     <label className="block text-white font-semibold mb-2">Artist Name</label>
                     <input
                       type="text"
-                      defaultValue="Alki"
+                      defaultValue="PRIV"
                       className="w-full bg-dark-tertiary border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                     />
                   </div>
@@ -140,7 +140,7 @@ export default function SettingsPage() {
                     <label className="block text-white font-semibold mb-2">Legal Name</label>
                     <input
                       type="text"
-                      defaultValue="Alex Anderson"
+                      defaultValue=""
                       className="w-full bg-dark-tertiary border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                     />
                   </div>
@@ -150,7 +150,7 @@ export default function SettingsPage() {
                   <label className="block text-white font-semibold mb-2">Bio</label>
                   <textarea
                     rows={4}
-                    defaultValue="Independent artist from Seattle. Creating music that speaks to the soul."
+                    defaultValue="Emerging artist bringing a fresh perspective to the alternative scene. Blending indie vibes with modern production."
                     className="w-full bg-dark-tertiary border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
                   />
                 </div>
@@ -160,7 +160,7 @@ export default function SettingsPage() {
                     <label className="block text-white font-semibold mb-2">Location</label>
                     <input
                       type="text"
-                      defaultValue="Seattle, WA"
+                      defaultValue=""
                       className="w-full bg-dark-tertiary border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                     />
                   </div>
@@ -169,7 +169,7 @@ export default function SettingsPage() {
                     <label className="block text-white font-semibold mb-2">Website</label>
                     <input
                       type="url"
-                      defaultValue="https://alki.music"
+                      defaultValue=""
                       className="w-full bg-dark-tertiary border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                     />
                   </div>
@@ -197,7 +197,7 @@ export default function SettingsPage() {
                   <label className="block text-white font-semibold mb-2">Email Address</label>
                   <input
                     type="email"
-                    defaultValue="alki@hlpflrecords.com"
+                    defaultValue="priv@hlpflrecords.com"
                     className="w-full bg-dark-tertiary border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                   />
                   <p className="text-gray-500 text-sm mt-2">
@@ -210,7 +210,7 @@ export default function SettingsPage() {
                   <label className="block text-white font-semibold mb-2">Username</label>
                   <input
                     type="text"
-                    defaultValue="alki"
+                    defaultValue="priv"
                     className="w-full bg-dark-tertiary border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                   />
                   <p className="text-gray-500 text-sm mt-2">Your unique username for the platform</p>

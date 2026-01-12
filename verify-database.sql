@@ -16,8 +16,8 @@ ORDER BY created_at DESC;
 SELECT '=== DEMO ACCOUNT ===' as section;
 SELECT * FROM profiles WHERE email = 'demo@hlpfl.org';
 
-SELECT '=== ALKI ACCOUNT ===' as section;
-SELECT * FROM profiles WHERE email = 'alki@hlpfl.org';
+SELECT '=== PRIV ACCOUNT ===' as section;
+SELECT * FROM profiles WHERE email = 'priv@hlpfl.org';
 
 SELECT '=== ADMIN ACCOUNT ===' as section;
 SELECT * FROM profiles WHERE email = 'admin@hlpfl.org';

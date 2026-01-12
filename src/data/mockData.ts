@@ -746,7 +746,7 @@ Follow Priv's journey as they prepare to release new music and connect with fans
     publishedAt: new Date('2026-01-08'),
     author: 'HLPFL Press Team',
     category: 'News',
-    image: '/images/team/alki.webp',
+    image: '/images/artists/priv.svg',
   },
   {
     id: '6',

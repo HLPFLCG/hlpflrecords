@@ -4,99 +4,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import SecretMusicPlayer from '@/components/SecretMusicPlayer';
 
-// Secret music tracks - all 11 unreleased tracks
-const SECRET_TRACKS = [
-  {
-    id: '5d',
-    title: '5D',
-    artist: 'Alki',
-    trigger: 'konami',
-    file: '/audio/5d.mp3',
-    color: '#c87941',
-    description: 'Hidden track unlocked via Konami Code!'
-  },
-  {
-    id: 'home',
-    title: 'Home (Alone)',
-    artist: 'Alki',
-    trigger: 'clicks',
-    file: '/audio/home.mp3',
-    color: '#d4945c',
-    description: 'Hidden track unlocked by clicking!'
-  },
-  {
-    id: 'tear-me-apart',
-    title: 'Tear Me Apart',
-    artist: 'Alki',
-    trigger: 'time',
-    file: '/audio/tear-me-apart.mp3',
-    color: '#8b5a2b',
-    description: 'Hidden track unlocked at 11:11!'
-  },
-  {
-    id: 'writin-my-wrongs',
-    title: "Writin' My Wrongs",
-    artist: 'Alki',
-    trigger: 'pattern',
-    file: '/audio/writin-my-wrongs.mp3',
-    color: '#6b4423',
-    description: 'Hidden track unlocked by drawing!'
-  },
-  {
-    id: 'ptsd',
-    title: 'PTSD',
-    artist: 'Alki',
-    trigger: 'random',
-    file: '/audio/ptsd.mp3',
-    color: '#4a3728',
-    description: 'Hidden track!'
-  },
-  {
-    id: 'lottery',
-    title: 'Lottery',
-    artist: 'Alki',
-    trigger: 'random',
-    file: '/audio/lottery.mp3',
-    color: '#d4945c',
-    description: 'Hidden track!'
-  },
-  {
-    id: 'doomed',
-    title: 'Doomed From The Start',
-    artist: 'Alki',
-    trigger: 'random',
-    file: '/audio/doomed.mp3',
-    color: '#8b5a2b',
-    description: 'Hidden track!'
-  },
-  {
-    id: 'death-of-me',
-    title: 'Death Of Me',
-    artist: 'Alki',
-    trigger: 'random',
-    file: '/audio/death-of-me.mp3',
-    color: '#a86535',
-    description: 'Hidden track!'
-  },
-  {
-    id: 'sad-corvette',
-    title: 'Sad! Just In A Corvette',
-    artist: 'Alki',
-    trigger: 'random',
-    file: '/audio/sad-corvette.mp3',
-    color: '#c87941',
-    description: 'Hidden track!'
-  },
-  {
-    id: '1113',
-    title: '1113',
-    artist: 'Alki',
-    trigger: 'random',
-    file: '/audio/1113.mp3',
-    color: '#6b4423',
-    description: 'Hidden track!'
-  }
-];
+// Secret music tracks - placeholder for future easter eggs
+const SECRET_TRACKS: Array<{
+  id: string;
+  title: string;
+  artist: string;
+  trigger: string;
+  file: string;
+  color: string;
+  description: string;
+}> = [];
 
 const CreativeEasterEggs: React.FC = () => {
   const [activeTrack, setActiveTrack] = useState<typeof SECRET_TRACKS[0] | null>(null);

@@ -461,7 +461,7 @@ export default function ServicesGuidePage() {
           content: [
             {
               title: 'Backyard Tours',
-              description: 'HLPFL\'s signature touring initiative launching March 2026 with Pardyalone and Alki.',
+              description: 'HLPFL\'s signature touring initiative launching March 2026 with Pardyalone.',
               details: [
                 'Performances in backyards, rooftops, warehouses',
                 'Limited-capacity exclusive experiences',

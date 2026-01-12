@@ -228,7 +228,7 @@ const SecretMusicPlayer = ({ track, onClose }: SecretMusicPlayerProps) => {
         <div className="p-6 space-y-4">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-white mb-1">{track.title}</h3>
-            <p className="text-sm text-zinc-400">Alki - Unreleased Track</p>
+            <p className="text-sm text-zinc-400">HLPFL - Hidden Track</p>
           </div>
 
           {/* Progress bar */}
