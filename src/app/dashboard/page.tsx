@@ -39,8 +39,8 @@ export default function DashboardPage() {
     }
   }, [router])
 
-  // Use PRIV as default artist (in production, get from auth context)
-  const artistId = 'artist-priv-001'
+  // Use demo account (in production, get from auth context)
+  const artistId = 'demo-artist-001'
 
   useEffect(() => {
     async function loadDashboard() {
@@ -80,7 +80,7 @@ export default function DashboardPage() {
     {
       id: '1',
       type: 'release',
-      title: 'New single "221" reached 100K streams',
+      title: '"First Light" reached 1M streams',
       time: '2 hours ago',
       icon: Music,
       color: 'from-green-500 to-emerald-600'
@@ -88,7 +88,7 @@ export default function DashboardPage() {
     {
       id: '2',
       type: 'community',
-      title: 'Priv commented on your post',
+      title: 'New fan comment on your post',
       time: '5 hours ago',
       icon: MessageSquare,
       color: 'from-blue-500 to-cyan-600'
@@ -96,7 +96,7 @@ export default function DashboardPage() {
     {
       id: '3',
       type: 'revenue',
-      title: 'Payment of $4,230.50 processed',
+      title: 'Payment of $3,430.00 processed',
       time: '1 day ago',
       icon: DollarSign,
       color: 'from-gold to-gold-dark'
@@ -104,7 +104,7 @@ export default function DashboardPage() {
     {
       id: '4',
       type: 'boost',
-      title: 'Viral boost campaign achieved 250K reach',
+      title: 'Viral boost campaign achieved 145K reach',
       time: '2 days ago',
       icon: Zap,
       color: 'from-purple-500 to-pink-600'
@@ -207,7 +207,7 @@ export default function DashboardPage() {
     <div className="space-y-6">
       {/* Welcome Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Welcome back, PRIV</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Welcome back, Demo Artist</h1>
         <p className="text-gray-400">Here's what's happening with your music today</p>
       </div>
 
@@ -507,9 +507,9 @@ export default function DashboardPage() {
 
           <div className="space-y-4">
             {[
-              { author: 'Priv', action: 'started a new collaboration', time: '3h ago' },
-              { author: 'Pardyalone', action: 'reached 5M streams milestone', time: '1d ago' },
-              { author: 'HLPFL Team', action: 'posted a platform update', time: '2d ago' }
+              { author: 'Demo Artist', action: 'started a new collaboration', time: '3h ago' },
+              { author: 'HLPFL Records', action: 'posted a platform update', time: '1d ago' },
+              { author: 'HLPFL Team', action: 'shared new resources', time: '2d ago' }
             ].map((highlight, index) => (
               <div key={index} className="flex items-start gap-3 p-3 bg-dark-tertiary rounded-lg">
                 <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center text-sm font-bold text-dark flex-shrink-0">
