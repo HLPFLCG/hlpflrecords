@@ -14,19 +14,19 @@
 1. Place artist images in this directory: `/public/images/artists/`
 2. Use WebP format for best performance
 3. Optimize images before uploading (use tools like TinyPNG or Squoosh)
-4. Naming convention: `artist-slug.webp` (e.g., `pardyalone.webp`, `alki.webp`)
+4. Naming convention: `artist-slug.webp` (e.g., `pardyalone.webp`, `priv.webp`)
 5. Update the artist data in `/src/data/mockData.ts` with the correct path
 
 ## Current Artist Images
 
-- ✅ Alki: `/images/team/alki.webp` (currently in team directory)
+- ✅ PRIV: `/images/team/priv.webp` (currently in team directory)
 - 📸 Pardyalone: `/images/artists/pardyalone.jpg` (image provided by user - needs to be saved to this directory)
 
 ## TODO
 
 - [x] Get Pardyalone artist photo (image received from user)
 - [ ] Save Pardyalone image to `/public/images/artists/pardyalone.jpg`
-- [ ] Consider moving Alki image to artists directory for consistency
+- [ ] Consider moving PRIV image to artists directory for consistency
 - [ ] Add tour promotional images
 - [ ] Add venue/backyard example photos
 

@@ -16,7 +16,7 @@ Get all album artwork and artist photos displaying in the HLPFL Artist Portal.
 **File**: `database/update-artwork.sql`
 
 1. Open these Spotify pages:
-   - Alki: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
+   - PRIV: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
    - Pardyalone: https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG
 
 2. For each release:
@@ -135,7 +135,7 @@ For the database, use the **640x640** version (0000b273).
 ## 📚 Related Documentation
 
 - `database/README.md` - Full database management guide
-- `database/update-artwork.sql` - Quick template for Alki & Pardyalone
+- `database/update-artwork.sql` - Quick template for PRIV & Pardyalone
 - `database/priv-data.sql` - Complete template for Priv
 - `docs/API_INTEGRATION_GUIDE.md` - How to connect dashboard to database
 - `VERIFICATION.md` - Complete status and checklist

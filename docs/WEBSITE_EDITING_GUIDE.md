@@ -63,11 +63,11 @@ hlpflrecords/
 ```typescript
 {
   id: '1',
-  name: 'Alki',
-  slug: 'alki',
+  name: 'PRIV',
+  slug: 'priv',
   bio: 'Artist biography here...',
   genre: ['Punk', 'Pop', 'Rap'],
-  image: '/images/team/alki.jpg',
+  image: '/images/team/priv.jpg',
   socials: {
     spotify: 'https://open.spotify.com/artist/...',
     instagram: 'https://www.instagram.com/...',
@@ -96,7 +96,7 @@ hlpflrecords/
 {
   id: '1',
   title: '221',
-  artist: 'Alki',
+  artist: 'PRIV',
   artistId: '1',
   type: 'single',  // 'single', 'album', or 'ep'
   releaseDate: new Date('2025-01-17'),
@@ -129,7 +129,7 @@ hlpflrecords/
 
 **Current Team:**
 - James Rockel (Founder & CEO)
-- Alki (Co-Founder & Signed Artist)
+- PRIV (Co-Founder & Signed Artist)
 
 **Example:**
 ```typescript
@@ -218,7 +218,7 @@ const stats = [
 {
   id: '11',  // Increment the ID
   title: 'New Song Title',
-  artist: 'Alki',
+  artist: 'PRIV',
   artistId: '1',
   type: 'single',
   releaseDate: new Date('2025-02-01'),
@@ -291,7 +291,7 @@ const stats = [
 
 ## Common Tasks
 
-### Task 1: Update Alki's Monthly Listeners
+### Task 1: Update PRIV's Monthly Listeners
 
 **Files to update:**
 - `src/data/mockData.ts` (artist bio)

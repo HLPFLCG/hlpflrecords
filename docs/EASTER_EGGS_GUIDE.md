@@ -56,7 +56,7 @@ Type the classic Konami Code sequence on your keyboard:
 7. Music player appears with "5D"
 
 #### Reward
-**Track:** "5D" by Alki  
+**Track:** "5D" by PRIV  
 **Duration:** ~3:30  
 **Genre:** Hip-Hop/Rap
 
@@ -97,7 +97,7 @@ Click the HLPFL Records logo 7 times within 3 seconds
 4. Music player appears with "Home (Alone)"
 
 #### Reward
-**Track:** "Home (Alone)" by Alki  
+**Track:** "Home (Alone)" by PRIV  
 **Duration:** ~4:15  
 **Genre:** Emotional Hip-Hop
 
@@ -141,7 +141,7 @@ Scroll to exactly 77.7% of any page
 5. Music player appears with "Regrets"
 
 #### Reward
-**Track:** "Regrets" by Alki  
+**Track:** "Regrets" by PRIV  
 **Duration:** ~3:50  
 **Genre:** Introspective Hip-Hop
 
@@ -185,7 +185,7 @@ Visit the site at exactly 11:11 AM or 11:11 PM
 4. Music player appears with "Tear Me Apart"
 
 #### Reward
-**Track:** "Tear Me Apart" by Alki  
+**Track:** "Tear Me Apart" by PRIV  
 **Duration:** ~4:00  
 **Genre:** Emotional Rap
 
@@ -234,7 +234,7 @@ Draw a circle with your mouse cursor
 4. Music player appears with "Writin' My Wrongs"
 
 #### Reward
-**Track:** "Writin' My Wrongs" by Alki  
+**Track:** "Writin' My Wrongs" by PRIV  
 **Duration:** ~3:45  
 **Genre:** Storytelling Hip-Hop
 
@@ -498,7 +498,7 @@ export function CreativeEasterEggs() {
     {
       id: '5d',
       title: '5D',
-      artist: 'Alki',
+      artist: 'PRIV',
       audioUrl: '/audio/unreleased/5d.mp3',
     },
     // ... more tracks
@@ -787,7 +787,7 @@ const unreleasedTracks: Track[] = [
   {
     id: 'new-track',
     title: 'New Track Title',
-    artist: 'Alki',
+    artist: 'PRIV',
     audioUrl: '/audio/unreleased/new-track.mp3',
     coverUrl: '/images/releases/cover.jpg', // optional
   },
@@ -858,7 +858,7 @@ const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
                     'b', 'a'];
 
 // Custom sequence
-const konamiCode = ['a', 'l', 'k', 'i']; // Spell "alki"
+const konamiCode = ['a', 'l', 'k', 'i']; // Spell "priv"
 ```
 
 ### Change Logo Click Count

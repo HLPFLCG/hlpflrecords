@@ -83,25 +83,25 @@ cat data/team.json | jq .
 // ❌ Wrong - extra comma
 {
   "title": "Track",
-  "artist": "Alki",
+  "artist": "PRIV",
 }
 
 // ✅ Correct
 {
   "title": "Track",
-  "artist": "Alki"
+  "artist": "PRIV"
 }
 
 // ❌ Wrong - missing comma
 {
   "title": "Track"
-  "artist": "Alki"
+  "artist": "PRIV"
 }
 
 // ✅ Correct
 {
   "title": "Track",
-  "artist": "Alki"
+  "artist": "PRIV"
 }
 ```
 

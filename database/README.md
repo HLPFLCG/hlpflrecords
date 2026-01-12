@@ -18,13 +18,13 @@ npx wrangler d1 execute hlpfl-artist-portal --remote --file=database/seed.sql
 
 ### Quick Reference - Artist Spotify Pages
 
-- **Alki**: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
+- **PRIV**: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
 - **Priv**: Use the Spotify URL you have
 - **Pardyalone**: https://open.spotify.com/artist/6M4q5QWjmpjuPAi7LVFEFG
 
 ### Step 1: Get Spotify Image URLs
 
-#### For Alki
+#### For PRIV
 1. Visit: https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt
 2. For each release (Switched Up, 221, Late Nights, etc.):
    - Right-click on the album artwork
@@ -96,7 +96,7 @@ const getArtistAlbums = async (artistId) => {
   });
 };
 
-// Alki
+// PRIV
 getArtistAlbums('0jIqPF7laDAaZmSeoSzLlt');
 
 // Pardyalone
