@@ -38,8 +38,8 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
             (SELECT COUNT(*) FROM community_likes WHERE post_id = p.id) as likes_count,
             (SELECT COUNT(*) FROM community_comments WHERE post_id = p.id) as comments_count
           FROM community_posts p
-          JOIN profiles pr ON p.user_id = pr.id
-          WHERE p.id = ? AND p.artist_id = ?
+          JOIN profiles pr ON p.author_id = pr.id
+          WHERE p.id = ? AND p.author_id = ?
         `)
         .bind(postId, artistId)
         .first();
@@ -59,7 +59,7 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
             pr.artist_name,
             pr.avatar_url
           FROM community_comments c
-          JOIN profiles pr ON c.user_id = pr.id
+          JOIN profiles pr ON c.author_id = pr.id
           WHERE c.post_id = ?
           ORDER BY c.created_at ASC
         `)
@@ -94,8 +94,8 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
           (SELECT COUNT(*) FROM community_likes WHERE post_id = p.id) as likes_count,
           (SELECT COUNT(*) FROM community_comments WHERE post_id = p.id) as comments_count
         FROM community_posts p
-        JOIN profiles pr ON p.user_id = pr.id
-        WHERE p.artist_id = ?
+        JOIN profiles pr ON p.author_id = pr.id
+        WHERE p.author_id = ?
         ORDER BY p.created_at DESC
         LIMIT ? OFFSET ?
       `)
@@ -104,7 +104,7 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
 
     // Get total count
     const countResult = await db
-      .prepare('SELECT COUNT(*) as total FROM community_posts WHERE artist_id = ?')
+      .prepare('SELECT COUNT(*) as total FROM community_posts WHERE author_id = ?')
       .bind(artistId)
       .first<{ total: number }>();
 
@@ -146,11 +146,11 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
 export async function onRequestPost(context: { env: Env; request: Request }) {
   try {
     const body = await context.request.json();
-    const { artistId, userId, content, imageUrl, videoUrl } = body;
+    const { artistId, content, category, mediaUrls } = body;
 
-    if (!artistId || !userId || !content) {
+    if (!artistId || !content) {
       return new Response(
-        JSON.stringify({ error: 'artistId, userId, and content are required' }),
+        JSON.stringify({ error: 'artistId and content are required' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -161,11 +161,11 @@ export async function onRequestPost(context: { env: Env; request: Request }) {
     await db
       .prepare(`
         INSERT INTO community_posts (
-          id, artist_id, user_id, content, image_url, video_url
+          id, author_id, content, category, media_urls
         )
-        VALUES (?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?)
       `)
-      .bind(postId, artistId, userId, content, imageUrl || null, videoUrl || null)
+      .bind(postId, artistId, content, category || 'update', mediaUrls ? JSON.stringify(mediaUrls) : null)
       .run();
 
     // Fetch the created post
@@ -176,7 +176,7 @@ export async function onRequestPost(context: { env: Env; request: Request }) {
           pr.artist_name,
           pr.avatar_url
         FROM community_posts p
-        JOIN profiles pr ON p.user_id = pr.id
+        JOIN profiles pr ON p.author_id = pr.id
         WHERE p.id = ?
       `)
       .bind(postId)

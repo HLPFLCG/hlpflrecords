@@ -26,25 +26,25 @@ INSERT OR IGNORE INTO releases (id, artist_id, title, slug, release_type, releas
 -- ============================================================================
 
 -- Last 30 days of streaming data for PRIV
-INSERT OR IGNORE INTO analytics_streams (id, artist_id, release_id, date, platform, streams, listeners, saves, shares) VALUES
-('analytics-001', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'spotify', 45230, 8420, 1240, 320),
-('analytics-002', 'artist-priv-001', 'release-emerging-sounds', '2026-01-07', 'spotify', 43180, 8240, 1180, 290),
-('analytics-003', 'artist-priv-001', 'release-emerging-sounds', '2026-01-06', 'spotify', 42950, 8120, 1150, 280),
-('analytics-004', 'artist-priv-001', 'release-night-drive', '2026-01-08', 'spotify', 12420, 3240, 520, 140),
-('analytics-005', 'artist-priv-001', 'release-night-drive', '2026-01-07', 'spotify', 11890, 3120, 480, 130),
-('analytics-006', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'apple_music', 18240, 2840, 620, 180),
-('analytics-007', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'youtube', 8420, 1240, 280, 95),
-('analytics-008', 'artist-priv-001', 'release-city-lights', '2026-01-08', 'spotify', 8920, 2180, 380, 110),
-('analytics-009', 'artist-priv-001', 'release-city-lights', '2026-01-07', 'spotify', 8450, 2040, 350, 100);
+INSERT OR IGNORE INTO analytics_streams (id, artist_id, release_id, date, platform, streams, listeners, saves, country_code) VALUES
+('analytics-001', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'spotify', 45230, 8420, 1240, 'US'),
+('analytics-002', 'artist-priv-001', 'release-emerging-sounds', '2026-01-07', 'spotify', 43180, 8240, 1180, 'US'),
+('analytics-003', 'artist-priv-001', 'release-emerging-sounds', '2026-01-06', 'spotify', 42950, 8120, 1150, 'US'),
+('analytics-004', 'artist-priv-001', 'release-night-drive', '2026-01-08', 'spotify', 12420, 3240, 520, 'US'),
+('analytics-005', 'artist-priv-001', 'release-night-drive', '2026-01-07', 'spotify', 11890, 3120, 480, 'US'),
+('analytics-006', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'apple_music', 18240, 2840, 620, 'US'),
+('analytics-007', 'artist-priv-001', 'release-emerging-sounds', '2026-01-08', 'youtube', 8420, 1240, 280, 'US'),
+('analytics-008', 'artist-priv-001', 'release-city-lights', '2026-01-08', 'spotify', 8920, 2180, 380, 'US'),
+('analytics-009', 'artist-priv-001', 'release-city-lights', '2026-01-07', 'spotify', 8450, 2040, 350, 'US');
 
 -- Analytics demographics
-INSERT OR IGNORE INTO analytics_demographics (id, artist_id, date, country, city, age_range, gender, listener_count) VALUES
-('demo-001', 'artist-priv-001', '2026-01-08', 'United States', 'Los Angeles', '18-24', 'male', 4280),
-('demo-002', 'artist-priv-001', '2026-01-08', 'United States', 'New York', '18-24', 'female', 3920),
-('demo-003', 'artist-priv-001', '2026-01-08', 'United States', 'Chicago', '25-34', 'male', 2840),
-('demo-004', 'artist-priv-001', '2026-01-08', 'United Kingdom', 'London', '18-24', 'female', 2420),
-('demo-005', 'artist-priv-001', '2026-01-08', 'Canada', 'Toronto', '25-34', 'male', 1890),
-('demo-006', 'artist-priv-001', '2026-01-08', 'Australia', 'Sydney', '18-24', 'female', 1240);
+INSERT OR IGNORE INTO analytics_demographics (id, artist_id, date, age_range, gender, country_code, listeners) VALUES
+('demo-001', 'artist-priv-001', '2026-01-08', '18-24', 'male', 'US', 4280),
+('demo-002', 'artist-priv-001', '2026-01-08', '18-24', 'female', 'US', 3920),
+('demo-003', 'artist-priv-001', '2026-01-08', '25-34', 'male', 'US', 2840),
+('demo-004', 'artist-priv-001', '2026-01-08', '18-24', 'female', 'GB', 2420),
+('demo-005', 'artist-priv-001', '2026-01-08', '25-34', 'male', 'CA', 1890),
+('demo-006', 'artist-priv-001', '2026-01-08', '18-24', 'female', 'AU', 1240);
 
 -- ============================================================================
 -- SAMPLE REVENUE
@@ -53,8 +53,8 @@ INSERT OR IGNORE INTO analytics_demographics (id, artist_id, date, country, city
 INSERT OR IGNORE INTO revenue_streams (id, artist_id, source, amount, date, description) VALUES
 ('revenue-001', 'artist-priv-001', 'streaming', 3830.50, '2026-01-01', 'Spotify streaming revenue - December 2025'),
 ('revenue-002', 'artist-priv-001', 'streaming', 1620.40, '2025-12-20', 'Apple Music streaming revenue - November 2025'),
-('revenue-003', 'artist-priv-001', 'merchandise', 2540.00, '2026-01-05', 'T-shirt sales - 127 units'),
-('revenue-004', 'artist-priv-001', 'merchandise', 1640.00, '2026-01-05', 'Hoodie sales - 54 units'),
+('revenue-003', 'artist-priv-001', 'merch', 2540.00, '2026-01-05', 'T-shirt sales - 127 units'),
+('revenue-004', 'artist-priv-001', 'merch', 1640.00, '2026-01-05', 'Hoodie sales - 54 units'),
 ('revenue-005', 'artist-priv-001', 'crowdfunding', 2840.80, '2026-01-10', 'Monthly fan support'),
 ('revenue-006', 'artist-priv-001', 'licensing', 1500.00, '2026-01-12', 'Podcast intro sync license');
 

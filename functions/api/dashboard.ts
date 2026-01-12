@@ -96,8 +96,8 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
       .prepare(`
         SELECT p.*, pr.artist_name
         FROM community_posts p
-        JOIN profiles pr ON p.user_id = pr.id
-        WHERE p.artist_id = ?
+        JOIN profiles pr ON p.author_id = pr.id
+        WHERE p.author_id = ?
         ORDER BY p.created_at DESC
         LIMIT 5
       `)
