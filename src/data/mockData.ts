@@ -10,7 +10,7 @@ export const mockArtists: Artist[] = [
     slug: 'priv',
     bio: 'Priv is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, Priv represents the next generation of independent music. As part of the HLPFL family, Priv maintains complete creative control and ownership while accessing the tools and support needed to build a sustainable music career.\n\n"I\'ve been making music my whole life, but I\'ve never felt truly free until now. HLPFL gets it. They understand that the best art comes from artists who aren\'t afraid to experiment, fail, and try again. No pressure to fit a mold—just pure creation." - Priv\n\nStay tuned for upcoming releases and performances from this exciting new talent.',
     genre: ['Alternative', 'Indie', 'Experimental'],
-    image: '',
+    image: '/images/artists/priv.svg',
     socials: {
       spotify: '',
       instagram: '',
@@ -38,7 +38,7 @@ export const mockArtists: Artist[] = [
     slug: 'writ3rs-block',
     bio: 'Writ3rs Block is a music collective pushing the boundaries of alternative and experimental sounds. Their 2023 release "Too Much To Dream (The Chocolate Shop Demos)" showcases their unique blend of psychedelic influences, indie sensibilities, and innovative production.\n\nThe group\'s collaborative approach brings together diverse talents including songwriters Blane Conant, Olivia Zoe Johnson, and Brandon Skeen. With tracks like "Love (That\'s What They Call It)," "Garden," and "Lonesome Dove," Writ3rs Block creates atmospheric soundscapes that transport listeners to new sonic territories.\n\nSigned to HLPFL under the revolutionary 50/50 partnership model, Writ3rs Block maintains complete creative control while accessing professional support for distribution and promotion.',
     genre: ['Alternative', 'Experimental', 'Indie Rock', 'Psychedelic'],
-    image: '',
+    image: '/images/artists/writ3rs-block.svg',
     socials: {
       spotify: 'https://open.spotify.com/artist/4NU33b6SZRD7mGTUKFIicG',
       instagram: 'https://www.instagram.com/writ3rsblockmusic',
@@ -50,7 +50,7 @@ export const mockArtists: Artist[] = [
     slug: 'adam-rodway',
     bio: 'Adam Rodway is a rising Pop/Rock artist from Toronto, known for his introspective yet catchy sound that resonates with anyone who\'s faced the trials of a breakup. Recently, Adam collaborated with producer Matt Snell (Dua Lipa, The Glorious Sons, Dermot Kennedy) and Danny Lopez (Harm & Ease), adding a polished intensity to his raw style.\n\nFeatured on Hockey Night In Canada with his single "Too Long To Type," Adam has quickly become an iHeartRadio Future Star. His catalog includes popular tracks like "Tarantino," "Too Late," "The Garden Song," and "Hold Just Anyone."\n\nWith a sound that blends pop sensibility with rock edge, Adam Rodway brings emotional honesty and infectious melodies to the HLPFL roster.',
     genre: ['Pop', 'Rock', 'Indie Pop'],
-    image: '',
+    image: '/images/artists/adam-rodway.svg',
     socials: {
       spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
       instagram: 'https://www.instagram.com/adam.rodway',

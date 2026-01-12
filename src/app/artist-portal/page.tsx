@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Lock, Mail, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
@@ -15,33 +15,48 @@ export default function ArtistPortalLoginPage() {
   const [error, setError] = useState('')
   const router = useRouter()
 
+  // Check if user is already logged in
+  useEffect(() => {
+    const isAuth = sessionStorage.getItem('hlpfl_auth') || localStorage.getItem('hlpfl_remember')
+    if (isAuth) {
+      router.push('/dashboard')
+    }
+  }, [router])
+
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError('')
 
-    try {
-      // Note: In production, Cloudflare Pages Functions are at /api/auth/login
-      // During development with static export, this simulates the login
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include', // Important for cookies
-        body: JSON.stringify({ email, password })
-      })
+    // Simulate async operation for better UX
+    await new Promise(resolve => setTimeout(resolve, 500))
 
-      const data = await response.json()
+    // Client-side authentication for demo purposes
+    // Works with static export (no server required)
+    if (email === 'demo@hlpfl.org' && password === 'demo123') {
+      // Store auth state in sessionStorage
+      sessionStorage.setItem('hlpfl_auth', 'true')
+      sessionStorage.setItem('hlpfl_user', JSON.stringify({
+        email: 'demo@hlpfl.org',
+        artistName: 'Demo Artist',
+        role: 'artist'
+      }))
 
-      if (data.success) {
-        // Redirect to dashboard on successful login
-        router.push('/dashboard')
-      } else {
-        setError(data.error || 'Login failed')
+      // Remember me functionality
+      if (rememberMe) {
+        localStorage.setItem('hlpfl_remember', 'true')
+        localStorage.setItem('hlpfl_user', JSON.stringify({
+          email: 'demo@hlpfl.org',
+          artistName: 'Demo Artist',
+          role: 'artist'
+        }))
       }
-    } catch (err) {
-      setError('Connection error. Please try again.')
-    } finally {
+
       setIsLoading(false)
+      router.push('/dashboard')
+    } else {
+      setIsLoading(false)
+      setError('Invalid email or password. Please try the demo credentials.')
     }
   }
 

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import {
   TrendingUp,
   DollarSign,
@@ -25,9 +26,18 @@ import {
 import { api } from '@/lib/api-client'
 
 export default function DashboardPage() {
+  const router = useRouter()
   const [dashboardData, setDashboardData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+
+  // Check authentication
+  useEffect(() => {
+    const isAuth = sessionStorage.getItem('hlpfl_auth') || localStorage.getItem('hlpfl_remember')
+    if (!isAuth) {
+      router.push('/artist-portal')
+    }
+  }, [router])
 
   // Use Alki as default artist (in production, get from auth context)
   const artistId = 'artist-alki-001'
