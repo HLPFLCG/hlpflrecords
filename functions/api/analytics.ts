@@ -36,7 +36,7 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
         SUM(streams) as streams,
         SUM(listeners) as listeners,
         SUM(saves) as saves,
-        SUM(shares) as shares
+        country_code
       FROM analytics_streams
       WHERE artist_id = ?
     `;
@@ -62,8 +62,7 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
     // Get demographics data
     const demographicsQuery = `
       SELECT
-        country,
-        city,
+        country_code,
         age_range,
         gender,
         SUM(listeners) as listeners,
@@ -72,7 +71,7 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
       WHERE artist_id = ?
       ${startDate ? 'AND date >= ?' : ''}
       ${endDate ? 'AND date <= ?' : ''}
-      GROUP BY country, city, age_range, gender
+      GROUP BY country_code, age_range, gender
       ORDER BY listeners DESC
     `;
 
@@ -91,8 +90,7 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
         SELECT
           SUM(streams) as total_streams,
           SUM(listeners) as total_listeners,
-          SUM(saves) as total_saves,
-          SUM(shares) as total_shares
+          SUM(saves) as total_saves
         FROM analytics_streams
         WHERE artist_id = ?
         ${startDate ? 'AND date >= ?' : ''}
@@ -111,7 +109,6 @@ export async function onRequestGet(context: { env: Env; request: Request }) {
             total_streams: 0,
             total_listeners: 0,
             total_saves: 0,
-            total_shares: 0,
           },
         },
       }),
