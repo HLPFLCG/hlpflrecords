@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Users,
@@ -21,7 +21,6 @@ import {
   FileText,
   Target
 } from 'lucide-react'
-import { api } from '@/lib/api-client'
 
 interface Post {
   id: string
@@ -43,88 +42,81 @@ interface Post {
   category: 'update' | 'collaboration' | 'milestone' | 'question'
 }
 
+// Mock community data
+const mockCommunityData = {
+  stats: { total_artists: 1, active_posts: 5, collaborations: 2, this_week_growth: 3 },
+  leaderboard: [
+    { rank: 1, name: 'PRIV', badge: 'Top Contributor', contributions: 15 },
+    { rank: 2, name: 'HLPFL Team', badge: 'Staff', contributions: 12 },
+    { rank: 3, name: 'Fan Community', badge: 'Active Member', contributions: 8 },
+  ],
+  posts: [
+    {
+      id: '1',
+      author: { name: 'PRIV', avatar: '/images/artists/priv.svg', role: 'Artist' },
+      content: 'Just finished recording some new experimental tracks in the studio. Can\'t wait to share what I\'ve been working on with everyone. The creative process has been incredible!',
+      timestamp: new Date('2026-01-12'),
+      likes: 42,
+      comments: 8,
+      shares: 5,
+      liked: false,
+      category: 'update' as const
+    },
+    {
+      id: '2',
+      author: { name: 'PRIV', avatar: '/images/artists/priv.svg', role: 'Artist' },
+      content: 'Hit a major milestone today - "Emerging Sounds" just crossed 100K streams! Thank you to everyone who has been supporting the journey. This is just the beginning.',
+      timestamp: new Date('2026-01-10'),
+      likes: 156,
+      comments: 23,
+      shares: 18,
+      liked: false,
+      category: 'milestone' as const
+    },
+    {
+      id: '3',
+      author: { name: 'PRIV', avatar: '/images/artists/priv.svg', role: 'Artist' },
+      content: 'Looking for a producer who specializes in ambient/experimental sounds. Want to push the boundaries on my next project. DM if interested in collaborating!',
+      timestamp: new Date('2026-01-08'),
+      likes: 28,
+      comments: 12,
+      shares: 7,
+      liked: false,
+      category: 'collaboration' as const
+    },
+    {
+      id: '4',
+      author: { name: 'HLPFL Team', avatar: '', role: 'Staff' },
+      content: 'Welcome to the HLPFL community! This is your space to connect, collaborate, and grow together. Share your updates, ask questions, and support fellow artists.',
+      timestamp: new Date('2026-01-05'),
+      likes: 67,
+      comments: 15,
+      shares: 10,
+      liked: false,
+      category: 'update' as const
+    },
+    {
+      id: '5',
+      author: { name: 'PRIV', avatar: '/images/artists/priv.svg', role: 'Artist' },
+      content: 'What software do you all use for creating visuals for your releases? Looking to step up my visual game for the next single drop.',
+      timestamp: new Date('2026-01-03'),
+      likes: 19,
+      comments: 31,
+      shares: 2,
+      liked: false,
+      category: 'question' as const
+    },
+  ]
+}
+
 export default function CommunityFeed() {
   const [showComposer, setShowComposer] = useState(false)
   const [filter, setFilter] = useState('all')
-  const [communityData, setCommunityData] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
 
-  const artistId = 'demo-artist-001'
-
-  useEffect(() => {
-    async function loadCommunity() {
-      try {
-        setLoading(true)
-        const response = await api.community.getPosts(artistId)
-
-        if (response.success && response.data) {
-          setCommunityData(response.data)
-        } else {
-          setError(response.error || 'Failed to load community data')
-        }
-      } catch (err) {
-        setError('An error occurred while loading community')
-        console.error('Community load error:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadCommunity()
-  }, [artistId])
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading community...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center max-w-md">
-          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-red-400 text-2xl">⚠️</span>
-          </div>
-          <p className="text-white font-bold mb-2">Failed to Load Community</p>
-          <p className="text-gray-400 text-sm">{error}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    )
-  }
-
-  // Extract data from API response
-  const stats = communityData?.stats || { total_artists: 0, active_posts: 0, collaborations: 0, this_week_growth: 0 }
-  const leaderboard = communityData?.leaderboard || []
-
-  const posts: Post[] = (communityData?.posts || []).map((post: any) => ({
-    id: post.id,
-    author: {
-      name: post.author_name || 'Unknown',
-      avatar: post.author_avatar || '',
-      role: post.author_role || 'Artist'
-    },
-    content: post.content || '',
-    media: post.media_urls ? JSON.parse(post.media_urls) : undefined,
-    timestamp: new Date(post.created_at),
-    likes: post.likes_count || 0,
-    comments: post.comments_count || 0,
-    shares: post.shares_count || 0,
-    liked: false,
-    category: (post.category || 'update') as 'update' | 'collaboration' | 'milestone' | 'question'
-  }))
+  const communityData = mockCommunityData
+  const stats = communityData.stats
+  const leaderboard = communityData.leaderboard
+  const posts: Post[] = communityData.posts
 
   const getCategoryColor = (category: string) => {
     switch (category) {

@@ -31,13 +31,13 @@ export default function PressReleasesPage() {
     },
     {
       id: 3,
-      title: 'Pardyalone Surpasses 400K Monthly Listeners',
+      title: 'PRIV Announces Upcoming EP "New Horizons"',
       category: 'Achievement',
       date: '2025-12-20',
-      excerpt: 'Pardyalone continues meteoric rise with 400K+ monthly listeners on Spotify...',
-      keywords: ['pardyalone', 'spotify', 'monthly listeners', 'milestone', 'music streaming'],
-      seoScore: 98,
-      views: 28900
+      excerpt: 'PRIV announces upcoming 5-track EP exploring new sonic territories...',
+      keywords: ['priv', 'ep', 'new horizons', 'indie music', 'experimental'],
+      seoScore: 94,
+      views: 8900
     },
     {
       id: 4,

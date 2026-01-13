@@ -43,9 +43,9 @@ export default function AboutPage() {
   ]
 
   const stats = [
-    { number: '4', label: 'Artists' },
-    { number: '50+', label: 'Releases' },
-    { number: '63m+', label: 'Streams' },
+    { number: '1', label: 'Artist' },
+    { number: '3', label: 'Releases' },
+    { number: '125K+', label: 'Streams' },
     { number: '7', label: 'Years' }
   ]
 
@@ -97,7 +97,7 @@ export default function AboutPage() {
                 </p>
                 <p className="leading-relaxed">
                   The vision became reality with the revolutionary 50/50 partnership model, building a foundation for how modern music careers should function.
-                  By signing talented artists like Pardyalone, Priv, Writ3rs Block, and Adam Rodway, we've proven that this model works.
+                  With talented artists like PRIV joining our roster, we're proving that this model works for emerging independent artists.
                 </p>
                 <p className="leading-relaxed">
                   Today, from our Grand Rapids headquarters, HLPFL continues to transform the industry one artist at a time,

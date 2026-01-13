@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Music,
@@ -25,7 +25,6 @@ import {
   Tag,
   Users
 } from 'lucide-react'
-import { api } from '@/lib/api-client'
 
 interface Release {
   id: string
@@ -45,82 +44,59 @@ interface Release {
   presaves?: number
 }
 
+// Mock releases data for PRIV
+const mockReleasesData: Release[] = [
+  {
+    id: 'priv-1',
+    title: 'Emerging Sounds',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2024-06-15',
+    releaseDate: new Date('2024-06-15'),
+    status: 'live',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 125000,
+    platforms: ['spotify', 'apple', 'youtube', 'tidal']
+  },
+  {
+    id: 'priv-2',
+    title: 'Midnight Frequencies',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2026-02-01',
+    releaseDate: new Date('2026-02-01'),
+    status: 'scheduled',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 0,
+    platforms: ['spotify', 'apple', 'youtube', 'tidal'],
+    presaves: 1250
+  },
+  {
+    id: 'priv-3',
+    title: 'Experimental EP',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2026-03-15',
+    releaseDate: new Date('2026-03-15'),
+    status: 'draft',
+    release_type: 'ep',
+    type: 'ep',
+    tracks: 5,
+    streams: 0,
+    platforms: ['spotify', 'apple', 'youtube', 'tidal']
+  }
+]
+
 export default function ReleasesPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [filterStatus, setFilterStatus] = useState<string>('all')
   const [showNewReleaseModal, setShowNewReleaseModal] = useState(false)
   const [selectedRelease, setSelectedRelease] = useState<Release | null>(null)
-  const [releases, setReleases] = useState<Release[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  // Use demo account
-  const artistId = 'demo-artist-001'
-
-  useEffect(() => {
-    async function loadReleases() {
-      try {
-        setLoading(true)
-        const response = await api.releases.getAll(artistId)
-
-        if (response.success && response.data) {
-          // Transform API data to match component interface
-          const transformedReleases = (response.data as any[]).map((release: any) => ({
-            ...release,
-            coverArt: release.cover_art_url || '/api/placeholder/300/300',
-            releaseDate: new Date(release.release_date),
-            type: release.release_type,
-            streams: release.total_streams || 0,
-            tracks: release.track_count || 1,
-            platforms: ['spotify', 'apple', 'youtube', 'tidal']
-          }))
-          setReleases(transformedReleases)
-        } else {
-          setError(response.error || 'Failed to load releases')
-        }
-      } catch (err) {
-        setError('An error occurred while loading releases')
-        console.error('Releases load error:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadReleases()
-  }, [artistId])
-
-  // Loading state
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading releases...</p>
-        </div>
-      </div>
-    )
-  }
-
-  // Error state
-  if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center max-w-md">
-          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-red-400 text-2xl">⚠️</span>
-          </div>
-          <p className="text-white font-bold mb-2">Failed to Load Releases</p>
-          <p className="text-gray-400 text-sm">{error}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    )
-  }
+  const [releases] = useState<Release[]>(mockReleasesData)
 
   const platforms = [
     { id: 'spotify', name: 'Spotify', icon: Music, color: 'text-green-400' },
