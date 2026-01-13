@@ -15,22 +15,22 @@ export function FeaturedArtistsSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-            Our <span className="text-gold">Artists</span>
+            Featured <span className="text-gold">Artist</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Independent artists building successful careers on their own terms. See how they're using HLPFL's toolkit to create, distribute, and monetize their music.
+            Meet PRIV - an emerging artist building a successful career on their own terms using HLPFL's toolkit to create, distribute, and monetize their music.
           </p>
           <Link href="/artists">
             <Button variant="outline">
-              View All Artists
+              View Artist Profile
             </Button>
           </Link>
         </div>
 
         {/* Artists Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex justify-center gap-8">
           {mockArtists.map((artist, _index) => (
-            <Card key={artist.id} hover className="overflow-hidden group">
+            <Card key={artist.id} hover className="overflow-hidden group max-w-md w-full">
               <div className="relative aspect-square overflow-hidden">
                 {artist.image && (
                   <Image

@@ -126,7 +126,6 @@ export default function ViralBoostDashboard() {
 
   const participants = [
     { name: 'PRIV', avatar: '/images/artists/priv.svg', credits: 42, participated: 15 },
-    { name: 'Pardyalone', avatar: '/images/artists/IMG_0146.png', credits: 38, participated: 14 },
     { name: 'James Rockel', avatar: '/images/team/james-rockel.webp', credits: 28, participated: 12 }
   ]
 

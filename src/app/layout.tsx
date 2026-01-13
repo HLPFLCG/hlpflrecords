@@ -36,18 +36,14 @@ export const metadata: Metadata = {
     default: 'HLPFL Records - Independent Record Label & Artist Management | Tools, Not Contracts',
     template: '%s | HLPFL Records'
   },
-  description: 'HLPFL is the independent record label and artist management platform that protects artists. Home to Pardyalone (436K+ monthly listeners), Priv, Adam Rodway, and Writ3rs Block. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation, fair contracts. AI-powered tools for independent musicians. Better alternative to grouped.com. Artist-first management, distribution, and career-building resources.',
+  description: 'HLPFL is the independent record label and artist management platform that protects artists. Home to PRIV and emerging independent artists. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation, fair contracts. AI-powered tools for independent musicians. Better alternative to grouped.com. Artist-first management, distribution, and career-building resources.',
   keywords: [
     'HLPFL',
     'HLPFL Records',
-    'Pardyalone',
-    'Pardyalone artist',
-    'Priv',
-    'Priv artist',
-    'Adam Rodway',
-    'Adam Rodway artist',
-    'Writ3rs Block',
-    'Writ3rs Block artist',
+    'PRIV',
+    'PRIV artist',
+    'independent artist',
+    'emerging artist',
     'record label',
     'independent record label',
     'artist-first record label',
@@ -126,7 +122,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://hlpfl.org',
     title: 'HLPFL Records - Independent Record Label & Artist Management | Tools, Not Contracts',
-    description: 'HLPFL is the independent record label and artist management platform that protects artists. Home to Pardyalone, Priv, Adam Rodway, and Writ3rs Block. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation. AI-powered tools for independent musicians.',
+    description: 'HLPFL is the independent record label and artist management platform that protects artists. Home to PRIV and emerging independent artists. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation. AI-powered tools for independent musicians.',
     siteName: 'HLPFL Records',
     images: [
       {
@@ -140,7 +136,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HLPFL Records - Independent Record Label & Artist Management',
-    description: 'HLPFL protects artists. Home to Pardyalone, Priv, Adam Rodway, and Writ3rs Block. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation. AI-powered tools for independent musicians.',
+    description: 'HLPFL protects artists. Home to PRIV and emerging independent artists. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation. AI-powered tools for independent musicians.',
     images: ['/images/og-image.jpg'],
     creator: '@HLPFL',
     site: '@HLPFL',

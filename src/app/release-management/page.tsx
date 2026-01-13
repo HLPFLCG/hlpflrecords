@@ -142,7 +142,6 @@ export default function ReleaseManagementPage() {
                 <select className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold">
                   <option>Select artist</option>
                   <option>PRIV</option>
-                  <option>Pardyalone</option>
                 </select>
               </div>
 

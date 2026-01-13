@@ -16,13 +16,14 @@ let blogPosts: NewsPost[] = [
   },
   {
     id: '2',
-    title: 'Pardyalone Surpasses 400K Monthly Listeners',
-    slug: 'pardyalone-milestone',
-    excerpt: 'Celebrating a major milestone as Pardyalone continues to resonate with fans worldwide.',
-    content: 'Celebrating a major milestone as Pardyalone continues to resonate with fans worldwide. The artist has now surpassed 400,000 monthly listeners on Spotify, solidifying their position as one of the most exciting artists in the alternative space.\n\nPardyalone has been on an incredible journey. From viral moments to Spotify playlist placements, the music has found its way into the hearts of millions of listeners who connect with its raw energy and authentic message.\n\nThis milestone isn\'t just about numbers - it\'s about proving that independent artists can thrive when they have the right partnership. Pardyalone\'s success with HLPFL demonstrates the power of our model, where artists retain ownership and control while getting the support they need to reach their audience.\n\nThank you to every fan who has streamed, shared, and supported. We\'re just getting started, and there\'s much more to come from the HLPFL family.',
-    publishedAt: new Date('2025-12-15'),
+    title: 'HLPFL Records Welcomes PRIV to the Roster',
+    slug: 'priv-joins-hlpfl',
+    excerpt: 'HLPFL Records announces partnership with rising indie artist PRIV.',
+    content: 'HLPFL Records is thrilled to announce the newest addition to our artist-first roster: PRIV, an emerging talent pushing the boundaries of alternative and experimental music.\n\nPRIV represents the next generation of artists who refuse to be confined by genre labels or industry conventions. With a sound that seamlessly blends alternative, indie, and experimental elements, PRIV is carving out a unique space in the modern music landscape.\n\n"PRIV embodies everything HLPFL stands for," says James Rockel, Founder & CEO of HLPFL Records. "Complete creative freedom, no compromises, and a commitment to authenticity."\n\nUnlike traditional record deals that strip artists of ownership and creative control, PRIV joins HLPFL under the label\'s revolutionary partnership model with 100% artist ownership and full creative control.\n\nStay tuned for upcoming releases from PRIV as they continue to push creative boundaries.',
+    publishedAt: new Date('2024-01-08'),
     author: 'HLPFL Team',
     category: 'News',
+    image: '/images/artists/priv.svg',
   },
 ];
 

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   DollarSign,
@@ -20,88 +20,42 @@ import {
   Filter,
   Search
 } from 'lucide-react'
-import { api } from '@/lib/api-client'
+
+// Mock revenue data for PRIV
+const mockRevenueData = {
+  overview: {
+    total_revenue: 4250,
+    monthly_growth: 15.2,
+    pending_payouts: 850,
+    average_monthly: 1420
+  },
+  streams: [
+    { source_type: 'streaming', source_name: 'Streaming Revenue', amount: 2850, growth_percentage: 12.5 },
+    { source_type: 'merchandise', source_name: 'Merchandise', amount: 780, growth_percentage: 8.3 },
+    { source_type: 'crowdfunding', source_name: 'Fan Support', amount: 420, growth_percentage: 25.0 },
+    { source_type: 'licensing', source_name: 'Sync Licensing', amount: 200, growth_percentage: -5.2 },
+  ],
+  by_month: [
+    { month: '2025-10-01', total_revenue: 1100 },
+    { month: '2025-11-01', total_revenue: 1250 },
+    { month: '2025-12-01', total_revenue: 1380 },
+    { month: '2026-01-01', total_revenue: 1520 },
+  ],
+  payouts: [
+    { id: '1', status: 'paid', payout_date: '2026-01-01', description: 'Spotify Q4 2025', amount: 1200, payment_method: 'Bank Transfer', platform: 'Spotify' },
+    { id: '2', status: 'paid', payout_date: '2025-12-15', description: 'Apple Music Q4 2025', amount: 450, payment_method: 'Bank Transfer', platform: 'Apple Music' },
+    { id: '3', status: 'paid', payout_date: '2025-12-01', description: 'Merch Sales November', amount: 320, payment_method: 'PayPal', platform: 'Merch Store' },
+    { id: '4', status: 'pending', payout_date: '2026-01-25', description: 'Spotify January 2026', amount: 550, payment_method: 'Bank Transfer', platform: 'Spotify' },
+    { id: '5', status: 'pending', payout_date: '2026-02-01', description: 'Fan Support January', amount: 300, payment_method: 'Bank Transfer', platform: 'Crowdfunding' },
+  ]
+}
 
 export default function RevenuePage() {
   const [timeRange, setTimeRange] = useState('30d')
   const [selectedStream, setSelectedStream] = useState<string | null>(null)
-  const [revenueData, setRevenueData] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
 
-  const artistId = 'demo-artist-001'
-
-  useEffect(() => {
-    async function loadRevenue() {
-      try {
-        setLoading(true)
-
-        // Calculate date range based on timeRange
-        const endDate = new Date().toISOString().split('T')[0]
-        const startDate = new Date()
-
-        if (timeRange === '7d') startDate.setDate(startDate.getDate() - 7)
-        else if (timeRange === '30d') startDate.setDate(startDate.getDate() - 30)
-        else if (timeRange === '90d') startDate.setDate(startDate.getDate() - 90)
-        else if (timeRange === '12m') startDate.setMonth(startDate.getMonth() - 12)
-
-        const startDateStr = startDate.toISOString().split('T')[0]
-
-        const response = await api.revenue.get({
-          artistId,
-          startDate: startDateStr,
-          endDate
-        })
-
-        if (response.success && response.data) {
-          setRevenueData(response.data)
-        } else {
-          setError(response.error || 'Failed to load revenue data')
-        }
-      } catch (err) {
-        setError('An error occurred while loading revenue')
-        console.error('Revenue load error:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadRevenue()
-  }, [artistId, timeRange])
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading revenue data...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center max-w-md">
-          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-red-400 text-2xl">⚠️</span>
-          </div>
-          <p className="text-white font-bold mb-2">Failed to Load Revenue Data</p>
-          <p className="text-gray-400 text-sm">{error}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    )
-  }
-
-  // Extract data from API response
-  const overview = revenueData?.overview || { total_revenue: 0, monthly_growth: 0, pending_payouts: 0, average_monthly: 0 }
+  const revenueData = mockRevenueData
+  const overview = revenueData.overview
   const totalRevenue = overview.total_revenue
   const monthlyGrowth = overview.monthly_growth
   const pendingPayouts = overview.pending_payouts

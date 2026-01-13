@@ -30,7 +30,7 @@
 -- ============================================================================
 
 INSERT INTO profiles (id, email, role, artist_name, display_name, bio) VALUES
-('demo-artist-001', 'demo@hlpfl.org', 'artist', 'Demo Artist', 'Demo Artist', 'Welcome to the HLPFL Records demo account.');
+('demo-artist-001', 'demo@hlpfl.org', 'artist', 'PRIV', 'PRIV', 'PRIV is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, PRIV represents the next generation of independent music.');
 
 -- ============================================================================
 -- RELEASES
@@ -92,7 +92,7 @@ INSERT INTO payouts (id, artist_id, amount, status, method, scheduled_date) VALU
 -- ============================================================================
 
 INSERT INTO products (id, artist_id, name, category, price, stock, sales, revenue, status) VALUES
-('prod-001', 'demo-artist-001', 'Demo Artist T-Shirt', 'tshirt', 29.99, 150, 62, 1859.38, 'active');
+('prod-001', 'demo-artist-001', 'PRIV T-Shirt', 'tshirt', 29.99, 150, 62, 1859.38, 'active');
 
 INSERT INTO products (id, artist_id, name, category, price, stock, sales, revenue, status) VALUES
 ('prod-002', 'demo-artist-001', 'Logo Hoodie', 'hoodie', 54.99, 80, 34, 1869.66, 'active');
