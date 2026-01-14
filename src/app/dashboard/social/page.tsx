@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Calendar as CalendarIcon,
@@ -25,7 +25,6 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react'
-import { api } from '@/lib/api-client'
 
 interface SocialPost {
   id: string
@@ -45,22 +44,6 @@ export default function SocialMediaDashboard() {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([])
   const [showComposer, setShowComposer] = useState(false)
   const [currentMonth, setCurrentMonth] = useState(new Date())
-  const [socialData, setSocialData] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
-
-  const artistId = 'demo-artist-001'
-
-  useEffect(() => {
-    async function loadSocial() {
-      setLoading(true)
-      const response = await api.social.getAccounts(artistId)
-      if (response.success && response.data) {
-        setSocialData(response.data)
-      }
-      setLoading(false)
-    }
-    loadSocial()
-  }, [artistId])
 
   const platforms = [
     { id: 'instagram', name: 'Instagram', icon: Instagram, color: 'from-pink-500 to-purple-500', connected: true },
@@ -70,26 +53,47 @@ export default function SocialMediaDashboard() {
     { id: 'youtube', name: 'YouTube', icon: Youtube, color: 'from-red-500 to-red-700', connected: false }
   ]
 
-  const scheduledPosts: SocialPost[] = (socialData?.posts || []).map((post: any) => ({
-    id: post.id,
-    platform: [post.platform],
-    content: post.content || '',
-    media: post.media_urls ? JSON.parse(post.media_urls) : undefined,
-    scheduledFor: new Date(post.scheduled_for),
-    status: post.status || 'draft',
-    engagement: post.engagement_data ? JSON.parse(post.engagement_data) : undefined
-  }))
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading social media...</p>
-        </div>
-      </div>
-    )
-  }
+  // Mock scheduled posts for PRIV
+  const scheduledPosts: SocialPost[] = [
+    {
+      id: '1',
+      platform: ['instagram', 'twitter'],
+      content: 'New music dropping soon! Been working on something special for you all 🎵✨ #NewMusic #IndieArtist',
+      scheduledFor: new Date('2026-01-15T14:00:00'),
+      status: 'scheduled'
+    },
+    {
+      id: '2',
+      platform: ['instagram'],
+      content: 'Behind the scenes from the studio session last week. The New Horizons EP is coming together! 🔥',
+      scheduledFor: new Date('2026-01-12T18:00:00'),
+      status: 'published',
+      engagement: {
+        likes: 1247,
+        comments: 89,
+        shares: 34
+      }
+    },
+    {
+      id: '3',
+      platform: ['twitter', 'facebook'],
+      content: 'Thank you for 100K streams on Emerging Sounds! Your support means everything 💜',
+      scheduledFor: new Date('2026-01-10T12:00:00'),
+      status: 'published',
+      engagement: {
+        likes: 892,
+        comments: 156,
+        shares: 67
+      }
+    },
+    {
+      id: '4',
+      platform: ['instagram'],
+      content: 'Valentine\'s Day merch drop coming Feb 10th! Limited edition pieces 💝',
+      scheduledFor: new Date('2026-02-08T10:00:00'),
+      status: 'scheduled'
+    }
+  ]
 
   const stats = [
     { label: 'Total Reach', value: '124.5K', change: '+12.3%', positive: true, icon: Users },

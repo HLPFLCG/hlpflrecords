@@ -23,13 +23,10 @@ import {
   Star,
   Target
 } from 'lucide-react'
-import { api } from '@/lib/api-client'
 
 export default function DashboardPage() {
   const router = useRouter()
-  const [dashboardData, setDashboardData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
 
   // Check authentication
   useEffect(() => {
@@ -37,44 +34,28 @@ export default function DashboardPage() {
     if (!isAuth) {
       router.push('/artist-portal')
     }
+    // Simulate loading
+    const timer = setTimeout(() => setLoading(false), 500)
+    return () => clearTimeout(timer)
   }, [router])
 
-  // Use demo account (in production, get from auth context)
-  const artistId = 'demo-artist-001'
-
-  useEffect(() => {
-    async function loadDashboard() {
-      try {
-        setLoading(true)
-        const response = await api.dashboard.getOverview(artistId)
-
-        if (response.success && response.data) {
-          setDashboardData(response.data)
-        } else {
-          setError(response.error || 'Failed to load dashboard data')
-        }
-      } catch (err) {
-        setError('An error occurred while loading the dashboard')
-        console.error('Dashboard load error:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadDashboard()
-  }, [artistId])
-
-  // Use API data or fallback to defaults
-  const stats = dashboardData?.overview || {
-    totalStreams: 0,
-    totalListeners: 0,
-    totalRevenue: 0,
-    activeReleases: 0,
-    engagement: 0
+  // Mock dashboard data for PRIV
+  const stats = {
+    totalStreams: 1700000,
+    monthlyListeners: 117000,
+    revenue: 5280,
+    activeReleases: 3,
+    totalListeners: 45000
   }
 
-  // Map upcoming releases from API
-  const upcomingReleases = dashboardData?.upcomingReleases || []
+  // Mock upcoming releases
+  const upcomingReleases = [
+    {
+      id: 'priv-future-1',
+      title: 'Midnight Dreams',
+      release_date: '2026-02-14'
+    }
+  ]
 
   const recentActivity = [
     {
@@ -135,8 +116,13 @@ export default function DashboardPage() {
     }
   ]
 
-  // Get recent analytics data for top tracks
-  const recentAnalytics = dashboardData?.recentAnalytics || []
+  // Mock recent analytics data for top tracks
+  const recentAnalytics = [
+    { id: '1', title: 'Emerging Sounds', streams: 125000 },
+    { id: '2', title: 'Midnight Frequencies', streams: 45000 },
+    { id: '3', title: 'Awakening', streams: 32000 },
+    { id: '4', title: 'Neon Dreams', streams: 28000 }
+  ]
 
   // Mock quick actions (these don't change)
   const quickActions = [
@@ -182,32 +168,12 @@ export default function DashboardPage() {
     )
   }
 
-  // Error state
-  if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center max-w-md">
-          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-red-400 text-2xl">⚠️</span>
-          </div>
-          <p className="text-white font-bold mb-2">Failed to Load Dashboard</p>
-          <p className="text-gray-400 text-sm">{error}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="mt-4 px-6 py-2 bg-gold text-dark font-semibold rounded-lg hover:bg-gold-dark transition-colors"
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className="space-y-6">
       {/* Welcome Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Welcome back, Demo Artist</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Welcome back, PRIV</h1>
         <p className="text-gray-400">Here's what's happening with your music today</p>
       </div>
 
@@ -435,7 +401,7 @@ export default function DashboardPage() {
                       {Math.abs(change).toFixed(1)}%
                     </div>
                   </div>
-                  <h3 className="text-white font-semibold mb-1">Track {index + 1}</h3>
+                  <h3 className="text-white font-semibold mb-1">{analytics.title}</h3>
                   <div className="flex items-center gap-2 text-gray-400 text-sm">
                     <Play className="w-4 h-4" />
                     {((analytics.streams || 0) / 1000).toFixed(0)}K streams

@@ -1,8 +1,9 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
-import { Music, Mail, Upload, Link as LinkIcon, Phone } from 'lucide-react'
+import { Music, Mail, Upload, Link as LinkIcon, Phone, ClipboardList } from 'lucide-react'
 
 export default function SubmitMusicPage() {
   return (
@@ -72,19 +73,23 @@ export default function SubmitMusicPage() {
 
           {/* Call to Action */}
           <div className="text-center py-8 border-t border-gold/20">
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Submit?</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h3>
             <p className="text-gray-300 mb-6">
-              Send us your best 2-3 tracks along with a brief introduction about yourself and your music.
+              Complete our artist questionnaire so we can understand where you are in your music career and how we can best support you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-gold to-gold-dark text-dark">
-                <Mail className="mr-2 h-5 w-5" />
-                Email Submission
-              </Button>
-              <Button variant="outline" size="lg">
-                <Upload className="mr-2 h-5 w-5" />
-                Upload Demo
-              </Button>
+              <Link href="/artist-questionnaire">
+                <Button size="lg" className="bg-gradient-to-r from-gold to-gold-dark text-dark">
+                  <ClipboardList className="mr-2 h-5 w-5" />
+                  Start Questionnaire
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline" size="lg">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Contact Us First
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
