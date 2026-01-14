@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { api } from '@/lib/api-client'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Mail,
@@ -53,54 +52,85 @@ export default function EmailPage() {
   const [showNewCampaignModal, setShowNewCampaignModal] = useState(false)
   const [selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null)
   const [activeTab, setActiveTab] = useState<'campaigns' | 'subscribers' | 'templates'>('campaigns')
-  const [emailData, setEmailData] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
 
-  const artistId = 'demo-artist-001'
-
-  useEffect(() => {
-    async function loadEmail() {
-      setLoading(true)
-      const response = await api.email.getCampaigns(artistId)
-      if (response.success && response.data) {
-        setEmailData(response.data)
-      }
-      setLoading(false)
+  // Mock campaigns data for PRIV
+  const campaigns: Campaign[] = [
+    {
+      id: '1',
+      name: 'New Horizons EP Announcement',
+      subject: 'New Music Coming Soon! 🎵',
+      status: 'sent',
+      recipients: 2847,
+      opens: 1423,
+      clicks: 456,
+      sentDate: new Date('2025-11-10')
+    },
+    {
+      id: '2',
+      name: 'Midnight Frequencies Release',
+      subject: 'Out Now: Midnight Frequencies',
+      status: 'sent',
+      recipients: 3124,
+      opens: 1892,
+      clicks: 623,
+      sentDate: new Date('2025-08-01')
+    },
+    {
+      id: '3',
+      name: 'Valentine\'s Day Merch Drop',
+      subject: 'Limited Edition Valentine\'s Merch 💜',
+      status: 'scheduled',
+      recipients: 3200,
+      opens: 0,
+      clicks: 0,
+      scheduledDate: new Date('2026-02-10')
+    },
+    {
+      id: '4',
+      name: 'Fan Appreciation Newsletter',
+      subject: 'Thank You For 100K Streams!',
+      status: 'draft',
+      recipients: 0,
+      opens: 0,
+      clicks: 0
     }
-    loadEmail()
-  }, [artistId])
+  ]
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading email campaigns...</p>
-        </div>
-      </div>
-    )
-  }
-
-  const campaigns: Campaign[] = (emailData?.campaigns || []).map((c: any) => ({
-    id: c.id,
-    name: c.name,
-    subject: c.subject,
-    status: c.status || 'draft',
-    recipients: c.recipients_count || 0,
-    opens: c.opens_count || 0,
-    clicks: c.clicks_count || 0,
-    sentDate: c.sent_date ? new Date(c.sent_date) : undefined,
-    scheduledDate: c.scheduled_date ? new Date(c.scheduled_date) : undefined
-  }))
-
-  const subscribers: Subscriber[] = (emailData?.subscribers || []).map((s: any) => ({
-    id: s.id,
-    email: s.email,
-    name: s.name || 'Unknown',
-    subscribed: new Date(s.subscribed_date),
-    status: s.status || 'active',
-    tags: s.tags ? JSON.parse(s.tags) : []
-  }))
+  // Mock subscribers data
+  const subscribers: Subscriber[] = [
+    {
+      id: '1',
+      email: 'fan1@example.com',
+      name: 'Alex Thompson',
+      subscribed: new Date('2024-06-15'),
+      status: 'active',
+      tags: ['VIP', 'Early Supporter']
+    },
+    {
+      id: '2',
+      email: 'musiclover@example.com',
+      name: 'Jordan Smith',
+      subscribed: new Date('2024-08-22'),
+      status: 'active',
+      tags: ['Merch Buyer']
+    },
+    {
+      id: '3',
+      email: 'indiefan@example.com',
+      name: 'Casey Rivera',
+      subscribed: new Date('2024-11-05'),
+      status: 'active',
+      tags: ['New Subscriber']
+    },
+    {
+      id: '4',
+      email: 'superfan@example.com',
+      name: 'Morgan Lee',
+      subscribed: new Date('2024-03-10'),
+      status: 'active',
+      tags: ['VIP', 'Concert Attendee']
+    }
+  ]
 
   const templates = [
     {
@@ -124,10 +154,10 @@ export default function EmailPage() {
   ]
 
   const stats = {
-    totalSubscribers: 45231,
-    activeSubscribers: 45231,
-    avgOpenRate: 40.8,
-    avgClickRate: 10.2,
+    totalSubscribers: 3247,
+    activeSubscribers: 3124,
+    avgOpenRate: 52.4,
+    avgClickRate: 18.2,
     totalCampaigns: campaigns.length,
     sentCampaigns: campaigns.filter(c => c.status === 'sent').length
   }
