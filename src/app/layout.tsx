@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 // Note: Google Fonts are loaded via CSS in globals.css to avoid build-time network dependencies
-import dynamic from 'next/dynamic'
 import './globals.css'
 
 // Component Imports
@@ -12,11 +11,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { EnhancedErrorBoundary } from '@/components/EnhancedErrorBoundary'
 import { AccessibilityHelper } from '@/components/accessibility/AccessibilityHelper'
 import { ToastContainer } from '@/components/ui/Toast'
-
-// Dynamically import Chatbot with SSR disabled
-const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
-  ssr: false,
-})
+import { ChatbotWrapper } from '@/components/ui/ChatbotWrapper'
 
 // Font configuration - HLPFL Brand Typography
 // Using CSS font loading to avoid build-time network dependencies
@@ -365,7 +360,7 @@ export default function RootLayout({
                 {children}
               </main>
               <Footer />
-              <Chatbot />
+              <ChatbotWrapper />
               <CreativeEasterEggs />
             </div>
           </ErrorBoundary>
