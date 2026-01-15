@@ -53,27 +53,27 @@ export default function EmailPage() {
   const [selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null)
   const [activeTab, setActiveTab] = useState<'campaigns' | 'subscribers' | 'templates'>('campaigns')
 
-  // Mock campaigns data for PRIV
+  // Mock campaigns data for PRIV (actual releases)
   const campaigns: Campaign[] = [
     {
       id: '1',
-      name: 'New Horizons EP Announcement',
-      subject: 'New Music Coming Soon! 🎵',
+      name: '"living a lie" Release Announcement',
+      subject: 'New Music Out Now! 🎵',
       status: 'sent',
       recipients: 2847,
       opens: 1423,
       clicks: 456,
-      sentDate: new Date('2025-11-10')
+      sentDate: new Date('2025-07-10')
     },
     {
       id: '2',
-      name: 'Midnight Frequencies Release',
-      subject: 'Out Now: Midnight Frequencies',
+      name: '"victim" Release Campaign',
+      subject: 'Out Now: victim',
       status: 'sent',
       recipients: 3124,
       opens: 1892,
       clicks: 623,
-      sentDate: new Date('2025-08-01')
+      sentDate: new Date('2024-08-15')
     },
     {
       id: '3',
@@ -88,7 +88,7 @@ export default function EmailPage() {
     {
       id: '4',
       name: 'Fan Appreciation Newsletter',
-      subject: 'Thank You For 100K Streams!',
+      subject: 'Thank You For Your Support!',
       status: 'draft',
       recipients: 0,
       opens: 0,

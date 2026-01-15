@@ -8,72 +8,224 @@ export const mockArtists: Artist[] = [
     id: '1',
     name: 'PRIV',
     slug: 'priv',
-    bio: 'PRIV is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, PRIV represents the next generation of independent music. As part of the HLPFL family, PRIV maintains complete creative control and ownership while accessing the tools and support needed to build a sustainable music career.\n\n"I\'ve been making music my whole life, but I\'ve never felt truly free until now. HLPFL gets it. They understand that the best art comes from artists who aren\'t afraid to experiment, fail, and try again. No pressure to fit a mold—just pure creation." - PRIV\n\nStay tuned for upcoming releases and performances from this exciting new talent.',
+    bio: 'PRIV is an alternative music artist and producer from Grand Rapids, Michigan. With a sound that blends emotional depth, atmospheric textures, and raw self-expression, PRIV has been steadily building a dedicated fanbase since 2023. Their music explores themes of introspection, personal growth, and authentic emotion—prioritizing artistic vision over commercial trends.\n\nAs part of the HLPFL family, PRIV maintains complete creative control and ownership while accessing the tools and support needed to build a sustainable independent music career. With 10 singles released across Spotify, Apple Music, and SoundCloud, plus collaborations with artists like Jay Kim, Lavv, and Sawyer, PRIV represents the new wave of independent artists leveraging digital platforms for genuine artistic expression.\n\n"The best art comes from artists who aren\'t afraid to experiment, fail, and try again. No pressure to fit a mold—just pure creation." - PRIV',
     genre: ['Alternative', 'Indie', 'Experimental'],
     image: '/images/artists/priv.svg',
     socials: {
       spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
-      instagram: 'https://instagram.com/priv',
-      twitter: 'https://twitter.com/priv',
+      apple: 'https://music.apple.com/ca/artist/priv/1617089388',
+      soundcloud: 'https://soundcloud.com/whereispriv',
+      instagram: 'https://instagram.com/whereispriv',
+      twitter: 'https://twitter.com/whereispriv',
     },
   },
 ]
 
 
 // ========================================
-// PRIV RELEASES
+// PRIV RELEASES (Actual Discography)
 // ========================================
 export const mockReleases: Release[] = [
+  // 2025 Releases
   {
-    id: 'priv-1',
-    title: 'Emerging Sounds',
+    id: 'priv-living-a-lie',
+    title: 'living a lie',
     artist: 'PRIV',
     artistId: '1',
     type: 'single' as const,
-    releaseDate: new Date('2024-06-15'),
+    releaseDate: new Date('2025-07-10'),
     coverArt: '/images/artists/priv.svg',
-    description: 'An experimental indie track showcasing PRIV\'s unique sound and artistic vision. This debut single represents the beginning of an exciting journey in independent music.',
+    description: 'An introspective track exploring themes of self-deception and authenticity, showcasing PRIV\'s continued artistic evolution.',
     links: {
-      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      soundcloud: 'https://soundcloud.com/whereispriv',
     },
     tracks: [
-      { id: '1', title: 'Emerging Sounds', duration: '3:24' },
+      { id: '1', title: 'living a lie', duration: '3:28' },
     ],
   },
+  // 2024 Releases
   {
-    id: 'priv-2',
-    title: 'Midnight Frequencies',
+    id: 'priv-reverence',
+    title: 'reverence',
     artist: 'PRIV',
     artistId: '1',
     type: 'single' as const,
-    releaseDate: new Date('2025-08-01'),
+    releaseDate: new Date('2024-10-01'),
     coverArt: '/images/artists/priv.svg',
-    description: 'A late-night atmospheric track blending ambient textures with indie sensibilities.',
+    description: 'An atmospheric piece suggesting ambient and spiritual qualities, exploring themes of respect and devotion.',
     links: {
-      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      soundcloud: 'https://soundcloud.com/whereispriv',
     },
     tracks: [
-      { id: '1', title: 'Midnight Frequencies', duration: '4:12' },
+      { id: '1', title: 'reverence', duration: '3:45' },
     ],
   },
   {
-    id: 'priv-3',
-    title: 'New Horizons EP',
+    id: 'priv-victim',
+    title: 'victim',
     artist: 'PRIV',
     artistId: '1',
-    type: 'ep' as const,
-    releaseDate: new Date('2025-11-15'),
+    type: 'single' as const,
+    releaseDate: new Date('2024-08-15'),
     coverArt: '/images/artists/priv.svg',
-    description: 'A 5-track EP exploring new sonic territories and pushing creative boundaries.',
+    description: 'A raw and emotionally charged single dealing with themes of vulnerability and personal struggle.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      apple: 'https://music.apple.com/ca/artist/priv/1617089388',
+    },
+    tracks: [
+      { id: '1', title: 'victim', duration: '3:32' },
+    ],
+  },
+  {
+    id: 'priv-throw-away',
+    title: 'Throw Away',
+    artist: 'PRIV',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2024-06-20'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'A candid exploration of letting go and moving forward, blending alternative production with honest lyricism.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      apple: 'https://music.apple.com/ca/artist/priv/1617089388',
+    },
+    tracks: [
+      { id: '1', title: 'Throw Away', duration: '3:18' },
+    ],
+  },
+  {
+    id: 'priv-jaundice',
+    title: 'Jaundice',
+    artist: 'PRIV',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2024-05-10'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'An experimental track that further developed PRIV\'s sonic palette with unique textures and emotional depth.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      apple: 'https://music.apple.com/ca/artist/priv/1617089388',
+    },
+    tracks: [
+      { id: '1', title: 'Jaundice', duration: '3:54' },
+    ],
+  },
+  {
+    id: 'priv-shitfaceded-feature',
+    title: 'SHITFACEDED (feat. PRIV)',
+    artist: 'Sawyer',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2024-04-15'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'A collaborative track with Sawyer, showcasing PRIV\'s versatility as a featured artist.',
     links: {
       spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
     },
     tracks: [
-      { id: '1', title: 'Awakening', duration: '3:45' },
-      { id: '2', title: 'Neon Dreams', duration: '4:02' },
-      { id: '3', title: 'Static', duration: '3:18' },
-      { id: '4', title: 'Echoes', duration: '3:56' },
-      { id: '5', title: 'Resolution', duration: '4:30' },
+      { id: '1', title: 'SHITFACEDED (feat. PRIV)', duration: '3:12' },
+    ],
+  },
+  {
+    id: 'priv-solace',
+    title: 'solace',
+    artist: 'PRIV',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2024-03-01'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'An introspective piece exploring themes of comfort and peace, featuring ambient and atmospheric qualities.',
+    links: {
+      soundcloud: 'https://soundcloud.com/whereispriv',
+    },
+    tracks: [
+      { id: '1', title: 'solace', duration: '4:02' },
+    ],
+  },
+  {
+    id: 'priv-bones',
+    title: 'Bones',
+    artist: 'PRIV',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2024-01-15'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'A powerful start to 2024, demonstrating continued creative output with raw emotional expression.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      apple: 'https://music.apple.com/ca/artist/priv/1617089388',
+    },
+    tracks: [
+      { id: '1', title: 'Bones', duration: '3:40' },
+    ],
+  },
+  // 2023 Releases
+  {
+    id: 'priv-numb',
+    title: 'Numb',
+    artist: 'PRIV',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2023-09-10'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'An emotionally charged single exploring themes of detachment and emotional numbness.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      apple: 'https://music.apple.com/ca/artist/priv/1617089388',
+    },
+    tracks: [
+      { id: '1', title: 'Numb', duration: '3:22' },
+    ],
+  },
+  {
+    id: 'priv-libra',
+    title: 'Libra',
+    artist: 'PRIV',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2023-06-20'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'A showcase of PRIV\'s individual artistic vision, blending alternative elements with introspective themes.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      apple: 'https://music.apple.com/ca/artist/priv/1617089388',
+    },
+    tracks: [
+      { id: '1', title: 'Libra', duration: '3:36' },
+    ],
+  },
+  {
+    id: 'priv-bloom-feature',
+    title: 'Bloom (feat. Priv)',
+    artist: 'Lavv',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2023-05-01'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'A collaboration with Lavv that showcased PRIV\'s versatility and networking within the alternative music community.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+    },
+    tracks: [
+      { id: '1', title: 'Bloom (feat. Priv)', duration: '3:48' },
+    ],
+  },
+  {
+    id: 'priv-growing-up',
+    title: 'Growing Up (feat. Jay Kim)',
+    artist: 'PRIV',
+    artistId: '1',
+    type: 'single' as const,
+    releaseDate: new Date('2023-03-15'),
+    coverArt: '/images/artists/priv.svg',
+    description: 'PRIV\'s debut collaboration with Jay Kim, introducing their unique sound to audiences and establishing early networking within the alternative music community.',
+    links: {
+      spotify: 'https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt',
+      apple: 'https://music.apple.com/ca/artist/priv/1617089388',
+    },
+    tracks: [
+      { id: '1', title: 'Growing Up (feat. Jay Kim)', duration: '3:56' },
     ],
   },
 ].sort((a, b) => b.releaseDate.getTime() - a.releaseDate.getTime())
@@ -81,120 +233,111 @@ export const mockReleases: Release[] = [
 export const mockNews: NewsPost[] = [
   {
     id: '3',
-    title: 'PRIV Announces "New Horizons EP" - A Bold Step Forward in 2026',
-    slug: 'priv-new-horizons-ep-announcement',
-    excerpt: 'Following the success of singles "Emerging Sounds" and "Midnight Frequencies," HLPFL Records artist PRIV announces their debut EP, set to drop in early 2026.',
+    title: 'PRIV Releases "living a lie" - A Raw Exploration of Authenticity',
+    slug: 'priv-living-a-lie-release',
+    excerpt: 'Grand Rapids alternative artist PRIV returns with "living a lie," an introspective new single exploring themes of self-deception and personal truth.',
     content: `
-# PRIV Announces "New Horizons EP" - A Bold Step Forward in 2026
+# PRIV Releases "living a lie" - A Raw Exploration of Authenticity
 
-**January 10, 2026** - HLPFL Records is excited to announce that PRIV will release their highly anticipated debut EP, "New Horizons," on February 15, 2026. The 5-track project represents a significant evolution in PRIV's artistic journey.
+**July 10, 2025** - HLPFL Records artist PRIV continues their artistic evolution with the release of "living a lie," an introspective single that delves deep into themes of self-deception and the search for authenticity.
 
-## The EP
+## The Single
 
-"New Horizons" features five tracks that showcase PRIV's growth as an artist:
+"living a lie" represents PRIV's most emotionally vulnerable work to date. The track combines atmospheric production with candid lyricism, creating a sonic experience that resonates with anyone who has struggled with being true to themselves.
 
-1. **Awakening** - An atmospheric opener that sets the tone
-2. **Neon Dreams** - A synth-driven exploration of urban isolation
-3. **Static** - Raw and experimental, pushing sonic boundaries
-4. **Echoes** - An introspective piece about memory and connection
-5. **Resolution** - A triumphant closer that brings the journey full circle
+"This song came from a place of real self-reflection," PRIV shares. "It's about those moments when you realize the stories you've been telling yourself aren't serving you anymore."
 
-"This EP represents everything I've been working toward," PRIV shares. "Each track tells part of a larger story about finding yourself in a world that's constantly changing. The HLPFL team gave me complete freedom to make exactly what I envisioned."
+## Continued Growth
 
-## Building Momentum
+Since emerging in 2023 with "Growing Up (feat. Jay Kim)," PRIV has released 10 singles, each one pushing their artistic boundaries further:
 
-Since joining HLPFL Records, PRIV has been steadily building a dedicated fanbase:
+- **2023**: Growing Up, Libra, Numb
+- **2024**: Bones, solace, Jaundice, Throw Away, victim, reverence
+- **2025**: living a lie
 
-- **Emerging Sounds** introduced listeners to PRIV's unique sound
-- **Midnight Frequencies** expanded their sonic palette
-- The upcoming EP promises to be their most ambitious work yet
+"PRIV's growth has been incredible to witness," says James Rockel, HLPFL Founder & CEO. "Each release shows new depth and artistic maturity while staying true to their authentic voice."
 
-"PRIV has shown incredible artistic growth," says James Rockel, HLPFL Founder & CEO. "This EP is a testament to what's possible when artists have true creative freedom."
+## Stream Now
 
-## Pre-Save & Merch
+"living a lie" is available on [SoundCloud](https://soundcloud.com/whereispriv) and all major streaming platforms.
 
-"New Horizons EP" will be available on all streaming platforms. Exclusive vinyl pressings and limited edition merchandise are now available at hlpflrecords.com/merch.
-
-Stream PRIV on [Spotify](https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt)
+Follow PRIV: [@whereispriv](https://instagram.com/whereispriv)
 
 ---
 
 *About HLPFL Records: An independent record label committed to artist ownership and creative freedom. Founded on "Tools, Not Contracts."*
     `,
-    publishedAt: new Date('2026-01-10'),
+    publishedAt: new Date('2025-07-10'),
     author: 'HLPFL Press Team',
     category: 'Releases',
     image: '/images/artists/priv.svg',
   },
   {
     id: '1',
-    title: 'PRIV Releases Debut Single "Emerging Sounds" - A New Voice in Independent Music',
-    slug: 'priv-emerging-sounds',
-    excerpt: 'HLPFL Records artist PRIV makes their debut with "Emerging Sounds", an experimental indie track that showcases their unique artistic vision and marks the beginning of an exciting journey.',
+    title: 'PRIV Releases "victim" - A Powerful Statement on Vulnerability',
+    slug: 'priv-victim-release',
+    excerpt: 'Alternative artist PRIV drops "victim," a raw and emotionally charged single dealing with themes of vulnerability and personal struggle.',
     content: `
-# PRIV Releases Debut Single "Emerging Sounds" - A New Voice in Independent Music
+# PRIV Releases "victim" - A Powerful Statement on Vulnerability
 
-**June 15, 2024** - HLPFL Records is proud to announce the release of "Emerging Sounds," the debut single from PRIV, one of the most exciting new voices in independent music.
+**August 15, 2024** - HLPFL Records is proud to announce the release of "victim," the latest single from Grand Rapids alternative artist PRIV.
 
 ## The Single
 
-"Emerging Sounds" represents everything PRIV stands for: authenticity, experimentation, and creative freedom. The track blends alternative, indie, and experimental elements into a cohesive sonic experience that defies easy categorization.
+"victim" is a raw, emotionally charged track that explores themes of vulnerability and personal struggle. With its honest approach to difficult emotions, the single showcases PRIV's commitment to authentic self-expression.
 
-"This song is about finding your voice," PRIV explains. "It's about those moments when you're on the verge of something new, something undefined. The sound is emerging—like me."
+"This song is about owning your experiences," PRIV explains. "It's not about playing the victim—it's about acknowledging what you've been through and finding strength in that honesty."
+
+## A Prolific Year
+
+"victim" marks PRIV's sixth release of 2024, following:
+
+- **Bones** (January) - A powerful start to the year
+- **solace** (March) - An introspective SoundCloud release
+- **Jaundice** (May) - Expanding sonic boundaries
+- **Throw Away** (June) - Candid exploration of letting go
+- **SHITFACEDED** (April) - Collaboration with Sawyer
 
 ## The HLPFL Partnership
 
-PRIV joins HLPFL Records under the label's revolutionary partnership model:
-
-- **100% Artist Ownership** - PRIV maintains complete ownership of all masters and rights
-- **Full Creative Control** - No A&R interference or forced collaboration
-- **Comprehensive Support** - Access to distribution, marketing, analytics, and career development tools
-- **Fair Revenue Split** - Transparent 50/50 partnership on label services
-
-"PRIV embodies everything we believe in at HLPFL," says James Rockel, Founder & CEO. "Complete creative freedom, no compromises, and a commitment to authenticity."
-
-## What's Next
-
-With "Emerging Sounds" marking the beginning of their journey, PRIV is already working on new material in the studio.
-
-"I've been making music my whole life, but I've never felt truly free until now," PRIV shares. "HLPFL gets it. They understand that the best art comes from artists who aren't afraid to experiment, fail, and try again."
+Under HLPFL Records' revolutionary partnership model, PRIV maintains complete ownership of all masters and creative control over their artistic direction.
 
 ## Stream Now
 
-"Emerging Sounds" is available on all streaming platforms.
+"victim" is available on [Spotify](https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt), [Apple Music](https://music.apple.com/ca/artist/priv/1617089388), and all streaming platforms.
 
 ---
 
-*About HLPFL Records: An independent record label and artist management platform that protects artists from exploitation. Founded on the principle of "Tools, Not Contracts," HLPFL provides comprehensive support while ensuring artists maintain 100% ownership of their work.*
+*About HLPFL Records: An independent record label and artist management platform that protects artists from exploitation. Founded on the principle of "Tools, Not Contracts."*
     `,
-    publishedAt: new Date('2024-06-15'),
+    publishedAt: new Date('2024-08-15'),
     author: 'HLPFL Press Team',
     category: 'Releases',
     image: '/images/artists/priv.svg',
   },
   {
     id: '2',
-    title: 'HLPFL Records Welcomes PRIV to the Roster - The Future of Alternative Music',
+    title: 'HLPFL Records Welcomes PRIV - Alternative Artist from Grand Rapids',
     slug: 'priv-joins-hlpfl',
-    excerpt: 'Independent label HLPFL Records announces the addition of innovative artist PRIV, bringing a fresh experimental sound to the artist-first platform.',
+    excerpt: 'Independent label HLPFL Records announces partnership with Grand Rapids alternative artist PRIV, known for emotionally authentic music.',
     content: `
-# HLPFL Records Welcomes PRIV to the Roster - The Future of Alternative Music
+# HLPFL Records Welcomes PRIV - Alternative Artist from Grand Rapids
 
-**January 8, 2024** - HLPFL Records is thrilled to announce the newest addition to our artist-first roster: **PRIV**, an emerging talent pushing the boundaries of alternative and experimental music.
+**January 2023** - HLPFL Records is thrilled to announce our partnership with **PRIV**, an alternative music artist and producer from Grand Rapids, Michigan.
 
-## A New Voice in Independent Music
+## About PRIV
 
-PRIV represents the next generation of artists who refuse to be confined by genre labels or industry conventions. With a sound that seamlessly blends alternative, indie, and experimental elements, PRIV is carving out a unique space in the modern music landscape.
+PRIV emerged onto the alternative music scene with a sound that blends emotional depth, atmospheric textures, and raw self-expression. Hailing from Grand Rapids' vibrant local music scene, PRIV represents the new wave of independent artists who leverage digital platforms while maintaining artistic authenticity.
 
 "PRIV embodies everything HLPFL stands for," says James Rockel, Founder & CEO of HLPFL Records. "Complete creative freedom, no compromises, and a commitment to authenticity. We're not here to mold artists into what we think will sell—we're here to amplify their true vision."
 
-## The HLPFL Difference
+## The HLPFL Partnership
 
-Unlike traditional record deals that strip artists of ownership and creative control, PRIV joins HLPFL under the label's revolutionary partnership model:
+Under HLPFL's revolutionary partnership model, PRIV enjoys:
 
-- **100% Artist Ownership** - PRIV maintains complete ownership of all masters and rights
+- **100% Artist Ownership** - Complete ownership of all masters and rights
 - **Full Creative Control** - No A&R interference or forced collaboration
-- **Comprehensive Support** - Access to distribution, marketing, analytics, and career development tools
+- **Comprehensive Support** - Distribution, marketing, analytics, and career development tools
 - **Fair Revenue Split** - Transparent 50/50 partnership on label services
 - **No Traps, Just Tools** - Everything an independent artist needs to succeed
 
@@ -228,7 +371,7 @@ Follow PRIV's journey as they prepare to release new music and connect with fans
 
 *About HLPFL Records: An independent record label and artist management platform founded by James Rockel at age 18. HLPFL's mission is to protect artists from industry exploitation through transparent partnerships, comprehensive tools, and unwavering commitment to artist ownership. "Tools, Not Contracts."*
     `,
-    publishedAt: new Date('2024-01-08'),
+    publishedAt: new Date('2023-01-15'),
     author: 'HLPFL Press Team',
     category: 'News',
     image: '/images/artists/priv.svg',

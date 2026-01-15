@@ -14,8 +14,8 @@
 HLPFL Records is a modern, artist-first record label platform built with Next.js 14. We provide comprehensive services for musicians while maintaining transparency and fair compensation.
 
 ### Key Statistics
-- **Featured Artist**: PRIV
-- **3 Releases**: Emerging Sounds, Midnight Frequencies, New Horizons EP
+- **Featured Artist**: PRIV (Grand Rapids, Michigan)
+- **12 Releases**: Including "victim", "Numb", "Bones", "Growing Up (feat. Jay Kim)", and more
 - **100+ Services**: Documented in comprehensive guide
 - **New Features**: OAuth login, Stripe merch store, questionnaire with email
 
@@ -136,9 +136,14 @@ All comprehensive documentation is located in the `/docs` folder:
 ## 🎨 Artists
 
 ### PRIV
+- **Location**: Grand Rapids, Michigan
 - **Genre**: Alternative, Indie, Experimental
 - **Spotify**: [open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt](https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt)
-- **Releases**: Emerging Sounds, Midnight Frequencies, New Horizons EP
+- **Apple Music**: [music.apple.com/artist/priv/1617089388](https://music.apple.com/ca/artist/priv/1617089388)
+- **SoundCloud**: [soundcloud.com/whereispriv](https://soundcloud.com/whereispriv)
+- **Instagram/Twitter**: @whereispriv
+- **Releases** (2023-2025): Growing Up (feat. Jay Kim), Libra, Numb, Bones, solace, Jaundice, Throw Away, victim, reverence, living a lie
+- **Features**: Bloom (feat. Priv) by Lavv, SHITFACEDED (feat. PRIV) by Sawyer
 
 ## 📦 Available Scripts
 

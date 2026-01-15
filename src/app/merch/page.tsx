@@ -31,9 +31,9 @@ const products: Product[] = [
   },
   {
     id: 'priv-hoodie-1',
-    name: 'Emerging Sounds Hoodie',
+    name: '"victim" Hoodie',
     price: 54.99,
-    description: 'Cozy pullover hoodie inspired by the Emerging Sounds single. Heavy cotton blend.',
+    description: 'Cozy pullover hoodie inspired by the hit single "victim". Heavy cotton blend.',
     image: '/images/artists/priv.svg',
     category: 'Apparel',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -41,19 +41,19 @@ const products: Product[] = [
     inStock: true
   },
   {
-    id: 'priv-vinyl-1',
-    name: 'New Horizons EP Vinyl',
-    price: 34.99,
-    description: 'Limited edition vinyl pressing of the New Horizons EP. 180g audiophile quality.',
+    id: 'priv-digital-1',
+    name: '2024 Singles Collection (Digital)',
+    price: 9.99,
+    description: 'Digital collection of all 2024 PRIV releases: Bones, Jaundice, Throw Away, victim, and more.',
     image: '/images/artists/priv.svg',
     category: 'Music',
     inStock: true
   },
   {
     id: 'priv-poster-1',
-    name: 'PRIV Tour Poster',
+    name: '"Numb" Art Poster',
     price: 19.99,
-    description: 'High-quality art print poster. 18x24 inches on premium matte paper.',
+    description: 'High-quality art print poster inspired by "Numb". 18x24 inches on premium matte paper.',
     image: '/images/artists/priv.svg',
     category: 'Collectibles',
     inStock: true
@@ -71,8 +71,8 @@ const products: Product[] = [
   {
     id: 'priv-bundle-1',
     name: 'Fan Bundle',
-    price: 89.99,
-    description: 'Get the complete package: T-Shirt, Poster, and Sticker Pack at a special price.',
+    price: 49.99,
+    description: 'Get the complete package: T-Shirt, "Numb" Poster, and Digital Collection at a special price.',
     image: '/images/artists/priv.svg',
     category: 'Bundles',
     sizes: ['S', 'M', 'L', 'XL'],
