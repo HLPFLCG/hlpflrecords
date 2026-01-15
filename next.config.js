@@ -11,8 +11,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Static export for GitHub Pages
-  output: 'export',
   // Server mode enabled for OAuth authentication
   trailingSlash: true,
   images: {
