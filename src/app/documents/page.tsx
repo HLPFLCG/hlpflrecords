@@ -13,14 +13,14 @@ import {
   HelpCircle,
   BookOpen,
   UserPlus,
-  Handshake,
   Building2,
   Copyright,
   DollarSign,
   Users,
   FileCheck,
   Lock,
-  ChevronRight
+  ChevronRight,
+  Briefcase
 } from 'lucide-react'
 
 const documents = [
@@ -91,7 +91,7 @@ const documents = [
     title: 'Partnership Inquiry Form',
     description: 'For businesses and organizations interested in partnering with HLPFL. Tell us about your proposal and how we can work together.',
     category: 'forms',
-    icon: Handshake,
+    icon: Briefcase,
     status: 'coming-soon'
   },
   {
@@ -107,7 +107,7 @@ const documents = [
     title: 'Business Formation Guide',
     description: 'Comprehensive guide to forming your music business as an LLC. Understand the benefits, process, and requirements for independent artists.',
     category: 'resources',
-    icon: Building2,
+    icon: FileCheck,
     status: 'coming-soon'
   },
   {
