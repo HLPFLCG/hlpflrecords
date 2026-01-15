@@ -157,6 +157,8 @@ export default function ArtistQuestionnairePage() {
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const updateFormData = (field: keyof FormData, value: string | string[]) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -183,10 +185,29 @@ export default function ArtistQuestionnairePage() {
     }
   }
 
-  const handleSubmit = () => {
-    // In production, this would send the data to an API
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+  const handleSubmit = async () => {
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const response = await fetch('/api/questionnaire', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setSubmitError(result.error || 'Failed to submit. Please try again.')
+      }
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -1205,13 +1226,24 @@ export default function ArtistQuestionnairePage() {
             )}
           </AnimatePresence>
 
+          {/* Error Message */}
+          {submitError && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 bg-red-500/10 border border-red-500/50 rounded-xl p-4"
+            >
+              <p className="text-red-400 text-center">{submitError}</p>
+            </motion.div>
+          )}
+
           {/* Navigation Buttons */}
           <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-700">
             <button
               onClick={prevStep}
-              disabled={currentStep === 1}
+              disabled={currentStep === 1 || isSubmitting}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all ${
-                currentStep === 1
+                currentStep === 1 || isSubmitting
                   ? 'bg-dark-tertiary text-gray-600 cursor-not-allowed'
                   : 'bg-dark-tertiary border border-gray-700 text-white hover:border-gold'
               }`}
@@ -1231,10 +1263,20 @@ export default function ArtistQuestionnairePage() {
             ) : (
               <button
                 onClick={handleSubmit}
-                className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-dark font-semibold rounded-lg hover:shadow-lg transition-all"
+                disabled={isSubmitting}
+                className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-dark font-semibold rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send className="w-5 h-5" />
-                Submit Questionnaire
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-dark border-t-transparent rounded-full animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Submit Questionnaire
+                  </>
+                )}
               </button>
             )}
           </div>

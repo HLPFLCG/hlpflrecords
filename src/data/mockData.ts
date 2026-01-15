@@ -80,6 +80,53 @@ export const mockReleases: Release[] = [
 
 export const mockNews: NewsPost[] = [
   {
+    id: '3',
+    title: 'PRIV Announces "New Horizons EP" - A Bold Step Forward in 2026',
+    slug: 'priv-new-horizons-ep-announcement',
+    excerpt: 'Following the success of singles "Emerging Sounds" and "Midnight Frequencies," HLPFL Records artist PRIV announces their debut EP, set to drop in early 2026.',
+    content: `
+# PRIV Announces "New Horizons EP" - A Bold Step Forward in 2026
+
+**January 10, 2026** - HLPFL Records is excited to announce that PRIV will release their highly anticipated debut EP, "New Horizons," on February 15, 2026. The 5-track project represents a significant evolution in PRIV's artistic journey.
+
+## The EP
+
+"New Horizons" features five tracks that showcase PRIV's growth as an artist:
+
+1. **Awakening** - An atmospheric opener that sets the tone
+2. **Neon Dreams** - A synth-driven exploration of urban isolation
+3. **Static** - Raw and experimental, pushing sonic boundaries
+4. **Echoes** - An introspective piece about memory and connection
+5. **Resolution** - A triumphant closer that brings the journey full circle
+
+"This EP represents everything I've been working toward," PRIV shares. "Each track tells part of a larger story about finding yourself in a world that's constantly changing. The HLPFL team gave me complete freedom to make exactly what I envisioned."
+
+## Building Momentum
+
+Since joining HLPFL Records, PRIV has been steadily building a dedicated fanbase:
+
+- **Emerging Sounds** introduced listeners to PRIV's unique sound
+- **Midnight Frequencies** expanded their sonic palette
+- The upcoming EP promises to be their most ambitious work yet
+
+"PRIV has shown incredible artistic growth," says James Rockel, HLPFL Founder & CEO. "This EP is a testament to what's possible when artists have true creative freedom."
+
+## Pre-Save & Merch
+
+"New Horizons EP" will be available on all streaming platforms. Exclusive vinyl pressings and limited edition merchandise are now available at hlpflrecords.com/merch.
+
+Stream PRIV on [Spotify](https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt)
+
+---
+
+*About HLPFL Records: An independent record label committed to artist ownership and creative freedom. Founded on "Tools, Not Contracts."*
+    `,
+    publishedAt: new Date('2026-01-10'),
+    author: 'HLPFL Press Team',
+    category: 'Releases',
+    image: '/images/artists/priv.svg',
+  },
+  {
     id: '1',
     title: 'PRIV Releases Debut Single "Emerging Sounds" - A New Voice in Independent Music',
     slug: 'priv-emerging-sounds',

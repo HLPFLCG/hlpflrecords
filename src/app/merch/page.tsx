@@ -1,70 +1,178 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Upload, Package, TrendingUp, DollarSign, ShoppingCart, Eye } from 'lucide-react'
+import { Package, ShoppingCart, Check, X, Loader2, CreditCard } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
 
-export default function MerchPage() {
-  const [activeTab, setActiveTab] = useState('products')
+interface Product {
+  id: string
+  name: string
+  price: number
+  description: string
+  image: string
+  category: string
+  sizes?: string[]
+  colors?: string[]
+  inStock: boolean
+}
 
-  const mockData = {
-    totalSales: '234',
-    revenue: '$8,940',
-    avgOrderValue: '$38.20',
-    products: [
-      {
-        name: 'Limited Edition T-Shirt',
-        price: '$35',
-        sold: 89,
-        stock: 41,
-        category: 'Apparel',
-        image: '👕',
-        status: 'active',
-        views: 1245
-      },
-      {
-        name: 'Vinyl Record - Latest Album',
-        price: '$45',
-        sold: 67,
-        stock: 23,
-        category: 'Music',
-        image: '💿',
-        status: 'active',
-        views: 892
-      },
-      {
-        name: 'Signed Poster Bundle',
-        price: '$25',
-        sold: 45,
-        stock: 0,
-        category: 'Collectibles',
-        image: '🖼️',
-        status: 'sold out',
-        views: 678
-      },
-      {
-        name: 'Beanie - Winter Collection',
-        price: '$20',
-        sold: 33,
-        stock: 67,
-        category: 'Apparel',
-        image: '🧢',
-        status: 'active',
-        views: 534
-      },
-    ],
-    recentOrders: [
-      { customer: 'Emily S.', items: 'T-Shirt (M), Poster', total: '$60', status: 'Shipped', time: '2h ago' },
-      { customer: 'Marcus R.', items: 'Vinyl Record', total: '$45', status: 'Processing', time: '5h ago' },
-      { customer: 'Sophia L.', items: 'Beanie, T-Shirt (L)', total: '$55', status: 'Shipped', time: '1d ago' },
-      { customer: 'James K.', items: 'Poster Bundle', total: '$25', status: 'Delivered', time: '2d ago' },
-    ],
-    categories: [
-      { name: 'Apparel', items: 6, revenue: '$4,230' },
-      { name: 'Music', items: 3, revenue: '$3,015' },
-      { name: 'Collectibles', items: 4, revenue: '$1,125' },
-      { name: 'Accessories', items: 2, revenue: '$570' },
-    ]
+const products: Product[] = [
+  {
+    id: 'priv-tshirt-1',
+    name: 'PRIV Logo T-Shirt',
+    price: 29.99,
+    description: 'Premium cotton t-shirt featuring the PRIV logo. Comfortable fit for everyday wear.',
+    image: '/images/artists/priv.svg',
+    category: 'Apparel',
+    sizes: ['S', 'M', 'L', 'XL', '2XL'],
+    colors: ['Black', 'White'],
+    inStock: true
+  },
+  {
+    id: 'priv-hoodie-1',
+    name: 'Emerging Sounds Hoodie',
+    price: 54.99,
+    description: 'Cozy pullover hoodie inspired by the Emerging Sounds single. Heavy cotton blend.',
+    image: '/images/artists/priv.svg',
+    category: 'Apparel',
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Black', 'Navy'],
+    inStock: true
+  },
+  {
+    id: 'priv-vinyl-1',
+    name: 'New Horizons EP Vinyl',
+    price: 34.99,
+    description: 'Limited edition vinyl pressing of the New Horizons EP. 180g audiophile quality.',
+    image: '/images/artists/priv.svg',
+    category: 'Music',
+    inStock: true
+  },
+  {
+    id: 'priv-poster-1',
+    name: 'PRIV Tour Poster',
+    price: 19.99,
+    description: 'High-quality art print poster. 18x24 inches on premium matte paper.',
+    image: '/images/artists/priv.svg',
+    category: 'Collectibles',
+    inStock: true
+  },
+  {
+    id: 'priv-cap-1',
+    name: 'Limited Edition Cap',
+    price: 24.99,
+    description: 'Embroidered cap with PRIV logo. Adjustable snapback closure.',
+    image: '/images/artists/priv.svg',
+    category: 'Accessories',
+    colors: ['Black', 'Gold'],
+    inStock: true
+  },
+  {
+    id: 'priv-bundle-1',
+    name: 'Fan Bundle',
+    price: 89.99,
+    description: 'Get the complete package: T-Shirt, Poster, and Sticker Pack at a special price.',
+    image: '/images/artists/priv.svg',
+    category: 'Bundles',
+    sizes: ['S', 'M', 'L', 'XL'],
+    inStock: true
+  }
+]
+
+export default function MerchStorePage() {
+  const searchParams = useSearchParams()
+  const [cart, setCart] = useState<{ product: Product; quantity: number; size?: string; color?: string }[]>([])
+  const [showCart, setShowCart] = useState(false)
+  const [isCheckingOut, setIsCheckingOut] = useState(false)
+  const [checkoutMessage, setCheckoutMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
+  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: { size?: string; color?: string } }>({})
+
+  // Check for checkout status from URL
+  useEffect(() => {
+    const checkout = searchParams.get('checkout')
+    if (checkout === 'success') {
+      setCheckoutMessage({ type: 'success', text: 'Thank you for your purchase! You will receive a confirmation email shortly.' })
+      setCart([])
+    } else if (checkout === 'cancelled') {
+      setCheckoutMessage({ type: 'error', text: 'Checkout was cancelled. Your cart items are still saved.' })
+    }
+  }, [searchParams])
+
+  const addToCart = (product: Product) => {
+    const options = selectedOptions[product.id] || {}
+    const existingItem = cart.find(
+      item => item.product.id === product.id &&
+      item.size === options.size &&
+      item.color === options.color
+    )
+
+    if (existingItem) {
+      setCart(cart.map(item =>
+        item === existingItem
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      ))
+    } else {
+      setCart([...cart, { product, quantity: 1, size: options.size, color: options.color }])
+    }
+    setShowCart(true)
+  }
+
+  const removeFromCart = (index: number) => {
+    setCart(cart.filter((_, i) => i !== index))
+  }
+
+  const updateQuantity = (index: number, quantity: number) => {
+    if (quantity < 1) {
+      removeFromCart(index)
+      return
+    }
+    setCart(cart.map((item, i) => i === index ? { ...item, quantity } : item))
+  }
+
+  const cartTotal = cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0)
+
+  const handleCheckout = async () => {
+    if (cart.length === 0) return
+
+    setIsCheckingOut(true)
+    setCheckoutMessage(null)
+
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: cart.map(item => ({
+            name: `${item.product.name}${item.size ? ` (${item.size})` : ''}${item.color ? ` - ${item.color}` : ''}`,
+            price: item.product.price,
+            quantity: item.quantity,
+            description: item.product.description
+          }))
+        })
+      })
+
+      const data = await response.json()
+
+      if (data.url) {
+        // Redirect to Stripe checkout
+        window.location.href = data.url
+      } else if (data.mock) {
+        // Mock checkout for development
+        setCheckoutMessage({ type: 'success', text: 'Demo checkout complete! In production, you would be redirected to Stripe.' })
+        setCart([])
+        setShowCart(false)
+      } else {
+        throw new Error(data.error || 'Failed to create checkout')
+      }
+    } catch (error) {
+      console.error('Checkout error:', error)
+      setCheckoutMessage({ type: 'error', text: 'Failed to start checkout. Please try again.' })
+    } finally {
+      setIsCheckingOut(false)
+    }
   }
 
   return (
@@ -75,238 +183,246 @@ export default function MerchPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl mb-6"
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-gold to-gold-dark rounded-2xl mb-6"
           >
-            <Package className="w-10 h-10 text-white" />
+            <Package className="w-10 h-10 text-dark" />
           </motion.div>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Merch Store
+            PRIV Merch Store
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Create and sell merchandise to your fans
+            Official merchandise from PRIV. Support the music, wear the brand.
           </p>
         </div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+        {/* Checkout Message */}
+        {checkoutMessage && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="bg-glass-card p-8 rounded-2xl"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <ShoppingCart className="w-12 h-12 text-indigo-500" />
-              <span className="text-green-400 font-semibold">+15%</span>
-            </div>
-            <h3 className="text-4xl font-bold text-white mb-2">{mockData.totalSales}</h3>
-            <p className="text-gray-400">Items Sold</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-glass-card p-8 rounded-2xl"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <DollarSign className="w-12 h-12 text-gold" />
-              <span className="text-green-400 font-semibold">+23%</span>
-            </div>
-            <h3 className="text-4xl font-bold text-white mb-2">{mockData.revenue}</h3>
-            <p className="text-gray-400">Total Revenue</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="bg-glass-card p-8 rounded-2xl"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <TrendingUp className="w-12 h-12 text-gold" />
-            </div>
-            <h3 className="text-4xl font-bold text-white mb-2">{mockData.avgOrderValue}</h3>
-            <p className="text-gray-400">Avg Order Value</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-glass-card p-8 rounded-2xl"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <Package className="w-12 h-12 text-gold" />
-            </div>
-            <h3 className="text-4xl font-bold text-white mb-2">15</h3>
-            <p className="text-gray-400">Active Products</p>
-          </motion.div>
-        </div>
-
-        {/* Tabs */}
-        <div className="mb-8 flex gap-4">
-          <button
-            onClick={() => setActiveTab('products')}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-              activeTab === 'products'
-                ? 'bg-gold text-dark'
-                : 'bg-glass-card text-gray-400 hover:text-white'
+            className={`mb-8 p-4 rounded-xl border ${
+              checkoutMessage.type === 'success'
+                ? 'bg-green-500/10 border-green-500/50 text-green-400'
+                : 'bg-red-500/10 border-red-500/50 text-red-400'
             }`}
           >
-            Products
-          </button>
-          <button
-            onClick={() => setActiveTab('orders')}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-              activeTab === 'orders'
-                ? 'bg-gold text-dark'
-                : 'bg-glass-card text-gray-400 hover:text-white'
-            }`}
-          >
-            Recent Orders
-          </button>
-          <button
-            onClick={() => setActiveTab('categories')}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-              activeTab === 'categories'
-                ? 'bg-gold text-dark'
-                : 'bg-glass-card text-gray-400 hover:text-white'
-            }`}
-          >
-            Categories
-          </button>
-        </div>
-
-        {/* Content */}
-        {activeTab === 'products' && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-white">Your Products</h2>
-              <button className="px-6 py-3 bg-gold text-dark font-semibold rounded-lg hover:shadow-gold-hover transition-all flex items-center gap-2">
-                <Upload className="w-5 h-5" />
-                Add Product
+            <div className="flex items-center gap-3">
+              {checkoutMessage.type === 'success' ? <Check className="w-5 h-5" /> : <X className="w-5 h-5" />}
+              <p>{checkoutMessage.text}</p>
+              <button onClick={() => setCheckoutMessage(null)} className="ml-auto">
+                <X className="w-4 h-4" />
               </button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {mockData.products.map((product, index) => (
-                <div key={index} className="bg-glass-card p-8 rounded-2xl">
-                  <div className="flex items-start gap-6 mb-6">
-                    <div className="text-6xl">{product.image}</div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
-                        <div>
-                          <h3 className="text-xl font-bold text-white mb-1">{product.name}</h3>
-                          <p className="text-gray-400 text-sm">{product.category}</p>
-                        </div>
-                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          product.status === 'active'
-                            ? 'bg-green-500/20 text-green-400'
-                            : 'bg-red-500/20 text-red-400'
-                        }`}>
-                          {product.status}
-                        </span>
-                      </div>
-                      <p className="text-3xl font-bold text-gold mb-4">{product.price}</p>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-4 mb-4 pb-4 border-b border-gray-700">
-                    <div>
-                      <p className="text-gray-400 text-sm mb-1">Sold</p>
-                      <p className="text-white font-bold text-lg">{product.sold}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-sm mb-1">Stock</p>
-                      <p className={`font-bold text-lg ${product.stock === 0 ? 'text-red-400' : 'text-white'}`}>
-                        {product.stock}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-sm mb-1 flex items-center gap-1">
-                        <Eye className="w-3 h-3" />
-                        Views
-                      </p>
-                      <p className="text-white font-bold text-lg">{product.views}</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <button className="flex-1 px-4 py-2 bg-gold/20 text-gold font-semibold rounded-lg hover:bg-gold/30 transition-all">
-                      Edit
-                    </button>
-                    <button className="flex-1 px-4 py-2 bg-glass-card text-white font-semibold rounded-lg hover:bg-gray-700 transition-all">
-                      View Stats
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
           </motion.div>
         )}
 
-        {activeTab === 'orders' && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-glass-card p-8 rounded-2xl"
+        {/* Cart Button */}
+        <div className="fixed top-24 right-4 z-40">
+          <button
+            onClick={() => setShowCart(!showCart)}
+            className="relative bg-gold text-dark p-4 rounded-full shadow-lg hover:shadow-xl transition-all"
           >
-            <h2 className="text-2xl font-bold text-white mb-6">Recent Orders</h2>
-            <div className="space-y-4">
-              {mockData.recentOrders.map((order, index) => (
-                <div key={index} className="p-6 bg-gray-800/50 rounded-xl">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h3 className="text-lg font-bold text-white mb-1">{order.customer}</h3>
-                      <p className="text-gray-400 text-sm">{order.items}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-2xl font-bold text-gold mb-1">{order.total}</p>
-                      <p className="text-gray-400 text-sm">{order.time}</p>
-                    </div>
-                  </div>
-                  <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${
-                    order.status === 'Delivered'
-                      ? 'bg-green-500/20 text-green-400'
-                      : order.status === 'Shipped'
-                      ? 'bg-blue-500/20 text-blue-400'
-                      : 'bg-yellow-500/20 text-yellow-400'
-                  }`}>
-                    {order.status}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
+            <ShoppingCart className="w-6 h-6" />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">
+                {cartCount}
+              </span>
+            )}
+          </button>
+        </div>
 
-        {activeTab === 'categories' && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            {mockData.categories.map((category, index) => (
-              <div key={index} className="bg-glass-card p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold text-white mb-6">{category.name}</h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <p className="text-gray-400">Total Items</p>
-                    <p className="text-2xl font-bold text-white">{category.items}</p>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <p className="text-gray-400">Revenue</p>
-                    <p className="text-3xl font-bold text-gold">{category.revenue}</p>
-                  </div>
-                </div>
-                <button className="w-full mt-6 px-4 py-3 bg-gold/20 text-gold font-semibold rounded-lg hover:bg-gold/30 transition-all">
-                  View Products
+        {/* Cart Sidebar */}
+        {showCart && (
+          <div className="fixed inset-0 z-50">
+            <div className="absolute inset-0 bg-black/60" onClick={() => setShowCart(false)} />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              className="absolute right-0 top-0 h-full w-full max-w-md bg-dark-secondary border-l border-gray-800 p-6 overflow-y-auto"
+            >
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Your Cart</h2>
+                <button onClick={() => setShowCart(false)} className="text-gray-400 hover:text-white">
+                  <X className="w-6 h-6" />
                 </button>
               </div>
-            ))}
-          </motion.div>
+
+              {cart.length === 0 ? (
+                <p className="text-gray-400 text-center py-8">Your cart is empty</p>
+              ) : (
+                <>
+                  <div className="space-y-4 mb-6">
+                    {cart.map((item, index) => (
+                      <div key={index} className="flex gap-4 p-4 bg-dark-tertiary rounded-xl">
+                        <div className="w-16 h-16 bg-gray-800 rounded-lg flex items-center justify-center">
+                          <Package className="w-8 h-8 text-gold" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-white font-semibold">{item.product.name}</h3>
+                          {(item.size || item.color) && (
+                            <p className="text-gray-400 text-sm">
+                              {item.size && `Size: ${item.size}`}
+                              {item.size && item.color && ' | '}
+                              {item.color && `Color: ${item.color}`}
+                            </p>
+                          )}
+                          <div className="flex items-center justify-between mt-2">
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => updateQuantity(index, item.quantity - 1)}
+                                className="w-6 h-6 bg-gray-700 rounded text-white text-sm hover:bg-gray-600"
+                              >
+                                -
+                              </button>
+                              <span className="text-white">{item.quantity}</span>
+                              <button
+                                onClick={() => updateQuantity(index, item.quantity + 1)}
+                                className="w-6 h-6 bg-gray-700 rounded text-white text-sm hover:bg-gray-600"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <span className="text-gold font-bold">${(item.product.price * item.quantity).toFixed(2)}</span>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => removeFromCart(index)}
+                          className="text-gray-400 hover:text-red-400"
+                        >
+                          <X className="w-5 h-5" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="border-t border-gray-700 pt-4">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-gray-400">Subtotal</span>
+                      <span className="text-2xl font-bold text-gold">${cartTotal.toFixed(2)}</span>
+                    </div>
+                    <p className="text-gray-500 text-sm mb-4">Shipping calculated at checkout</p>
+                    <button
+                      onClick={handleCheckout}
+                      disabled={isCheckingOut}
+                      className="w-full bg-gradient-to-r from-gold to-gold-dark text-dark font-bold py-4 rounded-xl hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                    >
+                      {isCheckingOut ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Processing...
+                        </>
+                      ) : (
+                        <>
+                          <CreditCard className="w-5 h-5" />
+                          Checkout with Stripe
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </>
+              )}
+            </motion.div>
+          </div>
         )}
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-dark-secondary border border-gray-800 rounded-2xl overflow-hidden group hover:border-gold/50 transition-all"
+            >
+              {/* Product Image */}
+              <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                <Package className="w-24 h-24 text-gold/30 group-hover:scale-110 transition-transform" />
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1 bg-gold/20 text-gold text-sm font-semibold rounded-full">
+                    {product.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Product Info */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white mb-2">{product.name}</h3>
+                <p className="text-gray-400 text-sm mb-4 line-clamp-2">{product.description}</p>
+
+                {/* Options */}
+                <div className="space-y-3 mb-4">
+                  {product.sizes && (
+                    <div>
+                      <label className="text-gray-400 text-sm block mb-2">Size</label>
+                      <div className="flex flex-wrap gap-2">
+                        {product.sizes.map(size => (
+                          <button
+                            key={size}
+                            onClick={() => setSelectedOptions(prev => ({
+                              ...prev,
+                              [product.id]: { ...prev[product.id], size }
+                            }))}
+                            className={`px-3 py-1 rounded border text-sm transition-all ${
+                              selectedOptions[product.id]?.size === size
+                                ? 'border-gold bg-gold/20 text-gold'
+                                : 'border-gray-700 text-gray-400 hover:border-gray-600'
+                            }`}
+                          >
+                            {size}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {product.colors && (
+                    <div>
+                      <label className="text-gray-400 text-sm block mb-2">Color</label>
+                      <div className="flex flex-wrap gap-2">
+                        {product.colors.map(color => (
+                          <button
+                            key={color}
+                            onClick={() => setSelectedOptions(prev => ({
+                              ...prev,
+                              [product.id]: { ...prev[product.id], color }
+                            }))}
+                            className={`px-3 py-1 rounded border text-sm transition-all ${
+                              selectedOptions[product.id]?.color === color
+                                ? 'border-gold bg-gold/20 text-gold'
+                                : 'border-gray-700 text-gray-400 hover:border-gray-600'
+                            }`}
+                          >
+                            {color}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-3xl font-bold text-gold">${product.price.toFixed(2)}</span>
+                  <button
+                    onClick={() => addToCart(product)}
+                    disabled={!product.inStock}
+                    className="px-6 py-3 bg-gradient-to-r from-gold to-gold-dark text-dark font-semibold rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  >
+                    <ShoppingCart className="w-4 h-4" />
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Fulfillment Partner Notice */}
+        <div className="mt-16 text-center">
+          <p className="text-gray-500 text-sm">
+            Merchandise fulfilled by Limitless Manufacturing Group
+          </p>
+        </div>
       </div>
     </div>
   )
