@@ -237,6 +237,103 @@ hlpflrecords/
 
 ---
 
-**You're all set!** 🎉
+**You're all set!**
 
 Once you have `.env.local` created, your app will be able to connect to Supabase and other services.
+
+---
+
+## New Feature Variables (2026)
+
+The following environment variables were added for new features. For detailed setup instructions, see the [API Setup Guide](./API_SETUP_GUIDE.md).
+
+### OAuth Authentication (NextAuth)
+
+For social login with Google, Facebook, Spotify, and Apple:
+
+```bash
+# NextAuth Configuration
+NEXTAUTH_URL=https://hlpflrecords.com
+NEXTAUTH_SECRET=generate-a-32-char-secret-here
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+# Facebook OAuth
+FACEBOOK_CLIENT_ID=your-facebook-app-id
+FACEBOOK_CLIENT_SECRET=your-facebook-app-secret
+
+# Spotify OAuth
+SPOTIFY_CLIENT_ID=your-spotify-client-id
+SPOTIFY_CLIENT_SECRET=your-spotify-client-secret
+
+# Apple Sign-In (advanced)
+APPLE_ID=your-apple-service-id
+APPLE_SECRET=your-apple-secret-key
+```
+
+**Where to get these:**
+- Google: [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
+- Facebook: [developers.facebook.com/apps](https://developers.facebook.com/apps)
+- Spotify: [developer.spotify.com/dashboard](https://developer.spotify.com/dashboard)
+- Apple: [developer.apple.com](https://developer.apple.com) (requires paid developer account)
+
+### Resend Email
+
+For questionnaire submission emails:
+
+```bash
+# Get from: https://resend.com/api-keys
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+
+# Admin email to receive submissions
+ADMIN_EMAIL=submissions@hlpflrecords.com
+```
+
+**Free tier**: 3,000 emails/month
+
+### Stripe Payments
+
+For merch store checkout:
+
+```bash
+# Get from: https://dashboard.stripe.com/apikeys
+STRIPE_PUBLIC_KEY=pk_test_YOUR_PUBLISHABLE_KEY_HERE
+STRIPE_SECRET_KEY=sk_test_YOUR_SECRET_KEY_HERE
+STRIPE_WEBHOOK_SECRET=whsec_YOUR_WEBHOOK_SECRET_HERE
+```
+
+**Note**: Use `pk_test_` and `sk_test_` keys for development. Switch to `pk_live_` and `sk_live_` for production.
+
+### Quick Reference Table
+
+| Variable | Service | Required For | Get From |
+|----------|---------|--------------|----------|
+| `NEXTAUTH_SECRET` | NextAuth | OAuth login | Generate: `openssl rand -base64 32` |
+| `NEXTAUTH_URL` | NextAuth | OAuth login | Your site URL |
+| `GOOGLE_CLIENT_ID` | Google | Google login | Google Cloud Console |
+| `GOOGLE_CLIENT_SECRET` | Google | Google login | Google Cloud Console |
+| `FACEBOOK_CLIENT_ID` | Facebook | Facebook login | Facebook Developers |
+| `FACEBOOK_CLIENT_SECRET` | Facebook | Facebook login | Facebook Developers |
+| `SPOTIFY_CLIENT_ID` | Spotify | Spotify login | Spotify Developer |
+| `SPOTIFY_CLIENT_SECRET` | Spotify | Spotify login | Spotify Developer |
+| `APPLE_ID` | Apple | Apple login | Apple Developer |
+| `APPLE_SECRET` | Apple | Apple login | Apple Developer |
+| `RESEND_API_KEY` | Resend | Questionnaire emails | resend.com |
+| `ADMIN_EMAIL` | Resend | Questionnaire emails | Your email |
+| `STRIPE_PUBLIC_KEY` | Stripe | Merch checkout | stripe.com |
+| `STRIPE_SECRET_KEY` | Stripe | Merch checkout | stripe.com |
+| `STRIPE_WEBHOOK_SECRET` | Stripe | Order notifications | stripe.com |
+
+### Production Checklist
+
+Before going live, ensure these are set in Cloudflare Pages:
+
+- [ ] `RESEND_API_KEY` - For email notifications
+- [ ] `STRIPE_SECRET_KEY` - For payment processing (use live key!)
+- [ ] `NEXTAUTH_SECRET` - For session encryption
+- [ ] `NEXTAUTH_URL` - Set to `https://hlpflrecords.com`
+- [ ] OAuth credentials for each provider you want to enable
+
+**Detailed setup instructions**: [API Setup Guide](./API_SETUP_GUIDE.md)

@@ -14,10 +14,10 @@
 HLPFL Records is a modern, artist-first record label platform built with Next.js 14. We provide comprehensive services for musicians while maintaining transparency and fair compensation.
 
 ### Key Statistics
-- **2 Featured Artists**: PRIV & Pardyalone
-- **27+ Releases**: Complete discography
-- **68M+ Total Streams**: Combined streaming metrics
+- **Featured Artist**: PRIV
+- **3 Releases**: Emerging Sounds, Midnight Frequencies, New Horizons EP
 - **100+ Services**: Documented in comprehensive guide
+- **New Features**: OAuth login, Stripe merch store, questionnaire with email
 
 ## 🚀 Quick Start
 
@@ -81,6 +81,10 @@ All comprehensive documentation is located in the `/docs` folder:
 - **[Developer Guide](./docs/DEVELOPER_GUIDE.md)** - Development best practices
 - **[Deployment Guide](./docs/DEPLOYMENT_GUIDE.md)** - Deployment procedures
 
+### New Features (January 2026)
+- **[New Features Guide](./docs/NEW_FEATURES_GUIDE.md)** - OAuth login, merch store, questionnaire
+- **[API Setup Guide](./docs/API_SETUP_GUIDE.md)** - Connect Resend, Stripe, and OAuth providers
+
 ### Reference Documentation
 - **[API Reference](./docs/API_REFERENCE.md)** - API endpoints and usage
 - **[Analytics Guide](./docs/ANALYTICS_GUIDE.md)** - Analytics implementation
@@ -123,19 +127,18 @@ All comprehensive documentation is located in the `/docs` folder:
 - PWA with offline support
 - Mobile-responsive design
 
+### New Features (January 2026)
+- **OAuth Login** - Sign in with Google, Facebook, Apple, or Spotify
+- **Merch Store** - Shopping cart with Stripe checkout integration
+- **Artist Questionnaire** - 8-step onboarding form with email notifications
+- **Email Integration** - Automated notifications via Resend
+
 ## 🎨 Artists
 
 ### PRIV
-- **Real Name**: PRIVviadis Hprivotis
-- **Genre**: Punk, Pop, Rap, Alternative
-- **Stats**: 46K+ monthly listeners, 6M+ streams
-- **Releases**: 13 singles and EPs
-
-### Pardyalone
-- **Real Name**: Kalvin Tyler Beal
-- **Genre**: Alternative Hip-Hop, Emo Rap, Indie, Pop
-- **Stats**: 436K+ monthly listeners, 62M+ streams
-- **Releases**: 14 singles and albums
+- **Genre**: Alternative, Indie, Experimental
+- **Spotify**: [open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt](https://open.spotify.com/artist/0jIqPF7laDAaZmSeoSzLlt)
+- **Releases**: Emerging Sounds, Midnight Frequencies, New Horizons EP
 
 ## 📦 Available Scripts
 

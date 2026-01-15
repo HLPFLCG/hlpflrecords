@@ -599,6 +599,151 @@ Use these IDs from the seed data for testing:
 - `artist-priv-001` - Priv (423K streams)
 - `artist-pardy-001` - Pardyalone (187K streams)
 
+---
+
+## New API Endpoints (January 2026)
+
+### Checkout API (`/api/checkout`)
+
+Creates a Stripe Checkout session for merch purchases.
+
+**File:** `src/app/api/checkout/route.ts`
+
+**Request:**
+```typescript
+POST /api/checkout
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "name": "PRIV Logo T-Shirt (L) - Black",
+      "price": 29.99,
+      "quantity": 1,
+      "description": "Premium cotton t-shirt"
+    }
+  ],
+  "successUrl": "/merch?checkout=success",  // optional
+  "cancelUrl": "/merch?checkout=cancelled"  // optional
+}
+```
+
+**Response:**
+```typescript
+// Success
+{
+  "url": "https://checkout.stripe.com/c/pay/cs_xxx...",
+  "sessionId": "cs_xxx..."
+}
+
+// Without Stripe configured (dev mode)
+{
+  "url": "/merch?checkout=success",
+  "sessionId": "mock_session_1234567890",
+  "mock": true
+}
+
+// Error
+{
+  "error": "No items provided"
+}
+```
+
+**Usage Example:**
+```typescript
+const handleCheckout = async (cartItems) => {
+  const response = await fetch('/api/checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      items: cartItems.map(item => ({
+        name: item.product.name,
+        price: item.product.price,
+        quantity: item.quantity
+      }))
+    })
+  });
+
+  const data = await response.json();
+
+  if (data.url) {
+    window.location.href = data.url;
+  }
+};
+```
+
+---
+
+### Questionnaire API (`/api/questionnaire`)
+
+Handles artist questionnaire form submissions and sends email notification.
+
+**File:** `src/app/api/questionnaire/route.ts`
+
+**Request:**
+```typescript
+POST /api/questionnaire
+Content-Type: application/json
+
+{
+  "artistName": "New Artist",
+  "legalName": "John Doe",
+  "email": "artist@example.com",
+  "phone": "+1 555-123-4567",
+  "location": "Los Angeles, CA",
+  "hasLLC": "Yes",
+  "llcName": "Artist Music LLC",
+  // ... all other form fields
+}
+```
+
+**Response:**
+```typescript
+// Success
+{
+  "success": true,
+  "message": "Your questionnaire has been submitted successfully. We will review your information and get back to you within 2-3 business days."
+}
+
+// Validation Error
+{
+  "success": false,
+  "error": "Artist name and email are required."
+}
+
+// Rate Limit Error (status 429)
+{
+  "success": false,
+  "error": "Too many submissions. Please try again later."
+}
+```
+
+**Usage Example:**
+```typescript
+const handleSubmit = async (formData) => {
+  const response = await fetch('/api/questionnaire', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    // Show success message
+  } else {
+    // Show error message
+  }
+};
+```
+
+**Email Sent:**
+- Beautiful HTML email with all form data
+- Sent to `ADMIN_EMAIL` environment variable
+- Reply-to set to artist's email
+
+---
+
 ## Next Steps
 
 1. **Authentication**: Implement user authentication to get real artist IDs
