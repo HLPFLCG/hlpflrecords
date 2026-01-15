@@ -85,6 +85,61 @@ hlpflrecords/
 - `/team/[slug]` - Individual team member
 - `/terms` - Terms of Service
 - `/privacy` - Privacy Policy
+- `/artist-portal` - Artist login with OAuth
+- `/dashboard` - Artist dashboard (requires login)
+- `/merch` - Merchandise store with Stripe checkout
+- `/artist-questionnaire` - 8-step artist onboarding form
+
+---
+
+## 🆕 NEW FEATURES (January 2026)
+
+### OAuth Login
+**Location:** `/artist-portal`
+**File:** `src/app/artist-portal/page.tsx`
+
+Artists can sign in using:
+- Google
+- Facebook
+- Apple
+- Spotify
+
+Demo login: `demo@hlpfl.org` / `demo123`
+
+**Setup:** See [API Setup Guide](./API_SETUP_GUIDE.md) for OAuth configuration.
+
+### Merch Store
+**Location:** `/merch`
+**File:** `src/app/merch/page.tsx`
+
+Full e-commerce functionality:
+- Product catalog with 6 PRIV merchandise items
+- Shopping cart with add/remove/quantity controls
+- Size and color selection
+- Stripe Checkout integration
+- Success/cancel handling
+
+**API:** `/api/checkout` creates Stripe checkout sessions.
+
+**Setup:** See [API Setup Guide](./API_SETUP_GUIDE.md) for Stripe configuration.
+
+### Artist Questionnaire
+**Location:** `/artist-questionnaire`
+**File:** `src/app/artist-questionnaire/page.tsx`
+
+8-step onboarding form:
+1. Basic Information
+2. Business Entity (LLC)
+3. Legal Information
+4. Current Operations
+5. Existing Deals
+6. Music Catalog
+7. Goals & Support
+8. Review & Submit
+
+**API:** `/api/questionnaire` sends email via Resend.
+
+**Setup:** See [API Setup Guide](./API_SETUP_GUIDE.md) for Resend configuration.
 
 ---
 
