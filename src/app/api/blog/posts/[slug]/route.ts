@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { NewsPost } from '@/types';
 
 // In-memory storage (in production, use a database)
@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 
 // GET: Fetch single blog post by slug
 export async function GET(
-  _request: Request,
+  _request: NextRequest,
   { params }: { params: { slug: string } }
 ) {
   try {
