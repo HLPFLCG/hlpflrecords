@@ -1,8 +1,8 @@
 # 🎵 HLPFL Records
 
-> The Artist-First Music Company
+> The Artist-First Music Company | Tools, Not Contracts
 
-**50/50 Revenue Split** • **11% Management Fee** • **Artist-Owned Masters**
+**50/50 Revenue Split** • **11% Management Fee** • **Artist-Owned Masters** • **Zero Tracking**
 
 ![Version](https://img.shields.io/badge/version-2.1.0-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-14.2.35-black)
@@ -194,6 +194,9 @@ Proprietary - HLPFL Records © 2026
 
 ## 🎯 Core Values
 
+### Privacy First - Zero Tracking
+**We don't track you. Period.** No analytics, no pixels, no data collection. Our tools are simple connections in one place - we don't need to know what you do, just that our tools work for you. Your data is yours.
+
 ### Transparency
 No hidden fees, no mysterious deductions. Real-time dashboards showing every stream, every sale, every dollar.
 
@@ -208,6 +211,18 @@ An educated artist is an empowered artist. We want you to understand everything 
 
 ### Flexibility
 Take what you need, leave what you don't. No bundled deals designed to lock you in.
+
+## 🔒 Our Privacy Promise
+
+Unlike other platforms, HLPFL operates with **absolute zero tracking**:
+- No Google Analytics
+- No Meta Pixel
+- No TikTok, Twitter, or LinkedIn tracking
+- No heatmaps or session recordings
+- No cookies for advertising
+- No data sold to third parties
+
+**We provide tools, not traps.** Artists use our platform to connect their streaming accounts, manage their releases, and grow their careers - all without being watched or monetized.
 
 ---
 
