@@ -44,50 +44,133 @@ interface Release {
   presaves?: number
 }
 
-// Mock releases data for PRIV
+// Mock releases data for PRIV (actual discography)
 const mockReleasesData: Release[] = [
   {
-    id: 'priv-1',
-    title: 'Emerging Sounds',
+    id: 'priv-living-a-lie',
+    title: 'living a lie',
     artist: 'PRIV',
     coverArt: '/images/artists/priv.svg',
-    release_date: '2024-06-15',
-    releaseDate: new Date('2024-06-15'),
+    release_date: '2025-07-10',
+    releaseDate: new Date('2025-07-10'),
+    status: 'live',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 28000,
+    platforms: ['soundcloud']
+  },
+  {
+    id: 'priv-reverence',
+    title: 'reverence',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2024-10-01',
+    releaseDate: new Date('2024-10-01'),
+    status: 'live',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 35000,
+    platforms: ['soundcloud']
+  },
+  {
+    id: 'priv-victim',
+    title: 'victim',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2024-08-15',
+    releaseDate: new Date('2024-08-15'),
     status: 'live',
     release_type: 'single',
     type: 'single',
     tracks: 1,
     streams: 125000,
-    platforms: ['spotify', 'apple', 'youtube', 'tidal']
+    platforms: ['spotify', 'apple']
   },
   {
-    id: 'priv-2',
-    title: 'Midnight Frequencies',
+    id: 'priv-throw-away',
+    title: 'Throw Away',
     artist: 'PRIV',
     coverArt: '/images/artists/priv.svg',
-    release_date: '2026-02-01',
-    releaseDate: new Date('2026-02-01'),
-    status: 'scheduled',
+    release_date: '2024-06-20',
+    releaseDate: new Date('2024-06-20'),
+    status: 'live',
     release_type: 'single',
     type: 'single',
     tracks: 1,
-    streams: 0,
-    platforms: ['spotify', 'apple', 'youtube', 'tidal'],
-    presaves: 1250
+    streams: 45000,
+    platforms: ['spotify', 'apple']
   },
   {
-    id: 'priv-3',
-    title: 'Experimental EP',
+    id: 'priv-jaundice',
+    title: 'Jaundice',
     artist: 'PRIV',
     coverArt: '/images/artists/priv.svg',
-    release_date: '2026-03-15',
-    releaseDate: new Date('2026-03-15'),
-    status: 'draft',
-    release_type: 'ep',
-    type: 'ep',
-    tracks: 5,
-    streams: 0,
-    platforms: ['spotify', 'apple', 'youtube', 'tidal']
+    release_date: '2024-05-10',
+    releaseDate: new Date('2024-05-10'),
+    status: 'live',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 52000,
+    platforms: ['spotify', 'apple']
+  },
+  {
+    id: 'priv-bones',
+    title: 'Bones',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2024-01-15',
+    releaseDate: new Date('2024-01-15'),
+    status: 'live',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 67000,
+    platforms: ['spotify', 'apple']
+  },
+  {
+    id: 'priv-numb',
+    title: 'Numb',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2023-09-10',
+    releaseDate: new Date('2023-09-10'),
+    status: 'live',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 89000,
+    platforms: ['spotify', 'apple']
+  },
+  {
+    id: 'priv-libra',
+    title: 'Libra',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2023-06-20',
+    releaseDate: new Date('2023-06-20'),
+    status: 'live',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 72000,
+    platforms: ['spotify', 'apple']
+  },
+  {
+    id: 'priv-growing-up',
+    title: 'Growing Up (feat. Jay Kim)',
+    artist: 'PRIV',
+    coverArt: '/images/artists/priv.svg',
+    release_date: '2023-03-15',
+    releaseDate: new Date('2023-03-15'),
+    status: 'live',
+    release_type: 'single',
+    type: 'single',
+    tracks: 1,
+    streams: 95000,
+    platforms: ['spotify', 'apple']
   }
 ]
 

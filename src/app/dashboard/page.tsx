@@ -48,11 +48,11 @@ export default function DashboardPage() {
     totalListeners: 45000
   }
 
-  // Mock upcoming releases
+  // Mock upcoming releases (placeholder for future releases)
   const upcomingReleases = [
     {
       id: 'priv-future-1',
-      title: 'Midnight Dreams',
+      title: 'New Single (TBA)',
       release_date: '2026-02-14'
     }
   ]
@@ -61,7 +61,7 @@ export default function DashboardPage() {
     {
       id: '1',
       type: 'release',
-      title: '"First Light" reached 1M streams',
+      title: '"victim" reached 100K streams',
       time: '2 hours ago',
       icon: Music,
       color: 'from-green-500 to-emerald-600'
@@ -116,12 +116,12 @@ export default function DashboardPage() {
     }
   ]
 
-  // Mock recent analytics data for top tracks
+  // Mock recent analytics data for top tracks (actual PRIV releases)
   const recentAnalytics = [
-    { id: '1', title: 'Emerging Sounds', streams: 125000 },
-    { id: '2', title: 'Midnight Frequencies', streams: 45000 },
-    { id: '3', title: 'Awakening', streams: 32000 },
-    { id: '4', title: 'Neon Dreams', streams: 28000 }
+    { id: '1', title: 'victim', streams: 125000 },
+    { id: '2', title: 'Numb', streams: 89000 },
+    { id: '3', title: 'Bones', streams: 67000 },
+    { id: '4', title: 'Throw Away', streams: 45000 }
   ]
 
   // Mock quick actions (these don't change)

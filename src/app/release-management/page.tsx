@@ -10,35 +10,46 @@ export default function ReleaseManagementPage() {
   const releases = [
     {
       id: 1,
-      title: 'New Horizons',
+      title: 'living a lie',
       artist: 'PRIV',
       type: 'Single',
-      releaseDate: '2026-02-14',
-      status: 'Upcoming',
-      streams: 0,
-      revenue: 0,
-      progress: 75
+      releaseDate: '2025-07-10',
+      status: 'Released',
+      streams: 28000,
+      revenue: 420,
+      progress: 100
     },
     {
       id: 2,
-      title: 'Emerging Sounds',
+      title: 'victim',
       artist: 'PRIV',
       type: 'Single',
-      releaseDate: '2025-11-01',
+      releaseDate: '2024-08-15',
       status: 'Released',
-      streams: 2847392,
-      revenue: 4560,
+      streams: 125000,
+      revenue: 1875,
       progress: 100
     },
     {
       id: 3,
-      title: 'Night Drive',
+      title: 'Numb',
       artist: 'PRIV',
       type: 'Single',
-      releaseDate: '2025-12-15',
+      releaseDate: '2023-09-10',
       status: 'Released',
-      streams: 523789,
-      revenue: 3210,
+      streams: 89000,
+      revenue: 1335,
+      progress: 100
+    },
+    {
+      id: 4,
+      title: 'Growing Up (feat. Jay Kim)',
+      artist: 'PRIV',
+      type: 'Single',
+      releaseDate: '2023-03-15',
+      status: 'Released',
+      streams: 95000,
+      revenue: 1425,
       progress: 100
     }
   ]

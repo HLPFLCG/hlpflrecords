@@ -24,28 +24,28 @@ import {
   Activity
 } from 'lucide-react'
 
-// Mock analytics data for PRIV
+// Mock analytics data for PRIV (actual releases)
 const mockAnalyticsData = {
   totals: {
-    total_streams: 125000,
+    total_streams: 608000,
     total_listeners: 45000,
     total_saves: 8500,
     total_shares: 3200
   },
   streams: [
-    { date: '2026-01-01', platform: 'Spotify', streams: 2500, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-02', platform: 'Spotify', streams: 2800, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-03', platform: 'Apple Music', streams: 1500, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-04', platform: 'Spotify', streams: 3200, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-05', platform: 'YouTube Music', streams: 1800, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-06', platform: 'Spotify', streams: 2900, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-07', platform: 'Apple Music', streams: 1600, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-08', platform: 'Spotify', streams: 3500, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-09', platform: 'YouTube Music', streams: 2100, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-10', platform: 'Spotify', streams: 3800, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-11', platform: 'Amazon Music', streams: 900, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-12', platform: 'Spotify', streams: 4100, release_id: 'priv-1', release_title: 'Emerging Sounds' },
-    { date: '2026-01-13', platform: 'Apple Music', streams: 1900, release_id: 'priv-1', release_title: 'Emerging Sounds' },
+    { date: '2026-01-01', platform: 'Spotify', streams: 2500, release_id: 'priv-victim', release_title: 'victim' },
+    { date: '2026-01-02', platform: 'Spotify', streams: 2800, release_id: 'priv-victim', release_title: 'victim' },
+    { date: '2026-01-03', platform: 'Apple Music', streams: 1500, release_id: 'priv-numb', release_title: 'Numb' },
+    { date: '2026-01-04', platform: 'Spotify', streams: 3200, release_id: 'priv-victim', release_title: 'victim' },
+    { date: '2026-01-05', platform: 'SoundCloud', streams: 1800, release_id: 'priv-living-a-lie', release_title: 'living a lie' },
+    { date: '2026-01-06', platform: 'Spotify', streams: 2900, release_id: 'priv-bones', release_title: 'Bones' },
+    { date: '2026-01-07', platform: 'Apple Music', streams: 1600, release_id: 'priv-libra', release_title: 'Libra' },
+    { date: '2026-01-08', platform: 'Spotify', streams: 3500, release_id: 'priv-growing-up', release_title: 'Growing Up (feat. Jay Kim)' },
+    { date: '2026-01-09', platform: 'SoundCloud', streams: 2100, release_id: 'priv-reverence', release_title: 'reverence' },
+    { date: '2026-01-10', platform: 'Spotify', streams: 3800, release_id: 'priv-throw-away', release_title: 'Throw Away' },
+    { date: '2026-01-11', platform: 'Apple Music', streams: 900, release_id: 'priv-jaundice', release_title: 'Jaundice' },
+    { date: '2026-01-12', platform: 'Spotify', streams: 4100, release_id: 'priv-victim', release_title: 'victim' },
+    { date: '2026-01-13', platform: 'Apple Music', streams: 1900, release_id: 'priv-numb', release_title: 'Numb' },
   ],
   demographics: [
     { country: 'United States', age_range: '18-24', gender: 'male', listener_count: 12000 },

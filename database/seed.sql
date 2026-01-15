@@ -30,17 +30,20 @@
 -- ============================================================================
 
 INSERT INTO profiles (id, email, role, artist_name, display_name, bio) VALUES
-('demo-artist-001', 'demo@hlpfl.org', 'artist', 'PRIV', 'PRIV', 'PRIV is an emerging artist bringing a fresh perspective to the HLPFL roster. With a unique sound that blends innovation and authenticity, PRIV represents the next generation of independent music.');
+('demo-artist-001', 'demo@hlpfl.org', 'artist', 'PRIV', 'PRIV', 'PRIV is an alternative music artist and producer from Grand Rapids, Michigan. With a sound that blends emotional depth, atmospheric textures, and raw self-expression, PRIV has been steadily building a dedicated fanbase since 2023.');
 
 -- ============================================================================
--- RELEASES
+-- RELEASES (Actual PRIV Discography)
 -- ============================================================================
 
 INSERT INTO releases (id, artist_id, title, slug, release_type, release_date, status, total_streams, total_listeners, genre) VALUES
-('release-001', 'demo-artist-001', 'First Light', 'first-light', 'single', '2025-10-15', 'released', 1250000, 85000, 'Alternative');
+('release-001', 'demo-artist-001', 'victim', 'victim', 'single', '2024-08-15', 'released', 125000, 45000, 'Alternative');
 
 INSERT INTO releases (id, artist_id, title, slug, release_type, release_date, status, total_streams, total_listeners, genre) VALUES
-('release-002', 'demo-artist-001', 'Midnight Run', 'midnight-run', 'single', '2025-12-01', 'released', 450000, 32000, 'Indie');
+('release-002', 'demo-artist-001', 'Numb', 'numb', 'single', '2023-09-10', 'released', 89000, 32000, 'Alternative');
+
+INSERT INTO releases (id, artist_id, title, slug, release_type, release_date, status, total_streams, total_listeners, genre) VALUES
+('release-003', 'demo-artist-001', 'Growing Up (feat. Jay Kim)', 'growing-up', 'single', '2023-03-15', 'released', 95000, 38000, 'Alternative');
 
 -- ============================================================================
 -- ANALYTICS - STREAMS
@@ -102,10 +105,10 @@ INSERT INTO products (id, artist_id, name, category, price, stock, sales, revenu
 -- ============================================================================
 
 INSERT INTO community_posts (id, author_id, content, category, likes, comments_count, shares) VALUES
-('post-001', 'demo-artist-001', 'Welcome to my artist page! Excited to share my journey with you all.', 'update', 45, 12, 5);
+('post-001', 'demo-artist-001', 'Welcome to my artist page! Excited to share my journey with you all. Grand Rapids to the world!', 'update', 45, 12, 5);
 
 INSERT INTO community_posts (id, author_id, content, category, likes, comments_count, shares) VALUES
-('post-002', 'demo-artist-001', 'First Light just hit 1 million streams! Thank you for all the support!', 'milestone', 128, 34, 28);
+('post-002', 'demo-artist-001', '"victim" just hit 100K streams! Thank you for all the support!', 'milestone', 128, 34, 28);
 
 -- ============================================================================
 -- EMAIL (production schema)

@@ -53,19 +53,19 @@ export default function SocialMediaDashboard() {
     { id: 'youtube', name: 'YouTube', icon: Youtube, color: 'from-red-500 to-red-700', connected: false }
   ]
 
-  // Mock scheduled posts for PRIV
+  // Mock scheduled posts for PRIV (actual releases)
   const scheduledPosts: SocialPost[] = [
     {
       id: '1',
       platform: ['instagram', 'twitter'],
-      content: 'New music dropping soon! Been working on something special for you all 🎵✨ #NewMusic #IndieArtist',
+      content: 'New music dropping soon! Been working on something special for you all 🎵✨ #NewMusic #IndieArtist #Alternative',
       scheduledFor: new Date('2026-01-15T14:00:00'),
       status: 'scheduled'
     },
     {
       id: '2',
       platform: ['instagram'],
-      content: 'Behind the scenes from the studio session last week. The New Horizons EP is coming together! 🔥',
+      content: 'Behind the scenes from the studio session last week. Working on new material after "living a lie" 🔥',
       scheduledFor: new Date('2026-01-12T18:00:00'),
       status: 'published',
       engagement: {
@@ -77,7 +77,7 @@ export default function SocialMediaDashboard() {
     {
       id: '3',
       platform: ['twitter', 'facebook'],
-      content: 'Thank you for 100K streams on Emerging Sounds! Your support means everything 💜',
+      content: 'Thank you for 100K streams on "victim"! Your support means everything 💜',
       scheduledFor: new Date('2026-01-10T12:00:00'),
       status: 'published',
       engagement: {
