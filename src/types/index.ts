@@ -7,6 +7,8 @@ export interface Artist {
   image: string
   socials?: {
     spotify?: string
+    apple?: string
+    soundcloud?: string
     instagram?: string
     twitter?: string
     youtube?: string
