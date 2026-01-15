@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 // Note: Google Fonts are loaded via CSS in globals.css to avoid build-time network dependencies
 import dynamic from 'next/dynamic'
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 // Component Imports
@@ -11,13 +10,8 @@ import { Footer } from '@/components/layout/Footer'
 import CreativeEasterEggs from '@/components/CreativeEasterEggs'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { EnhancedErrorBoundary } from '@/components/EnhancedErrorBoundary'
-import { PerformanceMonitor } from '@/components/PerformanceMonitor'
-import { PerformanceMetrics } from '@/components/performance/PerformanceMetrics'
 import { AccessibilityHelper } from '@/components/accessibility/AccessibilityHelper'
-import { WebVitals, PerformanceMonitor as WebVitalsMonitor } from '@/components/WebVitals'
 import { ToastContainer } from '@/components/ui/Toast'
-import { MetaPixel, TikTokPixel, TwitterPixel, LinkedInInsightTag, RedditPixel, MicrosoftClarity, HotjarTracking } from '@/components/Tracking'
-import CookieConsent from '@/components/CookieConsent'
 
 // Dynamically import Chatbot with SSR disabled
 const Chatbot = dynamic(() => import('@/components/ui/Chatbot').then(mod => ({ default: mod.Chatbot })), {
@@ -33,10 +27,10 @@ const spaceGrotesk = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'HLPFL Records - Independent Record Label & Artist Management | Tools, Not Contracts',
+    default: 'HLPFL Records - Independent Record Label & Artist Management | Tools, Not Contracts | Zero Tracking',
     template: '%s | HLPFL Records'
   },
-  description: 'HLPFL is the independent record label and artist management platform that protects artists. Home to PRIV and emerging independent artists. Learn how to not get screwed over as an artist. 100% artist ownership, no exploitation, fair contracts. AI-powered tools for independent musicians. Better alternative to grouped.com. Artist-first management, distribution, and career-building resources.',
+  description: 'HLPFL is the independent record label and artist management platform that protects artists. Zero tracking, zero data collection - just tools that work. Home to PRIV and emerging independent artists. 100% artist ownership, no exploitation, fair contracts. Simple tools in one place, no surveillance. Better alternative to grouped.com.',
   keywords: [
     'HLPFL',
     'HLPFL Records',
@@ -104,6 +98,13 @@ export const metadata: Metadata = {
     'honest record label',
     'artist-friendly label',
     'musician support',
+    'zero tracking',
+    'no data collection',
+    'privacy-first platform',
+    'no analytics',
+    'artist privacy',
+    'no surveillance',
+    'tools not traps',
   ],
   authors: [{ name: 'HLPFL' }],
   creator: 'HLPFL',
@@ -214,13 +215,8 @@ export default function RootLayout({
         {/* Resource Hints for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.facebook.com" />
-        <link rel="dns-prefetch" href="https://connect.facebook.net" />
 
-        {/* SEO & Social Media Verification */}
-        <meta name="facebook-domain-verification" content="ykymyxc54httwc9c2cdwr1dailnvir" />
+        {/* SEO Verification */}
         <meta name="google-site-verification" content="" />
         <meta name="msvalidate.01" content="" />
 
@@ -356,30 +352,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${spaceGrotesk.className} antialiased`}>
-        {/* Third Party Scripts
-            Note: We use the components from @next/third-parties
-            instead of manual script tags for better performance.
-        */}
-        <GoogleTagManager gtmId="GTM-WSPNJ5DR" />
-        <GoogleAnalytics gaId="G-7W14RQ0K9W" />
-
-        {/* Social Media & Marketing Pixels */}
-        <MetaPixel />
-        <TikTokPixel />
-        <TwitterPixel />
-        <LinkedInInsightTag />
-        <RedditPixel />
-        <MicrosoftClarity />
-        <HotjarTracking />
-
-        <PerformanceMonitor />
-        <PerformanceMetrics />
-        <WebVitals />
-        <WebVitalsMonitor />
+        {/* Zero tracking - HLPFL respects artist privacy */}
         <AccessibilityHelper />
         <ToastContainer />
         <LoadingScreen />
-        
+
         <EnhancedErrorBoundary>
           <ErrorBoundary>
             <div className="min-h-screen text-white bg-[#0a0a0a]" style={{ position: 'relative', zIndex: 1 }}>
@@ -393,7 +370,6 @@ export default function RootLayout({
             </div>
           </ErrorBoundary>
         </EnhancedErrorBoundary>
-        <CookieConsent />
       </body>
     </html>
   )

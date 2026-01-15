@@ -3,6 +3,7 @@ import type { NextAuthConfig } from 'next-auth'
 import Google from 'next-auth/providers/google'
 import Facebook from 'next-auth/providers/facebook'
 import Spotify from 'next-auth/providers/spotify'
+import Apple from 'next-auth/providers/apple'
 import Credentials from 'next-auth/providers/credentials'
 
 export const authConfig: NextAuthConfig = {
@@ -21,6 +22,11 @@ export const authConfig: NextAuthConfig = {
     Spotify({
       clientId: process.env.SPOTIFY_CLIENT_ID || '',
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET || '',
+    }),
+    // Apple Sign-In
+    Apple({
+      clientId: process.env.APPLE_ID || '',
+      clientSecret: process.env.APPLE_SECRET || '',
     }),
     // Credentials (email/password fallback)
     Credentials({

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import {
   LayoutDashboard,
   Calendar,
@@ -33,6 +33,18 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
+
+  const handleLogout = () => {
+    // Clear all session data
+    if (typeof window !== 'undefined') {
+      sessionStorage.removeItem('artistPortalAuth')
+      localStorage.removeItem('artistPortalRemember')
+      localStorage.removeItem('artistPortalEmail')
+    }
+    // Redirect to login page
+    router.push('/artist-portal')
+  }
 
   const navigation = [
     { name: 'Overview', href: '/dashboard', icon: LayoutDashboard },
@@ -156,7 +168,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
             {/* Sidebar Footer */}
             <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800">
-              <button className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-dark-tertiary transition-all w-full">
+              <button
+                onClick={handleLogout}
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-dark-tertiary transition-all w-full"
+              >
                 <LogOut className="w-5 h-5" />
                 <span>Log Out</span>
               </button>

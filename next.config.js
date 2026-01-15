@@ -11,7 +11,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Server mode enabled for OAuth authentication
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -26,44 +26,44 @@ const nextConfig = {
   generateEtags: false,
   reactStrictMode: true,
   swcMinify: true,
-  
-  // Security headers - commented out for static export compatibility
-  // async headers() {
-  //   return [
-  //     {
-  //       source: '/(.*)',
-  //       headers: [
-  //         {
-  //           key: 'X-Frame-Options',
-  //           value: 'DENY',
-  //         },
-  //         {
-  //           key: 'X-Content-Type-Options',
-  //           value: 'nosniff',
-  //         },
-  //         {
-  //           key: 'Referrer-Policy',
-  //           value: 'origin-when-cross-origin',
-  //         },
-  //         {
-  //           key: 'X-XSS-Protection',
-  //           value: '1; mode=block',
-  //         },
-  //       ],
-  //     },
-  //   ];
-  // },
-  
-  // Redirects - commented out for static export compatibility
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/home',
-  //       destination: '/',
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
+
+  // Security headers
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+        ],
+      },
+    ];
+  },
+
+  // Redirects
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = withPWA(withBundleAnalyzer(nextConfig));
