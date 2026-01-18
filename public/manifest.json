@@ -1,7 +1,7 @@
 {
-  "name": "HLPFL Records - World-Class Record Label",
-  "short_name": "HLPFL Records",
-  "description": "Premier record label dedicated to discovering, developing, and promoting exceptional musical talent. Founded in 2009 with revolutionary 50/50 artist partnerships.",
+  "name": "HLPFL Inc - Taking Creative Ideas to Reality",
+  "short_name": "HLPFL Inc",
+  "description": "Nonprofit organization dedicated to taking creative ideas to reality. We provide tools, resources, and support for creators and innovators to bring their visions to life.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
@@ -22,7 +22,7 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["music", "entertainment"],
+  "categories": ["nonprofit", "innovation", "creativity"],
   "lang": "en-US",
   "dir": "ltr"
 }
