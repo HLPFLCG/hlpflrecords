@@ -49,7 +49,7 @@ export function HeroSection() {
 
           {/* Mantra */}
           <p className="text-fade-in text-fade-in-delay-2 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-            Your Ideas. Your Art. Your Fucking Life.
+            Your Ideas. Your Art. Your F*cking Life.
           </p>
 
           {/* Description */}
