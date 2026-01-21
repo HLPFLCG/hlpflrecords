@@ -44,18 +44,17 @@ export function HeroSection() {
           
           {/* Tagline */}
           <p className="text-fade-in text-fade-in-delay-1 text-2xl sm:text-3xl md:text-4xl text-gold font-light max-w-4xl mx-auto leading-relaxed tracking-wide" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-            Tools, Not Contracts. Independence, Not Ownership.
+            No VCs. No Exploitation. No Bullshit.
           </p>
-          
+
           {/* Mantra */}
           <p className="text-fade-in text-fade-in-delay-2 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-            Build Your Career. Own Your Music. Keep Your Freedom.
+            Your Ideas. Your Art. Your Fucking Life.
           </p>
-          
+
           {/* Description */}
           <p className="text-fade-in text-fade-in-delay-3 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            HLPFL provides artists with the resources, tools, and advantages of a traditional label—without the contracts, exploitation, or loss of control. 
-            Everything you need to build a sustainable music career on your own terms.
+            HLPFL Inc is a nonprofit that gives creatives the resources they need to bring their ideas to life—with no vested interest, no private equity pressure, and no one trying to take a cut of what you built.
           </p>
           
           {/* CTA Buttons */}
@@ -79,20 +78,20 @@ export function HeroSection() {
           {/* Stats/Metrics */}
           <div className="text-fade-in text-fade-in-delay-5 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>6+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Tools</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>5</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Artists</div>
             </div>
             <div className="text-center hover-lift">
               <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>0%</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Contracts</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">We Take</div>
             </div>
             <div className="text-center hover-lift">
               <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>100%</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Your Control</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Yours</div>
             </div>
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>∞</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Potential</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>0</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Strings</div>
             </div>
           </div>
         </div>

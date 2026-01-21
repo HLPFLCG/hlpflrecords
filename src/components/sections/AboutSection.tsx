@@ -13,40 +13,40 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-              The <span className="text-gold">Anti-Label</span> Solution
+              Fuck The <span className="text-gold">Gatekeepers</span>
             </h2>
-            
+
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                <span className="text-white font-semibold">The music industry was designed to exploit artists.</span> Labels take your masters, control your career, and keep you broke while they get rich. We watched this happen to our friends, to our peers, and to artists we believed in. So we built something different.
+                <span className="text-white font-semibold">The creative industry is designed to fuck you over.</span> VCs want your equity. Labels want your masters. Managers want their cut. Everyone wants a piece of what you built—until there's nothing left for you.
               </p>
-              
+
               <p className="leading-relaxed">
-                HLPFL isn't a record label. We're not here to own your work or tell you what to create. We're here to give you the same power, resources, and advantages that labels have—<span className="text-gold font-semibold">without having to sell your soul to get them</span>.
+                We watched it happen. Hell, <span className="text-gold font-semibold">it happened to us</span>. We lost the love of the game because someone saw dollar signs where we saw dreams.
               </p>
-              
+
               <p className="leading-relaxed">
-                We believe artists shouldn't have to choose between independence and having the resources to compete. With HLPFL, you get both: <span className="text-gold font-semibold">complete creative freedom</span> and <span className="text-gold font-semibold">professional-grade tools</span> to build a sustainable career on your own terms.
+                So we built HLPFL. Not to get rich. Not to "invest" in you. Just to give you the resources you need—<span className="text-gold font-semibold">with no strings, no cuts, no bullshit</span>. This is for the creators.
               </p>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">6+</div>
-                <div className="text-sm text-gray-400">Tools</div>
+                <div className="text-3xl font-bold text-gold mb-1">5</div>
+                <div className="text-sm text-gray-400">Artists</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-gold mb-1">0%</div>
-                <div className="text-sm text-gray-400">Contracts</div>
+                <div className="text-sm text-gray-400">We Take</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-gold mb-1">100%</div>
-                <div className="text-sm text-gray-400">Your Control</div>
+                <div className="text-sm text-gray-400">Yours</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">∞</div>
-                <div className="text-sm text-gray-400">Potential</div>
+                <div className="text-3xl font-bold text-gold mb-1">0</div>
+                <div className="text-sm text-gray-400">Strings</div>
               </div>
             </div>
 
@@ -71,8 +71,8 @@ export function AboutSection() {
                 <div className="w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-2xl flex items-center justify-center mx-auto mb-6 border border-gold/30">
                   <Logo width={90} height={90} />
                 </div>
-                <h3 className="text-3xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>HLPFL</h3>
-                <p className="text-gold mb-4 text-lg" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>Tools, Not Contracts.</p>
+                <h3 className="text-3xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>HLPFL Inc</h3>
+                <p className="text-gold mb-4 text-lg" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>No Strings. No Bullshit.</p>
                 <div className="flex justify-center space-x-2">
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" />
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />

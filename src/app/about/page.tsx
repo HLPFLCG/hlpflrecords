@@ -12,41 +12,41 @@ export default function AboutPage() {
   const values = [
     {
       icon: Heart,
-      title: 'Artist-First',
-      description: 'We prioritize our artists\' creative vision and career development above all else.'
+      title: 'Creator-First',
+      description: 'Your vision. Your work. Your fucking life. We\'re just here to help, not to own.'
     },
     {
       icon: Award,
-      title: 'Excellence',
-      description: 'We pursue the highest standards in music production, marketing, and artist support.'
+      title: 'No Vested Interest',
+      description: 'We don\'t take equity. We don\'t take cuts. We have nothing to gain except seeing you win.'
     },
     {
       icon: Users,
-      title: 'Collaboration',
-      description: 'We believe in the power of collaboration between artists, producers, and our team.'
+      title: 'Community Over Competition',
+      description: 'Creatives supporting creatives. No gatekeeping. No hoarding resources.'
     },
     {
       icon: Music,
-      title: 'Innovation',
-      description: 'We embrace new technologies and creative approaches to push musical boundaries.'
+      title: 'Radical Transparency',
+      description: 'No hidden agendas. No fine print. No bullshit. Ever.'
     },
     {
       icon: Globe,
-      title: 'Global Reach',
-      description: 'We connect local talent with global audiences through strategic partnerships.'
+      title: 'Accessible Resources',
+      description: 'The tools that used to be locked behind exploitative contracts? Now they\'re free.'
     },
     {
       icon: Target,
-      title: 'Long-Term Success',
-      description: 'We focus on building sustainable careers, not just short-term hits.'
+      title: 'Protect The Dream',
+      description: 'We exist because too many creatives lost the love of the game. Never again.'
     }
   ]
 
   const stats = [
-    { number: '1', label: 'Artist' },
-    { number: '3', label: 'Releases' },
-    { number: '125K+', label: 'Streams' },
-    { number: '7', label: 'Years' }
+    { number: '5', label: 'Artists' },
+    { number: '0%', label: 'We Take' },
+    { number: '100%', label: 'Yours' },
+    { number: '0', label: 'Strings' }
   ]
 
   return (
@@ -55,11 +55,11 @@ export default function AboutPage() {
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            About <span className="text-gold">HLPFL</span>
+            About <span className="text-gold">HLPFL Inc</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            Founded by James Rockel at just 18 years old, HLPFL is revolutionizing the music industry with artist-first partnerships.
-            We're proving that independent artists can thrive with our groundbreaking 50/50 model and genuine support.
+            We're a nonprofit built by creatives who got burned—for creatives who won't.
+            No VCs. No private equity. No vested interest. Just resources to help you bring your ideas to life.
           </p>
         </div>
       </section>
@@ -88,20 +88,20 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Our <span className="text-gold">Story</span>
+                Why We <span className="text-gold">Exist</span>
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
-                  Founded in 2019, HLPFL began when James Rockel, just 18 years old, witnessed countless talented musicians struggle with outdated industry practices.
-                  James envisioned a new paradigm where artists keep control of their music and earn fair revenue.
+                  <span className="text-white font-semibold">The creative industry is designed to fuck you over.</span> VCs want your equity. Labels want your masters. Managers want their cut. Everyone wants a piece of what you built—until there's nothing left for you.
                 </p>
                 <p className="leading-relaxed">
-                  The vision became reality with the revolutionary 50/50 partnership model, building a foundation for how modern music careers should function.
-                  With talented artists like PRIV joining our roster, we're proving that this model works for emerging independent artists.
+                  We watched it happen to friends. To peers. To artists we believed in. Hell, <span className="text-gold font-semibold">it happened to us</span>. We lost the love of the game because someone saw dollar signs where we saw dreams.
                 </p>
                 <p className="leading-relaxed">
-                  Today, from our Grand Rapids headquarters, HLPFL continues to transform the industry one artist at a time,
-                  proving that independence, artistic integrity, and commercial success can coexist in the modern music landscape.
+                  So we built HLPFL Inc—a nonprofit with one mission: <span className="text-gold font-semibold">give creatives the resources they need with no vested interest or private equity pressure</span>. We don't take a cut. We don't own your work. We don't want equity in your dream. We just help.
+                </p>
+                <p className="leading-relaxed text-white font-semibold">
+                  Fuck the gatekeepers. This is for the creators.
                 </p>
               </div>
             </div>
@@ -110,8 +110,8 @@ export default function AboutPage() {
                 <div className="w-24 h-24 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-gold text-4xl font-bold">H</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Since 2019</h3>
-                <p className="text-gray-400">Elevating Artists to Global Recognition</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Nonprofit</h3>
+                <p className="text-gray-400">No VCs. No Exploitation. No Bullshit.</p>
               </div>
             </div>
           </div>
@@ -123,10 +123,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Your Complete <span className="text-gold">Artist Toolkit</span>
+              Resources That Should Be <span className="text-gold">Free</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Every tool, resource, and advantage you need to build your music career—no strings attached.
+              The tools that labels lock behind exploitative contracts? We're giving them away. No catches.
             </p>
           </div>
 
@@ -135,27 +135,27 @@ export default function AboutPage() {
               {
                 icon: Users,
                 title: 'Social Media Manager',
-                description: 'Unified dashboard to schedule, track, and optimize all your social media from one place.',
+                description: 'Unified dashboard to schedule, track, and optimize all your social media. No subscription fees.',
               },
               {
                 icon: Globe,
                 title: 'Link in Bio Tool',
-                description: 'Create a custom landing page showcasing your music, merch, tour dates, and more.',
+                description: 'Create a custom landing page showcasing your work, merch, and more. Yours to keep.',
               },
               {
                 icon: Music,
-                title: 'Music Distribution',
-                description: 'Get your music on all major platforms. Keep 100% of your royalties.',
+                title: 'Distribution Access',
+                description: 'Get your music on all major platforms. Keep 100% of your royalties. We take nothing.',
               },
               {
                 icon: Target,
-                title: 'Artist Management',
-                description: 'Professional support without controlling contracts. Book what you need, when you need it.',
+                title: 'Creative Support',
+                description: 'Professional guidance without controlling contracts. Help when you need it, not when we profit.',
               },
               {
                 icon: Award,
-                title: 'Analytics Dashboard',
-                description: 'Track your growth, understand your audience, and make data-driven decisions.',
+                title: 'Analytics & Insights',
+                description: 'Track your growth, understand your audience. Data to help you—not to sell you.',
               },
             ].map((tool) => {
               const Icon = tool.icon
@@ -180,7 +180,7 @@ export default function AboutPage() {
           <div className="text-center mt-12">
             <Link href="/artist-portal">
               <Button size="lg">
-                Access Artist Portal
+                Get The Resources
               </Button>
             </Link>
           </div>
@@ -263,10 +263,10 @@ export default function AboutPage() {
       <section className="py-20 px-4 bg-dark-secondary">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
-            Join the <span className="text-gold">HLPFL Family</span>
+            Join The <span className="text-gold">Movement</span>
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Whether you're an artist looking for a label that values your creative vision or a music lover who wants to stay connected with our latest releases, we'd love to hear from you.
+            Whether you're a creator looking for resources without the exploitation, or you just want to support a mission that matters—we're building something different here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
@@ -276,7 +276,7 @@ export default function AboutPage() {
             </Link>
             <Link href="/artists">
               <Button variant="outline" size="lg">
-                Meet Our Artists
+                Meet Our Creators
               </Button>
             </Link>
           </div>
