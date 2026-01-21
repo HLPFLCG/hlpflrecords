@@ -4003,12 +4003,23 @@ export const mockTeam: TeamMember[] = [
   {
     id: '1',
     name: 'James Rockel',
-    role: 'Founder & CEO',
-    bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking 50/50 model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
+    role: 'Cofounder & CEO',
+    bio: 'Cofounded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through a no-strings-attached model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
     image: '/images/team/james-rockel.webp',
     socials: {
       linkedin: 'https://www.linkedin.com/in/jamesrockel',
       email: 'founder@hlpfl.org',
+    },
+  },
+  {
+    id: '2',
+    name: 'Noah Rank',
+    role: 'Cofounder & Lead Investor',
+    bio: 'Noah believes creatives deserve resources without exploitation. As cofounder and lead investor of HLPFL Inc, he\'s committed to funding a nonprofit that takes nothing from the artists it supports—no equity, no cuts, no bullshit. Just help.',
+    image: '/images/team/noah-rank.webp',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/noahrank',
+      email: 'noah@hlpfl.org',
     },
   },
 ]
