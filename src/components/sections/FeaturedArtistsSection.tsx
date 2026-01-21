@@ -15,22 +15,22 @@ export function FeaturedArtistsSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-            Featured <span className="text-gold">Artist</span>
+            Our <span className="text-gold">Creators</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Meet PRIV - an emerging artist building a successful career on their own terms using HLPFL's toolkit to create, distribute, and monetize their music.
+            Independent artists using HLPFL's resources to build on their own terms. No contracts. No exploitation. Just support.
           </p>
           <Link href="/artists">
             <Button variant="outline">
-              View Artist Profile
+              Meet The Community
             </Button>
           </Link>
         </div>
 
         {/* Artists Grid */}
-        <div className="flex justify-center gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {mockArtists.map((artist, _index) => (
-            <Card key={artist.id} hover className="overflow-hidden group max-w-md w-full">
+            <Card key={artist.id} hover className="overflow-hidden group w-full">
               <div className="relative aspect-square overflow-hidden">
                 {artist.image && (
                   <Image
@@ -117,14 +117,14 @@ export function FeaturedArtistsSection() {
         <div className="mt-16 text-center">
           <div className="border border-gray-800 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Build Your Own Success Story
+              You're Already In
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Join thousands of independent artists who are taking control of their careers with HLPFL's toolkit. No applications, no approval needed—you're already approved.
+              No applications. No gatekeepers. No one deciding if you're "good enough." If you're a creator with ideas, the resources are yours. That's it.
             </p>
             <Link href="/artist-portal">
               <Button>
-                Get Started Free
+                Get The Resources
               </Button>
             </Link>
           </div>

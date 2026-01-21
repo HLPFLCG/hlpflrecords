@@ -33,14 +33,14 @@ export default function ArtistsPage() {
           
           <AnimatedText delay={0.2}>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6">
-              Our <span className="gradient-animate bg-clip-text text-transparent">Artists</span>
+              Our <span className="gradient-animate bg-clip-text text-transparent">Creators</span>
             </h1>
           </AnimatedText>
-          
+
           <AnimatedText delay={0.3} className="max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light">
-              Meet the incredible talent that makes up the HLPFL family. 
-              Each artist brings their unique voice and vision to our collective mission of creating exceptional music.
+              Independent creatives building on their own terms.
+              No contracts. No gatekeepers. Just artists using resources that should have always been free.
             </p>
           </AnimatedText>
         </div>
@@ -227,28 +227,30 @@ export default function ArtistsPage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-gradient-to-br from-gold to-gold-dark rounded-2xl">
                   <Star className="text-dark w-8 h-8" />
                 </div>
-                
+
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Want to Join Our <span className="gradient-animate bg-clip-text text-transparent">Roster</span>?
+                  You're Already <span className="gradient-animate bg-clip-text text-transparent">In</span>
                 </h2>
-                
+
                 <p className="text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                  We're always looking for exceptional talent to join the HLPFL family. 
-                  If you're passionate about music and ready to take your career to the next level, we want to hear from you.
+                  No applications. No auditions. No gatekeepers deciding if you're "good enough."
+                  If you're a creator, the resources are yours. That's it.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contact">
+                  <Link href="/artist-portal">
                     <Button size="lg" className="btn-premium group">
                       <Music className="mr-3 h-5 w-5" />
-                      Submit Your Music
+                      Get The Resources
                       <div className="ml-auto w-0 group-hover:w-4 h-0.5 bg-dark transition-all duration-300" />
                     </Button>
                   </Link>
-                  
-                  <Button variant="outline" size="lg" className="btn-premium">
-                    Learn More
-                  </Button>
+
+                  <Link href="/contact">
+                    <Button variant="outline" size="lg" className="btn-premium">
+                      Get In Touch
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
