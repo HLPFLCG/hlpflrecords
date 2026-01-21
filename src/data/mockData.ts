@@ -4013,13 +4013,13 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '2',
-    name: 'Tyler Rockel',
-    role: 'Co-Founder & COO',
-    bio: 'Tyler co-founded HLPFL alongside his brother James with a shared passion for empowering independent artists. As COO, he oversees day-to-day operations and ensures artists have access to the tools and resources they need to succeed. Tyler brings a strategic mindset and operational expertise that keeps HLPFL running smoothly.',
-    image: '/images/team/IMG_2768.webp',
+    name: 'Noah Rank',
+    role: 'Cofounder & Lead Investor',
+    bio: 'Noah believes creatives deserve resources without exploitation. As cofounder and lead investor of HLPFL Inc, he\'s committed to funding a nonprofit that takes nothing from the artists it supports—no equity, no cuts, no bullshit. Just help.',
+    image: '/images/team/noah-rank.webp',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/tylerrockel',
-      email: 'cofounder@hlpfl.org',
+      linkedin: 'https://www.linkedin.com/in/noahrank',
+      email: 'noah@hlpfl.org',
     },
   },
 ]
