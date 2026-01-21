@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { NewsPost } from '@/types';
 
+export const runtime = 'edge'
+
 // In-memory storage (replace with database in production)
 let blogPosts: NewsPost[] = [
   {

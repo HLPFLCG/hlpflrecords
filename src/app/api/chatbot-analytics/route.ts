@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ChatbotAnalytics } from '@/lib/chatbotAnalytics'
 
+export const runtime = 'edge'
+
 // This is a simple in-memory storage for demonstration
 // In production, you'd want to use a proper database
 const analyticsData: Array<{

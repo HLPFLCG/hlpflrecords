@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
+export const runtime = 'edge'
+
 interface CheckoutItem {
   name: string
   price: number
