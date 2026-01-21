@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { NewsPost } from '@/types';
 
 // In-memory storage (in production, use a database)

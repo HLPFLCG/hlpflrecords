@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { NewsPost } from '@/types';
 
 // In-memory storage (replace with database in production)
@@ -45,7 +45,7 @@ export async function GET() {
 }
 
 // POST: Create new blog post
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     
@@ -100,7 +100,7 @@ export async function POST(request: Request) {
 }
 
 // DELETE: Delete a blog post
-export async function DELETE(request: Request) {
+export async function DELETE(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
