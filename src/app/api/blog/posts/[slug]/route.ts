@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { NewsPost } from '@/types';
 
 export const runtime = 'edge'
@@ -17,13 +17,6 @@ const blogPosts: NewsPost[] = [
     image: '/images/artists/priv.svg',
   },
 ];
-
-// Required for static export - generate params for all blog posts
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
 
 // GET: Fetch single blog post by slug
 export async function GET(
