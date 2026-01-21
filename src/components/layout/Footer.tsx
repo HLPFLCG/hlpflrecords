@@ -45,7 +45,7 @@ export function Footer() {
               <span className="text-white font-bold text-xl">HLPFL Inc</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              HLPFL Inc is a nonprofit that gives creatives the resources they need to bring their ideas to life—with no vested interest, no private equity pressure, and no one trying to take a cut. Fuck the gatekeepers.
+              HLPFL Inc is a nonprofit that gives creatives the resources they need to bring their ideas to life—with no vested interest, no private equity pressure, and no one trying to take a cut. F*ck the gatekeepers.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => {

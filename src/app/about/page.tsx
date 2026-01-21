@@ -13,7 +13,7 @@ export default function AboutPage() {
     {
       icon: Heart,
       title: 'Creator-First',
-      description: 'Your vision. Your work. Your fucking life. We\'re just here to help, not to own.'
+      description: 'Your vision. Your work. Your f*cking life. We\'re just here to help, not to own.'
     },
     {
       icon: Award,
@@ -92,7 +92,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
-                  <span className="text-white font-semibold">The creative industry is designed to fuck you over.</span> VCs want your equity. Labels want your masters. Managers want their cut. Everyone wants a piece of what you built—until there's nothing left for you.
+                  <span className="text-white font-semibold">The creative industry is designed to f*ck you over.</span> VCs want your equity. Labels want your masters. Managers want their cut. Everyone wants a piece of what you built—until there's nothing left for you.
                 </p>
                 <p className="leading-relaxed">
                   We watched it happen to friends. To peers. To artists we believed in. Hell, <span className="text-gold font-semibold">it happened to us</span>. We lost the love of the game because someone saw dollar signs where we saw dreams.
@@ -101,7 +101,7 @@ export default function AboutPage() {
                   So we built HLPFL Inc—a nonprofit with one mission: <span className="text-gold font-semibold">give creatives the resources they need with no vested interest or private equity pressure</span>. We don't take a cut. We don't own your work. We don't want equity in your dream. We just help.
                 </p>
                 <p className="leading-relaxed text-white font-semibold">
-                  Fuck the gatekeepers. This is for the creators.
+                  F*ck the gatekeepers. This is for the creators.
                 </p>
               </div>
             </div>

@@ -13,12 +13,12 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-              Fuck The <span className="text-gold">Gatekeepers</span>
+              F*ck The <span className="text-gold">Gatekeepers</span>
             </h2>
 
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                <span className="text-white font-semibold">The creative industry is designed to fuck you over.</span> VCs want your equity. Labels want your masters. Managers want their cut. Everyone wants a piece of what you built—until there's nothing left for you.
+                <span className="text-white font-semibold">The creative industry is designed to f*ck you over.</span> VCs want your equity. Labels want your masters. Managers want their cut. Everyone wants a piece of what you built—until there's nothing left for you.
               </p>
 
               <p className="leading-relaxed">

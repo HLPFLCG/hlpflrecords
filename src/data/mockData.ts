@@ -26,7 +26,7 @@ export const mockArtists: Artist[] = [
     slug: 'adam-rodway',
     bio: 'Adam Rodway is a Pop and Indie Pop artist known for his infectious energy and dynamic songwriting. With catchy beats and insightful lyrics, his music has garnered a dedicated following of listeners worldwide. His top tracks include "Too Long To Type," "The Garden Song," and "Tarantino."\n\nAdam\'s compositions serve as a tribute to his talent as a songwriter, skillfully combining captivating melodies with relatable themes. No gatekeepers, no bullshit—just great music.',
     genre: ['Pop', 'Indie Pop'],
-    image: '',
+    image: '/images/artists/adam-rodway.svg',
     socials: {
       spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
       instagram: 'https://instagram.com/adam.rodway',
@@ -39,7 +39,7 @@ export const mockArtists: Artist[] = [
     slug: 'pardyalone',
     bio: 'Pardyalone is a Minnesota-born artist who toes the line between emo hip-hop and pop-punk. With harmonic beats, silvery vocals, and emotional prowess, he\'s collaborated with the likes of Travis Barker and built a massive following.\n\nHis music weaves inspirations from Bon Iver, Rage Against The Machine, and Lauryn Hill into lyrics about addiction, love, and heartbreak. Music became his salvation—and now he\'s proof that you don\'t need a label to make it.',
     genre: ['Alternative', 'Hip-Hop', 'Pop-Punk'],
-    image: '',
+    image: '/images/artists/pardyalone.svg',
     socials: {
       instagram: 'https://instagram.com/pardyalone',
       website: 'https://pardyalone.com/',
@@ -51,7 +51,7 @@ export const mockArtists: Artist[] = [
     slug: 'writ3rs-block',
     bio: 'Writ3rs Block brings raw lyricism and authentic storytelling to the hip-hop scene. No corporate backing, no industry games—just bars and beats that speak truth.\n\nRepresenting the independent spirit, Writ3rs Block proves that real talent doesn\'t need permission from gatekeepers to be heard.',
     genre: ['Hip-Hop', 'Rap'],
-    image: '',
+    image: '/images/artists/writ3rs-block.svg',
     socials: {
       instagram: 'https://instagram.com/writ3rsblockmusic',
       website: 'https://linktr.ee/writ3rsblock',
@@ -61,9 +61,9 @@ export const mockArtists: Artist[] = [
     id: '5',
     name: 'Lord Vybee',
     slug: 'lord-vybee',
-    bio: 'Lord Vybee is a DJ and Producer from Michigan bringing all the vybes, all the time. With a philosophy of "open your mind," Lord Vybee crafts electronic soundscapes that move bodies and elevate spirits.\n\nNo label politics, no industry bullshit—just pure creative expression and good fucking music.',
+    bio: 'Lord Vybee is a DJ and Producer from Michigan bringing all the vybes, all the time. With a philosophy of "open your mind," Lord Vybee crafts electronic soundscapes that move bodies and elevate spirits.\n\nNo label politics, no industry bullshit—just pure creative expression and good f*cking music.',
     genre: ['Electronic', 'DJ/Producer'],
-    image: '',
+    image: '/images/artists/lord-vybee.svg',
     socials: {
       soundcloud: 'https://soundcloud.com/lordvybee',
       instagram: 'https://instagram.com/lordvybee',
@@ -4003,12 +4003,23 @@ export const mockTeam: TeamMember[] = [
   {
     id: '1',
     name: 'James Rockel',
-    role: 'Founder & CEO',
+    role: 'Co-Founder & CEO',
     bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking 50/50 model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
     image: '/images/team/james-rockel.webp',
     socials: {
       linkedin: 'https://www.linkedin.com/in/jamesrockel',
       email: 'founder@hlpfl.org',
+    },
+  },
+  {
+    id: '2',
+    name: 'Tyler Rockel',
+    role: 'Co-Founder & COO',
+    bio: 'Tyler co-founded HLPFL alongside his brother James with a shared passion for empowering independent artists. As COO, he oversees day-to-day operations and ensures artists have access to the tools and resources they need to succeed. Tyler brings a strategic mindset and operational expertise that keeps HLPFL running smoothly.',
+    image: '/images/team/IMG_2768.webp',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/tylerrockel',
+      email: 'cofounder@hlpfl.org',
     },
   },
 ]

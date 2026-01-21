@@ -17,6 +17,7 @@ export function Header() {
     { name: 'Releases', href: '/releases', icon: null },
     { name: 'About', href: '/about', icon: null },
     { name: 'News', href: '/news', icon: null },
+    { name: 'Store', href: '/store', icon: null },
     { name: 'Artist Portal', href: '/artist-portal', icon: null },
     { name: 'Contact', href: '/contact', icon: null },
   ]
