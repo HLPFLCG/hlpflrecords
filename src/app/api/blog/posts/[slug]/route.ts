@@ -25,11 +25,11 @@ export async function generateStaticParams() {
 
 // GET: Fetch single blog post by slug
 export async function GET(
-  _request: NextRequest,
-  context: { params: Promise<{ slug: string }> }
+  _request: Request,
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const { slug } = await context.params;
+    const { slug } = await params;
 
     const post = blogPosts.find(post => post.slug === slug);
 
