@@ -21,19 +21,6 @@ export const mockArtists: Artist[] = [
     },
   },
   {
-    id: '2',
-    name: 'Adam Rodway',
-    slug: 'adam-rodway',
-    bio: 'Adam Rodway is a Pop and Indie Pop artist known for his infectious energy and dynamic songwriting. With catchy beats and insightful lyrics, his music has garnered a dedicated following of listeners worldwide. His top tracks include "Too Long To Type," "The Garden Song," and "Tarantino."\n\nAdam\'s compositions serve as a tribute to his talent as a songwriter, skillfully combining captivating melodies with relatable themes. No gatekeepers, no bullshit—just great music.',
-    genre: ['Pop', 'Indie Pop'],
-    image: '/images/artists/adam-rodway.svg',
-    socials: {
-      spotify: 'https://open.spotify.com/artist/0a8lHob1Gah0QmmzrWZoH5',
-      instagram: 'https://instagram.com/adam.rodway',
-      website: 'https://linktr.ee/adamrodway',
-    },
-  },
-  {
     id: '3',
     name: 'Pardyalone',
     slug: 'pardyalone',
@@ -43,18 +30,6 @@ export const mockArtists: Artist[] = [
     socials: {
       instagram: 'https://instagram.com/pardyalone',
       website: 'https://pardyalone.com/',
-    },
-  },
-  {
-    id: '4',
-    name: 'Writ3rs Block',
-    slug: 'writ3rs-block',
-    bio: 'Writ3rs Block brings raw lyricism and authentic storytelling to the hip-hop scene. No corporate backing, no industry games—just bars and beats that speak truth.\n\nRepresenting the independent spirit, Writ3rs Block proves that real talent doesn\'t need permission from gatekeepers to be heard.',
-    genre: ['Hip-Hop', 'Rap'],
-    image: '/images/artists/writ3rs-block.svg',
-    socials: {
-      instagram: 'https://instagram.com/writ3rsblockmusic',
-      website: 'https://linktr.ee/writ3rsblock',
     },
   },
   {
