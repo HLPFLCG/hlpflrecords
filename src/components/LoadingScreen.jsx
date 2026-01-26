@@ -73,7 +73,7 @@ const LoadingScreen = () => {
 
             {/* Floating orbs matching hero */}
             <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-[#c87941]/15 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-            <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-[#c87941]/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
+            <div className="hidden md:block absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-[#c87941]/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
           </div>
 
           {/* Animated particles */}

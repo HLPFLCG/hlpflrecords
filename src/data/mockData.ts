@@ -21,18 +21,6 @@ export const mockArtists: Artist[] = [
     },
   },
   {
-    id: '3',
-    name: 'Pardyalone',
-    slug: 'pardyalone',
-    bio: 'Pardyalone is a Minnesota-born artist who toes the line between emo hip-hop and pop-punk. With harmonic beats, silvery vocals, and emotional prowess, he\'s collaborated with the likes of Travis Barker and built a massive following.\n\nHis music weaves inspirations from Bon Iver, Rage Against The Machine, and Lauryn Hill into lyrics about addiction, love, and heartbreak. Music became his salvation—and now he\'s proof that you don\'t need a label to make it.',
-    genre: ['Alternative', 'Hip-Hop', 'Pop-Punk'],
-    image: '/images/artists/pardyalone.svg',
-    socials: {
-      instagram: 'https://instagram.com/pardyalone',
-      website: 'https://pardyalone.com/',
-    },
-  },
-  {
     id: '5',
     name: 'Lord Vybee',
     slug: 'lord-vybee',
