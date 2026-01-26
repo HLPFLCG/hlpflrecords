@@ -354,7 +354,7 @@ export default function ServicesPage() {
                   { icon: TrendingUp, label: 'Grow', desc: 'Analytics & insights' }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <div className="bg-indigo-500/10 border-2 border-indigo-500/30 rounded-xl p-4 text-center min-w-[150px]">
+                    <div className="bg-indigo-500/10 border-2 border-indigo-500/30 rounded-xl p-4 text-center w-full sm:w-auto sm:min-w-[150px]">
                       <item.icon className="w-6 h-6 text-indigo-400 mx-auto mb-2" />
                       <h4 className="text-indigo-400 font-semibold text-sm">{item.label}</h4>
                       <p className="text-gray-400 text-xs">{item.desc}</p>
@@ -379,7 +379,7 @@ export default function ServicesPage() {
                   { icon: Radio, label: 'Live Events', desc: 'Fan Interaction' }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <div className={`bg-indigo-500/10 border-2 rounded-xl p-4 text-center min-w-[150px] ${item.featured ? 'border-indigo-500 bg-gradient-to-br from-indigo-500 to-purple-600' : 'border-indigo-500/30'}`}>
+                    <div className={`bg-indigo-500/10 border-2 rounded-xl p-4 text-center w-full sm:w-auto sm:min-w-[150px] ${item.featured ? 'border-indigo-500 bg-gradient-to-br from-indigo-500 to-purple-600' : 'border-indigo-500/30'}`}>
                       <item.icon className={`w-6 h-6 mx-auto mb-2 ${item.featured ? 'text-white' : 'text-indigo-400'}`} />
                       <h4 className={`font-semibold text-sm ${item.featured ? 'text-white text-base' : 'text-indigo-400'}`}>{item.label}</h4>
                       <p className={`text-xs ${item.featured ? 'text-white/90' : 'text-gray-400'}`}>{item.desc}</p>

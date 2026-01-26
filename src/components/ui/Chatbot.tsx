@@ -23,18 +23,18 @@ interface ConversationData {
 export function Chatbot() {
   // Helper functions - defined before use
   const generateSessionId = () => {
-    return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+    return `session_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`
   }
 
   const generateUserId = () => {
     // Check if we're in the browser environment
     if (typeof window === 'undefined') {
-      return `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+      return `user_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`
     }
     
     let userId = localStorage.getItem('hlpfl_user_id')
     if (!userId) {
-      userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+      userId = `user_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`
       localStorage.setItem('hlpfl_user_id', userId)
     }
     return userId
@@ -267,6 +267,7 @@ export function Chatbot() {
       {/* Chat Toggle Button - Enhanced with HLPFL styling */}
       <button
         onClick={() => setIsOpen(true)}
+        aria-label="Open chat with HLPFL assistant"
         className={`fixed bottom-6 right-6 bg-gradient-to-r from-gold to-gold-dark text-dark p-4 rounded-full shadow-2xl hover:shadow-gold/25 transform hover:scale-105 transition-all duration-300 z-50 flex items-center gap-3 group ${isOpen ? 'hidden' : 'block'} border border-gold/20`}
       >
         <div className="relative">
@@ -275,6 +276,7 @@ export function Chatbot() {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -285,12 +287,12 @@ export function Chatbot() {
           </svg>
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
         </div>
-        <span className="pr-2 font-bold text-dark">Chat with HLPFL</span>
+        <span className="pr-2 font-bold text-dark hidden sm:inline">Chat with HLPFL</span>
       </button>
 
       {/* Chat Window - Enhanced with HLPFL branding */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-[400px] h-[600px] bg-dark rounded-2xl shadow-2xl z-50 flex flex-col border border-gold/20 overflow-hidden">
+        <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 w-full sm:w-[400px] h-[100dvh] sm:h-[600px] sm:max-h-[80vh] bg-dark sm:rounded-2xl shadow-2xl z-50 flex flex-col border-t sm:border border-gold/20 overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-gold to-gold-dark p-6 rounded-t-2xl flex justify-between items-center border-b border-gold/20">
             <div>
@@ -322,7 +324,7 @@ export function Chatbot() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gradient-to-b from-dark to-dark-secondary">
+          <div role="log" aria-live="polite" className="flex-1 overflow-y-auto p-6 space-y-4 bg-gradient-to-b from-dark to-dark-secondary">
             {messages.map((message) => (
               <div
                 key={message.id}

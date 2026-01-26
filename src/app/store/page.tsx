@@ -15,7 +15,7 @@ export default function StorePage() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(200,121,65,0.08)_0%,_transparent_50%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,_rgba(200,121,65,0.03)_1px,_transparent_1px),_linear-gradient(to_bottom,_rgba(200,121,65,0.03)_1px,_transparent_1px)] bg-[size:50px_50px]" />
           <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-gold/15 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-          <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-gold/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
+          <div className="hidden md:block absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-gold/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">

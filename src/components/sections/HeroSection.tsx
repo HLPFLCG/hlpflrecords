@@ -17,7 +17,7 @@ export function HeroSection() {
       {/* Premium animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-gold/20 to-transparent rounded-full blur-3xl parallax-slow" />
-        <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-gold/15 to-transparent rounded-full blur-3xl parallax-medium" style={{ animationDelay: '2s' }} />
+        <div className="hidden md:block absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-gold/15 to-transparent rounded-full blur-3xl parallax-medium" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-gold/10 to-transparent rounded-full blur-2xl parallax-fast" style={{ animationDelay: '4s' }} />
         <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-gold/8 to-transparent rounded-full blur-xl animate-float" />
         
