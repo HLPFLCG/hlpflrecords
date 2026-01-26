@@ -43,7 +43,7 @@ export default function AboutPage() {
   ]
 
   const stats = [
-    { number: '5', label: 'Artists' },
+    { number: '2', label: 'Artists' },
     { number: '0%', label: 'We Take' },
     { number: '100%', label: 'Yours' },
     { number: '0', label: 'Strings' }

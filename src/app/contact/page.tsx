@@ -133,7 +133,7 @@ export default function ContactPage() {
             Get in <span className="text-gold">Touch</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8">
-            Founded by James Rockel at 18, we're redefining music industry partnerships with our revolutionary 50/50 partnership model.
+            Founded by James Rockel at 18, we're redefining the music industry with our tools-not-contracts approach.
             Whether you're interested in joining the movement or have questions about artist success, we're here to help.
           </p>
         </div>

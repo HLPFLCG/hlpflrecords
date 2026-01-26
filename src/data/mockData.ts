@@ -3966,8 +3966,8 @@ export const mockTeam: TeamMember[] = [
   {
     id: '1',
     name: 'James Rockel',
-    role: 'Co-Founder & CEO',
-    bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking 50/50 model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
+    role: 'Founder & CEO',
+    bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking tools-not-contracts model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
     image: '/images/team/james-rockel.webp',
     socials: {
       linkedin: 'https://www.linkedin.com/in/jamesrockel',
@@ -3976,13 +3976,12 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '2',
-    name: 'Tyler Rockel',
-    role: 'Co-Founder & COO',
-    bio: 'Tyler co-founded HLPFL alongside his brother James with a shared passion for empowering independent artists. As COO, he oversees day-to-day operations and ensures artists have access to the tools and resources they need to succeed. Tyler brings a strategic mindset and operational expertise that keeps HLPFL running smoothly.',
-    image: '/images/team/IMG_2768.webp',
+    name: 'Noah Rank',
+    role: 'CFO & Lead Investor',
+    bio: 'Noah brings financial expertise and strategic vision to HLPFL as CFO and Lead Investor. His commitment to the mission of empowering independent artists drives the financial sustainability of the organization, ensuring artists have access to the resources they need without compromising their independence.',
+    image: '/images/team/noah-rank.webp',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/tylerrockel',
-      email: 'cofounder@hlpfl.org',
+      email: 'cfo@hlpfl.org',
     },
   },
 ]
