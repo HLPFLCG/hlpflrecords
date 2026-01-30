@@ -3966,8 +3966,8 @@ export const mockTeam: TeamMember[] = [
   {
     id: '1',
     name: 'James Rockel',
-    role: 'Co-Founder & CEO',
-    bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking 50/50 model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
+    role: 'Founder & CEO',
+    bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking tools-not-contracts model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
     image: '/images/team/james-rockel.webp',
     socials: {
       linkedin: 'https://www.linkedin.com/in/jamesrockel',
@@ -3977,12 +3977,11 @@ export const mockTeam: TeamMember[] = [
   {
     id: '2',
     name: 'Noah Rank',
-    role: 'Cofounder & Lead Investor',
-    bio: 'Noah believes creatives deserve resources without exploitation. As cofounder and lead investor of HLPFL Inc, he\'s committed to funding a nonprofit that takes nothing from the artists it supports—no equity, no cuts, no bullshit. Just help.',
+    role: 'CFO & Lead Investor',
+    bio: 'Noah brings financial expertise and strategic vision to HLPFL as CFO and Lead Investor. His commitment to the mission of empowering independent artists drives the financial sustainability of the organization, ensuring artists have access to the resources they need without compromising their independence.',
     image: '/images/team/noah-rank.webp',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/noahrank',
-      email: 'noah@hlpfl.org',
+      email: 'cfo@hlpfl.org',
     },
   },
 ]

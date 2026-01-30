@@ -57,7 +57,6 @@ const CreativeEasterEggs: React.FC = () => {
       });
 
       showNotification(`🎵 Secret track discovered: ${track.title}`);
-    } else {
     }
   }, [discoveredTracks, showNotification]);
 
