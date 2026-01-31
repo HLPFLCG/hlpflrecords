@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import Logo from '@/components/Logo'
-import { Play, ArrowRight, Music } from 'lucide-react'
+import { Play, ArrowRight, Sparkles } from 'lucide-react'
 
 export function HeroSection() {
   return (
@@ -69,7 +69,7 @@ export function HeroSection() {
             
             <Link href="/about">
               <Button variant="outline" size="lg" className="btn-premium group">
-                <Music className="mr-3 h-5 w-5" />
+                <Sparkles className="mr-3 h-5 w-5" />
                 Learn More
               </Button>
             </Link>
@@ -78,8 +78,8 @@ export function HeroSection() {
           {/* Stats/Metrics */}
           <div className="text-fade-in text-fade-in-delay-5 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>5</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Artists</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>2</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Creatives</div>
             </div>
             <div className="text-center hover-lift">
               <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>0%</div>
