@@ -18,7 +18,7 @@ export function AboutSection() {
 
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                <span className="text-white font-semibold">The creative industry is designed to f*ck you over.</span> VCs want your equity. Labels want your masters. Managers want their cut. Everyone wants a piece of what you built—until there's nothing left for you.
+                <span className="text-white font-semibold">The creative industry is designed to f*ck you over.</span> VCs want your equity. Agencies want their cut. Platforms take their percentage. Everyone wants a piece of what you built—until there's nothing left for you.
               </p>
 
               <p className="leading-relaxed">
@@ -34,7 +34,7 @@ export function AboutSection() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-gold mb-1">2</div>
-                <div className="text-sm text-gray-400">Artists</div>
+                <div className="text-sm text-gray-400">Creatives</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-gold mb-1">0%</div>

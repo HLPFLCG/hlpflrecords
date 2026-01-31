@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { mockTeam } from '@/data/mockData'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
-import { Award, Users, Music, Globe, Target, Heart } from 'lucide-react'
+import { Award, Users, Eye, Globe, Target, Heart } from 'lucide-react'
 
 export default function AboutPage() {
   const values = [
@@ -26,7 +26,7 @@ export default function AboutPage() {
       description: 'Creatives supporting creatives. No gatekeeping. No hoarding resources.'
     },
     {
-      icon: Music,
+      icon: Eye,
       title: 'Radical Transparency',
       description: 'No hidden agendas. No fine print. No bullshit. Ever.'
     },
@@ -43,7 +43,7 @@ export default function AboutPage() {
   ]
 
   const stats = [
-    { number: '2', label: 'Artists' },
+    { number: '2', label: 'Creatives' },
     { number: '0%', label: 'We Take' },
     { number: '100%', label: 'Yours' },
     { number: '0', label: 'Strings' }
@@ -92,10 +92,10 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
-                  <span className="text-white font-semibold">The creative industry is designed to f*ck you over.</span> VCs want your equity. Labels want your masters. Managers want their cut. Everyone wants a piece of what you built—until there's nothing left for you.
+                  <span className="text-white font-semibold">The creative industry is designed to f*ck you over.</span> VCs want your equity. Agencies want their cut. Platforms take their percentage. Everyone wants a piece of what you built—until there's nothing left for you.
                 </p>
                 <p className="leading-relaxed">
-                  We watched it happen to friends. To peers. To artists we believed in. Hell, <span className="text-gold font-semibold">it happened to us</span>. We lost the love of the game because someone saw dollar signs where we saw dreams.
+                  We watched it happen to friends. To peers. To creatives we believed in. Hell, <span className="text-gold font-semibold">it happened to us</span>. We lost the love of the game because someone saw dollar signs where we saw dreams.
                 </p>
                 <p className="leading-relaxed">
                   So we built HLPFL Inc—a nonprofit with one mission: <span className="text-gold font-semibold">give creatives the resources they need with no vested interest or private equity pressure</span>. We don't take a cut. We don't own your work. We don't want equity in your dream. We just help.
@@ -126,7 +126,7 @@ export default function AboutPage() {
               Resources That Should Be <span className="text-gold">Free</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The tools that labels lock behind exploitative contracts? We're giving them away. No catches.
+              The tools that gatekeepers lock behind exploitative contracts? We're giving them away. No catches.
             </p>
           </div>
 
@@ -143,9 +143,9 @@ export default function AboutPage() {
                 description: 'Create a custom landing page showcasing your work, merch, and more. Yours to keep.',
               },
               {
-                icon: Music,
+                icon: Globe,
                 title: 'Distribution Access',
-                description: 'Get your music on all major platforms. Keep 100% of your royalties. We take nothing.',
+                description: 'Get your content on all major platforms. Keep 100% of what you earn. We take nothing.',
               },
               {
                 icon: Target,
@@ -195,7 +195,7 @@ export default function AboutPage() {
               Our <span className="text-gold">Values</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The principles that guide everything we do, from artist development to music production.
+              The principles that guide everything we do, from creative development to empowering entrepreneurs.
             </p>
           </div>
           
@@ -230,7 +230,7 @@ export default function AboutPage() {
               Meet Our <span className="text-gold">Team</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The passionate professionals behind HLPFL, dedicated to supporting our artists and advancing our mission.
+              The passionate professionals behind HLPFL, dedicated to supporting creatives and advancing our mission.
             </p>
           </div>
           

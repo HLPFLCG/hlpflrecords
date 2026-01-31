@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Music, Users, Globe, Headphones, TrendingUp, Award } from 'lucide-react'
+import { Palette, Users, Globe, Headphones, TrendingUp, Award } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 
 export function ServicesSection() {
@@ -14,32 +14,32 @@ export function ServicesSection() {
     {
       icon: Globe,
       title: 'Link in Bio Tool',
-      description: 'One link to rule them all. Create a custom landing page that showcases your music, merchandise, tour dates, and everything else you\'re working on.',
+      description: 'One link to rule them all. Create a custom landing page that showcases your work, portfolio, products, and everything else you\'re building.',
       features: ['Custom Landing Page', 'Instant Updates', 'Click Tracking', 'Mobile Optimized']
     },
     {
-      icon: Music,
-      title: 'Music Distribution',
-      description: 'Get your music on Spotify, Apple Music, TikTok, and every major streaming platform. Keep 100% of your royalties. Fast uploads, professional delivery.',
-      features: ['All Major Platforms', '100% Royalties', 'Detailed Analytics', 'Fast Delivery']
+      icon: Palette,
+      title: 'Content Distribution',
+      description: 'Get your creative work on all major platforms. Keep 100% of what you earn. Fast uploads, professional delivery, and full ownership.',
+      features: ['All Major Platforms', '100% Earnings', 'Detailed Analytics', 'Fast Delivery']
     },
     {
       icon: Headphones,
-      title: 'Artist Management Services',
+      title: 'Creator Support Services',
       description: 'When you need professional support without the controlling contracts. Book what you need, when you need it. Strategic guidance on your terms.',
       features: ['On-Demand Support', 'Industry Connections', 'Strategic Guidance', 'Transparent Pricing']
     },
     {
       icon: TrendingUp,
       title: 'Form Builder',
-      description: 'Collect information, build your fanbase, and manage your business with professional forms. No coding required—just powerful forms that work.',
-      features: ['Fan Email Capture', 'Contact Forms', 'Booking Requests', 'Survey Feedback']
+      description: 'Collect information, build your audience, and manage your business with professional forms. No coding required—just powerful forms that work.',
+      features: ['Email Capture', 'Contact Forms', 'Booking Requests', 'Survey Feedback']
     },
     {
       icon: Award,
-      title: 'HLPFL Music Vault',
-      description: 'Exclusive access to unreleased tracks and stems from our roster. Remix, collaborate, or find inspiration from this creative resource.',
-      features: ['Unreleased Tracks', 'Remix Rights', 'Collaboration Tools', 'Creative Inspiration']
+      title: 'HLPFL Creative Vault',
+      description: 'Exclusive access to resources and assets from our network. Collaborate, find inspiration, or discover new creative opportunities.',
+      features: ['Exclusive Resources', 'Collaboration Tools', 'Creative Assets', 'Network Access']
     }
   ]
 
@@ -49,10 +49,10 @@ export function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-            Your Complete <span className="text-gold">Artist Toolkit</span>
+            Your Complete <span className="text-gold">Creator Toolkit</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Every tool, resource, and advantage you need to build your music career—<span className="text-white font-semibold">no strings attached</span>.
+            Every tool, resource, and advantage you need to build your creative career—<span className="text-white font-semibold">no strings attached</span>.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export function ServicesSection() {
               Ready to Take Control?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Stop waiting for a label to "discover" you. Start building the career you want right now with tools that work <span className="text-gold font-semibold">for you, not against you</span>.
+              Stop waiting for permission. Start building the career you want right now with tools that work <span className="text-gold font-semibold">for you, not against you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/artist-portal">

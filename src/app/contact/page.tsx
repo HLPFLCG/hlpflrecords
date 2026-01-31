@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
-import { Mail, Phone, MapPin, Clock, Send, Music, Users, Briefcase } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Send, Lightbulb, Users, Briefcase } from 'lucide-react'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -105,21 +105,21 @@ export default function ContactPage() {
 
   const inquiryTypes = [
     {
-      icon: Music,
-      title: 'Artist Submissions',
-      description: 'Submit your music for consideration. Please include links to your work and a brief bio.',
+      icon: Lightbulb,
+      title: 'Creative Submissions',
+      description: 'Submit your work for consideration. Please include links to your portfolio and a brief bio.',
       type: 'artist-submission'
     },
     {
       icon: Users,
       title: 'General Inquiries',
-      description: 'Questions about our artists, releases, or services? We\'re here to help.',
+      description: 'Questions about our creatives, services, or resources? We\'re here to help.',
       type: 'general'
     },
     {
       icon: Briefcase,
       title: 'Business Partnerships',
-      description: 'Interested in collaboration, licensing, or other business opportunities.',
+      description: 'Interested in collaboration, sponsorship, or other business opportunities.',
       type: 'business'
     }
   ]
@@ -133,8 +133,8 @@ export default function ContactPage() {
             Get in <span className="text-gold">Touch</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8">
-            Founded by James Rockel at 18, we're redefining the music industry with our tools-not-contracts approach.
-            Whether you're interested in joining the movement or have questions about artist success, we're here to help.
+            Founded by James Rockel at 18, we're redefining the creative industry with our tools-not-contracts approach.
+            Whether you're interested in joining the movement or have questions about creative success, we're here to help.
           </p>
         </div>
       </section>
@@ -242,7 +242,7 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-dark-secondary border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gold transition-colors"
                   >
                     <option value="general">General Inquiry</option>
-                    <option value="artist-submission">Artist Submission</option>
+                    <option value="artist-submission">Creative Submission</option>
                     <option value="business">Business Partnership</option>
                   </select>
                 </div>
@@ -328,7 +328,7 @@ export default function ContactPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-gold rounded-full" />
-                    <span>Artist submissions: 1-2 weeks</span>
+                    <span>Creative submissions: 1-2 weeks</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-gold rounded-full" />

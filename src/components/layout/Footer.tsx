@@ -27,10 +27,10 @@ export function Footer() {
       { name: 'Terms of Service', href: '/legal/terms' },
       { name: 'Cookie Policy', href: '/legal/cookies' },
     ],
-    artists: [
+    creatives: [
       { name: 'Get Tools', href: '/artist-portal' },
-      { name: 'Music Distribution', href: '/artist-portal' },
-      { name: 'Artist Support', href: '/contact' },
+      { name: 'Content Distribution', href: '/artist-portal' },
+      { name: 'Creator Support', href: '/contact' },
     ],
   }
 
@@ -82,9 +82,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Artists</h3>
+            <h3 className="text-white font-semibold mb-4">Creatives</h3>
             <ul className="space-y-2">
-              {footerLinks.artists.map((link) => (
+              {footerLinks.creatives.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
