@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Briefcase } from 'lucide-react'
+import { Menu, X, Briefcase, ShoppingBag } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Logo from '@/components/Logo'
 import { GlobalSearch } from '@/components/search/GlobalSearch'
@@ -14,6 +14,7 @@ export function Header() {
   const navigation = [
     { name: 'Home', href: '/', icon: null },
     { name: 'Services', href: '/services', icon: null },
+    { name: 'Store', href: '/store', icon: ShoppingBag },
     { name: 'About', href: '/about', icon: null },
     { name: 'News', href: '/news', icon: null },
     { name: 'Contact', href: '/contact', icon: null },
@@ -62,8 +63,9 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="nav-link-premium text-gray-300 hover:text-gold font-medium transition-all duration-300 relative group"
+                  className="nav-link-premium text-gray-300 hover:text-gold font-medium transition-all duration-300 relative group flex items-center gap-1.5"
                 >
+                  {item.icon && <item.icon className="w-4 h-4" />}
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold to-gold-light group-hover:w-full transition-all duration-300" />
                 </Link>
