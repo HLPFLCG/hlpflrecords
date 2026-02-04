@@ -3984,6 +3984,26 @@ export const mockTeam: TeamMember[] = [
       email: 'cfo@hlpfl.org',
     },
   },
+  {
+    id: '3',
+    name: 'Board Member',
+    role: 'Board of Directors',
+    bio: 'Position open for a passionate advocate committed to empowering creative entrepreneurs. We seek individuals with expertise in business development, nonprofit governance, or creative industries who share our mission of providing zero-upfront-cost support to creators.',
+    image: '/images/team/placeholder-board.webp',
+    socials: {
+      email: 'board@hlpfl.org',
+    },
+  },
+  {
+    id: '4',
+    name: 'Board Member',
+    role: 'Board of Directors',
+    bio: 'Position open for a passionate advocate committed to empowering creative entrepreneurs. We seek individuals with expertise in business development, nonprofit governance, or creative industries who share our mission of providing zero-upfront-cost support to creators.',
+    image: '/images/team/placeholder-board.webp',
+    socials: {
+      email: 'board@hlpfl.org',
+    },
+  },
 ]
 
 // ========================================

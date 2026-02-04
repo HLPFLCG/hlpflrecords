@@ -195,75 +195,105 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': ['Organization', 'NGO', 'Nonprofit'],
+              '@type': ['Organization', 'NGO', 'NonprofitOrganization'],
               name: 'HLPFL Inc',
               alternateName: 'HLPFL',
+              legalName: 'HLPFL Inc',
               url: 'https://hlpfl.org',
-              logo: 'https://hlpfl.org/images/logo.png',
-              description: 'HLPFL Inc is a nonprofit organization dedicated to taking creative ideas to reality. We provide comprehensive tools, resources, mentorship, and support for creators, innovators, and dreamers to bring their visions to life.',
-              slogan: 'Taking Creative Ideas to Reality',
-              foundingDate: '2024',
+              logo: 'https://hlpfl.org/logo.svg',
+              image: 'https://hlpfl.org/images/og-image.jpg',
+              description: 'HLPFL Inc is a Wyoming 501(c)(3) nonprofit providing commission-only business development services for creative entrepreneurs—inventors, artists, musicians, designers, and writers. Zero upfront costs. We earn when you earn.',
+              slogan: 'Empowering Creative Entrepreneurs',
+              foundingDate: '2009',
               email: 'contact@hlpfl.org',
               telephone: '+1-616-313-5215',
+              nonprofitStatus: '501(c)(3)',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Grand Rapids',
                 addressRegion: 'MI',
                 addressCountry: 'US',
               },
-              areaServed: 'Worldwide',
+              areaServed: {
+                '@type': 'Country',
+                name: 'United States',
+              },
+              founder: {
+                '@type': 'Person',
+                name: 'James Rockel III',
+                jobTitle: 'Founder & CEO',
+              },
               knowsAbout: [
-                'Creative Innovation',
-                'Idea Development',
-                'Project Support',
-                'Creator Resources',
-                'Innovation Tools',
-                'Mentorship Programs',
-                'Community Building',
-                'Creative Collaboration',
+                'Business Development',
+                'Brand Development',
+                'Sales Representation',
+                'Marketing Strategy',
+                'Contract Negotiation',
+                'Creative Entrepreneurs',
+                'Inventors',
+                'Artists',
+                'Musicians',
+                'Designers',
+                'Writers',
                 'Nonprofit Services',
-                'Educational Workshops',
+                'Commission-Only Model',
               ],
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
-                name: 'Creator Services',
+                name: 'Business Development Services',
                 itemListElement: [
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Creative Project Support',
-                      description: 'Comprehensive support to help bring creative ideas to life',
+                      name: 'Brand Development & Identity',
+                      description: 'Strategy, visual identity, market positioning, and messaging guidelines for creative entrepreneurs',
                     },
                   },
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Innovation Resources',
-                      description: 'Tools and resources for innovators and creators',
+                      name: 'Business Entity Formation',
+                      description: 'LLC setup, registration support, EIN assistance, and compliance guidance',
                     },
                   },
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Mentorship Programs',
-                      description: 'Guidance and mentorship for creative development',
+                      name: 'Sales Representation',
+                      description: 'Direct outreach, deal negotiation, client management, and revenue optimization',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Marketing Strategy & Execution',
+                      description: 'Go-to-market strategy, content marketing, PR, and campaign execution',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Contract Negotiation Support',
+                      description: 'Contract review, rights education, negotiation support, and red flag identification',
                     },
                   },
                 ],
               },
               sameAs: [
-                'https://instagram.com/hlpfl',
-                'https://twitter.com/hlpfl',
-                'https://facebook.com/hlpfl',
+                'https://www.instagram.com/hlpfl_/',
+                'https://x.com/hlpfl_',
+                'https://linkedin.com/company/hlpfl',
               ],
             }),
           }}
         />
 
-        {/* Structured Data - FAQPage for Creative Support */}
+        {/* Structured Data - FAQPage for Nonprofit Services */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -276,23 +306,39 @@ export default function RootLayout({
                   name: 'What is HLPFL Inc?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'HLPFL Inc is a nonprofit organization dedicated to taking creative ideas to reality. We provide tools, resources, mentorship, and support to help creators, innovators, and dreamers bring their visions to life.',
+                    text: 'HLPFL Inc is a Wyoming 501(c)(3) nonprofit organization providing commission-only business development services for creative entrepreneurs—inventors, artists, musicians, designers, and writers. We advocate for fair treatment, equitable compensation, and protection of rights for creators.',
                   },
                 },
                 {
                   '@type': 'Question',
-                  name: 'How does HLPFL Inc help creators?',
+                  name: 'How does the commission-only model work?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'HLPFL Inc supports creators through comprehensive resources, mentorship programs, community collaboration, and tools designed to help turn creative ideas into reality. We focus on empowerment and practical support.',
+                    text: 'HLPFL provides business development services with zero upfront costs. We invest our time and resources in you first—handling sales, marketing, and business operations. We only earn a commission (typically 15-30%) when we help you make money. Our incentives are completely aligned with yours.',
                   },
                 },
                 {
                   '@type': 'Question',
-                  name: 'Is HLPFL Inc free to use?',
+                  name: 'Who does HLPFL serve?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'As a nonprofit, HLPFL Inc is committed to making creative support accessible. We offer various free resources and programs to help creators at all stages of their journey.',
+                    text: 'HLPFL serves creative entrepreneurs across five disciplines: inventors (patent holders, product developers), visual artists (painters, illustrators, photographers), musicians (artists, producers, bands), designers (industrial, fashion, UX/UI), and writers (authors, screenwriters, content creators).',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What services does HLPFL provide?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'HLPFL provides brand development and identity, business entity formation, sales representation, marketing strategy and execution, content creation and social media management, and contract negotiation support—all with zero upfront costs.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Is there any cost to apply?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'No. There are zero upfront costs to partner with HLPFL. We do not charge fees, deposits, or subscriptions. We only earn when we help you make money. This is our commission-only model that ensures our success depends on your success.',
                   },
                 },
               ],
