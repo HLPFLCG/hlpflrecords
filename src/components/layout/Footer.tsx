@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Instagram, Twitter, Youtube, Music, Mail } from 'lucide-react'
+import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react'
 import Logo from '../Logo'
 
 export function Footer() {
@@ -9,28 +9,27 @@ export function Footer() {
   const socialLinks = [
     { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/hlpfl_/' },
     { name: 'Twitter', icon: Twitter, href: 'https://x.com/hlpfl_' },
-    { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/channel/UCI1nS0ba_-xx1FurXzQKLIg' },
-    { name: 'Spotify', icon: Music, href: 'https://open.spotify.com/user/hlpfl' },
-    { name: 'Email', icon: Mail, href: 'mailto:founder@hlpfl.org' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/hlpfl' },
+    { name: 'Email', icon: Mail, href: 'mailto:contact@hlpfl.org' },
   ]
 
   const footerLinks = {
     company: [
       { name: 'About Us', href: '/about' },
-      { name: 'Tools & Resources', href: '/artist-portal' },
-      { name: 'Artists', href: '/artists' },
-      { name: 'Tours', href: '/tours' },
+      { name: 'Services', href: '/services' },
       { name: 'News', href: '/news' },
+      { name: 'Contact', href: '/contact' },
+    ],
+    services: [
+      { name: 'Brand Development', href: '/services' },
+      { name: 'Sales Representation', href: '/services' },
+      { name: 'Marketing Strategy', href: '/services' },
+      { name: 'Contract Support', href: '/services' },
     ],
     legal: [
       { name: 'Privacy Policy', href: '/legal/privacy' },
       { name: 'Terms of Service', href: '/legal/terms' },
       { name: 'Cookie Policy', href: '/legal/cookies' },
-    ],
-    creatives: [
-      { name: 'Get Tools', href: '/artist-portal' },
-      { name: 'Content Distribution', href: '/artist-portal' },
-      { name: 'Creator Support', href: '/contact' },
     ],
   }
 
@@ -44,8 +43,11 @@ export function Footer() {
               <Logo width={40} height={40} />
               <span className="text-white font-bold text-xl">HLPFL Inc</span>
             </div>
-            <p className="text-gray-400 mb-6 max-w-md">
-              HLPFL Inc is a nonprofit that gives creatives the resources they need to bring their ideas to life—with no vested interest, no private equity pressure, and no one trying to take a cut. F*ck the gatekeepers.
+            <p className="text-gray-400 mb-4 max-w-md">
+              HLPFL Inc is a Wyoming 501(c)(3) nonprofit providing commission-only business development services for creative entrepreneurs—inventors, artists, musicians, designers, and writers.
+            </p>
+            <p className="text-gold font-semibold mb-6">
+              Zero upfront costs. We earn when you earn.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => {
@@ -82,9 +84,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Creatives</h3>
+            <h3 className="text-white font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              {footerLinks.creatives.map((link) => (
+              {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -117,10 +119,10 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} HLPFL Inc. A 501(c)(3) nonprofit.
+            © {currentYear} HLPFL Inc. A Wyoming 501(c)(3) nonprofit organization.
           </p>
           <p className="text-gray-400 text-sm mt-2 md:mt-0">
-            No VCs. No Exploitation. No Bullshit.
+            Empowering Creative Entrepreneurs
           </p>
         </div>
       </div>
