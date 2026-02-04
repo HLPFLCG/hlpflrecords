@@ -13,14 +13,14 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-secondary to-dark">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(200,121,65,0.1)_0%,_transparent_50%)]" />
       </div>
-      
+
       {/* Premium animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-gold/20 to-transparent rounded-full blur-3xl parallax-slow" />
         <div className="hidden md:block absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-gold/15 to-transparent rounded-full blur-3xl parallax-medium" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-gold/10 to-transparent rounded-full blur-2xl parallax-fast" style={{ animationDelay: '4s' }} />
         <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-gold/8 to-transparent rounded-full blur-xl animate-float" />
-        
+
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,_rgba(200,121,65,0.03)_1px,_transparent_1px),_linear-gradient(to_bottom,_rgba(200,121,65,0.03)_1px,_transparent_1px)] bg-[size:50px_50px]" />
       </div>
@@ -35,42 +35,49 @@ export function HeroSection() {
             </div>
           </div>
 
+          {/* Nonprofit Badge */}
+          <div className="animate-fade-in">
+            <span className="inline-block bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              501(c)(3) Nonprofit Organization
+            </span>
+          </div>
+
           {/* Main headline */}
           <h1 className="text-fade-in">
             <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-2 text-white leading-[0.9]">
               HLPFL
             </span>
           </h1>
-          
+
           {/* Tagline */}
           <p className="text-fade-in text-fade-in-delay-1 text-2xl sm:text-3xl md:text-4xl text-gold font-light max-w-4xl mx-auto leading-relaxed tracking-wide" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-            No VCs. No Exploitation. No Bullshit.
+            Empowering Creative Entrepreneurs
           </p>
 
           {/* Mantra */}
           <p className="text-fade-in text-fade-in-delay-2 text-xl sm:text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-            Your Ideas. Your Art. Your F*cking Life.
+            Zero Upfront Costs. We Earn When You Earn.
           </p>
 
           {/* Description */}
           <p className="text-fade-in text-fade-in-delay-3 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            HLPFL Inc is a nonprofit that gives creatives the resources they need to bring their ideas to life—with no vested interest, no private equity pressure, and no one trying to take a cut of what you built.
+            HLPFL Inc is a nonprofit providing commission-only business development services for <span className="text-gold">inventors, artists, musicians, designers, and writers</span>. We handle sales, marketing, and business operations so you can focus on creating.
           </p>
-          
+
           {/* CTA Buttons */}
           <div className="text-fade-in text-fade-in-delay-4 flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/artist-portal">
+            <Link href="/services">
               <Button size="lg" className="btn-premium group">
                 <Play className="mr-3 h-5 w-5" />
-                Get The Tools
+                See Our Services
                 <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
               </Button>
             </Link>
-            
-            <Link href="/about">
+
+            <Link href="/contact">
               <Button variant="outline" size="lg" className="btn-premium group">
                 <Sparkles className="mr-3 h-5 w-5" />
-                Learn More
+                Apply to Partner
               </Button>
             </Link>
           </div>
@@ -78,20 +85,20 @@ export function HeroSection() {
           {/* Stats/Metrics */}
           <div className="text-fade-in text-fade-in-delay-5 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>2</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Creatives</div>
-            </div>
-            <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>0%</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">We Take</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>$0</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Upfront</div>
             </div>
             <div className="text-center hover-lift">
               <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>100%</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Yours</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Your Work</div>
             </div>
             <div className="text-center hover-lift">
-              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>0</div>
-              <div className="text-sm text-gray-400 uppercase tracking-widest">Strings</div>
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>5</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Disciplines</div>
+            </div>
+            <div className="text-center hover-lift">
+              <div className="text-4xl md:text-5xl font-bold text-gold mb-2 tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>501(c)3</div>
+              <div className="text-sm text-gray-400 uppercase tracking-widest">Nonprofit</div>
             </div>
           </div>
         </div>

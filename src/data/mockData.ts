@@ -3965,9 +3965,9 @@ For ANY contract involving:
 export const mockTeam: TeamMember[] = [
   {
     id: '1',
-    name: 'James Rockel',
+    name: 'James Rockel III',
     role: 'Founder & CEO',
-    bio: 'Founded HLPFL at 18 years old with a revolutionary vision for artist partnerships. James has transformed how independent musicians build sustainable careers through the groundbreaking tools-not-contracts model. When not changing the music industry, he\'s discovering emerging talent at local shows.',
+    bio: 'Founded HLPFL in 2009 with a mission to advocate for fair treatment and equitable compensation for creative entrepreneurs. As the designated Founder per the organization\'s bylaws, James has built a nonprofit model where success is shared—HLPFL only earns when creators earn. His vision: aligned incentives, zero upfront costs, and real support for inventors, artists, musicians, designers, and writers.',
     image: '/images/team/james-rockel.webp',
     socials: {
       linkedin: 'https://www.linkedin.com/in/jamesrockel',
@@ -3977,8 +3977,8 @@ export const mockTeam: TeamMember[] = [
   {
     id: '2',
     name: 'Noah Rank',
-    role: 'CFO & Lead Investor',
-    bio: 'Noah brings financial expertise and strategic vision to HLPFL as CFO and Lead Investor. His commitment to the mission of empowering independent artists drives the financial sustainability of the organization, ensuring artists have access to the resources they need without compromising their independence.',
+    role: 'CFO',
+    bio: 'Noah brings financial expertise and strategic vision to HLPFL as CFO. His commitment to the nonprofit mission ensures HLPFL maintains the resources to serve creative entrepreneurs while staying true to the commission-only model. He oversees financial sustainability so creators can access professional business support without upfront costs.',
     image: '/images/team/noah-rank.webp',
     socials: {
       email: 'cfo@hlpfl.org',

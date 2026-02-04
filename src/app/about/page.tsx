@@ -6,47 +6,55 @@ import Image from 'next/image'
 import { mockTeam } from '@/data/mockData'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
-import { Award, Users, Eye, Globe, Target, Heart } from 'lucide-react'
+import { Award, Users, Eye, Globe, Target, Heart, Lightbulb, Palette, Music, Pencil, Wrench } from 'lucide-react'
 
 export default function AboutPage() {
   const values = [
     {
       icon: Heart,
-      title: 'Creator-First',
-      description: 'Your vision. Your work. Your f*cking life. We\'re just here to help, not to own.'
+      title: 'Aligned Incentives',
+      description: 'We only earn when you earn. Our commission-only model means we succeed together or not at all.'
     },
     {
       icon: Award,
-      title: 'No Vested Interest',
-      description: 'We don\'t take equity. We don\'t take cuts. We have nothing to gain except seeing you win.'
+      title: 'Creator Protection',
+      description: 'We advocate for fair treatment, equitable compensation, and protection of your rights.'
     },
     {
       icon: Users,
-      title: 'Community Over Competition',
-      description: 'Creatives supporting creatives. No gatekeeping. No hoarding resources.'
+      title: 'No Exploitation',
+      description: 'Zero upfront costs. No predatory contracts. No hidden fees. Ever.'
     },
     {
       icon: Eye,
       title: 'Radical Transparency',
-      description: 'No hidden agendas. No fine print. No bullshit. Ever.'
+      description: 'Clear commission rates. No hidden agendas. No fine print. Complete honesty.'
     },
     {
       icon: Globe,
-      title: 'Accessible Resources',
-      description: 'The tools that used to be locked behind exploitative contracts? Now they\'re free.'
+      title: 'Accessible Support',
+      description: 'Professional business development services available to creators who can\'t afford traditional agencies.'
     },
     {
       icon: Target,
-      title: 'Protect The Dream',
-      description: 'We exist because too many creatives lost the love of the game. Never again.'
+      title: 'Mission-Driven',
+      description: 'As a 501(c)(3) nonprofit, we exist to serve creators—not to maximize profit.'
     }
   ]
 
+  const whoWeServe = [
+    { icon: Lightbulb, title: 'Inventors', description: 'Patent holders & product developers' },
+    { icon: Palette, title: 'Visual Artists', description: 'Painters, illustrators & photographers' },
+    { icon: Music, title: 'Musicians', description: 'Artists, producers & bands' },
+    { icon: Wrench, title: 'Designers', description: 'Industrial, fashion & UX/UI' },
+    { icon: Pencil, title: 'Writers', description: 'Authors, screenwriters & content creators' },
+  ]
+
   const stats = [
-    { number: '2', label: 'Creatives' },
-    { number: '0%', label: 'We Take' },
-    { number: '100%', label: 'Yours' },
-    { number: '0', label: 'Strings' }
+    { number: '$0', label: 'Upfront Costs' },
+    { number: '100%', label: 'Your Ownership' },
+    { number: '5', label: 'Disciplines' },
+    { number: '501(c)3', label: 'Nonprofit Status' }
   ]
 
   return (
@@ -54,12 +62,15 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
+          <span className="inline-block bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            Wyoming 501(c)(3) Nonprofit Organization
+          </span>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             About <span className="text-gold">HLPFL Inc</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            We're a nonprofit built by creatives who got burned—for creatives who won't.
-            No VCs. No private equity. No vested interest. Just resources to help you bring your ideas to life.
+            We&apos;re a nonprofit providing commission-only business development services for creative entrepreneurs.
+            Zero upfront costs. We earn when you earn.
           </p>
         </div>
       </section>
@@ -82,26 +93,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Mission Section */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Why We <span className="text-gold">Exist</span>
+                Our <span className="text-gold">Mission</span>
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
-                  <span className="text-white font-semibold">The creative industry is designed to f*ck you over.</span> VCs want your equity. Agencies want their cut. Platforms take their percentage. Everyone wants a piece of what you built—until there's nothing left for you.
+                  <span className="text-white font-semibold">To advocate for fair treatment, equitable compensation, and protection of rights for creative entrepreneurs</span>—including inventors, artists, musicians, designers, and writers.
                 </p>
                 <p className="leading-relaxed">
-                  We watched it happen to friends. To peers. To creatives we believed in. Hell, <span className="text-gold font-semibold">it happened to us</span>. We lost the love of the game because someone saw dollar signs where we saw dreams.
+                  We provide <span className="text-gold font-semibold">free and subsidized business development services</span> on a commission-only basis with no upfront costs. Traditional services charge thousands upfront with no guaranteed results.
                 </p>
                 <p className="leading-relaxed">
-                  So we built HLPFL Inc—a nonprofit with one mission: <span className="text-gold font-semibold">give creatives the resources they need with no vested interest or private equity pressure</span>. We don't take a cut. We don't own your work. We don't want equity in your dream. We just help.
+                  We do the opposite: we invest our time and resources in you first. We handle sales representation, marketing strategy, brand development, and business operations. <span className="text-gold font-semibold">We only earn when we help you make money</span>.
                 </p>
                 <p className="leading-relaxed text-white font-semibold">
-                  F*ck the gatekeepers. This is for the creators.
+                  Our incentives are aligned with yours. That&apos;s how it should be.
                 </p>
               </div>
             </div>
@@ -110,95 +121,107 @@ export default function AboutPage() {
                 <div className="w-24 h-24 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-gold text-4xl font-bold">H</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Nonprofit</h3>
-                <p className="text-gray-400">No VCs. No Exploitation. No Bullshit.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Commission-Only</h3>
+                <p className="text-gray-400">We Earn When You Earn</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Tools & Portal Section */}
+      {/* Who We Serve Section */}
       <section className="py-20 px-4 bg-dark-secondary">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Resources That Should Be <span className="text-gold">Free</span>
+              Who We <span className="text-gold">Serve</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The tools that gatekeepers lock behind exploitative contracts? We're giving them away. No catches.
+              We work with creative entrepreneurs across all disciplines who have viable products or services but need business support.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: 'Social Media Manager',
-                description: 'Unified dashboard to schedule, track, and optimize all your social media. No subscription fees.',
-              },
-              {
-                icon: Globe,
-                title: 'Link in Bio Tool',
-                description: 'Create a custom landing page showcasing your work, merch, and more. Yours to keep.',
-              },
-              {
-                icon: Globe,
-                title: 'Distribution Access',
-                description: 'Get your content on all major platforms. Keep 100% of what you earn. We take nothing.',
-              },
-              {
-                icon: Target,
-                title: 'Creative Support',
-                description: 'Professional guidance without controlling contracts. Help when you need it, not when we profit.',
-              },
-              {
-                icon: Award,
-                title: 'Analytics & Insights',
-                description: 'Track your growth, understand your audience. Data to help you—not to sell you.',
-              },
-            ].map((tool) => {
-              const Icon = tool.icon
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {whoWeServe.map((type) => {
+              const Icon = type.icon
               return (
-                <Card key={tool.title} hover className="h-full">
-                  <CardContent className="p-6">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center">
-                        <Icon className="h-6 w-6 text-gold" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white">{tool.title}</h3>
-                    </div>
-                    <p className="text-gray-300 leading-relaxed">
-                      {tool.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <div key={type.title} className="text-center p-6 rounded-xl bg-dark-tertiary border border-gold/10 hover:border-gold/30 transition-all">
+                  <div className="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Icon className="h-8 w-8 text-gold" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-1">{type.title}</h3>
+                  <p className="text-gray-400 text-sm">{type.description}</p>
+                </div>
               )
             })}
           </div>
+        </div>
+      </section>
 
-          <div className="text-center mt-12">
-            <Link href="/artist-portal">
-              <Button size="lg">
-                Get The Resources
-              </Button>
-            </Link>
+      {/* How It Works Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              How Our <span className="text-gold">Model Works</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              A commission-only approach that aligns our success with yours.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card hover className="h-full">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-gold text-2xl font-bold">1</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Zero Upfront</h3>
+                <p className="text-gray-300">
+                  No fees, no deposits, no subscriptions. We invest our time and resources in you first.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card hover className="h-full">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-gold text-2xl font-bold">2</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">We Work For You</h3>
+                <p className="text-gray-300">
+                  We handle sales, marketing, business development—so you can focus on creating.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card hover className="h-full">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-gold text-2xl font-bold">3</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Commission on Success</h3>
+                <p className="text-gray-300">
+                  We only earn when we facilitate a sale for you. Typically 15-30% depending on services.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-dark-secondary">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Our <span className="text-gold">Values</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The principles that guide everything we do, from creative development to empowering entrepreneurs.
+              The principles from our bylaws that guide everything we do.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, _index) => {
               const Icon = value.icon
@@ -227,13 +250,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Meet Our <span className="text-gold">Team</span>
+              Meet The <span className="text-gold">Team</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The passionate professionals behind HLPFL, dedicated to supporting creatives and advancing our mission.
+              The people behind HLPFL, dedicated to empowering creative entrepreneurs.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {mockTeam.map((member) => (
               <Card key={member.id} hover className="overflow-hidden">
@@ -263,20 +286,21 @@ export default function AboutPage() {
       <section className="py-20 px-4 bg-dark-secondary">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
-            Join The <span className="text-gold">Movement</span>
+            Ready to <span className="text-gold">Partner</span>?
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Whether you're a creator looking for resources without the exploitation, or you just want to support a mission that matters—we're building something different here.
+            If you have a viable product or creative work and need business support, let&apos;s talk.
+            Zero upfront costs. We earn when you earn.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <Button size="lg">
-                Get In Touch
+                Apply to Partner
               </Button>
             </Link>
-            <Link href="/artists">
+            <Link href="/services">
               <Button variant="outline" size="lg">
-                Meet Our Creators
+                View Our Services
               </Button>
             </Link>
           </div>

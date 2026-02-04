@@ -12,48 +12,51 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div>
+            <span className="inline-block bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              501(c)(3) Nonprofit
+            </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-              F*ck The <span className="text-gold">Gatekeepers</span>
+              Why <span className="text-gold">Commission-Only?</span>
             </h2>
 
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="leading-relaxed">
-                <span className="text-white font-semibold">The creative industry is designed to f*ck you over.</span> VCs want your equity. Agencies want their cut. Platforms take their percentage. Everyone wants a piece of what you built—until there's nothing left for you.
+                <span className="text-white font-semibold">Traditional services charge thousands upfront with no guaranteed results.</span> They profit whether you succeed or not. Their incentives aren&apos;t aligned with yours.
               </p>
 
               <p className="leading-relaxed">
-                We watched it happen. Hell, <span className="text-gold font-semibold">it happened to us</span>. We lost the love of the game because someone saw dollar signs where we saw dreams.
+                We do the opposite. <span className="text-gold font-semibold">We invest our time and resources in you first</span>. We handle your sales, marketing, and business operations. We only earn when we help you make money.
               </p>
 
               <p className="leading-relaxed">
-                So we built HLPFL. Not to get rich. Not to "invest" in you. Just to give you the resources you need—<span className="text-gold font-semibold">with no strings, no cuts, no bullshit</span>. This is for the creators.
+                That&apos;s real alignment. If we don&apos;t help you succeed, we don&apos;t get paid. <span className="text-gold font-semibold">We earn when you earn</span>—that&apos;s how it should work.
               </p>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">2</div>
-                <div className="text-sm text-gray-400">Creatives</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">0%</div>
-                <div className="text-sm text-gray-400">We Take</div>
+                <div className="text-3xl font-bold text-gold mb-1">$0</div>
+                <div className="text-sm text-gray-400">Upfront</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-gold mb-1">100%</div>
-                <div className="text-sm text-gray-400">Yours</div>
+                <div className="text-sm text-gray-400">Your Work</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gold mb-1">0</div>
-                <div className="text-sm text-gray-400">Strings</div>
+                <div className="text-3xl font-bold text-gold mb-1">5</div>
+                <div className="text-sm text-gray-400">Disciplines</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold mb-1">Aligned</div>
+                <div className="text-sm text-gray-400">Incentives</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/artist-portal">
+              <Link href="/services">
                 <Button>
-                  Get The Tools
+                  See Our Services
                 </Button>
               </Link>
               <Link href="/about">
@@ -72,7 +75,7 @@ export function AboutSection() {
                   <Logo width={90} height={90} />
                 </div>
                 <h3 className="text-3xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>HLPFL Inc</h3>
-                <p className="text-gold mb-4 text-lg" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>No Strings. No Bullshit.</p>
+                <p className="text-gold mb-4 text-lg" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>We Earn When You Earn</p>
                 <div className="flex justify-center space-x-2">
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" />
                   <div className="w-2 h-2 bg-gold rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />

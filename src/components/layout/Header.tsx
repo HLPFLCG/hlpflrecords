@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Music } from 'lucide-react'
+import { Menu, X, Briefcase } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Logo from '@/components/Logo'
 import { GlobalSearch } from '@/components/search/GlobalSearch'
@@ -13,12 +13,9 @@ export function Header() {
 
   const navigation = [
     { name: 'Home', href: '/', icon: null },
-    { name: 'Artists', href: '/artists', icon: null },
-    { name: 'Releases', href: '/releases', icon: null },
+    { name: 'Services', href: '/services', icon: null },
     { name: 'About', href: '/about', icon: null },
     { name: 'News', href: '/news', icon: null },
-    { name: 'Store', href: '/store', icon: null },
-    { name: 'Artist Portal', href: '/artist-portal', icon: null },
     { name: 'Contact', href: '/contact', icon: null },
   ]
 
@@ -140,10 +137,10 @@ export function Header() {
 
             {/* Mobile Footer */}
             <div className="p-6 border-t border-gold/20">
-              <Link href="/artist-portal">
+              <Link href="/contact">
                 <Button className="w-full btn-premium group">
-                  <Music className="mr-3 h-5 w-5" />
-                  Artist Portal
+                  <Briefcase className="mr-3 h-5 w-5" />
+                  Apply to Partner
                   <div className="ml-auto w-0 group-hover:w-4 h-0.5 bg-gold transition-all duration-300" />
                 </Button>
               </Link>

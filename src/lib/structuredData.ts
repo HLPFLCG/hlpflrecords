@@ -5,50 +5,56 @@
 
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "NonprofitOrganization", "Corporation"],
+  "@type": ["Organization", "NonprofitOrganization"],
   "name": "HLPFL Inc",
   "alternateName": "HLPFL",
   "url": "https://hlpfl.org",
   "logo": "https://hlpfl.org/logo.svg",
-  "description": "HLPFL Inc is a nonprofit empowering creatives and entrepreneurs with tools and resources to succeed on their own terms. We protect creators from exploitation with 100% ownership, no contracts, and professional-grade tools. Fair, transparent creator support and distribution services.",
-  "slogan": "Tools, Not Contracts",
+  "description": "HLPFL Inc is a Wyoming 501(c)(3) nonprofit organization that advocates for fair treatment, equitable compensation, and protection of rights for creative entrepreneurs—including inventors, artists, musicians, designers, and writers. We provide commission-only business development services with zero upfront costs.",
+  "slogan": "Empowering Creative Entrepreneurs",
   "foundingDate": "2009",
   "founders": [
     {
       "@type": "Person",
-      "name": "James Rockel",
+      "name": "James Rockel III",
       "jobTitle": "Founder & CEO"
     }
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "123 Music Row",
     "addressLocality": "Grand Rapids",
     "addressRegion": "MI",
-    "postalCode": "37203",
     "addressCountry": "US"
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-616-313-5215",
-    "contactType": "Customer Service",
+    "contactType": "General Inquiries",
     "email": "contact@hlpfl.org",
     "availableLanguage": "English"
   },
   "sameAs": [
-    "https://twitter.com/hlpflrecords",
-    "https://instagram.com/hlpflrecords",
-    "https://facebook.com/hlpflrecords",
-    "https://youtube.com/hlpflrecords"
+    "https://twitter.com/hlpfl_",
+    "https://instagram.com/hlpfl_",
+    "https://linkedin.com/company/hlpfl"
+  ],
+  "nonprofitStatus": "Nonprofit501c3",
+  "knowsAbout": [
+    "Creative Entrepreneurship",
+    "Business Development",
+    "Inventor Support",
+    "Artist Management",
+    "Brand Development",
+    "Sales Representation",
+    "Contract Negotiation"
   ]
 }
 
 export const creativeGroupSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "HLPFL Creatives",
-  "description": "Community of talented creatives and entrepreneurs supported by HLPFL",
-  "knowsAbout": ["Music", "Visual Arts", "Design", "Writing", "Entrepreneurship"],
+  "name": "HLPFL Creative Entrepreneurs",
+  "description": "Community of inventors, artists, musicians, designers, and writers supported by HLPFL Inc through commission-only business development services",
+  "knowsAbout": ["Invention", "Music", "Visual Arts", "Design", "Writing", "Product Development", "Entrepreneurship"],
   "foundingLocation": {
     "@type": "Place",
     "address": {
@@ -65,7 +71,7 @@ export const websiteSchema = {
   "@type": "WebSite",
   "name": "HLPFL Inc",
   "url": "https://hlpfl.org",
-  "description": "Official website of HLPFL Inc - A nonprofit empowering creatives and entrepreneurs with tools and resources to succeed on their own terms. 100% ownership, no contracts, professional-grade tools.",
+  "description": "Official website of HLPFL Inc - A Wyoming 501(c)(3) nonprofit providing commission-only business development services for creative entrepreneurs. Zero upfront costs. We earn when you earn.",
   "publisher": {
     "@type": "Organization",
     "name": "HLPFL Inc"
@@ -91,7 +97,7 @@ export const breadcrumbSchema = (items: Array<{ name: string; url: string }>) =>
 export const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Nonprofit Creative Support & Entrepreneur Resources Platform",
+  "serviceType": "Nonprofit Business Development Services for Creative Entrepreneurs",
   "provider": {
     "@type": "Organization",
     "name": "HLPFL Inc"
@@ -99,54 +105,54 @@ export const serviceSchema = {
   "areaServed": "Worldwide",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Creator Protection & Support Services",
+    "name": "Commission-Only Business Development Services",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Independent Creator Support",
-          "description": "Fair, transparent creator support with 100% ownership. No exploitative contracts, no gatekeepers."
+          "name": "Brand Development & Identity",
+          "description": "Build a compelling brand that resonates with your audience. Includes brand strategy, visual identity, messaging guidelines, and market differentiation."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Professional Creative Tools",
-          "description": "Tools for promotion, social media management, analytics, and career building for independent creatives"
+          "name": "Business Entity Formation",
+          "description": "Get your business properly structured with LLC/Corporation setup guidance, business registration support, EIN assistance, and compliance guidance."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Content Distribution",
-          "description": "Independent content distribution across all major platforms with creator-first approach"
+          "name": "Sales Representation",
+          "description": "Commission-only sales support including direct outreach, client relationship management, deal negotiation, and revenue optimization."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Creator Protection & Rights",
-          "description": "Educational resources and tools to protect creatives from exploitation and unfair contracts"
+          "name": "Marketing Strategy & Execution",
+          "description": "Strategic marketing including go-to-market strategy, content marketing, social media management, email campaigns, and PR outreach."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Social Media Management",
-          "description": "Professional social media scheduling and management tools for creatives and entrepreneurs"
+          "name": "Content Creation & Social Media",
+          "description": "Professional content services including social media strategy, content calendar planning, visual content creation, and community management."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Analytics & Insights",
-          "description": "Comprehensive analytics for all major platforms and audience insights"
+          "name": "Contract Negotiation Support",
+          "description": "Protect yourself with contract review guidance, rights protection education, negotiation strategy, and fair terms advocacy."
         }
       }
     ]
@@ -159,18 +165,18 @@ export const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do I not get screwed over as a creative?",
+      "name": "What is HLPFL Inc?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "HLPFL Inc protects creatives by ensuring 100% ownership of your work, no exploitative contracts, transparent resources, comprehensive educational materials about creator rights, and professional tools to build your career independently. We provide tools and resources, not traps."
+        "text": "HLPFL Inc is a Wyoming 501(c)(3) nonprofit organization that provides commission-only business development services to creative entrepreneurs—including inventors, artists, musicians, designers, and writers. We advocate for fair treatment, equitable compensation, and protection of rights for creators."
       }
     },
     {
       "@type": "Question",
-      "name": "What makes HLPFL different from other platforms?",
+      "name": "How does HLPFL's commission-only model work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "HLPFL is a creator-first nonprofit. We offer tools, not contracts. Creators maintain 100% ownership of their work and rights. No exploitation, no hidden fees, complete transparency. We focus on creative empowerment and protection."
+        "text": "We charge zero upfront costs. We invest our time and resources in you first, providing business development services like sales representation, marketing, and brand development. We only earn when we facilitate a sale for you—typically 15-30% commission depending on services provided. Our incentives are aligned with yours."
       }
     },
     {
@@ -178,23 +184,31 @@ export const faqSchema = {
       "name": "Who can use HLPFL's services?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "HLPFL serves all types of creatives and entrepreneurs - musicians, visual artists, designers, writers, content creators, filmmakers, and anyone building a creative career. Our tools are designed for independent creators who want to succeed on their own terms."
+        "text": "HLPFL serves creative entrepreneurs across all disciplines who have viable products or services but need business support. This includes inventors with patents, musicians, visual artists, industrial/fashion/UX designers, writers and authors, and other creative professionals."
       }
     },
     {
       "@type": "Question",
-      "name": "What tools does HLPFL provide?",
+      "name": "What services does HLPFL provide?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "HLPFL provides professional tools for social media management, content distribution, analytics, form building, link in bio pages, and career development. All tools are designed to empower independent creatives while maintaining 100% ownership of their work."
+        "text": "HLPFL provides comprehensive business development services including: brand development and identity, business entity formation, sales representation, marketing strategy and execution, content creation and social media management, and contract negotiation support. All services are provided on a commission-only basis with no upfront costs."
       }
     },
     {
       "@type": "Question",
-      "name": "How can I submit my work to HLPFL?",
+      "name": "How do I partner with HLPFL?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can submit your work through our contact form or creator portal. Include links to your portfolio and a brief bio. We review all submissions with respect for creator rights and respond within 1-2 weeks. We never require exploitative contracts."
+        "text": "You can apply to partner with HLPFL through our contact form. Include information about your product, service, or creative work, along with your goals. We review all applications and look for creative entrepreneurs with viable offerings who would benefit from our business development support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is HLPFL a nonprofit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HLPFL is structured as a 501(c)(3) nonprofit because our mission is advocacy and protection for creative entrepreneurs, not profit extraction. The nonprofit structure ensures our focus remains on helping creators succeed rather than maximizing returns for shareholders. It also enables us to receive grants and donations to expand our capacity to serve more creators."
       }
     }
   ]

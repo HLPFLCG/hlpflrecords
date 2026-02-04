@@ -1,45 +1,45 @@
 import React from 'react'
 import Link from 'next/link'
-import { Palette, Users, Globe, Headphones, TrendingUp, Award } from 'lucide-react'
+import { PenTool, Briefcase, TrendingUp, FileText, Users, Shield } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 
 export function ServicesSection() {
   const services = [
     {
-      icon: Users,
-      title: 'Social Media Manager',
-      description: 'Stop wasting hours managing posts across platforms. Our unified dashboard lets you schedule, track, and optimize all your social media from one place.',
-      features: ['Unified Dashboard', 'Content Calendar', 'Analytics & Insights', 'Automated Posting']
+      icon: PenTool,
+      title: 'Brand Development',
+      description: 'Build a compelling brand that resonates with your audience. We handle strategy, visual identity, and market positioning.',
+      features: ['Brand Strategy', 'Visual Identity', 'Market Positioning', 'Messaging Guidelines']
     },
     {
-      icon: Globe,
-      title: 'Link in Bio Tool',
-      description: 'One link to rule them all. Create a custom landing page that showcases your work, portfolio, products, and everything else you\'re building.',
-      features: ['Custom Landing Page', 'Instant Updates', 'Click Tracking', 'Mobile Optimized']
-    },
-    {
-      icon: Palette,
-      title: 'Content Distribution',
-      description: 'Get your creative work on all major platforms. Keep 100% of what you earn. Fast uploads, professional delivery, and full ownership.',
-      features: ['All Major Platforms', '100% Earnings', 'Detailed Analytics', 'Fast Delivery']
-    },
-    {
-      icon: Headphones,
-      title: 'Creator Support Services',
-      description: 'When you need professional support without the controlling contracts. Book what you need, when you need it. Strategic guidance on your terms.',
-      features: ['On-Demand Support', 'Industry Connections', 'Strategic Guidance', 'Transparent Pricing']
+      icon: Briefcase,
+      title: 'Business Formation',
+      description: 'Get your business properly structured. LLC setup, registration, EIN assistance, and compliance guidance.',
+      features: ['Entity Setup', 'Registration Support', 'EIN Assistance', 'Compliance Guidance']
     },
     {
       icon: TrendingUp,
-      title: 'Form Builder',
-      description: 'Collect information, build your audience, and manage your business with professional forms. No coding required—just powerful forms that work.',
-      features: ['Email Capture', 'Contact Forms', 'Booking Requests', 'Survey Feedback']
+      title: 'Sales Representation',
+      description: 'Let us handle the sales so you can focus on creating. Direct outreach, deal negotiation, and pipeline management.',
+      features: ['Direct Outreach', 'Deal Negotiation', 'Client Management', 'Revenue Optimization']
     },
     {
-      icon: Award,
-      title: 'HLPFL Creative Vault',
-      description: 'Exclusive access to resources and assets from our network. Collaborate, find inspiration, or discover new creative opportunities.',
-      features: ['Exclusive Resources', 'Collaboration Tools', 'Creative Assets', 'Network Access']
+      icon: FileText,
+      title: 'Marketing Strategy',
+      description: 'Strategic marketing that gets your work in front of the right people. Go-to-market, content, PR, and social media.',
+      features: ['Go-To-Market', 'Content Marketing', 'PR & Media', 'Campaign Execution']
+    },
+    {
+      icon: Users,
+      title: 'Content & Social',
+      description: 'Professional content that tells your story and builds your audience. Strategy, creation, and community management.',
+      features: ['Social Strategy', 'Content Creation', 'Community Building', 'Platform Growth']
+    },
+    {
+      icon: Shield,
+      title: 'Contract Support',
+      description: 'Protect yourself with guidance on contracts, rights, and fair terms. We help you understand and negotiate better deals.',
+      features: ['Contract Review', 'Rights Education', 'Negotiation Support', 'Red Flag Identification']
     }
   ]
 
@@ -48,11 +48,14 @@ export function ServicesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
+          <span className="inline-block bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Commission-Only Model
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-            Your Complete <span className="text-gold">Creator Toolkit</span>
+            Business Development <span className="text-gold">Services</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Every tool, resource, and advantage you need to build your creative career—<span className="text-white font-semibold">no strings attached</span>.
+            Everything you need to build your creative business—<span className="text-white font-semibold">zero upfront costs</span>. We only earn when we help you make money.
           </p>
         </div>
 
@@ -73,7 +76,7 @@ export function ServicesSection() {
                     {service.description}
                   </p>
                 </CardHeader>
-                
+
                 <CardContent>
                   <ul className="space-y-2">
                     {service.features.map((feature) => (
@@ -93,20 +96,20 @@ export function ServicesSection() {
         <div className="text-center mt-16">
           <div className="glass rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-bebas-neue)', letterSpacing: '0.02em' }}>
-              Ready to Take Control?
+              Who We Work With
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Stop waiting for permission. Start building the career you want right now with tools that work <span className="text-gold font-semibold">for you, not against you</span>.
+              We serve creative entrepreneurs across all disciplines: <span className="text-gold font-semibold">inventors, artists, musicians, designers, and writers</span>. If you have a viable product or creative work and need business support, let&apos;s talk.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/artist-portal">
+              <Link href="/services">
                 <button className="bg-gold text-dark px-8 py-3 rounded-lg font-semibold hover:bg-gold-light transition-colors hover-lift">
-                  Get Started Free
+                  View All Services
                 </button>
               </Link>
-              <Link href="/about">
+              <Link href="/contact">
                 <button className="border-2 border-gold text-gold px-8 py-3 rounded-lg font-semibold hover:bg-gold hover:text-dark transition-colors">
-                  Learn More
+                  Apply to Partner
                 </button>
               </Link>
             </div>
