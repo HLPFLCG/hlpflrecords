@@ -6,7 +6,7 @@ interface SEOProps {
   keywords?: string[];
   image?: string;
   url?: string;
-  type?: 'website' | 'article' | 'music.song' | 'music.album';
+  type?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
@@ -21,67 +21,43 @@ export const generateSEO = ({
   type = 'website',
   publishedTime,
   modifiedTime,
-  author = 'HLPFL',
+  author = 'HLPFL Inc',
 }: SEOProps): Metadata => {
-  const fullTitle = `${title} | HLPFL Records`;
+  const fullTitle = `${title} | HLPFL Inc`;
   const fullUrl = url.startsWith('http') ? url : `https://hlpfl.org${url}`;
   const fullImage = image.startsWith('http') ? image : `https://hlpfl.org${image}`;
 
-  // Comprehensive SEO keywords targeting key search terms
   const coreKeywords = [
     'HLPFL',
-    'HLPFL Records',
-    'record label',
-    'independent record label',
-    'artist-first record label',
-    'no contract record label',
-    'fair record label',
-    'ethical record label',
-    'artist management',
-    'music management',
-    'artist protection',
-    'how to not get screwed over as an artist',
-    'artist rights',
-    'fair music industry',
-    'independent artist',
-    'independent music',
-    'DIY artist',
-    'DIY music career',
-    'artist toolkit',
-    'music resources',
-    'artist tools',
-    'music career tools',
-    'artist platform',
-    'music platform',
-    'artist empowerment',
-    'musician resources',
-    'artist independence',
-    'music business',
-    'music industry',
+    'HLPFL Inc',
+    'nonprofit',
+    '501c3 nonprofit',
+    'creative entrepreneurs',
+    'business development',
+    'commission only',
+    'zero upfront costs',
+    'inventor support',
     'artist support',
-    'grouped.com alternative',
-    'better than grouped',
-    'artist-owned platform',
-    'ai music tools',
-    'ai for artists',
-    'ai music promotion',
-    'ai artist tools',
-    'music distribution',
-    'artist distribution',
-    'music promotion',
-    'artist marketing',
-    'social media for artists',
-    'artist analytics',
-    'streaming analytics',
-    'music analytics',
-    'artist portal',
-    'artist dashboard',
-    '100% artist ownership',
-    'artist keeps rights',
+    'musician support',
+    'designer support',
+    'writer support',
+    'brand development',
+    'sales representation',
+    'marketing strategy',
+    'entity formation',
+    'contract negotiation',
+    'creative business',
+    'entrepreneur resources',
+    'Wyoming nonprofit',
+    'fair treatment creators',
+    'creator protection',
+    'creative advocacy',
+    'aligned incentives',
+    'we earn when you earn',
+    'nonprofit for creatives',
+    'business support for artists',
     'no exploitation',
-    'fair music contracts',
-    'music career building',
-    'artist development',
+    'creator rights',
   ];
 
   return {
@@ -90,14 +66,13 @@ export const generateSEO = ({
     keywords: [...keywords, ...coreKeywords],
     authors: [{ name: author }],
     creator: author,
-    publisher: 'HLPFL Records',
-    
-    // Open Graph
+    publisher: 'HLPFL Inc',
+
     openGraph: {
       title: fullTitle,
       description,
       url: fullUrl,
-      siteName: 'HLPFL Records',
+      siteName: 'HLPFL Inc',
       images: [
         {
           url: fullImage,
@@ -112,17 +87,15 @@ export const generateSEO = ({
       ...(modifiedTime && { modifiedTime }),
     },
 
-    // Twitter Card
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
       description,
       images: [fullImage],
-      creator: '@HLPFL',
-      site: '@HLPFL',
+      creator: '@hlpfl_',
+      site: '@hlpfl_',
     },
 
-    // Additional meta tags
     robots: {
       index: true,
       follow: true,
@@ -135,42 +108,24 @@ export const generateSEO = ({
       },
     },
 
-    // Verification
     verification: {
-      google: '', // TODO: Add your Google Search Console verification code
+      google: '',
     },
-  };
-};
-
-// Schema.org structured data
-export const generateMusicGroupSchema = () => {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'MusicGroup',
-    name: 'HLPFL Records',
-    url: 'https://hlpfl.org',
-    logo: 'https://hlpfl.org/logo.jpg',
-    description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
-    foundingDate: '2024',
-    genre: ['Hip Hop', 'R&B', 'Pop'],
-    sameAs: [
-      'https://instagram.com/hlpfl',
-      'https://twitter.com/hlpfl',
-      'https://facebook.com/hlpfl',
-    ],
   };
 };
 
 export const generateOrganizationSchema = () => {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'HLPFL Records',
+    '@type': ['Organization', 'NGO', 'NonprofitOrganization'],
+    name: 'HLPFL Inc',
     url: 'https://hlpfl.org',
-    logo: 'https://hlpfl.org/logo.jpg',
-    description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers',
+    logo: 'https://hlpfl.org/logo.svg',
+    description: 'HLPFL Inc is a Wyoming 501(c)(3) nonprofit providing commission-only business development services for creative entrepreneurs—inventors, artists, musicians, designers, and writers. Zero upfront costs. We earn when you earn.',
     email: 'contact@hlpfl.org',
     telephone: '+1-616-313-5215',
+    foundingDate: '2009',
+    nonprofitStatus: '501(c)(3)',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Grand Rapids',
@@ -178,35 +133,10 @@ export const generateOrganizationSchema = () => {
       addressCountry: 'US',
     },
     sameAs: [
-      'https://instagram.com/hlpfl',
-      'https://twitter.com/hlpfl',
-      'https://facebook.com/hlpfl',
+      'https://www.instagram.com/hlpfl_/',
+      'https://x.com/hlpfl_',
+      'https://linkedin.com/company/hlpfl',
     ],
-  };
-};
-
-export const generateMusicRecordingSchema = (track: {
-  name: string;
-  artist: string;
-  duration?: string;
-  url: string;
-  image?: string;
-}) => {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'MusicRecording',
-    name: track.name,
-    byArtist: {
-      '@type': 'MusicGroup',
-      name: track.artist,
-    },
-    duration: track.duration,
-    url: track.url,
-    ...(track.image && { image: track.image }),
-    recordLabel: {
-      '@type': 'Organization',
-      name: 'HLPFL Records',
-    },
   };
 };
 

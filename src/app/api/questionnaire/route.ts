@@ -207,7 +207,7 @@ async function sendEmailWithResend(data: QuestionnaireData): Promise<boolean> {
   </div>
 
   <div class="footer">
-    <p>This questionnaire was submitted through hlpflrecords.com</p>
+    <p>This questionnaire was submitted through hlpfl.org</p>
     <p>Submitted at: ${new Date().toISOString()}</p>
   </div>
 </body>
@@ -222,8 +222,8 @@ async function sendEmailWithResend(data: QuestionnaireData): Promise<boolean> {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'HLPFL Records <noreply@hlpflrecords.com>',
-        to: ['submissions@hlpflrecords.com'],
+        from: 'HLPFL <contact@hlpfl.org>',
+        to: ['contact@hlpfl.org'],
         reply_to: data.email,
         subject: `New Artist Questionnaire: ${data.artistName}`,
         html: emailHtml,

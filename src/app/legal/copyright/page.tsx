@@ -61,7 +61,7 @@ export default function CopyrightPage() {
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">2.2 Artist Content</h3>
               <p className="text-gray-300 leading-relaxed">
-                Music, lyrics, artwork, and other creative works by our artists remain the property of the respective artists. HLPFL operates under a 50/50 partnership model where artists retain 100% ownership of their master recordings and compositions. We hold licenses to distribute, market, and promote this content as outlined in individual artist agreements.
+                Music, lyrics, artwork, and other creative works by our artists remain the property of the respective artists. HLPFL operates under a commission-only model where artists retain 100% ownership of their master recordings and compositions. We hold licenses to distribute, market, and promote this content as outlined in individual artist agreements.
               </p>
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">2.3 Third-Party Content</h3>
@@ -161,7 +161,7 @@ export default function CopyrightPage() {
                 <li><strong className="text-white">Master Use Licensing:</strong> For use of specific recordings</li>
               </ul>
               <p className="text-gray-300 leading-relaxed mt-4">
-                For licensing inquiries, please visit our <Link href="/licensing" className="text-gold hover:text-gold-light">Licensing page</Link> or contact contact@hlpfl.org.
+                For licensing inquiries, please contact <a href="mailto:contact@hlpfl.org" className="text-gold hover:text-gold-light">contact@hlpfl.org</a>.
               </p>
             </section>
 
@@ -170,7 +170,7 @@ export default function CopyrightPage() {
               
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">7.1 Master Recording Ownership</h3>
               <p className="text-gray-300 leading-relaxed">
-                Under our 50/50 partnership model, artists retain 100% ownership of their master recordings. HLPFL holds exclusive distribution rights as outlined in individual artist agreements but does not claim ownership of the masters.
+                Under our commission-only partnership model, artists retain 100% ownership of their master recordings. HLPFL provides business development services as outlined in individual artist agreements but does not claim ownership of the masters.
               </p>
 
               <h3 className="text-xl font-semibold text-gold mb-3 mt-6">7.2 Composition Rights</h3>

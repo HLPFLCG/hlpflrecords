@@ -18,10 +18,10 @@ let blogPosts: NewsPost[] = [
   },
   {
     id: '2',
-    title: 'HLPFL Records Welcomes PRIV to the Roster',
+    title: 'HLPFL Welcomes PRIV as Partner Artist',
     slug: 'priv-joins-hlpfl',
-    excerpt: 'HLPFL Records announces partnership with Grand Rapids alternative artist PRIV.',
-    content: 'HLPFL Records is thrilled to announce our partnership with PRIV, an alternative music artist and producer from Grand Rapids, Michigan.\n\nPRIV emerged onto the alternative music scene with a sound that blends emotional depth, atmospheric textures, and raw self-expression. With music available on Spotify, Apple Music, and SoundCloud, PRIV represents the new wave of independent artists leveraging digital platforms for genuine artistic expression.\n\n"PRIV embodies everything HLPFL stands for," says James Rockel, Founder & CEO of HLPFL Records. "Complete creative freedom, no compromises, and a commitment to authenticity."\n\nUnder HLPFL\'s revolutionary partnership model, PRIV maintains 100% ownership of all masters and full creative control over their artistic direction.\n\nFollow PRIV\'s journey on Instagram, Twitter, and SoundCloud @whereispriv.',
+    excerpt: 'HLPFL announces partnership with Grand Rapids alternative artist PRIV.',
+    content: 'HLPFL is thrilled to announce our partnership with PRIV, an alternative music artist and producer from Grand Rapids, Michigan.\n\nPRIV emerged onto the alternative music scene with a sound that blends emotional depth, atmospheric textures, and raw self-expression. With music available on Spotify, Apple Music, and SoundCloud, PRIV represents the new wave of independent artists leveraging digital platforms for genuine artistic expression.\n\n"PRIV embodies everything HLPFL stands for," says James Rockel III, Founder & CEO of HLPFL. "Complete creative freedom, no compromises, and a commitment to authenticity."\n\nUnder HLPFL\'s commission-only partnership model, PRIV maintains 100% ownership of all masters and full creative control over their artistic direction.\n\nFollow PRIV\'s journey on Instagram, Twitter, and SoundCloud @whereispriv.',
     publishedAt: new Date('2023-01-15'),
     author: 'HLPFL Team',
     category: 'News',

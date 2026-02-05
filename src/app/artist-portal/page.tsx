@@ -292,12 +292,12 @@ export default function ArtistPortalLoginPage() {
           {/* Submit Music Link */}
           <div className="mt-8 text-center">
             <p className="text-gray-400 text-sm">
-              Not an artist yet?{' '}
+              Want to partner with HLPFL?{' '}
               <Link
-                href="/artist-questionnaire"
+                href="/contact"
                 className="text-[#c87941] hover:text-[#d89558] font-medium transition-colors"
               >
-                Start your application
+                Apply to partner
               </Link>
             </p>
           </div>

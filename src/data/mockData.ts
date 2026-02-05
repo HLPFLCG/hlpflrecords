@@ -486,7 +486,7 @@ If editorial playlists don't work out, focus on:
 
 ---
 
-*At HLPFL, we provide artists with the tools and knowledge to navigate the modern music industry. No contracts, no gatekeeping—just the resources you need to succeed on your own terms.*
+*At HLPFL, we provide creative entrepreneurs with the knowledge and services to build sustainable careers. Commission-only, zero upfront costs—just the support you need to succeed on your own terms.*
     `,
     publishedAt: new Date('2025-01-15'),
     author: 'HLPFL Editorial Team',
@@ -829,7 +829,7 @@ At HLPFL, we believe the streaming economy's failures stem from a fundamental mi
 Our model is different:
 
 - **100% of your streaming revenue stays yours** - We don't take cuts from your royalties
-- **Tools, not contracts** - Access what you need without signing away your future
+- **Commission-only support** - Access what you need with zero upfront costs
 - **Transparency first** - No hidden fees, no recoupment, no surprises
 - **Education included** - We help you understand and navigate the system
 
@@ -1038,21 +1038,21 @@ Labels offer what struggling artists desperately need:
 | Traditional 360 Deal | HLPFL Model |
 |---------------------|-------------|
 | 82-88% label cut on recordings | 100% artist ownership |
-| Multi-year exclusive contracts | No contracts, no commitments |
+| Multi-year exclusive contracts | Commission-only, zero upfront |
 | Creative control by label | Complete creative freedom |
 | Recoupable advances (debt) | No advances, no debt |
 | Label owns masters forever | You own everything forever |
 
 ### Our Philosophy
 
-> "Tools, Not Contracts. Independence, Not Ownership. Build Your Career. Own Your Music. Keep Your Freedom."
+> "Empowerment, Not Exploitation. Commission-Only. Build Your Career. Own Your Future. Keep Your Freedom."
 
 We provide:
-- Distribution to all major platforms
-- Marketing and promotional tools
+- Business development services
+- Marketing and promotional support
 - Analytics and fan insights
-- Social media management
-- No percentage of your revenue
+- Brand strategy and creative services
+- Commission-only—we earn when you earn
 - No ownership of your masters
 - No creative interference
 
@@ -1612,16 +1612,16 @@ This isn't an industry that works for artists. It's an industry that works artis
 
 ### What We Asked Ourselves
 
-- What if there was a label that didn't take ownership?
-- What if artists could access professional tools without contracts?
+- What if there was an organization that didn't take ownership?
+- What if creatives could access professional services with zero upfront costs?
 - What if success didn't require selling your soul?
-- What if the business model actually aligned with artist interests?
+- What if the business model actually aligned with creator interests?
 
 ### The Answer
 
-Not a better label. No label at all.
+Not a better label. A nonprofit built for creators.
 
-**Tools, not contracts.**
+**Empowerment, not exploitation.**
 
 ---
 
@@ -1631,14 +1631,14 @@ Not a better label. No label at all.
 
 | Traditional Label | HLPFL |
 |------------------|-------|
-| Contracts that bind | Tools that empower |
+| Contracts that bind | Commission-only support |
 | Ownership they keep | Independence you own |
 | Control they maintain | Freedom you deserve |
 | Exploitation built in | Empowerment by design |
 
 ### What We Believe
 
-> "Tools, Not Contracts. Independence, Not Ownership. Build Your Career. Own Your Music. Keep Your Freedom."
+> "Empowerment, Not Exploitation. Commission-Only. Build Your Career. Own Your Future. Keep Your Freedom."
 
 ---
 
@@ -1743,17 +1743,17 @@ A platform built by people who understand the industry, designed for artists who
 
 ### What We're Building
 
-- **More tools** to replace label services
-- **More education** to protect artists from exploitation
+- **More services** for creative entrepreneurs across all disciplines
+- **More education** to protect creators from exploitation
 - **More community** to support independent careers
 - **More proof** that the old model is obsolete
 
 ### The Vision
 
-A music industry where:
-- Artists own what they create
+A creative industry where:
+- Creators own what they create
 - Success doesn't require exploitation
-- Tools replace contracts
+- Nonprofits replace gatekeepers
 - Independence is the standard
 
 ---
@@ -1796,7 +1796,7 @@ We know which path we'd choose. We built HLPFL to make that path possible.
 
 No applications. No approval needed. You're already approved.
 
-*HLPFL: Tools, Not Contracts.*
+*HLPFL: Empowerment, Not Exploitation.*
     `,
     publishedAt: new Date('2024-12-20'),
     author: 'HLPFL Editorial Team',
@@ -1805,15 +1805,15 @@ No applications. No approval needed. You're already approved.
   },
 
   // ========================================
-  // TOOLS NOT CONTRACTS
+  // EMPOWERMENT NOT EXPLOITATION
   // ========================================
   {
-    id: 'tools-not-contracts',
-    title: 'Tools, Not Contracts: The Future of Artist Empowerment',
-    slug: 'tools-not-contracts-future-artist-empowerment',
-    excerpt: 'Why the contract model is broken and how technology is enabling a new approach to artist career development.',
+    id: 'empowerment-not-exploitation',
+    title: 'Empowerment, Not Exploitation: The Future of Creative Entrepreneurship',
+    slug: 'empowerment-not-exploitation-future-creative-entrepreneurship',
+    excerpt: 'Why the contract model is broken and how a commission-only nonprofit is enabling a new approach to creative career development.',
     content: `
-# Tools, Not Contracts: The Future of Artist Empowerment
+# Empowerment, Not Exploitation: The Future of Creative Entrepreneurship
 
 For decades, artists had one path to success: sign a contract, give up control, hope for the best. Technology has changed everything—except the industry's insistence on exploitative deals.
 
@@ -2018,7 +2018,7 @@ Reality:
 
 ### What's Coming
 
-- More tools that replace label services
+- More services for creative entrepreneurs across all disciplines
 - Better analytics and insights
 - Stronger direct-to-fan capabilities
 - Community and collaboration features
@@ -2026,10 +2026,10 @@ Reality:
 
 ### The Vision
 
-A music industry where:
-- Contracts are optional, not mandatory
-- Tools empower, not exploit
-- Artists own their careers
+A creative industry where:
+- Independence is the standard, not the exception
+- Nonprofits empower, not exploit
+- Creators own their careers
 - Success comes from talent, not deals
 
 ---
@@ -2051,13 +2051,13 @@ You can continue believing you need permission to succeed. Or you can recognize 
 3. No contracts to sign
 4. No masters to surrender
 
-Just access to the tools you need to build the career you want.
+Just access to the services you need to build the career you want.
 
-> "Tools, Not Contracts. Independence, Not Ownership. Build Your Career. Own Your Music. Keep Your Freedom."
+> "Empowerment, Not Exploitation. Commission-Only. Build Your Career. Own Your Future. Keep Your Freedom."
 
 ---
 
-*The future of music belongs to artists who own it. HLPFL is here to make that future possible.*
+*The future of the creative economy belongs to those who own it. HLPFL is here to make that future possible.*
     `,
     publishedAt: new Date('2024-12-15'),
     author: 'HLPFL Editorial Team',
@@ -2076,7 +2076,7 @@ Just access to the tools you need to build the career you want.
     content: `
 # PRIV Releases "living a lie" - A Raw Exploration of Authenticity
 
-**July 10, 2025** - HLPFL Records artist PRIV continues their artistic evolution with the release of "living a lie," an introspective single that delves deep into themes of self-deception and the search for authenticity.
+**July 10, 2025** - HLPFL artist PRIV continues their artistic evolution with the release of "living a lie," an introspective single that delves deep into themes of self-deception and the search for authenticity.
 
 ## The Single
 
@@ -2102,7 +2102,7 @@ Follow PRIV: [@whereispriv](https://instagram.com/whereispriv)
 
 ---
 
-*About HLPFL Records: An independent record label committed to artist ownership and creative freedom. Founded on "Tools, Not Contracts."*
+*About HLPFL Inc: A Wyoming 501(c)(3) nonprofit providing commission-only business development services for creative entrepreneurs. Zero upfront costs. We earn when you earn.*
     `,
     publishedAt: new Date('2025-07-10'),
     author: 'HLPFL Press Team',
@@ -2117,7 +2117,7 @@ Follow PRIV: [@whereispriv](https://instagram.com/whereispriv)
     content: `
 # PRIV Releases "victim" - A Powerful Statement on Vulnerability
 
-**August 15, 2024** - HLPFL Records is proud to announce the release of "victim," the latest single from Grand Rapids alternative artist PRIV.
+**August 15, 2024** - HLPFL is proud to announce the release of "victim," the latest single from Grand Rapids alternative artist PRIV.
 
 ## The Single
 
@@ -2137,7 +2137,7 @@ Follow PRIV: [@whereispriv](https://instagram.com/whereispriv)
 
 ## The HLPFL Partnership
 
-Under HLPFL Records' revolutionary partnership model, PRIV maintains complete ownership of all masters and creative control over their artistic direction.
+Under HLPFL's commission-only partnership model, PRIV maintains complete ownership of all masters and creative control over their artistic direction.
 
 ## Stream Now
 
@@ -2145,7 +2145,7 @@ Under HLPFL Records' revolutionary partnership model, PRIV maintains complete ow
 
 ---
 
-*About HLPFL Records: An independent record label and artist management platform that protects artists from exploitation. Founded on the principle of "Tools, Not Contracts."*
+*About HLPFL Inc: A Wyoming 501(c)(3) nonprofit advocating for fair treatment and equitable compensation for creative entrepreneurs. Commission-only model with zero upfront costs.*
     `,
     publishedAt: new Date('2024-08-15'),
     author: 'HLPFL Press Team',
@@ -2154,19 +2154,19 @@ Under HLPFL Records' revolutionary partnership model, PRIV maintains complete ow
   },
   {
     id: '2',
-    title: 'HLPFL Records Welcomes PRIV - Alternative Artist from Grand Rapids',
+    title: 'HLPFL Welcomes PRIV - Alternative Artist from Grand Rapids',
     slug: 'priv-joins-hlpfl',
-    excerpt: 'Independent label HLPFL Records announces partnership with Grand Rapids alternative artist PRIV, known for emotionally authentic music.',
+    excerpt: 'HLPFL announces partnership with Grand Rapids alternative artist PRIV, known for emotionally authentic music.',
     content: `
-# HLPFL Records Welcomes PRIV - Alternative Artist from Grand Rapids
+# HLPFL Welcomes PRIV - Alternative Artist from Grand Rapids
 
-**January 2023** - HLPFL Records is thrilled to announce our partnership with **PRIV**, an alternative music artist and producer from Grand Rapids, Michigan.
+**January 2023** - HLPFL is thrilled to announce our partnership with **PRIV**, an alternative music artist and producer from Grand Rapids, Michigan.
 
 ## About PRIV
 
 PRIV emerged onto the alternative music scene with a sound that blends emotional depth, atmospheric textures, and raw self-expression. Hailing from Grand Rapids' vibrant local music scene, PRIV represents the new wave of independent artists who leverage digital platforms while maintaining artistic authenticity.
 
-"PRIV embodies everything HLPFL stands for," says James Rockel, Founder & CEO of HLPFL Records. "Complete creative freedom, no compromises, and a commitment to authenticity. We're not here to mold artists into what we think will sell—we're here to amplify their true vision."
+"PRIV embodies everything HLPFL stands for," says James Rockel III, Founder & CEO of HLPFL. "Complete creative freedom, no compromises, and a commitment to authenticity. We're not here to mold artists into what we think will sell—we're here to amplify their true vision."
 
 ## The HLPFL Partnership
 
@@ -2175,12 +2175,12 @@ Under HLPFL's revolutionary partnership model, PRIV enjoys:
 - **100% Artist Ownership** - Complete ownership of all masters and rights
 - **Full Creative Control** - No A&R interference or forced collaboration
 - **Comprehensive Support** - Distribution, marketing, analytics, and career development tools
-- **Fair Revenue Split** - Transparent 50/50 partnership on label services
-- **No Traps, Just Tools** - Everything an independent artist needs to succeed
+- **Fair Revenue Split** - Transparent commission-only model on facilitated services
+- **Zero Upfront Costs** - Everything a creative entrepreneur needs to succeed
 
-## A Platform Built for Artists
+## A Platform Built for Creators
 
-Beyond traditional label services, HLPFL provides artists with cutting-edge tools:
+Beyond traditional industry support, HLPFL provides creators with cutting-edge tools:
 
 - **Artist Portal** - Comprehensive dashboard for managing releases, analytics, and fan engagement
 - **Social Media Automation** - AI-powered tools for content creation and scheduling
@@ -2199,14 +2199,14 @@ HLPFL was founded on a simple premise: **teach artists how to not get screwed ov
 
 Follow PRIV's journey as they prepare to release new music and connect with fans worldwide.
 
-**Follow HLPFL Records:**
+**Follow HLPFL:**
 - Website: [hlpfl.org](https://hlpfl.org)
-- Instagram: [@hlpfl](https://instagram.com/hlpfl)
-- Twitter: [@hlpfl](https://twitter.com/hlpfl)
+- Instagram: [@hlpfl_](https://instagram.com/hlpfl_)
+- Twitter: [@hlpfl_](https://twitter.com/hlpfl_)
 
 ---
 
-*About HLPFL Records: An independent record label and artist management platform founded by James Rockel at age 18. HLPFL's mission is to protect artists from industry exploitation through transparent partnerships, comprehensive tools, and unwavering commitment to artist ownership. "Tools, Not Contracts."*
+*About HLPFL Inc: A Wyoming 501(c)(3) nonprofit founded in 2009 by James Rockel III. HLPFL advocates for fair treatment, equitable compensation, and protection of rights for creative entrepreneurs—inventors, artists, musicians, designers, and writers.*
     `,
     publishedAt: new Date('2023-01-15'),
     author: 'HLPFL Press Team',
@@ -2458,7 +2458,7 @@ To earn $50,000/year from streaming alone:
 
 ---
 
-*At HLPFL, we believe in transparency. Understanding these platforms helps you make informed decisions about your career. Tools, not contracts.*
+*At HLPFL, we believe in transparency. Understanding these platforms helps you make informed decisions about your career. Empowerment, not exploitation.*
     `,
     publishedAt: new Date('2025-01-14'),
     author: 'HLPFL Editorial Team',
@@ -3453,7 +3453,7 @@ The music industry is transforming faster than ever. From AI disruption to the c
 
 ### The HLPFL Model
 
-We believe in **tools, not contracts**:
+We believe in **empowerment, not exploitation**:
 - 100% artist ownership
 - No recoupment traps
 - Complete creative control
