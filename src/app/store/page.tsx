@@ -13,7 +13,6 @@ import {
   ExternalLink,
   Sparkles,
   ArrowRight,
-  Check,
   Star
 } from 'lucide-react'
 

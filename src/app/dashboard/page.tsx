@@ -474,7 +474,7 @@ export default function DashboardPage() {
           <div className="space-y-4">
             {[
               { author: 'Demo Artist', action: 'started a new collaboration', time: '3h ago' },
-              { author: 'HLPFL Records', action: 'posted a platform update', time: '1d ago' },
+              { author: 'HLPFL', action: 'posted a platform update', time: '1d ago' },
               { author: 'HLPFL Team', action: 'shared new resources', time: '2d ago' }
             ].map((highlight, index) => (
               <div key={index} className="flex items-start gap-3 p-3 bg-dark-tertiary rounded-lg">

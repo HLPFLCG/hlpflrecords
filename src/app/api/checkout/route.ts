@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     }))
 
     // Get the origin for redirect URLs
-    const origin = request.headers.get('origin') || 'https://hlpflrecords.com'
+    const origin = request.headers.get('origin') || 'https://hlpfl.org'
 
     // Create checkout session
     const session = await stripe.checkout.sessions.create({

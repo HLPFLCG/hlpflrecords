@@ -197,7 +197,7 @@ export default function SettingsPage() {
                   <label className="block text-white font-semibold mb-2">Email Address</label>
                   <input
                     type="email"
-                    defaultValue="priv@hlpflrecords.com"
+                    defaultValue="priv@hlpfl.org"
                     className="w-full bg-dark-tertiary border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                   />
                   <p className="text-gray-500 text-sm mt-2">

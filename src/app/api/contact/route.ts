@@ -141,8 +141,8 @@ export async function POST(request: NextRequest) {
     // Example with a service like Resend, SendGrid, or AWS SES:
     /*
     await sendEmail({
-      to: 'contact@hlpflrecords.com',
-      from: 'noreply@hlpflrecords.com',
+      to: 'contact@hlpfl.org',
+      from: 'noreply@hlpfl.org',
       replyTo: sanitizedData.email,
       subject: `[${sanitizedData.type}] ${sanitizedData.subject}`,
       html: `

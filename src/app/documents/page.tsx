@@ -71,10 +71,10 @@ const documents = [
   },
   {
     id: 6,
-    title: 'Artist Application Questionnaire',
-    description: 'Comprehensive questionnaire for new artist applications. Tell us about your music, career goals, and how HLPFL can help you succeed.',
+    title: 'Partnership Application',
+    description: 'Apply to partner with HLPFL. Tell us about your creative work, business goals, and how our commission-only model can help you succeed.',
     category: 'forms',
-    link: '/artist-questionnaire',
+    link: '/contact',
     icon: UserPlus,
     status: 'available'
   },

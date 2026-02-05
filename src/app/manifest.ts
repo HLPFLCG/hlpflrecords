@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'HLFPL - Tools, Not Contracts',
+    name: 'HLPFL Inc - Empowering Creative Entrepreneurs',
     short_name: 'HLPFL',
-    description: 'Comprehensive resource platform for creative artists providing tools and resources to build successful music careers on your own terms.',
+    description: 'Wyoming 501(c)(3) nonprofit providing commission-only business development services for creative entrepreneurs. Zero upfront costs. We earn when you earn.',
     start_url: '/',
     display: 'standalone',
     background_color: '#0a0a0a',
@@ -21,7 +21,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
       },
     ],
-    categories: ['music', 'entertainment', 'business'],
+    categories: ['nonprofit', 'business', 'education'],
     orientation: 'portrait-primary',
     scope: '/',
     lang: 'en-US',

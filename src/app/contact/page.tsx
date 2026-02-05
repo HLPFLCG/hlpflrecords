@@ -133,8 +133,8 @@ export default function ContactPage() {
             Get in <span className="text-gold">Touch</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8">
-            Founded by James Rockel at 18, we're redefining the creative industry with our tools-not-contracts approach.
-            Whether you're interested in joining the movement or have questions about creative success, we're here to help.
+            As a 501(c)(3) nonprofit, we&apos;re redefining how creative entrepreneurs get business support.
+            Whether you&apos;re interested in partnering with us or have questions about our commission-only model, we&apos;re here to help.
           </p>
         </div>
       </section>

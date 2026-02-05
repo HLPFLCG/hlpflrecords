@@ -31,27 +31,27 @@ export default function PressReleasesPage() {
     },
     {
       id: 3,
-      title: 'HLPFL Records Welcomes PRIV to the Roster',
-      category: 'Label News',
+      title: 'HLPFL Welcomes PRIV as Partner Artist',
+      category: 'HLPFL News',
       date: '2023-01-15',
-      excerpt: 'HLPFL Records announces partnership with Grand Rapids alternative artist PRIV...',
-      keywords: ['hlpfl records', 'priv', 'record deal', 'label partnership', 'grand rapids'],
+      excerpt: 'HLPFL announces partnership with Grand Rapids alternative artist PRIV...',
+      keywords: ['hlpfl', 'priv', 'artist partnership', 'creative entrepreneur', 'grand rapids'],
       seoScore: 94,
       views: 8900
     },
     {
       id: 4,
-      title: 'HLPFL Records: Artist-First Approach Disrupts Music Industry',
+      title: 'HLPFL: Commission-Only Model Empowers Creative Entrepreneurs',
       category: 'Industry News',
       date: '2025-09-03',
-      excerpt: 'How HLPFL Records is changing the game with 100% artist ownership and fair contracts...',
-      keywords: ['hlpfl records', 'artist rights', 'music industry', 'fair contracts', 'artist development'],
+      excerpt: 'How HLPFL is changing the game with commission-only nonprofit services and zero upfront costs...',
+      keywords: ['hlpfl', 'creative entrepreneurs', 'nonprofit', 'commission only', 'artist development'],
       seoScore: 88,
       views: 9800
     }
   ]
 
-  const categories = ['all', 'Album Release', 'Label News', 'Achievement', 'Interview']
+  const categories = ['all', 'New Release', 'HLPFL News', 'Achievement', 'Interview']
 
   const filteredReleases = pressReleases.filter(release => {
     const matchesSearch = release.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
